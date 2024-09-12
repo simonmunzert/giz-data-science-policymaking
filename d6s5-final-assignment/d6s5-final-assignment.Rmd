@@ -1,0 +1,202 @@
+---
+title: "Data Science for Policy-Making"
+subtitle: "Final course assignment"
+author: "Simon Munzert, Sebastian Ramirez Ruiz"
+institute: "Hertie School"
+output:
+  xaringan::moon_reader:
+    includes:
+      after_body: "../add_hertie_logo.html"
+      in_header: "../my_header.html"
+    css: [default,'../simons-touch.css', metropolis, metropolis-fonts] 
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+      hash: true
+---
+
+```{css, echo=FALSE} 
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+```
+
+```{r setup, include=FALSE}
+# figures formatting setup
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  prompt = T,
+  fig.align="center", #fig.width=6, fig.height=4.5, 
+  # out.width="748px", #out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=T, #echo=F, warning=F, message=F
+  engine.opts = list(bash = "-l")
+  )
+
+## Next hook based on this SO answer: https://stackoverflow.com/a/39025054
+knit_hooks$set(
+  prompt = function(before, options, envir) {
+    options(
+      prompt = if (options$engine %in% c('sh','bash')) '$ ' else 'R> ',
+      continue = if (options$engine %in% c('sh','bash')) '$ ' else '+ '
+      )
+})
+
+library(tidyverse)
+library(hrbrthemes)
+library(fontawesome)
+```
+
+
+
+---
+class: inverse, center, middle
+name: welcome
+
+# Final course assignment
+<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
+
+
+---
+# Overview
+
+.pull-left[
+## Setup
+
+- For our course you will have a group assignment.
+- You will be divided into group of 3-4 participants. 
+- This assignment will be merged with **Leo Iacovone's course assignment**.
+- For our course, you will **extend the presentation** by adding elements that speak to our element on data science for policy-making.
+- Thus, **the deliverable will be a presentation**, consisting of the content asked by Leo and the content asked by us.
+]
+
+.pull-right[
+## Learning outcomes
+
+- The objective is for you to apply what you learn through the course.
+- You have prepare a presentation to put in practice your skills about:
+  1. Collecting high quality evidence
+  2. Assessing use of evidence in policy documents
+  3. Using concrete evidence to write a policy/program proposal and its evaluation plan
+]
+
+
+---
+# Topic choice
+
+.pull-left[
+
+## Procedure
+
+1. You have formed groups. **Correct?**
+
+2. Leo has asked you to choose one topic of interest that is linked to topics from the following list:
+
+-	Health and nutrition
+-	Enterprise development
+-	Income and employability support
+-	Trade facilitation and competitiveness
+-	Road infrastructure
+-	Nutrition and health
+-	Agricultural productivity
+-	Education
+]
+
+.pull-right[
+<div align="center"><br><br>
+<img src="../pics/group-working.jpeg" height=400>
+</div>
+]
+
+---
+# Assignment part 1
+
+.pull-left-small2[
+## Collecting evidence (Leo's part)
+- This first part of the presentation will focus on collecting evidence for your program/policy.
+- You need to prepare a **6-8 slides summary of the evidence**, and you could use tables to summarize it.
+- More details in Leo's syllabus.
+]
+
+.pull-right-wide2[
+## Making the case for the policy (Our part)
+
+- Precede the evidence with a **2 slides introduction** that makes the case for the program/policy.
+- The **first slide** should be framed around one piece of <span style="color:blue"><b>visual evidence</b></span>. This can be from a research paper, a blog post, etc. and help highlight the problem that the policy is trying to address.
+- The **second slide** summarizes the program/policy and its objectives.
+
+## Judging the quality of the evidence
+- Provide a <span style="color:blue"><b>tabular overview</b></span> of the different sources of evidence you collected for Leo's part.
+- The table should be ranked by the quality of evidence you attach to each source, and a column that briefly justifies your judgment (along criteria of **external and internal validity of the evidence as well as practical usefulness**).
+- That is **1-2 slides** additional to Leo's part.
+]
+
+
+---
+# Assignment part 2
+
+.pull-left[
+## Assess existing program/policy (Leo's part)
+- The second part of your assignment will require you to choose one of the projects suggested and assess it or provide a discussion and grade it on how well evidence was incorporated.
+- The program/policy should be in the same technical area that you have chosen (ideally the same topic/project).
+- Your assignment is to prepare a **4-5 page presentation** assessing how well the program/policy incorporates evidence and grade it (on a scale 0-100) and justify your grade based on the evidence that you collected in your previous assignment.
+- See Leo's syllabus for more details regarding the rating criteria.
+]
+
+.pull-right[
+## Our part
+- Provide a <span style="color:blue"><b>tabular assessment</b></span> of both the **external and internal validity of the evidence** used in the policy document.
+- Highlight the strengths and weaknesses of the evidence used in the policy document on both dimensions.
+- That is **1-2 slides** additional to Leo's part.
+]
+
+
+---
+# Assignment part 3
+
+.pull-left[
+## Using the evidence (Leo's part)
+- In the final part of your assignment you will design and propose a program based on the policy/program that you identified (assignment part 1), or the one that you reviewed (assignment part 2). Your presentation should include the following sections (again, more details in Leo's syllabus):
+  1. Context and problem definition (**3-4 slides**). 
+  2. Theory of change with specific reference to summary of evidence on which you base it (**3-4 slides**).
+  3. Evaluation plan: How will the program generate further evidence? (**2-3 slides**) 
+]
+
+.pull-right[
+## Our part
+- Provide a <span style="color:blue"><b>DAG</b></span> that clarifies the relationship between the policy/treatment/intervention and **one** outcome of interest, and other variables that would affect the causal relationship (confounders etc.).
+- Provide a <span style="color:blue"><b>plan for data collection and management</b></span> that discusses how you would plan to measure KPIs, policy exposure, etc.
+- Provide a <span style="color:blue"><b>discussion of the ethics of your program</b></span>. What could be positive and negative externalities for citizens affected or not affected by the program? And how could possible negative externalities be mitigated?
+- Overall, that is **6-8 additional slides**.
+]
+
+---
+# Summary
+
+.pull-left[
+
+<br><br><br>
+
+1. Key deliverable is a presentation that addresses both Leo's an our assignment tasks.
+
+2. You are going to present this in the final session in July.
+
+3. If you have any questions on the presentation, please reach out to us (munzert@hertie-school.org).
+]
+
+.pull-right[
+<div align="center"><br><br>
+<img src="../pics/presentation-group.png" height=400>
+</div>
+]
+
+
+
+
+

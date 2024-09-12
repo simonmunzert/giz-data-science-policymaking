@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Science for Policy-Making</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert, Sebastian Ramirez Ruiz" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Data Science for Policy-Making
+]
+.subtitle[
+## Final course assignment
+]
+.author[
+### Simon Munzert, Sebastian Ramirez Ruiz
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+class: inverse, center, middle
+name: welcome
+
+# Final course assignment
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Overview
+
+.pull-left[
+## Setup
+
+- For our course you will have a group assignment.
+- You will be divided into group of 3-4 participants. 
+- This assignment will be merged with **Leo Iacovone's course assignment**.
+- For our course, you will **extend the presentation** by adding elements that speak to our element on data science for policy-making.
+- Thus, **the deliverable will be a presentation**, consisting of the content asked by Leo and the content asked by us.
+]
+
+.pull-right[
+## Learning outcomes
+
+- The objective is for you to apply what you learn through the course.
+- You have prepare a presentation to put in practice your skills about:
+  1. Collecting high quality evidence
+  2. Assessing use of evidence in policy documents
+  3. Using concrete evidence to write a policy/program proposal and its evaluation plan
+]
+
+
+---
+# Topic choice
+
+.pull-left[
+
+## Procedure
+
+1. You have formed groups. **Correct?**
+
+2. Leo has asked you to choose one topic of interest that is linked to topics from the following list:
+
+-	Health and nutrition
+-	Enterprise development
+-	Income and employability support
+-	Trade facilitation and competitiveness
+-	Road infrastructure
+-	Nutrition and health
+-	Agricultural productivity
+-	Education
+]
+
+.pull-right[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/group-working.jpeg" height=400&gt;
+&lt;/div&gt;
+]
+
+---
+# Assignment part 1
+
+.pull-left-small2[
+## Collecting evidence (Leo's part)
+- This first part of the presentation will focus on collecting evidence for your program/policy.
+- You need to prepare a **6-8 slides summary of the evidence**, and you could use tables to summarize it.
+- More details in Leo's syllabus.
+]
+
+.pull-right-wide2[
+## Making the case for the policy (Our part)
+
+- Precede the evidence with a **2 slides introduction** that makes the case for the program/policy.
+- The **first slide** should be framed around one piece of &lt;span style="color:blue"&gt;&lt;b&gt;visual evidence&lt;/b&gt;&lt;/span&gt;. This can be from a research paper, a blog post, etc. and help highlight the problem that the policy is trying to address.
+- The **second slide** summarizes the program/policy and its objectives.
+
+## Judging the quality of the evidence
+- Provide a &lt;span style="color:blue"&gt;&lt;b&gt;tabular overview&lt;/b&gt;&lt;/span&gt; of the different sources of evidence you collected for Leo's part.
+- The table should be ranked by the quality of evidence you attach to each source, and a column that briefly justifies your judgment (along criteria of **external and internal validity of the evidence as well as practical usefulness**).
+- That is **1-2 slides** additional to Leo's part.
+]
+
+
+---
+# Assignment part 2
+
+.pull-left[
+## Assess existing program/policy (Leo's part)
+- The second part of your assignment will require you to choose one of the projects suggested and assess it or provide a discussion and grade it on how well evidence was incorporated.
+- The program/policy should be in the same technical area that you have chosen (ideally the same topic/project).
+- Your assignment is to prepare a **4-5 page presentation** assessing how well the program/policy incorporates evidence and grade it (on a scale 0-100) and justify your grade based on the evidence that you collected in your previous assignment.
+- See Leo's syllabus for more details regarding the rating criteria.
+]
+
+.pull-right[
+## Our part
+- Provide a &lt;span style="color:blue"&gt;&lt;b&gt;tabular assessment&lt;/b&gt;&lt;/span&gt; of both the **external and internal validity of the evidence** used in the policy document.
+- Highlight the strengths and weaknesses of the evidence used in the policy document on both dimensions.
+- That is **1-2 slides** additional to Leo's part.
+]
+
+
+---
+# Assignment part 3
+
+.pull-left[
+## Using the evidence (Leo's part)
+- In the final part of your assignment you will design and propose a program based on the policy/program that you identified (assignment part 1), or the one that you reviewed (assignment part 2). Your presentation should include the following sections (again, more details in Leo's syllabus):
+  1. Context and problem definition (**3-4 slides**). 
+  2. Theory of change with specific reference to summary of evidence on which you base it (**3-4 slides**).
+  3. Evaluation plan: How will the program generate further evidence? (**2-3 slides**) 
+]
+
+.pull-right[
+## Our part
+- Provide a &lt;span style="color:blue"&gt;&lt;b&gt;DAG&lt;/b&gt;&lt;/span&gt; that clarifies the relationship between the policy/treatment/intervention and **one** outcome of interest, and other variables that would affect the causal relationship (confounders etc.).
+- Provide a &lt;span style="color:blue"&gt;&lt;b&gt;plan for data collection and management&lt;/b&gt;&lt;/span&gt; that discusses how you would plan to measure KPIs, policy exposure, etc.
+- Provide a &lt;span style="color:blue"&gt;&lt;b&gt;discussion of the ethics of your program&lt;/b&gt;&lt;/span&gt;. What could be positive and negative externalities for citizens affected or not affected by the program? And how could possible negative externalities be mitigated?
+- Overall, that is **6-8 additional slides**.
+]
+
+---
+# Summary
+
+.pull-left[
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+1. Key deliverable is a presentation that addresses both Leo's an our assignment tasks.
+
+2. You are going to present this in the final session in July.
+
+3. If you have any questions on the presentation, please reach out to us (munzert@hertie-school.org).
+]
+
+.pull-right[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/presentation-group.png" height=400&gt;
+&lt;/div&gt;
+]
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

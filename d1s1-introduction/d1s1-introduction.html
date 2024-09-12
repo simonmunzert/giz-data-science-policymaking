@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 1: Fundamental data and statistical literacy</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 1: Fundamental data and statistical literacy
+]
+.subtitle[
+## Data science, statistical reasoning, and policy-making
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+# Table of contents
+
+&lt;/br&gt;&lt;/br&gt;
+
+1. [Welcome!](#welcome)
+
+2. [What is data science?](#whatisdatascience)
+
+3. [(Data) science for public policy](#science)
+
+4. [Goals of this workshop](#goals)
+
+
+---
+class: inverse, center, middle
+name: welcome
+
+# Welcome!
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Introductions
+
+&lt;br&gt;
+
+### Me
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M384 48c8.8 0 16 7.2 16 16V448c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H384zM96 0C60.7 0 32 28.7 32 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H96zM240 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16H336c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80H208zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V80zM496 192c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V336z"/></svg> I'm [Simon Munzert](https://simonmunzert.github.io/) [si’mən munsɜrt], or just Simon [saɪmən].
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg> [munzert@hertie-school.org](mailto:munzert@hertie-school.org)
+
+<svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg> Professor of Data Science and Public Policy | Director of the Data Science Lab
+
+&lt;br&gt;
+
+--
+
+### You
+
+What's your name and position?
+
+What has been your exposure to data science and statistics?
+
+Do you have experience with quantitative evidence in your position?
+
+
+
+---
+
+# Workshop etiquette
+
+.pull-left-wide[
+&lt;br&gt;
+
+- We have a lot of ground to cover. I brought plenty of material, but ultimately you have to **signal where your interests and needs are**. I am happy to go deeper, digress, or shift attention to other topics and examples (as long as they're in my comfort zone).
+
+- Obviously, I am all but an expert in Georgian politics or policy issues that are currently salient. For sound evidence-based reasoning about policies, domain knowledge is key, and is explicitly part of many of the data-based tools and methods we will discuss. Please **bring your own knowledge and experience to the table**.
+
+- Please take the opportunity to **ask questions anytime**. Some of the topics might lead you out of your comfort zone. But there are no stupid questions to ask, so please bring them on.
+]
+
+.pull-right-small-center[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/stupid-questions.jpg" height=400&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+class: inverse, center, middle
+name: whatisdatascience
+
+# What is data science?
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+# What is data science?
+
+.pull-left[
+## What is data science?
+
+&gt; "Data science is an interdisciplinary academic field that uses statistics, scientific computing, scientific methods, processes, algorithms and systems to extract or extrapolate knowledge and insights from potentially noisy, structured, or unstructured data." - [Wikipedia](https://en.wikipedia.org/wiki/Data_science)
+
+&gt; "Data science is a concept to unify statistics, data analysis, informatics, and their related methods to understand and analyze actual phenomena with data." - [Chikio Hayashi](https://www.springer.com/book/9784431702085)
+
+Overall, there's **no consensus** - it is a buzzword after all. We're going to carry on with Conway's working definition.
+]
+
+.pull-right[
+## A working definition
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/venn-orig-crop.png" height=400&gt;
+&lt;/div&gt;
+
+`Source` [Drew Conway, 2010](https://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram) (adapted)
+]
+
+
+---
+# Types of data-driven research and their role for policy
+
+.pull-left-small2[
+## 1. Description
+- What is the state of the world?
+- What are the trends over time?
+- What are the differences between groups?
+
+## The value for policy-making
+- At the center of **monitoring**
+- "How many people consume misinformation online?"
+- "How many people are unemployed in a certain district?"
+- "How does the distribution of income vary across educational segments of the population?"
+]
+
+--
+
+.pull-left-small2[
+## 2. Explanation
+- What is the effect of a policy?
+- Does the effect vary across groups?
+- What are the mechanisms behind the effect?
+
+## The value for policy-making
+- At the center of **evaluation**
+- "Did the minimum wage increase lead to a decrease in employment?"
+- "Did the campaign affect the exposure to misinformation differently across groups?"
+- "Why did the intervention not lead to the expected results?"
+]
+
+--
+
+.pull-left-small2[
+## 3. Prediction
+- What is the path of an indicator?
+- (When) will future events happen?
+- What class does this observation most likely belong to?
+
+
+## The value for policy-making
+- At the center of **forecasting** but also **targeting** and **measurement**
+- "Will there be conflict?"
+- "How many people will be unemployed in a certain district next year?"
+- "Which individuals are most likely to be affected by a policy?"
+]
+
+
+
+
+---
+background-image: url("../pics/vintage-pipeline.jpeg")
+background-size: contain
+background-color: #000000
+
+# The data science pipeline
+
+
+---
+# The data science pipeline
+
+.pull-left[
+
+**Preparatory work**
+
+- **Problem definition** predict, infer, describe
+- **Design** conceptualize, build data collection device
+- **Data collection** recruit, collect, monitor
+
+]
+
+---
+# The data science pipeline
+
+.pull-left[
+**Preparatory work**
+
+- **Problem definition** predict, infer, describe
+- **Design** conceptualize, build data collection device
+- **Data collection** recruit, collect, monitor
+
+**Data operation**
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-flow.png" height=200&gt;
+&lt;/div&gt;
+
+`Source` [H. Wickham, M. Çetinkaya-Rundel, G. Gronemund: R for Data Science](https://r4ds.hadley.nz/)
+]
+
+---
+# The data science pipeline
+
+.pull-left[
+**Preparatory work**
+
+  - **Problem definition** predict, infer, describe
+  - **Design** conceptualize, build data collection device
+  - **Data collection** recruit, collect, monitor
+
+**Data operation**
+
+   - **Wrangle**: import, tidy, manipulate
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-wrangle.png" height=200&gt;
+&lt;/div&gt;
+
+`Source` [H. Wickham, M. Çetinkaya-Rundel, G. Gronemund: R for Data Science](https://r4ds.hadley.nz/)
+]
+
+
+---
+# The data science pipeline
+
+.pull-left[
+**Preparatory work**
+
+  - **Problem definition** predict, infer, describe
+  - **Design** conceptualize, build data collection device
+  - **Data collection** recruit, collect, monitor
+
+**Data operation**
+
+   - **Wrangle**: import, tidy, manipulate
+   - **Explore**: visualize, describe, discover
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-explore.png" height=200&gt;
+&lt;/div&gt;
+
+`Source` [H. Wickham, M. Çetinkaya-Rundel, G. Gronemund: R for Data Science](https://r4ds.hadley.nz/)
+]
+
+
+---
+# The data science pipeline
+
+.pull-left[
+**Preparatory work**
+
+  - **Problem definition** predict, infer, describe
+  - **Design** conceptualize, build data collection device
+  - **Data collection** recruit, collect, monitor
+
+**Data operation**
+
+   - **Wrangle**: import, tidy, manipulate
+   - **Explore**: visualize, describe, discover
+   - **Model**: build, test, infer, predict
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-model.png" height=200&gt;
+&lt;/div&gt;
+
+`Source` [H. Wickham, M. Çetinkaya-Rundel, G. Gronemund: R for Data Science](https://r4ds.hadley.nz/)
+]
+
+
+---
+# The data science pipeline
+
+.pull-left[
+**Preparatory work**
+
+  - **Problem definition** predict, infer, describe
+  - **Design** conceptualize, build data collection device
+  - **Data collection** recruit, collect, monitor
+
+**Data operation**
+
+   - **Wrangle**: import, tidy, manipulate
+   - **Explore**: visualize, describe, discover
+   - **Model**: build, test, infer, predict
+
+**Dissemination**
+
+  - **Communicate**: to the public, media, policymakers
+  - **Publish**: journals/proceedings, blogs, software
+  - **Productize**: make usable, robust, scalable
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-communicate.png" height=200&gt;
+&lt;/div&gt;
+
+`Source` [H. Wickham, M. Çetinkaya-Rundel, G. Gronemund: R for Data Science](https://r4ds.hadley.nz/)
+]
+
+
+---
+# The data science pipeline
+
+.pull-left[
+**Preparatory work**
+
+  - **Problem definition** predict, infer, describe
+  - **Design** conceptualize, build data collection device
+  - **Data collection** recruit, collect, monitor
+
+**Data operation**
+
+   - **Wrangle**: import, tidy, manipulate
+   - **Explore**: visualize, describe, discover
+   - **Model**: build, test, infer, predict
+
+**Dissemination**
+
+  - **Communicate**: to the public, media, policymakers
+  - **Publish**: journals/proceedings, blogs, software
+  - **Productize**: make usable, robust, scalable
+
+**Meta skill: programming**
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-program.png" height=200&gt;
+&lt;/div&gt;
+
+`Source` [H. Wickham, M. Çetinkaya-Rundel, G. Gronemund: R for Data Science](https://r4ds.hadley.nz/)
+]
+
+
+---
+class: inverse, center, middle
+name: science
+
+# (Data) science for public policy
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+background-image: url("../pics/pioneer-railway.jpg")
+background-size: contain
+background-color: #000000
+
+# Some examples of data science research informing policy
+
+
+---
+# The MIT Billion Prices Project
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/billion-prices-0.png" height=500&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/billion-prices-1.png" height=500&gt;
+&lt;/div&gt;
+]
+
+&lt;br&gt;
+**See also:** [https://thebillionpricesproject.com/](https://thebillionpricesproject.com/) and [https://www.pricestats.com/](https://www.pricestats.com/)
+
+---
+# The MIT Billion Prices Project
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/billion-prices-0.png" height=500&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/billion-prices-2.png" height=500&gt;
+&lt;/div&gt;
+]
+
+&lt;br&gt;
+**See also:** [https://thebillionpricesproject.com/](https://thebillionpricesproject.com/) and [https://www.pricestats.com/](https://www.pricestats.com/)
+
+
+---
+# The COMPAS algorithm to predict criminals' recidivism
+
+.pull-left[
+## Background
+
+- Correctional Offender Management Profiling for Alternative Sanctions (COMPAS) is a decision support tool developed by Northpointe (now Equivant) used by U.S. courts to **assess the likelihood of recidivism**
+- Produced several scales (Pretrial release risk, General recidivism, Violent recidivism) based on factors such as age, criminal history, and substance abuse
+- The algorithm is proprietary and its inner workings are not public
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+`Source` [Practitioner's Guide to COMPAS Core](https://s3.documentcloud.org/documents/2840784/Practitioner-s-Guide-to-COMPAS-Core.pdf)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/compas-practitioner-1.png" width=450&gt;
+&lt;img src="../pics/compas-practitioner-2.png" width=450&gt;
+&lt;img src="../pics/compas-practitioner-3.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+---
+# The COMPAS algorithm to predict criminals' recidivism
+
+.pull-left[
+## The ProPublica and other investigations
+
+- In 2016, ProPublica published an investigation showing that COMPAS was **biased against African Americans**
+- **Bias:** The algorithm was more likely for African Americans to wrongly predict that defendants would re-offend.
+- **Accuracy:** only 20% of people predicted to commit violent crimes actually went on to do so (in a later study estimated with 65%, still worse than a group of humans with little expertise)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`Source` [ProPublica 2016](https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/machine-bias-compas.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+---
+# The COMPAS algorithm to predict criminals' recidivism
+
+.pull-left[
+## The ProPublica and other investigations
+
+- In 2016, ProPublica published an investigation showing that COMPAS was **biased against African Americans**
+- **Bias:** The algorithm was more likely for African Americans to wrongly predict that defendants would re-offend.
+- **Accuracy:** only 20% of people predicted to commit violent crimes actually went on to do so (in a later study estimated with 65%, still worse than a group of humans with little expertise)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+`Source` [Dressel and Fair, 2018, Science Advances](https://www.science.org/doi/epdf/10.1126/sciadv.aao5580)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/dressel-compas-1.png" width=500&gt;
+&lt;img src="../pics/dressel-compas-2.png" width=385&gt;
+&lt;/div&gt;
+]
+
+
+---
+# The Meta US 2020 Election study
+
+.pull-left-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/facebook-us2020-1.png" width=400&gt;
+&lt;br&gt;
+&lt;img src="../pics/facebook-us2020-2.png" width=400&gt;
+&lt;/div&gt;
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/facebook-us2020-3.png" width=400&gt;
+&lt;br&gt;
+&lt;img src="../pics/facebook-us2020-4.png" width=400&gt;
+&lt;/div&gt;
+]
+
+---
+# The Meta US 2020 Election study
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`Source` [Guess et al. 2023, Science](https://www.science.org/doi/epdf/10.1126/science.abp9364)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/facebook-us2020-guess-1.png" width=500&gt;
+&lt;/div&gt;
+]
+
+
+---
+# The Meta US 2020 Election study
+
+.pull-left-small[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`Source` [Guess et al. 2023, Science](https://www.science.org/doi/epdf/10.1126/science.abp9364)
+]
+
+.pull-right-wide[
+&lt;div align="center"&gt;
+&lt;img src="../pics/facebook-us2020-guess-2.png" width=700&gt;
+&lt;/div&gt;
+]
+
+
+---
+background-image: url("../pics/eiffel_tower_under_construction_11-950906312.jpg")
+background-size: contain
+background-color: #000000
+
+# Fostering good data science for good public policy
+
+
+---
+# Trust in science
+
+.pull-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/trust-science-pew.png" height="500"/&gt;
+&lt;img src="../pics/trust-science-pew-2.png" height="500"/&gt;
+&lt;/div&gt;
+`Source` [Pew 2020](https://www.pewresearch.org/science/2020/09/29/science-and-scientists-held-in-high-esteem-across-global-publics/)
+]
+
+
+
+---
+# Trust in science
+
+.pull-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/cologna-trust-1.png" width="550"/&gt;
+&lt;img src="../pics/cologna-trust-2.png" width="550"/&gt;
+&lt;/div&gt;
+`Source` [Cologna et al. 2024](https://osf.io/preprints/osf/6ay7s)
+]
+
+
+---
+# Trust in science
+
+.pull-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/cologna-trust-3.png" height="500"/&gt;
+&lt;/div&gt;
+`Source` [Cologna et al. 2024](https://osf.io/preprints/osf/6ay7s)
+]
+
+
+
+
+---
+# Trust in data science
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/data-science-cool-1.png" width="500"/&gt;
+&lt;img src="../pics/data-science-cool-2.png" width="500"/&gt;
+&lt;img src="../pics/data-science-cool-5.png" width="500"/&gt;
+&lt;/div&gt;
+]
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/data-science-cool-4.png" width="450"/&gt;
+&lt;img src="../pics/data-science-cool-3.png" width="450"/&gt;
+&lt;img src="../pics/data-science-cool-6.png" width="450"/&gt;
+&lt;/div&gt;
+]
+
+---
+# Trust in data science?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/data-science-not-cool-1.png" width="500"/&gt;
+&lt;img src="../pics/data-science-not-cool-2.png" width="500"/&gt;
+&lt;/div&gt;
+]
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/data-science-not-cool-3.png" width="500"/&gt;
+&lt;img src="../pics/data-science-not-cool-4.png" width="500"/&gt;
+&lt;/div&gt;
+]
+
+
+---
+# The replication crisis
+
+.pull-left-wide2[
+### What the crisis is about
+- The finding that many scientific studies are difficult or impossible to reproduce.
+- Reproducibility is a cornerstone of science as an enterprise of knowledge generation → bad.
+
+
+### Factors fueling the replication crisis
+- Solo, silo-ed investigators limited to small sample sizes
+- Wrong incentives in science
+- No pre-registration of hypotheses being tested
+- Post-hoc cherry picking of hypotheses with best P values
+- Only requiring P &lt; .05
+- No replication
+- No data sharing
+
+&lt;br&gt;
+`Source` [Ioannidis 2005/PLOS Medicine](10.1371/journal.pmed.0020124)
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/ioannidis-findings-false.jpg" height=520&gt;
+&lt;/div&gt;
+]
+
+
+---
+
+class: inverse, center, middle
+name: goals
+
+# Goals of this workshop
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+
+---
+# Data-based reasoning for policy-making
+
+.pull-left-wide[
+## 1. Thinking hard about causality
+
+- Develop expectations that imply testable statements about effects.
+- Prioritize designs that help isolate causal effects.
+- Care about **internal validity**.
+
+## 2. Measure the policy options and outcomes you want to learn about
+
+- Find good empirical representations of your concepts of interest.
+- Observe and/or manipulate wisely.
+- Care about **measurement validity**.
+
+## 3. Make conclusions about the real world
+
+- Generalize with care.
+- Don't oversell or misinterpret your findings.
+- Account for uncertainty.
+- Care about **external validity and statistical conclusion validity**.
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/data-based-reasoning.jpeg" width=400&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Learning goals for this workshop
+
+&lt;br&gt; 
+
+&lt;style type="text/css"&gt;
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-if4e{background-color:#f9f9f9;border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-btxf{background-color:#f9f9f9;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-zwlc{background-color:#f9f9f9;border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-abip{background-color:#f9f9f9;border-color:inherit;text-align:center;vertical-align:top}
+&lt;/style&gt;
+&lt;table class="tg"&gt;
+&lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th class="tg-0lax"&gt;&lt;/th&gt;
+    &lt;th class="tg-baqh" colspan="6"&gt;&lt;span style="font-weight:bold"&gt;Data science literacy&lt;/span&gt;&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-btxf"&gt;&lt;span style="font-weight:bold"&gt;Day&lt;/span&gt;&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Statistical literacy&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Causal reasoning&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Data literacy&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;AI literacy&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Evidence consumption&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Ethical reasoning&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-fymr"&gt;1 - Fundamental data and statistical literacy&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-if4e"&gt;2 - Policy evaluation and impact assessment&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-fymr"&gt;3 - AI and big data for policy-making&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-if4e"&gt;4 - Informed consumption of evidence&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-fymr"&gt;5 - Data visualization and communication&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-if4e"&gt;6 - Data management and ethics&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+# Calling out bad evidence when you see it
+
+.pull-left-small[
+
+## 1. Learn not to be fooled by 
+
+- big data
+- garbage data
+- garbage models
+- weird samples
+- claims of generality
+- statistical significance
+- implausibly large effect sizes
+- highly precise forecasts
+- overfitted models
+
+
+## 2. Consume policy-relevant evidence effectively and efficiently
+
+## 3. Apply elements of data science to policy-making
+
+]
+
+.pull-right-wide[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/sc01.png" height=130&gt; 
+&lt;img src="../pics/gigo.png" height=130&gt;
+&lt;/br&gt;
+&lt;img src="../pics/criminal-faces-2.png" height=130&gt;
+&lt;img src="../pics/calling-bullshit-2.jpg" height=130&gt;
+&lt;img src="../pics/survivorship-bias.png" height=130&gt;
+&lt;/br&gt;
+&lt;img src="../pics/cor-examples7.png" height=130&gt;
+&lt;img src="../pics/overfitting.png" height=130&gt;
+&lt;img src="../pics/nyt-opera.png" height=130&gt;
+&lt;/div&gt;
+]
+
+
+---
+# What we're not going to cover
+
+.pull-left-small2[
+## Programming
+- Python, R, SQL, etc. skills are essential for data science
+- The learning curve is steep and requires practice
+- We're happy to provide a glimpse behind the curtain if that is of interest, and provide additional resources
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/programming-logos.jpeg" height=150&gt; 
+&lt;/div&gt;
+]
+
+.pull-left-small2[
+## Active modeling
+- Building designs and models - explanatory and predictive - requires more theoretical and practical knowledge than we can cover in this workshop
+- Focusing on the principles of statistical and causal reasoning should be sufficient to critically assess designs and models
+&lt;br&gt;&lt;br&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/modeling-picture.jpeg" height=150&gt; 
+&lt;/div&gt;
+]
+
+.pull-right-small2[
+## Advanced machine learning, NLP
+- ML, DL, NLP are technologies that drive many of the most exciting applications of data science
+- Understanding what happens under the hood requires a solid foundation in math and stats
+- We will focus on fundamental elements of ML-based research
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/ml-metrics-symbol.png" height=150&gt; 
+&lt;/div&gt;
+]
+
+
+---
+# Further reading
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/manski-public-policy-uncertain.jpg" height=250&gt;
+&lt;img src="../pics/bookofwhy.jpg" height=250&gt;
+&lt;img src="../pics/everybodylies.jpg" height=250&gt;
+&lt;img src="../pics/everythingisobvious.jpg" height=250&gt;
+&lt;img src="../pics/calling-bullshit.jpeg" height=250&gt;
+&lt;img src="../pics/wilkebook.jpeg" height=250&gt;&lt;br&gt;
+&lt;img src="../pics/bitbybitbook.jpg" height=250&gt;
+&lt;img src="../pics/numbersrule.jpg" height=250&gt;
+&lt;img src="../pics/numbersense.jpg" height=250&gt;
+&lt;img src="../pics/rival-hypothesis-1.png" height=250&gt;
+&lt;img src="../pics/art-of-statistics.jpg" height=250&gt;
+&lt;img src="../pics/aisnakeoil.jpg" height=250&gt;
+&lt;/div&gt;
+
+
+---
+# Further listening
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/podcast-tech-away.png" height=150&gt;
+&lt;img src="../pics/podcast-ai-breakdown.png" height=150&gt;
+&lt;img src="../pics/podcast-beginners-guide.png" height=150&gt;
+&lt;img src="../pics/podcast-govtech360.png" height=150&gt;
+&lt;img src="../pics/podcast-hdsr.png" height=150&gt;
+&lt;img src="../pics/podcast-data-skeptic.png" height=150&gt;
+&lt;img src="../pics/podcast-more-or-less.jpeg" height=150&gt;
+&lt;br&gt;
+&lt;img src="../pics/podcast-linear-digressions.png" height=150&gt;
+&lt;img src="../pics/podcast-not-so-standard-deviations.png" height=150&gt;
+&lt;img src="../pics/podcast-digital-analytics-power-hour.jpeg" height=150&gt;
+&lt;img src="../pics/podcast-oreilly-datashow.jpeg" height=150&gt;
+&lt;img src="../pics/podcast-banana-data.jpeg" height=150&gt;
+&lt;img src="../pics/podcast-stats-stories.png" height=150&gt;
+&lt;img src="../pics/podcast-talking-machines.png" height=150&gt;
+&lt;/div&gt;
+
+
+---
+# Training programme material
+
+.pull-left[
+## Check out the website with materials at
+
+[https://seramirezruiz.github.io/data-science-for-policymaking/](https://seramirezruiz.github.io/data-science-for-policymaking/)
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/website-qrcode.png" width=200&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/giz-website-1.png" width=520&gt;
+&lt;/div&gt;
+
+]
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

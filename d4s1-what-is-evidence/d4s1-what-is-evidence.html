@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 4: Informed Consumption of Evidence</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sebastian Ramirez-Ruiz" />
+    <script src="libsg/header-attrs/header-attrs.js"></script>
+    <link href="libsg/remark-css/default.css" rel="stylesheet" />
+    <link href="libsg/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libsg/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 4: Informed Consumption of Evidence
+]
+.subtitle[
+## What is evidence?<i> And how can it inform policy?</i>
+]
+.author[
+### Sebastian Ramirez-Ruiz
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+.has-continuation {
+display: block !important;
+}
+}
+&lt;/style&gt;
+
+
+
+&lt;br&gt;
+
+### Me
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M384 48c8.8 0 16 7.2 16 16V448c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H384zM96 0C60.7 0 32 28.7 32 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H96zM240 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16H336c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80H208zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V80zM496 192c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V336z"/></svg> I am [Sebastian Ramirez-Ruiz](https://seramirezruiz.github.io/), or just Sebastian.
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg> [ramirez-ruiz@hertie-school.org](mailto:ramirez-ruiz@hertie-school.org)
+
+<svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg> Doctoral Candidate and Reseach Associate | Hertie School Data Science Lab
+
+--
+
+I am a **computational social scientist** researching opinion and preference formation, as well as the use of research evidence in policy- and decision-making employing alternative sources of data and experiments.
+
+---
+
+# The plan for this block
+
+
+| Time         | Session                                                                                                      | Speaker(s)                                                                 |
+|--------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| 09:45 – 10:00| Arrival and Coffee                                                                                           |                                                                            |
+| 10:00 – 11:30| **Session I: What is evidence? And, how can it&lt;br&gt;inform policy?**                                              | Sebastian Ramirez-Ruiz                                                     |
+| 11:30 – 11:45| Coffee Break                                                                                                 |                                                                            |
+| 11:45 – 13:15| **Session II: Evidence Synthesis and Meta-Analysis**                                                         | Sebastian Ramirez-Ruiz                                                     |
+| 13:15 – 14:15| Lunch Break                                                                                                  |                                                                            |
+| 14:15 – 15:45| **Session III: Navigating the World of Evidence: A&lt;br&gt;Practical Workshop for Effective Research**               | Sebastian Ramirez-Ruiz                                                     |
+| 15:45 – 16:00| Coffee Break                                                                                                 |                                                                            |
+| 16:00 – 17:30| **Session IV: How to read an academic study?**                                                               | Sebastian Ramirez-Ruiz                                                     |
+---
+# Day 4: Informed consumption of evidence
+
+## Sessions
+
+--
+1. What is evidence? And how can it inform policy?
+
+--
+2. Evidence synthesis and meta-analysis
+
+--
+3. Navigating the world of evidence: A practical workshop for effective research
+
+--
+4. How to read an academic study?
+
+--
+
+## Learning goals
+
+--
+- To familiarize ourselves with the **scientific research** process and different types of **evidence**.
+
+--
+- To evaluate the **strengths** and **limitations** of using evidence to inform policy decisions.
+
+--
+- To develop skills to critically **evaluate** the quality and reliability of different types of **evidence**
+
+---
+class: midtext
+
+# A show of hands!
+
+### Raise your hand if you:
+
+--
+- have heard the term evidence-based policymaking
+
+--
+- can define what evidence-based policymaking means
+
+--
+- can give us an example of evidence-based policymaking from your own work
+
+--
+- have relied on your past experiences to inform your policy work
+
+--
+- have integrated input from potential beneficiaries into policy
+
+--
+- have ever produced an impact evaluation report
+
+--
+- have read an evaluation report [academic article] in the past six months
+
+--
+- have ever read an evaluation report [academic article] for work
+
+--
+- have used an evaluation report [academic article] to inform policy
+
+
+---
+
+# Georgia's principles of Good Governance
+
+--
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s1-m&amp;e-handbook.png" height=380&gt;&lt;br&gt;
+&lt;p style="color:#cc0065;font-style:italic;font-size:70%"&gt;Source: Policy Planning, Monitoring and Evaluation Handbook&lt;br&gt;Planning Unit, Administration of the Government of Georgia&lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+
+
+# Georgia's principles of Good Governance
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;p style="font-weight:bold;font-size:120%"&gt;The three &lt;span style="color:#BE6238"&gt;"main principles"&lt;/span&gt; of Good Governance&lt;/p&gt;
+
+--
+
+&lt;img src="../pics/d4-s1-georgia-governance.png" height=150&gt;&lt;br&gt;
+&lt;p style="color:#cc0065;font-style:italic;font-size:70%"&gt;Source: Policy Planning, Monitoring and Evaluation Handbook&lt;br&gt;Planning Unit, Administration of the Government of Georgia&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+# Georgia's principles of Good Governance
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;p style="font-weight:bold;font-size:120%"&gt;The three &lt;span style="color:#BE6238"&gt;"main principles"&lt;/span&gt; of Good Governance&lt;/p&gt;
+&lt;img src="../pics/d4-s1-georgia-governance-2.png" height=150&gt;&lt;br&gt;
+&lt;p style="color:#cc0065;font-style:italic;font-size:70%"&gt;Source: Policy Planning, Monitoring and Evaluation Handbook&lt;br&gt;Planning Unit, Administration of the Government of Georgia&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+---
+
+# Table of contents
+
+&lt;/br&gt;&lt;/br&gt;
+
+1. [What is evidence?](#whatisevidence)
+2. [Evidence-based policy-making (EBPM)](#ebpm)
+3. [How can evidence inform the policy-making process?](#inform-ebpm)
+4. [Outlook: Data science for EBPM](#ds-ebpm)
+
+---
+class: inverse, center, middle
+name: whatisevidence
+
+# What is evidence?
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# A general overview of evidence
+
+--
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+**Evidence:** *facts*, *signs* or *objects* that are used to prove whether something is true or not.
+]
+
+--
+
+&lt;br&gt;
+
+.content-box-gray[
+Evidence can be made up of a range of components – *not only scientific* – and is never used in isolation. Scientific evidence typically [relies on] surveys, quantitative/statistical data, qualitative data, and [the] analysis thereof. However, evidence also includes economic, attitudinal, behavioural and anecdotal [insight], together with … experience, history, analogies, local knowledge and culture &lt;a name=cite-strydom2010evidence&gt;&lt;/a&gt;([Strydom et al., 2010](#bib-strydom2010evidence))
+]
+
+---
+
+# A general overview of evidence
+
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+**Evidence:** *facts*, *signs* or *objects* that are used to prove whether something is true or not.
+]
+
+&lt;br&gt;
+
+.content-box-gray[
+&lt;span style="color:#d3d3d3"&gt;Evidence can be made up of a range of components –&lt;/span&gt; *not only scientific* &lt;span style="color:#d3d3d3"&gt;– and is never used in isolation. Scientific evidence typically [relies on] surveys, quantitative/statistical data, qualitative data, and [the] analysis thereof. However, evidence also includes economic, attitudinal, behavioural and &lt;/span&gt;anecdotal [insight], together with … experience, history, analogies, local knowledge and culture ([Strydom et al., 2010](#bib-strydom2010evidence))
+]
+
+---
+
+# A general overview of evidence
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+**Evidence:** *facts*, *signs* or *objects* that are used to prove whether something is true or not.
+]
+
+--
+
+&lt;br&gt;&lt;br&gt;
+
+.pull-left[
+
+## Anecdotal evidence
+
+- Individual *stories*, *experiences*, or *accounts* that are not necessarily scientifically or statistically verified but provide insights or *illustrations of a particular phenomenon* or issue.
+]
+
+--
+
+.pull-right[
+## Insight from Experience 
+
+- Knowledge gained through direct involvement or personal encounters with a subject matter. This could include *professional expertise*, *practical know-how*, or *lessons learned* from past events.
+]
+
+--
+
+
+.pull-left[
+## History: 
+
+- *Past events*, *trends*, or *developments* that provide *context* or precedents for understanding current situations or predicting future outcomes.
+]
+
+--
+
+.pull-right[
+## Analogies: 
+
+- *Comparisons* between *similar situations* or phenomena to draw parallels or illustrate a point. Analogies can help clarify complex concepts or make unfamiliar ideas more *relatable*
+]
+
+---
+
+# A general overview of evidence
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+These &lt;i style="color:#cc0065"&gt;information points&lt;/i&gt; can be very &lt;i style="color:#cc0065"&gt;valuable for policy-making&lt;/i&gt;&lt;br&gt;&lt;br&gt;
+]
+
+&lt;br&gt;
+
+.pull-left-gray[
+## Anecdotal evidence
+
+- Individual *stories*, *experiences*, or *accounts* that are not necessarily scientifically or statistically verified but provide insights or *illustrations of a particular phenomenon* or issue.
+]
+
+
+.pull-right-gray[
+## Insight from Experience 
+
+- Knowledge gained through direct involvement or personal encounters with a subject matter. This could include *professional expertise*, *practical know-how*, or *lessons learned* from past events.
+]
+
+
+.pull-left-gray[
+## History: 
+
+- *Past events*, *trends*, or *developments* that provide *context* or precedents for understanding current situations or predicting future outcomes.
+]
+
+
+.pull-right-gray[
+## Analogies: 
+
+- *Comparisons* between *similar situations* or phenomena to draw parallels or illustrate a point. Analogies can help clarify complex concepts or make unfamiliar ideas more *relatable*
+]
+
+---
+
+# A general overview of evidence
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+These &lt;i style="color:#cc0065"&gt;information points&lt;/i&gt; can be very &lt;i style="color:#cc0065"&gt;valuable for policy-making&lt;/i&gt;&lt;br&gt;and now let's take a second to think about your work and what we have spoken about in the past days...
+]
+
+--
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s1-courtroom.png" height=350&gt;
+&lt;/div&gt;
+]
+
+--
+
+.pull-right[
+## Take a couple of minutes with your neighbor
+
+- Have you ever encountered evidence that approximates the ideals of **causally identified** evidence points?
+.text-invisible[- Do you think that evidence .i-pink[permeates] your daily work as a policy maker?
+- What types of evidence do you find .i-pink[admissible]? (*relevant*, *material*, and *competent*)
+- What do you think can make a piece of evidence be the policy analogue of a .i-pink[smoking gun]?
+]]
+
+---
+
+# A general overview of evidence
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+These &lt;i style="color:#cc0065"&gt;information points&lt;/i&gt; can be very &lt;i style="color:#cc0065"&gt;valuable for policy-making&lt;/i&gt;&lt;br&gt;and now let's take a second to think about your work and what we have spoken about in the past days...
+]
+
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s1-courtroom.png" height=350&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+## Take a couple of minutes with your neighbor
+
+- Have you ever encountered evidence that approximates the ideals of **causally identified** evidence points?
+- Do you think that evidence .i-pink[permeates] your daily work as a policy maker?
+.text-invisible[- What types of evidence do you find .i-pink[admissible]? (*relevant*, *material*, and *competent*)
+- What do you think can make a piece of evidence be the policy analogue of a .i-pink[smoking gun]?
+]]
+
+---
+
+# A general overview of evidence
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+These &lt;i style="color:#cc0065"&gt;information points&lt;/i&gt; can be very &lt;i style="color:#cc0065"&gt;valuable for policy-making&lt;/i&gt;&lt;br&gt;and now let's take a second to think about your work and what we have spoken about in the past days...
+]
+
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s1-courtroom.png" height=350&gt;
+&lt;/div&gt;
+]
+
+
+.pull-right[
+## Take a couple of minutes with your neighbor
+
+- Have you ever encountered evidence that approximates the ideals of **causally identified** evidence points?
+- Do you think that evidence .i-pink[permeates] your daily work as a policy maker?
+- What types of evidence do you normally encounter and find .i-pink[admissible]? (*relevant*, *material*, and *competent*)
+.text-invisible[- What do you think can make a piece of evidence be the policy analogue of a .i-pink[smoking gun]?
+]]
+
+---
+# A general overview of evidence
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+These &lt;i style="color:#cc0065"&gt;information points&lt;/i&gt; can be very &lt;i style="color:#cc0065"&gt;valuable for policy-making&lt;/i&gt;&lt;br&gt;and now let's take a second to think about your work and what we have spoken about in the past days...
+]
+
+
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s1-courtroom.png" height=350&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+## Take a couple of minutes with your neighbor
+
+- Have you ever encountered evidence that approximates the ideals of **causally identified** evidence points?
+- Do you think that evidence .i-pink[permeates] your daily work as a policy maker?
+- What types of evidence do you normally encounter and find .i-pink[admissible]? (*relevant*, *material*, and *competent*)
+- What do you think can make a piece of evidence be the policy analogue of a .i-pink[smoking gun]?
+]
+
+
+---
+class: inverse, center, middle
+name: ebpm
+
+# Evidence-based policy-making
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# What is evidence-based policy-making?
+
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+**Evidence-based policy-making:** the process of generating policy &lt;i style="color:#cc0065"&gt;backed up&lt;/i&gt; by a solid&lt;br&gt;body of &lt;i style="color:#cc0065"&gt;scientific research&lt;/i&gt; or derived from or informed by &lt;i style="color:#cc0065"&gt;objective evidence&lt;/i&gt;.
+]
+
+--
+
+.content-box-gray[
+*Evidence-based policymaking* involves utilizing .i-pink[high-quality information] to guide decisions regarding government policies. .text-invisible[This process entails .i-pink[systematically] collecting robust data and analyzing them with .i-pink[rigorous] research methods to generate reliable evidence. Such evidence can offer .i-pink[insights] into the .i-pink[effectiveness] of policies and programs, operational mechanisms, and .i-pink[performance] trends over time.]
+]
+
+---
+
+# What is evidence-based policy-making?
+
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+**Evidence-based policy-making:** the process of generating policy &lt;i style="color:#cc0065"&gt;backed up&lt;/i&gt; by a solid&lt;br&gt;body of &lt;i style="color:#cc0065"&gt;scientific research&lt;/i&gt; or derived from or informed by &lt;i style="color:#cc0065"&gt;objective evidence&lt;/i&gt;.
+]
+
+
+.content-box-gray[
+*Evidence-based policymaking* involves utilizing *high-quality information* to guide decisions regarding government policies. This process entails .i-pink[systematically] collecting robust data and analyzing them with .i-pink[rigorous] research methods to generate reliable evidence. .text-invisible[Such evidence can offer .i-pink[insights] into the .i-pink[effectiveness] of policies and programs, operational mechanisms, and .i-pink[performance] trends over time.]
+]
+
+---
+
+# What is evidence-based policy-making?
+
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+**Evidence-based policy-making:** the process of generating policy &lt;i style="color:#cc0065"&gt;backed up&lt;/i&gt; by a solid&lt;br&gt;body of &lt;i style="color:#cc0065"&gt;scientific research&lt;/i&gt; or derived from or informed by &lt;i style="color:#cc0065"&gt;objective evidence&lt;/i&gt;.
+]
+
+.content-box-gray[
+*Evidence-based policymaking* involves utilizing *high-quality information* to guide decisions regarding government policies. This process entails *systematically* collecting robust data and analyzing them with *rigorous* research methods to generate reliable evidence. Such evidence can offer .i-pink[insights] into the .i-pink[effectiveness] of policies and programs, operational mechanisms, and .i-pink[performance] trends over time.
+]
+
+---
+
+# The case for evidence-based policy-making
+
+--
+
+## Improved decision-making
+
+.pull-center[&lt;br&gt;
+.content-box-gray-wide[
+&lt;i style="font-weight:bold; color:#cc0065"&gt;Policy issue:&lt;/i&gt; **Discrimination in labor markets** has been well documented by showing minority candidates tend to receive fewer interview invitations than other candidates The subject of such discrimination varies by context but has prompted calls for hiring procedures that may shield information on a candidate’s national origin, gender, race, and/or ethnicity in some countries.
+&lt;br&gt;
+]
+]
+&lt;br&gt;
+
+--
+- &lt;h3&gt;How could you use policy to tackle this issue?&lt;/h3&gt;
+
+--
+- &lt;h3&gt;What policy instruments could you leverage?&lt;/h3&gt;
+
+--
+- &lt;h3&gt;Which metrics could be markers of success/failure?&lt;/h3&gt;
+
+---
+
+# Improved decision-making (cont.)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+- **Background:** France's immigrant population, particularly from West and North Africa, faces higher unemployment rates, often attributed to educational disparities and discrimination.
+
+--
+
+- **Policy Initiative:** In 2006, France introduced a law to anonymize job application materials but later shifted to a voluntary program in 2009 through Pôle Emploi (*France's unemployment government agency*).
+
+--
+
+- **Research Methodology:** .i-pink[Academic collaboration] with Pôle Emploi allowed for evaluating the impact of anonymous resumes on interview and hiring rates.
+
+--
+
+- **Implementation:** Over 1,000 firms participated, with resumes randomly assigned to either anonymous or standard format groups.
+
+---
+class: inverse, center, middle
+name: improved-dm
+background-color: #FFFFFF
+
+
+&lt;b style="font-weight:bold;text-align:center;color:#2b7282;font-size:150%;"&gt;What do you think they found out?&lt;/b&gt;
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# Improved decision-making (cont.)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+- **Findings:**
+    - No significant change in the number of interviews or job offers in either group.
+    - Anonymizing resumes led to &lt;i style="color:#cc0065"&gt;decreased interview and hiring rates for minority candidates&lt;/i&gt;.
+    - The interview gap between minority and non-minority candidates widened by 10.7 percentage points.
+
+--
+
+- **Implications:**
+    - Participating firms, more likely to hire minorities traditionally, were impacted negatively by anonymized resumes. 
+    - Anonymization may hinder the identification and assessment of minority candidates.
+
+--
+
+- **Policy Outcome:** The discussion prompted by the evaluation led to the abandonment of the policy in 2015.
+
+---
+
+# Improved decision-making (cont.)
+&lt;br&gt;
+
+.content-box-gray[
+A core argument for evidence-based policy-making is that the .i-pink[use of evidence] can **enhance decision-making** by pinpointing effective solutions, improving outcomes, and optimizing resource allocation. Supported by scientific rigor, evidence can informs us about what works, guiding policy effectiveness, program efficiency, and addressing social challenges.]
+
+--
+
+In principle, evidence can:
+
+--
+
+- help us .i-pink[understand] policies.
+.text-invisible[- inform when we may need to .i-pink[reassess] a policy solution (*scale down, redesign, or drop altogether*).
+- point to directions for .i-pink[replicating] and .i-pink[expanding] successful practices.]
+
+---
+
+# Improved decision-making (cont.)
+&lt;br&gt;
+
+.content-box-gray[
+A core argument for evidence-based policy-making is that the .i-pink[use of evidence] can **enhance decision-making** by pinpointing effective solutions, improving outcomes, and optimizing resource allocation. Supported by scientific rigor, evidence can informs us about what works, guiding policy effectiveness, program efficiency, and addressing social challenges.]
+
+
+In principle, evidence can:
+
+- help us .i-pink[understand] policies.
+- inform when we may need to .i-pink[reassess] a policy solution (*scale down, redesign, or drop altogether*).
+.text-invisible[- point to directions for .i-pink[replicating] and .i-pink[expanding] successful practices.]
+
+---
+
+# Improved decision-making (cont.)
+&lt;br&gt;
+
+.content-box-gray[
+A core argument for evidence-based policy-making is that the .i-pink[use of evidence] can **enhance decision-making** by pinpointing effective solutions, improving outcomes, and optimizing resource allocation. Supported by scientific rigor, evidence can informs us about what works, guiding policy effectiveness, program efficiency, and addressing social challenges.]
+
+
+In principle, evidence can:
+
+- help us .i-pink[understand] policies.
+- inform when we may need to .i-pink[reassess] a policy solution (*scale down, redesign, or drop altogether*).
+- point to directions for .i-pink[replicating] and .i-pink[expanding] successful practices.
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+--
+
+.pull-left[
+## Supply-side challenges
+
+]
+
+
+.pull-right[
+## Demand-side challenges
+
+]
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+]
+
+.pull-right[
+## Demand-side challenges
+
+]
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+2. **Research Funding and Resources**
+    - Limited funding for research can restrict the scope and depth of studies.
+]
+
+.pull-right[
+## Demand-side challenges
+
+]
+
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+2. **Research Funding and Resources**
+    - Limited funding for research can restrict the scope and depth of studies.
+3. **Technical Expertise**
+    - Shortage of skilled researchers and analysts.
+]
+
+.pull-right[
+## Demand-side challenges
+
+]
+
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+2. **Research Funding and Resources**
+    - Limited funding for research can restrict the scope and depth of studies.
+3. **Technical Expertise**
+    - Shortage of skilled researchers and analysts.
+4. **Time Constraints**
+    - Mismatch between the timelines of research cycles and policy decision-making cycles.
+]
+
+.pull-right[
+## Demand-side challenges
+
+]
+
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+2. **Research Funding and Resources**
+    - Limited funding for research can restrict the scope and depth of studies.
+3. **Technical Expertise**
+    - Shortage of skilled researchers and analysts.
+4. **Time Constraints**
+    - Mismatch between the timelines of research cycles and policy decision-making cycles.
+5. **Ethical and Privacy Concerns**
+    - Issues related to data privacy and ethical considerations in data collection and usage.
+]
+
+.pull-right[
+## Demand-side challenges
+
+]
+
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+2. **Research Funding and Resources**
+    - Limited funding for research can restrict the scope and depth of studies.
+3. **Technical Expertise**
+    - Shortage of skilled researchers and analysts.
+4. **Time Constraints**
+    - Mismatch between the timelines of research cycles and policy decision-making cycles.
+5. **Ethical and Privacy Concerns**
+    - Issues related to data privacy and ethical considerations in data collection and usage.
+6. **Political and Institutional Barriers**
+    - Political pressure to influence the direction and outcomes of studies.
+    - Bureaucratic inertia and resistance to adopting new research methodologies or findings.
+]
+
+.pull-right[
+## Demand-side challenges
+
+]
+
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+2. **Research Funding and Resources**
+    - Limited funding for research can restrict the scope and depth of studies.
+3. **Technical Expertise**
+    - Shortage of skilled researchers and analysts.
+4. **Time Constraints**
+    - Mismatch between the timelines of research cycles and policy decision-making cycles.
+5. **Ethical and Privacy Concerns**
+    - Issues related to data privacy and ethical considerations in data collection and usage.
+6. **Political and Institutional Barriers**
+    - Political pressure to influence the direction and outcomes of studies.
+    - Bureaucratic inertia and resistance to adopting new research methodologies or findings.
+]
+
+
+.pull-right[
+## Demand-side challenges
+
+1. **Political Will and Ideology**
+    - Political ideology over evidence.
+    - Unpopular policies despite strong evidence?
+
+]
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+2. **Research Funding and Resources**
+    - Limited funding for research can restrict the scope and depth of studies.
+3. **Technical Expertise**
+    - Shortage of skilled researchers and analysts.
+4. **Time Constraints**
+    - Mismatch between the timelines of research cycles and policy decision-making cycles.
+5. **Ethical and Privacy Concerns**
+    - Issues related to data privacy and ethical considerations in data collection and usage.
+6. **Political and Institutional Barriers**
+    - Political pressure to influence the direction and outcomes of studies.
+    - Bureaucratic inertia and resistance to adopting new research methodologies or findings.
+]
+
+
+.pull-right[
+## Demand-side challenges
+
+1. **Political Will and Ideology**
+    - Political ideology over evidence.
+    - Unpopular policies despite strong evidence?
+2. **Public Perception and Trust**
+    - Public skepticism or mistrust of scientific evidence.
+]
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+2. **Research Funding and Resources**
+    - Limited funding for research can restrict the scope and depth of studies.
+3. **Technical Expertise**
+    - Shortage of skilled researchers and analysts.
+4. **Time Constraints**
+    - Mismatch between the timelines of research cycles and policy decision-making cycles.
+5. **Ethical and Privacy Concerns**
+    - Issues related to data privacy and ethical considerations in data collection and usage.
+6. **Political and Institutional Barriers**
+    - Political pressure to influence the direction and outcomes of studies.
+    - Bureaucratic inertia and resistance to adopting new research methodologies or findings.
+]
+
+
+.pull-right[
+## Demand-side challenges
+
+1. **Political Will and Ideology**
+    - Political ideology over evidence.
+    - Unpopular policies despite strong evidence?
+2. **Public Perception and Trust**
+    - Public skepticism or mistrust of scientific evidence.
+3. **Resource Constraints**
+    - Limited budgets to implement.
+    - Competing priorities of immediate needs over long-term evidence-based solutions.
+]
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+2. **Research Funding and Resources**
+    - Limited funding for research can restrict the scope and depth of studies.
+3. **Technical Expertise**
+    - Shortage of skilled researchers and analysts.
+4. **Time Constraints**
+    - Mismatch between the timelines of research cycles and policy decision-making cycles.
+5. **Ethical and Privacy Concerns**
+    - Issues related to data privacy and ethical considerations in data collection and usage.
+6. **Political and Institutional Barriers**
+    - Political pressure to influence the direction and outcomes of studies.
+    - Bureaucratic inertia and resistance to adopting new research methodologies or findings.
+]
+
+
+.pull-right[
+## Demand-side challenges
+
+1. **Political Will and Ideology**
+    - Political ideology over evidence.
+    - Unpopular policies despite strong evidence?
+2. **Public Perception and Trust**
+    - Public skepticism or mistrust of scientific evidence.
+3. **Resource Constraints**
+    - Limited budgets to implement.
+    - Competing priorities of immediate needs over long-term evidence-based solutions.
+4. **Complexity and Uncertainty**
+    - Complexity of translating scientific evidence into practical and actionable policies.
+]
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+2. **Research Funding and Resources**
+    - Limited funding for research can restrict the scope and depth of studies.
+3. **Technical Expertise**
+    - Shortage of skilled researchers and analysts.
+4. **Time Constraints**
+    - Mismatch between the timelines of research cycles and policy decision-making cycles.
+5. **Ethical and Privacy Concerns**
+    - Issues related to data privacy and ethical considerations in data collection and usage.
+6. **Political and Institutional Barriers**
+    - Political pressure to influence the direction and outcomes of studies.
+    - Bureaucratic inertia and resistance to adopting new research methodologies or findings.
+]
+
+
+.pull-right[
+## Demand-side challenges
+
+1. **Political Will and Ideology**
+    - Political ideology over evidence.
+    - Unpopular policies despite strong evidence?
+2. **Public Perception and Trust**
+    - Public skepticism or mistrust of scientific evidence.
+3. **Resource Constraints**
+    - Limited budgets to implement.
+    - Competing priorities of immediate needs over long-term evidence-based solutions.
+4. **Complexity and Uncertainty**
+    - Complexity of translating scientific evidence into practical and actionable policies.
+5. **Interest Groups and Lobbying**
+    - Pressure from powerful stakeholders.
+]
+
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+2. **Research Funding and Resources**
+    - Limited funding for research can restrict the scope and depth of studies.
+3. **Technical Expertise**
+    - Shortage of skilled researchers and analysts.
+4. **Time Constraints**
+    - Mismatch between the timelines of research cycles and policy decision-making cycles.
+5. **Ethical and Privacy Concerns**
+    - Issues related to data privacy and ethical considerations in data collection and usage.
+6. **Political and Institutional Barriers**
+    - Political pressure to influence the direction and outcomes of studies.
+    - Bureaucratic inertia and resistance to adopting new research methodologies or findings.
+]
+
+
+.pull-right[
+## Demand-side challenges
+
+1. **Political Will and Ideology**
+    - Political ideology over evidence.
+    - Unpopular policies despite strong evidence?
+2. **Public Perception and Trust**
+    - Public skepticism or mistrust of scientific evidence.
+3. **Resource Constraints**
+    - Limited budgets to implement.
+    - Competing priorities of immediate needs over long-term evidence-based solutions.
+4. **Complexity and Uncertainty**
+    - Complexity of translating scientific evidence into practical and actionable policies.
+5. **Interest Groups and Lobbying**
+    - Pressure from powerful stakeholders.
+6. **Institutional and Cultural Resistance**
+    - Institutional inertia and resistance to change within government bodies.
+    - Cultural resistance to new policies that challenge traditional practices or norms.
+]
+
+---
+class: inverse, center, middle
+name: inform-ebpm
+
+# How can evidence inform the policy-making process?
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# When is knowledge used?
+
+.pull-center[
+&lt;br&gt;
+A key concern for us is to establish whether evidence will be, or is, .i-pink['used'], but what does '**using evidence**'&lt;br&gt;actually mean? And, how can evidence go on and .i-pink[inform policy decisions]?
+]
+&lt;br&gt;&lt;br&gt;
+
+--
+
+.content-box-gray-wide[
+
+Largely, research has conceptualized **knowledge use** under three larger "buckets":
+
+.text-invisible[- .i-pink[Instrumental] use to facilitate **decision making**.
+- .i-pink[Conceptual] use to facilitate **understanding** or reflection on problems; issues or solutions.
+- .i-pink[Symbolic or tactical] use consisting of using evidence to achieve **strategic** or **political objectives**.]]
+
+---
+
+# When is knowledge used?
+
+.pull-center[
+&lt;br&gt;
+A key concern for us is to establish whether evidence will be, or is, .i-pink['used'], but what does '**using evidence**'&lt;br&gt;actually mean? And, how can evidence go on and .i-pink[inform policy decisions]?
+]
+&lt;br&gt;&lt;br&gt;
+
+
+.content-box-gray-wide[
+
+Largely, research has conceptualized **knowledge use** under three larger "buckets":
+
+- .i-pink[Instrumental] use to facilitate **decision making**.
+- .i-pink[Conceptual] use to facilitate **understanding** or reflection on problems; issues or solutions.
+- .i-pink[Symbolic or tactical] use consisting of using evidence to achieve **strategic** or **political objectives**.]
+
+
+---
+
+# When is knowledge used? (cont.)
+
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+## 1. Knowledge-driven model
+
+Think of use of evidence as a sequential process. The notion is that some new knowledge discloses some opportunity that may have relevance for public policy. (*Basic research -&gt; Applied research -&gt; Development -&gt; Application*)
+
+]
+
+.pull-right[
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s1-model-1.png" width=400&gt;
+&lt;/div&gt;
+
+]
+
+---
+
+# When is knowledge used? (cont.)
+
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+## 2. Problem-solving model: 
+
+A problem exists and a decision has to be made, information or understanding is lacking either to generate a solution to the problem or to select among alternative solutions, .i-pink[research provides the missing knowledge]. With the gap filled, a decision is reached. (*Application of evidence to pending decisions*)
+
+]
+
+.pull-right[
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s1-model-2.png" width=400&gt;
+&lt;/div&gt;
+
+]
+---
+
+# When is knowledge used? (cont.)
+
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+## 3. Interactive model:
+
+A dynamic process where multiple stakeholders make sense of a problem with their talents, beliefs, and understandings. The use of evidence is .i-pink[only one part of a complicated process] that also uses experience, political insight, pressure, social technologies, and judgment.
+
+]
+
+.pull-right[
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s1-model-3.png" width=400&gt;
+&lt;/div&gt;
+
+]
+
+---
+
+# When is knowledge used? (cont.)
+
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+## 4. Political model:
+
+Actors with predetermined positions. Evidence can still be used. It becomes .i-pink[ammunition] for the side that finds its conclusions congenial and supportive.
+
+]
+
+.pull-right[
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s1-model-4.png" width=400&gt;
+&lt;/div&gt;
+
+]
+
+---
+
+# When is knowledge used? (cont.)
+
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+## 5. Tactical model:
+
+Evidence is not used for its substance, but to show that .i-pink[something was done]. Evidence is used as proof of responsiveness, tactic for delaying action, deflecting criticism, or enhancing agency prestige. (*People seem to agree this matters, so we may as well integrate it in some way*)
+
+]
+
+.pull-right[
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s1-model-5.png" width=400&gt;
+&lt;/div&gt;
+
+]
+
+---
+
+# When is knowledge used? (cont.)
+
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+## 6. Enlightment model: 
+
+Scientific research and evaluation concepts and perspectives shape policy indirectly. They sensitize decision-makers to new issues and changes policy agendas. It is not the findings of a single study nor even of a body of related studies that directly affect policy. Rather it is the .i-pink[concepts and theoretical perspectives] that permeate the policy-making process.
+
+]
+
+.pull-right[
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s1-model-6.png" width=400&gt;
+&lt;/div&gt;
+
+]
+
+---
+# When is knowledge used? (cont.)
+
+.pull-left[
+
+## Let's break into small groups and take some minutes to discuss.
+
+- What is in your .i-pink[opinion] the **most desirable** model of evidence use in policy?
+- What is in your .i-pink[experience] the **most common** model of evidence use in policy?
+- Are your answers to the **most desirable** and  **most common** models the same?
+    - If there is a divergence, what do you think are core drivers of this split between the desirable and effective state-of-affairs?
+    - If they are the same, what do you think are conditions that facilitate this?
+- Can you think of instances where some uses of evidence may be more **advantageous**?
+]
+
+.pull-right[
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s1-group-work-1.jpg" width=400&gt;
+&lt;/div&gt;
+
+]
+
+---
+class: midtext
+
+# When is knowledge used? (cont.)
+
+- **Knowledge-driven model:** Think of use of evidence as a sequential process. The notion is that some new knowledge discloses some opportunity that may have relevance for public policy. (*Basic research -&gt; Applied research -&gt; Development -&gt; Application*)
+
+- **Problem-solving model:** A problem exists and a decision has to be made, information or understanding is lacking either to generate a solution to the problem or to select among alternative solutions, .i-pink[research provides the missing knowledge]. With the gap filled, a decision is reached. (*Application of evidence to pending decisions*)
+
+- **Interactive model:** A dynamic process where multiple stakeholders make sense of a problem with their talents, beliefs, and understandings. The use of evidence is .i-pink[only one part of a complicated process] that also uses experience, political insight, pressure, social technologies, and judgment.
+
+- **Political model:** Actors with predetermined positions. Evidence can still be used. It becomes .i-pink[ammunition] for the side that finds its conclusions congenial and supportive.
+
+- **Tactical model:** Evidence is not used for its substance, but to show that .i-pink[something was done]. Evidence is used as proof of responsiveness, tactic for delaying action, deflecting criticism, or enhancing agency prestige. (*People seem to agree this matters, so we may as well integrate it in some way*)
+
+- **Enlightment model:** Scientific research and evaluation concepts and perspectives shape policy indirectly. They sensitize decision-makers to new issues and changes policy agendas. It is not the findings of a single study nor even of a body of related studies that directly affect policy. Rather it is the .i-pink[concepts and theoretical perspectives] that permeate the policy-making process.
+
+---
+
+# When is it justified to claim EBPM?
+
+--
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to &lt;a name=cite-gade2023justified&gt;&lt;/a&gt;[Gade (2023)](#bib-gade2023justified), claiming that a specific practice or policy is evidence-based is possible *if*, and *only if*, three conditions are met: &lt;br&gt;
+
+1. The individual or organization possesses &lt;i style="color:#cc0065"&gt;comparative evidence&lt;/i&gt; about the effects of the specific practice or policy in comparison to the effects of &lt;i style="color:#cc0065"&gt;at least one alternative&lt;/i&gt; practice or policy
+.text-invisible[2. The specific practice or policy is &lt;i style="color:#cc0065"&gt;supported by this evidence&lt;/i&gt; according to at least one of the individual’s or organization’s preferences in the given practice or policy area
+3. The individual or organization can &lt;i style="color:#cc0065"&gt;provide a sound account&lt;/i&gt; for this support by &lt;/i&gt;explaining the evidence&lt;/i&gt; and preferences that lay the foundation for the claim.
+]]
+
+---
+
+# When is it justified to claim EBPM?
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to [Gade (2023)](#bib-gade2023justified), claiming that a specific practice or policy is evidence-based is possible *if*, and *only if*, three conditions are met: &lt;br&gt;
+
+1. The individual or organization possesses &lt;i style="color:#cc0065"&gt;comparative evidence&lt;/i&gt; about the effects of the specific practice or policy in comparison to the effects of &lt;i style="color:#cc0065"&gt;at least one alternative&lt;/i&gt; practice or policy
+2. The specific practice or policy is &lt;i style="color:#cc0065"&gt;supported by this evidence&lt;/i&gt; according to at least one of the individual’s or organization’s preferences in the given practice or policy area
+.text-invisible[3. The individual or organization can &lt;i style="color:#cc0065"&gt;provide a sound account&lt;/i&gt; for this support by &lt;/i&gt;explaining the evidence&lt;/i&gt; and preferences that lay the foundation for the claim.
+]]
+
+
+---
+
+# When is it justified to claim EBPM?
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to [Gade (2023)](#bib-gade2023justified), claiming that a specific practice or policy is evidence-based is possible *if*, and *only if*, three conditions are met: &lt;br&gt;
+
+1. The individual or organization possesses &lt;i style="color:#cc0065"&gt;comparative evidence&lt;/i&gt; about the effects of the specific practice or policy in comparison to the effects of &lt;i style="color:#cc0065"&gt;at least one alternative&lt;/i&gt; practice or policy
+2. The specific practice or policy is &lt;i style="color:#cc0065"&gt;supported by this evidence&lt;/i&gt; according to at least one of the individual’s or organization’s preferences in the given practice or policy area
+3. The individual or organization can &lt;i style="color:#cc0065"&gt;provide a sound account&lt;/i&gt; for this support by &lt;/i&gt;explaining the evidence&lt;/i&gt; and preferences that lay the foundation for the claim.
+]
+
+---
+
+# When is it justified to claim EBPM? (cont.)
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to [Gade (2023)](#bib-gade2023justified), claiming that a specific practice or policy is evidence-based is possible *if*, and *only if*, three conditions are met: &lt;br&gt;
+
+1. We are not justified to say a policy is evidence-based if &lt;i style="color:#cc0065"&gt;we do not possess any evidence about its effects in comparison with the effects of any other practices/policies&lt;/i&gt;.
+.text-invisible[2. We are not justified to say a policy is evidence-based if &lt;i style="color:#cc0065"&gt;we do not believe that the evidence supports this practice/policy&lt;/i&gt;.
+3. We are not justified to say a policy is evidence-based if &lt;i style="color:#cc0065"&gt;we cannot explain which evidence we possess or what our preferences are regarding this practice/policy&lt;/i&gt;.
+]]
+
+
+---
+
+# When is it justified to claim EBPM? (cont.)
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to [Gade (2023)](#bib-gade2023justified), claiming that a specific practice or policy is evidence-based is possible *if*, and *only if*, three conditions are met: &lt;br&gt;
+
+1. We are not justified to say a policy is evidence-based if &lt;i style="color:#cc0065"&gt;we do not possess any evidence about its effects in comparison with the effects of any other practices/policies&lt;/i&gt;.
+2. We are not justified to say a policy is evidence-based if &lt;i style="color:#cc0065"&gt;we do not believe that the evidence supports this practice/policy&lt;/i&gt;.
+.text-invisible[3. We are not justified to say a policy is evidence-based if &lt;i style="color:#cc0065"&gt;we cannot explain which evidence we possess or what our preferences are regarding this practice/policy&lt;/i&gt;.
+]]
+
+---
+
+# When is it justified to claim EBPM? (cont.)
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to [Gade (2023)](#bib-gade2023justified), claiming that a specific practice or policy is evidence-based is possible *if*, and *only if*, three conditions are met: &lt;br&gt;
+
+1. We are not justified to say a policy is evidence-based if &lt;i style="color:#cc0065"&gt;we do not possess any evidence about its effects in comparison with the effects of any other practices/policies&lt;/i&gt;.
+2. We are not justified to say a policy is evidence-based if &lt;i style="color:#cc0065"&gt;we do not believe that the evidence supports this practice/policy&lt;/i&gt;.
+3. We are not justified to say a policy is evidence-based if &lt;i style="color:#cc0065"&gt;we cannot explain which evidence we possess or what our preferences are regarding this practice/policy&lt;/i&gt;.
+]
+
+--
+
+&lt;br&gt;
+.pull-center[
+What do you think about this take? Is it too &lt;i style="color:#cc0065"&gt;restrictive&lt;/i&gt;? Is there &lt;i style="color:#cc0065"&gt;something missing&lt;i/&gt;?
+]
+
+---
+
+class: inverse, center, middle
+name: ds-ebpm
+
+# Outlook: Data science for EBPM
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# What is data science?
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+**Data science** is an .i-pink[interdisciplinary] field that employs statistics, scientific computing, methods,&lt;br&gt; algorithms, and systems to .i-pink[extract knowledge and insights] from .i-pink[diverse data types], ranging from structured to unstructured data&lt;/i&gt;.
+]
+
+--
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-venn-orig-5-credit.png" height=350&gt;
+&lt;/div&gt;
+
+---
+background-image: url("../pics/vintage-pipeline.jpeg")
+background-size: contain
+background-color: #000000
+
+# The data science pipeline
+
+
+---
+
+# The data science pipeline
+
+.pull-left[
+
+**Preparatory work**
+
+- **Problem definition** predict, infer, describe
+- **Design** conceptualize, build data collection device
+- **Data collection** recruit, collect, monitor
+
+]
+
+---
+
+# The data science pipeline
+
+.pull-left[
+
+**Preparatory work**
+
+- **Problem definition** predict, infer, describe
+- **Design** conceptualize, build data collection device
+- **Data collection** recruit, collect, monitor
+
+**Data operation**
+
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-data-science-flow.png" height=200&gt;
+&lt;/div&gt;
+]
+
+---
+
+# The data science pipeline
+
+.pull-left[
+
+**Preparatory work**
+
+  - **Problem definition** predict, infer, describe
+  - **Design** conceptualize, build data collection device
+  - **Data collection** recruit, collect, monitor
+
+**Data operation**
+
+   - **Wrangle**: import, tidy, manipulate
+   
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-wrangle.png" height=200&gt;
+&lt;/div&gt;
+]
+
+
+---
+
+# The data science pipeline
+
+.pull-left[
+
+**Preparatory work**
+
+  - **Problem definition** predict, infer, describe
+  - **Design** conceptualize, build data collection device
+  - **Data collection** recruit, collect, monitor
+
+**Data operation**
+
+   - **Wrangle**: import, tidy, manipulate
+   - **Explore**: visualize, describe, discover
+
+
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-data-science-explore.png" height=200&gt;
+&lt;/div&gt;
+]
+
+
+---
+
+# The data science pipeline
+
+.pull-left[
+
+**Preparatory work**
+
+  - **Problem definition** predict, infer, describe
+  - **Design** conceptualize, build data collection device
+  - **Data collection** recruit, collect, monitor
+
+**Data operation**
+
+   - **Wrangle**: import, tidy, manipulate
+   - **Explore**: visualize, describe, discover
+   - **Model**: build, test, infer, predict
+
+
+
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-data-science-model.png" height=200&gt;
+&lt;/div&gt;
+]
+
+
+---
+
+# The data science pipeline
+
+.pull-left[
+
+**Preparatory work**
+
+  - **Problem definition** predict, infer, describe
+  - **Design** conceptualize, build data collection device
+  - **Data collection** recruit, collect, monitor
+
+**Data operation**
+
+   - **Wrangle**: import, tidy, manipulate
+   - **Explore**: visualize, describe, discover
+   - **Model**: build, test, infer, predict
+
+**Dissemination**
+
+  - **Communicate**: to the public, media, policymakers
+  - **Publish**: journals/proceedings, blogs, software
+  - **Productize**: make usable, robust, scalable
+
+
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-data-science-communicate.png" height=200&gt;
+&lt;/div&gt;
+]
+
+
+---
+
+# The data science pipeline
+
+.pull-left[
+
+**Preparatory work**
+
+  - **Problem definition** predict, infer, describe
+  - **Design** conceptualize, build data collection device
+  - **Data collection** recruit, collect, monitor
+
+**Data operation**
+
+   - **Wrangle**: import, tidy, manipulate
+   - **Explore**: visualize, describe, discover
+   - **Model**: build, test, infer, predict
+
+**Dissemination**
+
+  - **Communicate**: to the public, media, policymakers
+  - **Publish**: journals/proceedings, blogs, software
+  - **Productize**: make usable, robust, scalable
+
+**Meta skill: programming**
+
+]
+
+.pull-right-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/data-science-program.png" height=200&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Mapping science onto policy
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to the &lt;a name=cite-national2012using&gt;&lt;/a&gt;[National Research Council (2012)](#bib-national2012using), science can have five tasks related to policy: 
+
+1. .i-pink[identify problems], such as endangered species, obesity, unemployment, and vulnerability to natural disasters or terrorist acts; 
+.text-invisible[2. .i-pink[measure] their magnitude and seriousness; 
+3. .i-pink[review] alternative policy interventions; 
+4. systematically assess the .i-pink[likely consequences] of particular policy actions—intended and unintended, desired and unwanted; and 
+5. .i-pink[evaluate] what, in fact, results from policy. 
+]]
+
+---
+
+# Mapping science onto policy
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to the [National Research Council (2012)](#bib-national2012using), science can have five tasks related to policy: 
+
+1. .i-pink[identify problems], such as endangered species, obesity, unemployment, and vulnerability to natural disasters or terrorist acts; 
+2. .i-pink[measure] their magnitude and seriousness; 
+.text-invisible[3. .i-pink[review] alternative policy interventions; 
+4. systematically assess the .i-pink[likely consequences] of particular policy actions—intended and unintended, desired and unwanted; and 
+5. .i-pink[evaluate] what, in fact, results from policy. 
+]]
+
+---
+
+# Mapping science onto policy
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to the [National Research Council (2012)](#bib-national2012using), science can have five tasks related to policy: 
+
+1. .i-pink[identify problems], such as endangered species, obesity, unemployment, and vulnerability to natural disasters or terrorist acts; 
+2. .i-pink[measure] their magnitude and seriousness; 
+3. .i-pink[review] alternative policy interventions; 
+.text-invisible[4. systematically assess the .i-pink[likely consequences] of particular policy actions—intended and unintended, desired and unwanted; and 
+5. .i-pink[evaluate] what, in fact, results from policy. 
+]]
+
+---
+
+# Mapping science onto policy
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to the [National Research Council (2012)](#bib-national2012using), science can have five tasks related to policy: 
+
+1. .i-pink[identify problems], such as endangered species, obesity, unemployment, and vulnerability to natural disasters or terrorist acts; 
+2. .i-pink[measure] their magnitude and seriousness; 
+3. .i-pink[review] alternative policy interventions; 
+4. systematically assess the .i-pink[likely consequences] of particular policy actions—intended and unintended, desired and unwanted; and 
+.text-invisible[5. .i-pink[evaluate] what, in fact, results from policy. 
+]]
+
+---
+
+# Mapping science onto policy
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to the [National Research Council (2012)](#bib-national2012using), science can have five tasks related to policy: 
+
+1. .i-pink[identify problems], such as endangered species, obesity, unemployment, and vulnerability to natural disasters or terrorist acts; 
+2. .i-pink[measure] their magnitude and seriousness; 
+3. .i-pink[review] alternative policy interventions; 
+4. systematically assess the .i-pink[likely consequences] of particular policy actions—intended and unintended, desired and unwanted; and 
+5. .i-pink[evaluate] what, in fact, results from policy. 
+]
+
+
+---
+
+# Mapping science onto policy
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to the [National Research Council (2012)](#bib-national2012using), science can have five tasks related to policy: 
+
+1. .i-pink[identify problems], such as endangered species, obesity, unemployment, and vulnerability to natural disasters or terrorist acts; 
+2. .i-pink[measure] their magnitude and seriousness; 
+3. .i-pink[review] alternative policy interventions; 
+4. systematically assess the .i-pink[likely consequences] of particular policy actions—intended and unintended, desired and unwanted; and 
+5. .i-pink[evaluate] what, in fact, results from policy. 
+]
+
+.pull-center[&lt;br&gt;
+Through **data science**, we can leverage large, often under-used, data sources and tap&lt;br&gt;on their full potential to extract policy insights related to each of those tasks.]
+
+---
+
+# Mapping science onto policy (cont.)
+
+
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-social-media.jpeg" height=120&gt;
+&lt;img src="../pics/d4-s1-night-satellite.jpeg" height=120&gt;
+&lt;img src="../pics/d4-s1-digital-traces.jpeg" height=120&gt;
+&lt;img src="../pics/d4-s1-soundwave.jpeg" height=120&gt;
+&lt;/div&gt;
+
+
+Some of the things we can do: .i-pink[(identify problems; measure)]
+
+--
+
+- Monitor SDG advancement by extracting meaningful measures of the global digital gender gap using Facebook ad data &lt;a name=cite-fatehkia2018using&gt;&lt;/a&gt;(e.g., [Fatehkia et al., 2018](#bib-fatehkia2018using))
+
+--
+
+- Measure poverty remotely by combining satellite imagery and machine learning &lt;a name=cite-jean2016combining&gt;&lt;/a&gt;(e.g., [Jean et al., 2016](#bib-jean2016combining))
+
+--
+
+- Infer public transport demand and infrastructure usage by combining mobile phone, geospatial, census records, and survey data &lt;a name=cite-toole2015path&gt;&lt;/a&gt;(e.g., [Toole et al., 2015](#bib-toole2015path))
+
+--
+
+- ...
+
+---
+
+# Mapping science onto policy (cont.)
+
+
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-social-media.jpeg" height=120&gt;
+&lt;img src="../pics/d4-s1-night-satellite.jpeg" height=120&gt;
+&lt;img src="../pics/d4-s1-digital-traces.jpeg" height=120&gt;
+&lt;img src="../pics/d4-s1-soundwave.jpeg" height=120&gt;
+&lt;/div&gt;
+
+
+Some of the things we can do: .i-pink[(review; assess likely consequences; evaluate)]
+
+--
+
+- Conduct large, low-cost, experiments and assess compliance with interventions with consensual data tracking &lt;a name=cite-guess2023social&gt;&lt;/a&gt;&lt;a name=cite-munzert2021tracking&gt;&lt;/a&gt;(e.g., [Guess et al., 2023](#bib-guess2023social); [Munzert et al., 2021](#bib-munzert2021tracking))
+
+--
+
+- Design more cost-efficient experiments with balanced treatment assignments &lt;a name=cite-arbour2021efficient&gt;&lt;/a&gt;(e.g., [Arbour et al., 2021](#bib-arbour2021efficient))
+
+--
+
+- Extracting more precise causal estimates through estimators that leverage increased computational power, such as double ML and synthetic controls &lt;a name=cite-knaus2022double&gt;&lt;/a&gt;&lt;a name=cite-abadie2015comparative&gt;&lt;/a&gt;(e.g., [Knaus, 2022](#bib-knaus2022double); [Abadie et al., 2015](#bib-abadie2015comparative))
+
+--
+
+- ...
+
+---
+class: inverse, center, middle
+name: DS-promises
+background-color: #FFFFFF
+
+
+&lt;span style="text-align:center;color:#2b7282;font-size:150%;"&gt;Through data science, we can leverage large, often under-used, data sources and tap on their full&lt;/span&gt;&lt;span style="font-weight:bold;text-align:center;color:#2b7282;font-size:130%;"&gt; potential to extract policy insights&lt;/span&gt;&lt;span style="text-align:center;color:#2b7282;font-size:150%;"&gt; related to each of those tasks.&lt;/span&gt;
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+
+class: inverse, center, middle
+name: questions
+
+# Questions?
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+
+class: inverse, center, middle
+name: qr-code
+background-color: #FFFFFF
+
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;b style="color:#000000;"&gt;Auxiliary activity&lt;/b&gt;&lt;br&gt;
+&lt;/div&gt;
+
+---
+
+
+# A tale of two policy challenges
+
+.pull-left-tiny-text[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-belt.jpeg" height=200&gt;
+&lt;br&gt;
+&lt;i style="color:#cc0065; font-weight:bold"&gt;Seatbelts&lt;/i&gt;
+&lt;/div&gt;
+]
+
+.pull-right-tiny-text[
+&lt;br&gt;&lt;br&gt;
+In the mid-20th century, automobile accidents were a leading cause of injury and death. Despite early evidence suggesting the .i-pink[effectiveness of seatbelts] in *preventing serious injuries during crashes*, widespread adoption lagged.
+
+.text-invisible[However, as scientific research continued to demonstrate the potential of seatbelts, policymakers began to take notice. In the 1960s and 1970s, pioneering legislation mandating use emerged in several jurisdictions. This move was further .i-pink[catalyzed by influential studies] highlighting the dramatic reduction in injury severity among those who wore them during accidents.
+
+Over time, as more states and countries enacted seatbelt laws and launched public awareness campaigns emphasizing their importance, seatbelt usage became not only commonplace but legally obligatory in many places. The result was a significant decrease in the number of fatalities and serious injuries in automobile accidents.
+]]
+
+---
+
+# A tale of two policy challenges
+
+.pull-left-tiny-text[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-belt.jpeg" height=200&gt;
+&lt;br&gt;
+&lt;i style="color:#cc0065; font-weight:bold"&gt;Seatbelts&lt;/i&gt;
+&lt;/div&gt;
+]
+
+.pull-right-tiny-text[
+&lt;br&gt;&lt;br&gt;
+In the mid-20th century, automobile accidents were a leading cause of injury and death. Despite early evidence suggesting the .i-pink[effectiveness of seatbelts] in *preventing serious injuries during crashes*, widespread adoption lagged.
+
+However, as scientific research continued to demonstrate the potential of seatbelts, policymakers began to take notice. In the 1960s and 1970s, pioneering legislation mandating use emerged in several jurisdictions. This move was further .i-pink[catalyzed by influential studies] highlighting the dramatic reduction in injury severity among those who wore them during accidents.
+
+.text-invisible[Over time, as more states and countries enacted seatbelt laws and launched public awareness campaigns emphasizing their importance, seatbelt usage became not only commonplace but legally obligatory in many places. The result was a significant decrease in the number of fatalities and serious injuries in automobile accidents.
+]]
+
+---
+
+# A tale of two policy challenges
+
+.pull-left-tiny-text[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-belt.jpeg" height=200&gt;
+&lt;br&gt;
+&lt;i style="color:#cc0065; font-weight:bold"&gt;Seatbelts&lt;/i&gt;
+&lt;/div&gt;
+]
+
+.pull-right-tiny-text[
+&lt;br&gt;&lt;br&gt;
+In the mid-20th century, automobile accidents were a leading cause of injury and death. Despite early evidence suggesting the .i-pink[effectiveness of seatbelts] in *preventing serious injuries during crashes*, widespread adoption lagged.
+
+However, as scientific research continued to demonstrate the potential of seatbelts, policymakers began to take notice. In the 1960s and 1970s, pioneering legislation mandating use emerged in several jurisdictions. This move was further .i-pink[catalyzed by influential studies] highlighting the dramatic reduction in injury severity among those who wore them during accidents.
+
+Over time, as more states and countries enacted seatbelt laws and launched public awareness campaigns emphasizing their importance, seatbelt usage became not only commonplace but legally obligatory in many places. The result was a significant decrease in the number of fatalities and serious injuries in automobile accidents.
+]
+
+---
+
+# A tale of two policy challenges (cont.)
+
+
+.pull-left-tiny-text[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-lead-gas.jpeg" height=200&gt;
+&lt;br&gt;
+&lt;i style="color:#cc0065; font-weight:bold"&gt;Leaded gasoline&lt;/i&gt;
+&lt;/div&gt; &lt;br&gt;
+
+]
+
+.pull-right-tiny-text[
+&lt;br&gt;
+For about 50 years after the discovery of leaded gasoline, virtually all cars around the world pumped lead into the air. The use of lead as an additive served boost octane levels and prevent engine knocking. However, scientific research began to accumulate evidence showing the .i-pink[harmful effects of lead exposure], particularly on children's cognitive development and overall health.
+
+.text-invisible[Despite the mounting scientific evidence, policymakers and industry leaders resisted calls to phase out leaded gasoline due to concerns about economic costs and potential disruptions to the industry. Around the 1980s, after significant public health campaigns and further scientific research, that *some* governments began to regulate and eventually phase out leaded gasoline.
+
+It was not, however, until **2021**, that it was completely phased out across the globe. The .i-pink[delay in action] resulted in millions of people being exposed to harmful levels of lead for decades, leading to irreversible health consequences and societal costs.
+]]
+
+---
+
+# A tale of two policy challenges (cont.)
+
+
+.pull-left-tiny-text[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-lead-gas.jpeg" height=200&gt;
+&lt;br&gt;
+&lt;i style="color:#cc0065; font-weight:bold"&gt;Leaded gasoline&lt;/i&gt;
+&lt;/div&gt; &lt;br&gt;
+
+]
+
+.pull-right-tiny-text[
+&lt;br&gt;
+For about 50 years after the discovery of leaded gasoline, virtually all cars around the world pumped lead into the air. The use of lead as an additive served boost octane levels and prevent engine knocking. However, scientific research began to accumulate evidence showing the .i-pink[harmful effects of lead exposure], particularly on children's cognitive development and overall health.
+
+Despite the mounting scientific evidence, policymakers and industry leaders resisted calls to phase out leaded gasoline due to concerns about economic costs and potential disruptions to the industry. Around the 1980s, after significant public health campaigns and further scientific research, that *some* governments began to regulate and eventually phase out leaded gasoline.
+
+.text-invisible[It was not, however, until **2021**, that it was completely phased out across the globe. The .i-pink[delay in action] resulted in millions of people being exposed to harmful levels of lead for decades, leading to irreversible health consequences and societal costs.
+]]
+
+---
+
+# A tale of two policy challenges (cont.)
+
+
+.pull-left-tiny-text[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-lead-gas.jpeg" height=200&gt;
+&lt;br&gt;
+&lt;i style="color:#cc0065; font-weight:bold"&gt;Leaded gasoline&lt;/i&gt;
+&lt;/div&gt; &lt;br&gt;
+
+]
+
+.pull-right-tiny-text[
+&lt;br&gt;
+For about 50 years after the discovery of leaded gasoline, virtually all cars around the world pumped lead into the air. The use of lead as an additive served boost octane levels and prevent engine knocking. However, scientific research began to accumulate evidence showing the .i-pink[harmful effects of lead exposure], particularly on children's cognitive development and overall health.
+
+Despite the mounting scientific evidence, policymakers and industry leaders resisted calls to phase out leaded gasoline due to concerns about economic costs and potential disruptions to the industry. Around the 1980s, after significant public health campaigns and further scientific research, that *some* governments began to regulate and eventually phase out leaded gasoline.
+
+It was not, however, until **2021**, that it was completely phased out across the globe. The .i-pink[delay in action] resulted in millions of people being exposed to harmful levels of lead for decades, leading to irreversible health consequences and societal costs.
+]
+
+---
+class: inverse, center, middle
+name: ebpm-case-1
+background-color: #FFFFFF
+
+&lt;span style="text-align:center;color:#2b7282;font-size:130%;"&gt;1. What do you think made these cases go in &lt;/span&gt;&lt;span style="font-weight:bold;text-align:center;color:#2b7282;font-size:130%;"&gt;different directions?&lt;/span&gt;&lt;br&gt;
+.text-invisible[&lt;span style="font-weight:bold;text-align:center;color:#2b7282;font-size:130%;"&gt;2. Ultimately, leaded gasoline was phased out globally. Would you still&lt;br&gt;consider this a success story of evidence permeating policy decisions?&lt;/span&gt;]
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+class: inverse, center, middle
+name: ebpm-case-2
+background-color: #FFFFFF
+
+&lt;span style="text-align:center;color:#2b7282;font-size:130%;"&gt;1. What do you think made these cases go in &lt;/span&gt;&lt;span style="font-weight:bold;text-align:center;color:#2b7282;font-size:130%;"&gt;different directions?&lt;/span&gt;&lt;br&gt;
+&lt;span style="text-align:center;color:#2b7282;font-size:130%;"&gt;2. Ultimately, leaded gasoline was phased out globally. Would you still&lt;br&gt;consider this a &lt;/span&gt;&lt;span style="font-weight:bold;text-align:center;color:#2b7282;font-size:130%;"&gt;success story&lt;/span&gt;&lt;span style="text-align:center;color:#2b7282;font-size:130%;"&gt; of evidence permeating policy decisions?&lt;/span&gt;
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

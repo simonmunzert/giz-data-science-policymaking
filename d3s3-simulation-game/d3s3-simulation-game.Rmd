@@ -1,0 +1,213 @@
+---
+title: "Day 3: Simulation"
+subtitle: "Solving policy challenges with evidence"
+author: "Simon Munzert<br>Sebastian Ramirez-Ruiz"
+institute: "Hertie School"
+output:
+  xaringan::moon_reader:
+    includes:
+      after_body: "../add_hertie_logo.html"
+      in_header: "../my_header.html"
+    css: [default,'../simons-touch.css', metropolis, metropolis-fonts] 
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+      hash: true
+---
+
+```{css, echo=FALSE} 
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+.has-continuation {
+display: block !important;
+}
+}
+```
+
+```{r setup, include=FALSE}
+# figures formatting setup
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  prompt = T,
+  fig.align="center", #fig.width=6, fig.height=4.5, 
+  # out.width="748px", #out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=T, #echo=F, warning=F, message=F
+  engine.opts = list(bash = "-l")
+)
+
+## Next hook based on this SO answer: https://stackoverflow.com/a/39025054
+knit_hooks$set(
+  prompt = function(before, options, envir) {
+    options(
+      prompt = if (options$engine %in% c('sh','bash')) '$ ' else 'R> ',
+      continue = if (options$engine %in% c('sh','bash')) '$ ' else '+ '
+    )
+  })
+
+library(tidyverse)
+library(hrbrthemes)
+library(fontawesome)
+
+
+```
+
+
+# Task description
+
+
+In this interactive session, you will be confronted with a .hlred[policy challenge].
+
+
+| Time | Session |
+|------|---------|
+| 14:15-14:30     | Introduction of the Challenge, formations of Teams .hlred[Red]/.hlblue[Blue]      |
+| 14:30-14:45     | Group work: Making a normative case for the policy        |
+| 14:45-15:15     | Policy pitches        |
+| 15:15-15:45    | Group work: Making an evidence-based case the policy       |
+| 15:45-16:00     | Coffee break       |
+| 16:00-16:30     | Evidence pitches       |
+| 16:30-17:00     | Adversarial collaboration for better informed policy-making      |
+| 17:00-17:30     | Final presentation of designs; discussion      |
+
+
+---
+# Adversarial collaboration
+
+.pull-center[
+.content-box-gray-wide[
+## Definition
+
+.hlred[Adversarial collaboration] is a methodology where participants with **opposing views work together** to conduct studies, generally experiments, and **resolve their differences through empirical evidence**.
+]
+]
+
+<br>
+In this policy challenge, adversarial collaboration will serve as a **modality of collaboration where opposing views work together** in order to jointly advance knowledge of the policy area under dispute. 
+
+This will take the form of the development of a .hlblue[joint plan] conducted by the two groups with competing theories of change.
+
+The aim is to **construct and implement a design that satisfies both groups** to assess the potential goals of the policies.
+
+
+---
+
+background-image: url("../pics/tbilisi-city.png")
+background-size: cover
+background-color: #000000
+
+# Urban mobility
+
+---
+
+background-image: url("../pics/hertie-bikelane.png")
+background-size: cover
+background-color: #000000
+
+# Bike infrastructure
+
+---
+
+background-image: url("../pics/ev-charging.png")
+background-size: cover
+background-color: #000000
+name: whereevidence
+
+# EV infrastructure
+
+---
+
+# Schedule
+
+<br>
+
+| Time | Session |
+|------|---------|
+| 14:15-14:30     | Introduction of the Challenge, formations of Teams .hlred[Red]/.hlblue[Blue]      |
+| 14:30-14:45     | Group work: Making a normative case for the policy        |
+| 14:45-15:15     | Policy pitches        |
+| 15:15-15:45    | Group work: Making an evidence-based case the policy       |
+| 15:45-16:00     | Coffee break       |
+| 16:00-16:30     | Evidence pitches       |
+| 16:30-17:00     | Adversarial collaboration for better informed policy-making      |
+| 17:00-17:30     | Final presentation of designs; discussion      |
+
+---
+
+# Group work: Normative case (14:30-14:45)
+
+.content-box-gray-wide[
+.hlred[Objective]: Establish the fundamental **ethical, moral, and societal values that support the policy**.
+]
+
+
+## Subtasks:
+
+1. **Familiarize Yourself with the Policy**: Understand the key components, goals, and implications of the policy you are meant to defend.
+2. **Articulate the Normative Justification**: Identify and explain the ethical, moral, and societal values that underpin the need for your policy. Why is it the right thing to do?
+3. **Compare to Rival Policy**: Analyze and articulate why your policy is morally or ethically preferable to the rival policy.
+4. **Identify Key Measures**: Highlight 2-3 key concrete measures that your policy would entail, explaining how they serve the normative goals.
+5. **Summarize in a Presentation Pitch**: Prepare a concise presentation (7 minutes max) summarizing your normative case. Visual aids are optional but can be used to enhance clarity.
+
+
+## You will pitch these from 14:45 to 15:15
+
+
+---
+
+# Group work: Evidence-based case (15:15-15:45)
+
+
+.content-box-gray-wide[
+.hlred[Objective]: Support your policy with robust insights, making a **evidence-driven argument**.
+]
+
+## Subtasks:
+
+1. **Conduct Research**: Gather relevant data, studies, and expert opinions that support your policy. Focus on credible and up-to-date sources.
+2. **Analyze Avaiable Information**: Critically analyze the information to draw meaningful conclusions that support your policy goals.
+3. **Link Evidence to Policy Goals**: Clearly explain how the evidence supports the specific measures and overall goals of your policy.
+4. **Compare with Rival Policy**: Use evidence to highlight the strengths of your policy and the weaknesses or gaps in the rival policy.
+5. **Prepare a Evidence-Driven Pitch**: Develop a presentation that integrates the evidence into your argument. You can include studies, cases, charts, graphs, and other aids as needed.
+
+
+## You will pitch these from 16:00 to 16:30
+
+
+---
+
+# Adversarial collaboration (16:30-17:00)
+
+.content-box-gray-wide[
+.hlred[Objective]: Critically **examine and refine policies** through structured **debate** and **collaboration with opposing groups**.
+]
+
+## Subtasks:
+
+1. **Form Mixed Teams**: Create small teams consisting of members from both policy groups to foster direct engagement.
+2. **Exchange Arguments**: Present your policy arguments to the opposing group and listen to their arguments.
+3. **Identify Common Ground**: Look for areas of agreement or shared goals between the two policies.
+4. **Debate Key Issues***: Engage in structured debate to challenge assumptions, question evidence, and refine arguments.
+5. **Collaborate on Refinements**: Work together to identify potential compromises or improvements to the policies based on the debate.
+6. **Document Outcomes**: Summarize the key points of agreement, disagreement, and any proposed refinements or compromises.
+
+
+---
+
+# Policy design presentation (17:00-17:30)
+
+.content-box-gray-wide[
+.hlred[Objective]: Deliver a final, polished **presentation that clearly communicates the policy design**, supported by normative arguments and evidence.
+]
+
+## Subtasks:
+
+1. **Regroup and Share**: Gather your team to discuss insights and feedback from the adversarial collaboration session. Share notes, refine ideas, and ensure everyone is aligned on the final policy design.
+2. **Finalize Policy Design**: Integrate feedback from the adversarial collaboration session to finalize your policy design.
+3. **Structure the Presentation**: Organize the presentation to include an introduction, normative arguments, evidence-based support, and a conclusion.
+4. **Deliver the Presentation**: Present your policy design to the entire workshop group, ensuring each team member is prepared to address questions and engage in discussion.
+5. **Q&A Session**: Prepare for a question-and-answer session following the presentation to address any queries and defend your policy.
+

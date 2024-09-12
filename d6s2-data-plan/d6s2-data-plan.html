@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 6: Data management and ethics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sebastian Ramirez-Ruiz" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 6: Data management and ethics
+]
+.subtitle[
+## Guiding Principles for Data Management I
+]
+.author[
+### Sebastian Ramirez-Ruiz
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+.has-continuation {
+display: block !important;
+}
+}
+&lt;/style&gt;
+
+
+
+
+# What people think working with data looks like...
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d6-s2-programming.jpeg" width=800&gt;
+&lt;/div&gt;
+
+---
+# How it really is...
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d6-s2-janitor.jpg" width=200&gt;
+&lt;img src="../pics/d6-s2-plumber.jpg" width=200&gt;
+&lt;img src="../pics/d6-s2-doctor.jpg" width=200&gt;
+&lt;img src="../pics/d6-s2-archivist.jpg" width=200&gt;
+&lt;img src="../pics/d6-s2-security-guard.jpg" width=200&gt;
+&lt;/div&gt;
+
+--
+
+&lt;h2 style="text-align:center"&gt;You have to wear many hats...&lt;/h2&gt;
+
+---
+
+# Research data management (RDM) lifecycle
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/rdm-lifecycle.png" width=700&gt;
+&lt;/div&gt;
+
+
+---
+
+
+# Table of contents
+
+&lt;/br&gt;&lt;/br&gt;
+
+1. [Data management and a data management plan (DMP)](#dmp)
+
+2. [Protecting](#protecting)
+
+3. [Organizing, documenting, processing, and storing](#organizing)
+
+---
+
+# Research data management (RDM) lifecycle
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/rdm-lifecycle-s1.png" width=700&gt;
+&lt;/div&gt;
+
+
+---
+
+class: midtext
+
+# A show of hands!
+
+### Raise your hand if you:
+
+- have heard the term data management plan (DMP)
+
+--
+- can define what a data management plan entails
+
+--
+- have ever created a data management plan for a project
+
+--
+- have planned data collection methods for research or policy work
+
+--
+- have implemented strategies to ensure data integrity and security
+
+--
+- are familiar with the FAIR principles (Findability, Accessibility, Interoperability, and Reuse)
+
+--
+- have incorporated open data practices into your work
+
+--
+- have archived or published datasets for public access
+
+--
+- are familiar with data protection regulations and compliance requirements
+
+--
+- have used techniques to discover and access relevant datasets
+
+--
+- have utilized data management tools or software in your projects
+
+--
+- have trained or guided others in effective data management practices
+
+
+---
+class: inverse, center, middle
+name: dmp
+
+# Data management and a data management plan (DMP)
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+
+# Data
+
+.pull-left[
+&lt;br&gt;
+## What are data?
+
+- Data are disembodied **facts**, **signs**, and **symbols**.
+
+.text-invisible[
+- We often define them by their **source** (*e.g. administrative, historical, medical, etc.*) and their **formats** (*e.g., numerical, textual, still image, geospatial, audio, video, and software.*) 
+
+- It is thought about as the basis under the *DIKW pyramid*.
+]
+]
+---
+
+# Data
+
+.pull-left[
+&lt;br&gt;
+## What are data?
+
+- Data are disembodied **facts**, **signs**, and **symbols**.
+
+
+- We often define them by their **source** (*e.g. administrative, historical, medical, etc.*) and their **formats** (*e.g., numerical, textual, still image, geospatial, audio, video, and software.*) 
+
+.text-invisible[
+- It is thought about as the basis of the **knowledge hierarchy** under the *DIKW pyramid*.
+]
+]
+---
+
+
+# Data
+
+.pull-left[
+&lt;br&gt;
+## What are data?
+
+- Data are disembodied **facts**, **signs**, and **symbols**.
+
+- We often define them by their **source** (*e.g. administrative, historical, medical, etc.*) and their **formats** (*e.g., numerical, textual, still image, geospatial, audio, video, and software.*) 
+
+- It is thought about as the basis of the **knowledge hierarchy** under the *DIKW pyramid*.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d6-s2-dikw.png" height=360&gt;
+&lt;/div&gt;
+]
+---
+
+# Data in policy analysis
+
+In a similar way to academic research, as **policy analysts you might rely on a broad range of materials**, from structured numerical datasets to interviews, field notes, and documents collected for ethnographic field studies,
+
+--
+
+.pull-left[
+&lt;h2 style="text-align:center"&gt;Quantitative&lt;/h2&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d6-s2-quant.png" height=250&gt;
+&lt;/div&gt;
+
+]
+
+.pull-right[
+&lt;h2 style="text-align:center"&gt;Qualitative&lt;/h2&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d6-s2-qual.png" height=250&gt;
+&lt;/div&gt;
+]
+
+--
+
+&lt;br&gt;
+Regardless of *"type"*, in the policy world, we will likely deal largely with **collection of data about individuals** (i.e., .i-pink[human subject research]).
+
+---
+class: midtext
+
+
+# Personal data
+
+Any data that enables you to **identify a person** is classified as personal data. In the General Data Protection Regulation (GDPR) personal data are .i-pink[any information relating to] an **identified** or **identifiable** natural person known as ‘a data subject’&lt;sup&gt;1&lt;/sup&gt;.
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt;The GDPR applies only to the data of living persons. Data which do not count as personal data do not fall under data protection legislation, though there might still be ethical reasons for protecting this information.]
+--
+
+.pull-left-wide[
+
+## Sensitive personal data
+
+Certain personal data can .i-pink[require specific protection] when they reveal information that may create important *risks* for the *fundamental rights* and *freedoms* of the involved individual. In the context of GDPR, these can be:
+
+- Racial or ethnic origin;
+- Political opinions;
+- Religious or philosophical beliefs;
+- Trade union membership;
+- Genetic data;
+- Biometric data;
+- Data concerning health;
+- Data concerning a natural person’s sex life or sexual orientation.
+
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d6-s2-data-protection.jpeg" width=200&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Research data management (RDM)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+
+
+.pull-left-small[
+&lt;br&gt;
+
+**Research data management** is like “.i-pink[health care]” for your data:
+- keeps them safe from harm,
+- makes them usable and discoverable.
+
+
+It entails strategies, processes and measures to maintain data quality, interpretability of research results, (re-)usability of your data.
+]
+
+.pull-right-wider[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d6-s2-data-photo.png" width=655&gt;
+&lt;/div&gt;
+]
+
+
+---
+
+# Research data management (RDM)
+
+.content-box-gray-wide[
+The .i-pink[need] for thinking closely about **RDM** increases when dealing with .i-pink[sensitive personal data].
+]
+
+
+.pull-left-small[
+&lt;br&gt;
+
+**Research data management** is like “.i-pink[health care]” for your data:
+- keeps them safe from harm,
+- makes them usable and discoverable.
+
+
+It entails strategies, processes and measures to maintain data quality, interpretability of research results, (re-)usability of your data.
+]
+
+.pull-right-wider[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d6-s2-data-photo.png" width=655&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Research data management (RDM) lifecycle
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/rdm-lifecycle.png" width=700&gt;
+&lt;/div&gt;
+
+---
+
+# Data management plan (DMP)
+
+&lt;br&gt;&lt;br&gt;
+
+.pull-left[
+## Data management plans are an important tool to structure the data management of your project.
+
+Defines strategies, measures and responsibilities for:
+
+- processing and validating,
+- storing and protecting, 
+- preserving and sharing
+
+your data throughout the data cycle.
+
+More and more .i-pink[funding partners increasingly require them].
+]
+
+--
+
+.pull-right[
+## Components of a data management plan
+
+1. Data summary
+2. FAIR data
+    - *Findable*
+    - *Accessible*
+    - *Interoperable*
+    - *Reusable*
+3. Allocation of resources
+4. Data security
+5. Ethical aspects
+6. *Other*\*
+]
+
+---
+class: midtext
+
+# Data management plan (DMP) (cont.)
+
+&lt;br&gt;
+
+| DMP component | Issues to be addressed |
+| -------------- | ---------------------- |
+| **1. Data summary** | - State the purpose of the data collection/generation&lt;br&gt;- Explain the relation to the objectives of the project&lt;br&gt;- Specify the types and formats of data generated/collected&lt;br&gt;- Specify if existing data is being re-used (if any)&lt;br&gt;- Specify the origin of the data&lt;br&gt;- State the expected size of the data (if known)&lt;br&gt;- Outline the data utility: to whom will it be useful |
+| &lt;b&gt;FAIR data:&lt;/b&gt;&lt;br&gt;**2.1. Making data findable, including provisions for metadata** | - Outline the discoverability of data (metadata provision)&lt;br&gt;- Outline the identifiability of data and refer to standard identification mechanism. Do you make use of persistent and unique identifiers such as Digital Object Identifiers?&lt;br&gt;- Outline naming conventions used&lt;br&gt;- Outline the approach towards search keywords&lt;br&gt;- Outline the approach for clear versioning&lt;br&gt;- Specify standards for metadata creation (if any). If there are no standards in your discipline describe what type of metadata will be created and how |
+
+`Source`: [H2020 DMP Template](https://ec.europa.eu/research/participants/data/ref/h2020/other/gm/reporting/h2020-tpl-oa-data-mgt-plan-annotated_en.pdf)
+---
+class: midtext
+
+# Data management plan (DMP) (cont.)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+| DMP component | Issues to be addressed |
+| -------------- | ---------------------- |
+| &lt;b&gt;FAIR data:&lt;/b&gt;&lt;br&gt; **2.2 Making data openly accessible** | - Specify which data will be made openly available? If some data is kept closed provide rationale for doing so&lt;br&gt;- Specify how the data will be made available&lt;br&gt;- Specify what methods or software tools are needed to access the data? Is documentation about the software needed to access the data included? Is it possible to include the relevant software (e.g. in open source code)?&lt;br&gt;- Specify where the data and associated metadata, documentation and code are deposited&lt;br&gt;- Specify how access will be provided in case there are any restrictions |
+| &lt;b&gt;FAIR data:&lt;/b&gt;&lt;br&gt; **2.3. Making data interoperable** | - Assess the interoperability of your data. Specify what data and metadata vocabularies, standards or methodologies you will follow to facilitate interoperability.&lt;br&gt;- Specify whether you will be using standard vocabulary for all data types present in your data set, to allow inter-disciplinary interoperability? If not, will you provide mapping to more commonly used ontologies? |
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`Source`: [H2020 DMP Template](https://ec.europa.eu/research/participants/data/ref/h2020/other/gm/reporting/h2020-tpl-oa-data-mgt-plan-annotated_en.pdf)
+
+---
+class: midtext
+
+# Data management plan (DMP) (cont.)
+
+
+| DMP component | Issues to be addressed |
+| -------------- | ---------------------- |
+| &lt;b&gt;FAIR data:&lt;/b&gt;&lt;br&gt; **2.4. Increase data re-use (through clarifying licences)** | - Specify how the data will be licensed to permit the widest reuse possible&lt;br&gt;- Specify when the data will be made available for re-use. If applicable, specify why and for what period a data embargo is needed&lt;br&gt;- Specify whether the data produced and/or used in the project is usable by third parties, in particular after the end of the project? If the re-use of some data is restricted, explain why&lt;br&gt;- Describe data quality assurance processes&lt;br&gt;- Specify the length of time for which the data will remain re-usable |
+| **3. Allocation of resources** | - Estimate the costs for making your data FAIR. Describe how you intend to cover these costs&lt;br&gt;- Clearly identify responsibilities for data management in your project&lt;br&gt;- Describe costs and potential value of long term preservation |
+| **4. Data security** | - Address data recovery as well as secure storage and transfer of sensitive data |
+| **5. Ethical aspects** | - To be covered in the context of the ethics review, ethics section of DoA and ethics deliverables. Include references and related technical aspects if not covered by the former |
+| **6. Other** | - Refer to other national/funder/sectorial/departmental procedures for data management that you are using (if any) |
+
+
+`Source`: [H2020 DMP Template](https://ec.europa.eu/research/participants/data/ref/h2020/other/gm/reporting/h2020-tpl-oa-data-mgt-plan-annotated_en.pdf)
+
+---
+
+class: inverse, center, middle
+name: protecting
+
+# Protecting
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# Data protection
+
+
+.pull-left[
+## Research ethics
+
+The moral **principles** and **actions** guiding and shaping research
+
+&lt;b style="color:#1D375B"&gt;In policy analysis&lt;/b&gt; is closely linked to research ethics in the social sciences.
+- Initially, a 'patient protection' model from medical research.
+- Today it has a broader scope, including:
+    - consideration of &lt;i style="color:#cc0065"&gt;benefits, risks, and harms&lt;/i&gt;
+    - &lt;i style="color:#cc0065"&gt;to all persons&lt;/i&gt; connected with and affected by the research
+- Gives **responsibilities** to researchers and analysts (e.g., *legal framework*).
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d6-s2-info-security.jpeg" width=500&gt;
+&lt;/div&gt;
+
+]
+
+---
+# Nuremberg code (1947)
+
+.pull-left[
+**Ethical guidelines** for the preparation and conduct of medical, psychological and other experiments on humans: 
+
+
+
+&gt;“The voluntary consent of the human subject is absolutely essential [...] without the intervention of any element of force, fraud, deceit, duress, over-reaching, or other ulterior form of constraint or coercion [...] should have sufficient knowledge and comprehension of the elements of the subject matter involved as to enable him to make an **understanding and enlightened decision**.”
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d6-s2-doctor-trials.png" width=500&gt;
+&lt;/div&gt;
+
+]
+
+---
+
+# Reviews of ethics in academic research
+
+&lt;br&gt;&lt;br&gt;
+.pull-left[
+## Institutional Review Board (IRB) and ethical boards
+
+- Administrative bodies established to **protect the rights and welfare** of research subjects
+- Often housed within the academic institution
+- Checks proposals and recommends changes and improvements
+- .i-pink[Can kill unethical projects by denying approval]
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d6-s2-ethics-board.png" width=500&gt;
+&lt;/div&gt;
+
+]
+
+---
+# What is "data protection"?
+
+
+.pull-left[
+## Data protection
+
+- Part of fundamental .i-pink[right to privacy] (or 'informational freedom’).
+- In research there might be instances of tensions of fundamental rights:
+    - Freedom of research vs. freedom of personal information.
+- “Privacy is a personal condition of life characterized by seclusion from, and therefore absence of acquaintance by, the public” (Neethling 2005).
+- **Core**:
+    - prevention of unwanted disclosure of personal information or
+    - the misuse of such information.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d6-s2-privacy-keyboard.png" width=500&gt;
+&lt;/div&gt;
+
+]
+
+---
+
+# There are individuals behind the data...
+
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d6-s2-data-inviduals.png" width=800&gt;
+&lt;/div&gt;
+
+
+---
+
+# Data protection principles under GDPR
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d6-s2-gdpr-1.png" width=900&gt;
+&lt;/div&gt;
+
+---
+
+# Data protection principles under GDPR (cont.)
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d6-s2-gdpr-2.png" width=900&gt;
+&lt;/div&gt;
+
+---
+
+# GDPR
+
+&lt;br&gt;
+
+.pull-left[
+## General Data Protection Regulation
+
+- In place since May 25, 2018 (.i-pink[almost six years to the day] 😎)
+    - 99 articles and 173 recitals
+    - Applies directly
+    - Intended to harmonize data protection law EU-wide
+    - *but*, about 150 “opening clauses” or exemptions...
+
+- GDPR (factually) integrated into a hierarchy of norms
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d6-s2-eu-flag.png" width=500&gt;
+&lt;/div&gt;
+
+]
+
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; Let's check this piece out https://www.bbc.com/news/uk-wales-politics-58395974]
+
+---
+
+class: inverse, center, middle
+name: organizing
+
+# Organizing, documenting, processing, and storing
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# Data processing under GDPR
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d6-s2-gdpr-3.png" width=900&gt;
+&lt;/div&gt;
+
+---
+
+# Data processing under GDPR (cont.)
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d6-s2-gdpr-4.png" width=900&gt;
+&lt;/div&gt;
+
+
+---
+
+# Informed consent for data processing
+
+.pull-left[
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+## Art 4 Par 11 GDPR
+
+
+&gt;“‘(C)onsent’ of the data subject means **any freely given, specific, informed and unambiguous indication of the data subject’s wishes** by which he or she, by a statement or by a clear affirmative action, signifies **agreement to the processing of personal data** relating to him or her;”
+
+]
+
+--
+
+.pull-right[
+
+## Conditions for consent
+
+- Written form no longer required.
+- Conditions for consent (Art 7 GDPR):
+    - Requirement to provide evidence (Par1)
+    - Separation requirement (Par2)
+    - Easy revocability at any time (Par3) 
+    - Increased requirement of voluntariness (Par4)
+- More stringent for minors under 14 years of age (Art 8 GDPR).
+- Important: Collection of "special categories" of personal data "prohibited" under Art 9 GDPR, unless there is a legal basis.
+
+
+- **Central**: .i-pink[consent needs to be documented!]
+
+]
+
+---
+
+# Can we process data without consent? (in research)
+
+.pull-left[
+## Are &lt;span style="color:#cc0065"&gt;researchers&lt;/span&gt; allowed to process data that was collected without consent? 
+
+- .i-pink[It depends...]
+- May need to try to gain consent after the data was gathered.
+- They may skip this step, if "the provision of such information proves impossible or would involve a disproportionate effort" (Art 14 Par 5 Lit b).
+- But this is no default!
+- **Disproportionate really means disproportionate**.
+
+## Consent after the fact is a balance of interests
+]
+
+
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d6-s2-back-future.png" width=500&gt;
+&lt;/div&gt;
+
+]
+
+---
+# Consent after the dact and the balance of interests
+
+## "Balance of interest" - checklist: 
+
+- Legitimate interest of the researcher?
+- Is the data processing necessary?
+    - Are the more lenient ways to achieve research goal?
+- Can the subject refuse to the processing?
+- Are these data linked (or linkable) to other data?
+- How long will the data be stored?
+- How many people are going to access the data?
+- Are the research subjects from a vulnerable group?
+- Would the research subjects have to expect the processing of their data?
+
+--
+
+## THINK CLOSELY: if research subjects’ interest weigh more than yours, data processing is improper
+
+---
+
+# Secure storage
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+## Technical and organizational measures (TOMs)
+
+- **The security of out data**
+
+&gt; TOMs should be designed to "implement data-protection principles, such as data minimisation, in an effective manner and to integrate the necessary safeguards into the processing in order to meet the requirements of this Regulation and protect the rights of data subjects" (Art 25 Par 1 GDPR).
+
+]
+
+
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d6-s2-bank-vault.png" width=450&gt;
+&lt;/div&gt;
+
+]
+
+---
+
+# Examples of TOMs
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d6-s2-gdpr-5.png" width=900&gt;
+&lt;/div&gt;
+
+---
+
+# Pseudonymization and anonymization
+
+.pull-left[
+## Pseudonymization
+
+**(Art 4 Par 1 No 5 GDPR)**:
+&gt; "processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is     kept separately and     is subject to technical and organisational measures     to ensure that the personal data are not attributed to an identified or identifiable natural person;"
+
+
+## With pseudonymization the &lt;span style="color:#cc0065"&gt;possibility of establishing the true identity remains&lt;/span&gt;
+]
+
+--
+
+.pull-right[
+## Anonymization
+
+**(GDPR Recital 26)**:
+
+&gt; "information which does not relate to an identified or identifiable natural person or to personal data rendered anonymous in such a manner that the data subject is not or no longer identifiable."
+
+
+## With anonymization there is &lt;span style="color:#cc0065"&gt;no possibility of establishing the true identity&lt;/span&gt;
+]
+
+---
+
+# What is enough?
+
+- This is a question that **does not have a clear answer**.
+
+--
+- Consider the **risk-based approach** of GDPR.
+
+--
+- Technical and organizational measures (TOMs) aid you in keeping the risk at bay.
+
+--
+- If working with large datasets, consider means of **Statistical Disclosure Control** (e.g. k-anonymity).
+
+--
+- If you are uncertain, turn out to a **data management and legal expert**!!!
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d6-s2-enough-gdpr.jpeg" width=600&gt;
+&lt;/div&gt;
+
+
+---
+
+# Data security
+
+.pull-center[
+.content-box-gray-wide[
+Does anyone know the difference between .i-pink[data protection] and .i-pink[data security]?
+]
+]
+
+--
+
+&lt;br&gt;&lt;br&gt;
+
+.pull-left[
+## Data security is more encompassing and not necessarily person related.
+
+- Encryption
+- Strong passwords
+- Access rights
+- Back ups
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/encryption.png" width=400&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Encryption
+
+.pull-left[
+## Encryption maintains security of data
+- Uses an algorithm to transform information
+- Needs a "key" to decrypt
+
+## Use encryption to
+- Transfer data
+- Store data (back-ups)
+- On remote discs
+
+## Tools. e.g., 7Zip, Gpg4win, Veracrypt
+
+
+.footnote[Here is some extra information about encryption by the [Federal Office for Information Security 🇩🇪](https://www.bsi.bund.de/EN/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Datenverschluesselung/Soft-und-hardwaregestuetzte-Verschluesselung/soft-und-hardwaregestuetzte-verschluesselung_node.html)]
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d6-s2-encryption-key.png" width=400&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Strong passwords
+
+.pull-left[
+## A strong password has:
+- eight to fifteen characters or even more
+- a random distribution of characters
+
+## Combine
+- upper case letters: A - Z
+- lower case letters: a - z
+- numerals: 0-9
+- special characters: !"#$%&amp;'()*+,-./:, etc.
+
+
+## Use a &lt;span style = "color:#cc0065"&gt;‘pass-sentence’&lt;/span&gt; instead of a password!
+
+
+.footnote[Here is some extra information about password managers by the [Federal Office for Information Security 🇩🇪](https://www.bsi.bund.de/EN/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Sichere-Passwoerter-erstellen/Passwort-Manager/passwort-manager_node.html)]
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d6-s2-password.png" width=400&gt;
+&lt;/div&gt;
+]
+
+---
+# Secure back-ups
+
+.pull-left[
+## Risks:
+- Technical defects
+- Catastrophes
+- Theft
+- Forgetfulness
+
+## Strategies
+- Storage on secure servers with automatic regular backup
+- Backup important files in at least three copies on spatially separated data carriers
+]
+
+--
+
+.pull-right[
+## Backup setup (3-2-1 rule)
+- At least **3** copies of a file
+- On at least **2** different media
+- At least **1** of which is remote
+
+**Test data recovery at the beginning and at regular intervals**
+
+## Protect your (sensitive) data:
+- Hardware (e.g. separate lockable room)
+- File encryption
+- Password security
+- At least two people should have access to your data
+
+]
+
+.footnote[Here is some extra information about data backup by the [Federal Office for Information Security 🇩🇪](https://www.bsi.bund.de/EN/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Daten-sichern-verschluesseln-und-loeschen/Datensicherung-und-Datenverlust/datensicherung-und-datenverlust_node.html)]
+
+---
+
+# Why this matters to us?
+
+## Let's take a look at a couple of cases
+
+- .b-pink[What happened?]
+
+- .b-pink[Why was it a problem?]
+
+- .b-pink[What should have happened?]
+
+[UK Information Commissioner's Office (ICO)](https://ico.org.uk/for-organisations/report-a-breach/personal-data-breach/personal-data-breach-examples/)
+
+---
+class: inverse, center, middle
+name: questions
+
+# Questions?
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

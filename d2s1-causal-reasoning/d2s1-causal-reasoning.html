@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 2: Policy evaluation and impact assessment</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 2: Policy evaluation and impact assessment
+]
+.subtitle[
+## Causal reasoning for policy evaluation
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+# The plan for today
+
+.pull-left-wide[
+
+## Sessions
+
+1. Causal reasoning for policy evaluation
+
+2. Regression and matching
+
+3. Quasi-experiments
+
+4. Spotting crimes against causality
+
+## Learning goals
+
+- To practice how to think causal, i.e. practice causal reasoning
+- To learn a set of statistical strategies to uncover causal relationships
+- To nurture the competence of spotting bad causal evidence
+
+]
+
+.pull-right-small[
+
+]
+
+
+
+---
+
+# Table of contents
+
+&lt;br&gt;&lt;br&gt;
+
+1. [Why causation matters](#whycausationmatters)
+
+2. [Counterfactual thinking](#counterfactualthinking)
+
+3. [Causal designs: experimental and observational](#designs)
+
+
+---
+class: inverse, center, middle
+name: welcome
+
+# Why causation matters
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+
+# The causal revolution I: The power of experimentation
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nobelprize-2019.png" height=450&gt;
+&lt;/div&gt;
+
+#### "For their experimental approach to alleviating global poverty"
+
+]
+
+.pull-right[
+## From the press release
+
+"This year’s Laureates have introduced a new approach to obtaining reliable answers about the best ways to fight global poverty. In brief, it involves dividing this issue into smaller, more manageable, questions – for example, the most effective interventions for improving educational outcomes or child health. They have shown that these smaller, more precise, **questions are often best answered via carefully designed experiments among the people who are most affected.**
+
+In the mid-1990s, Michael Kremer and his colleagues demonstrated how powerful this approach can be, using field experiments to test a range of interventions that could improve school results in western Kenya. (...) Their experimental research methods now entirely dominate development economics."
+]
+
+
+
+---
+# The causal revolution II: Causality with observational data
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nobelprize-2021.png" height=450&gt;
+&lt;/div&gt;
+
+#### "For (...) empirical contributions to labour economics [and] for their methodological contributions to the analysis of causal relationships"
+]
+
+.pull-right[
+## From the press release
+
+"Many of the big questions in the social sciences deal with cause and effect. How does immigration affect pay and employment levels? How does a longer education affect someone’s future income? These questions are difficult to answer because we have nothing to use as a comparison. We do not know what would have happened if there had been less immigration or if that person had not continued studying.
+
+However, this year’s Laureates have shown that it is possible to answer these and similar questions using **natural experiments**. The key is to use situations in which chance events or policy changes result in groups of people being treated differently, in a way that resembles clinical trials in medicine."
+]
+
+
+---
+# The language of causal reasoning
+
+.pull-left[
+
+## Causal vocabulary is all around us
+
+- **What if** everyone (or just a few) had access to universal health care?
+- Do social media platforms **affect** election outcomes?
+- Can hate speech regulation have unintended **consequences** for people's behavior?
+- Will global warming slow down **because of** global measures to reduce C02 emissions?
+
+In the context of impact evaluations, causal language should be used mindfully. In many cases, causal statements are not supported by the design of the study or the data at hand.
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/causal-reasoning-bubbles.jpeg" height=400&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Causal reasoning in practice
+
+## Implications of research design for causal reasoning
+
+.pull-left[
+
+- How to design an **RCT** that cleanly identifies the effect of policy measure X on outcome Y?
+- In the absence of an experimental design, how to use **observational data**, e.g., survey data, time-series cross-sectional data and and thus lots of information (variables) on the observations to infer causal effects?
+- Should you **control** for covariate Z, or could that actually induce problems?
+- What to do when you think you should control for U but **can't observe** it?
+- You think X affects Y **through another variable M**. What does that even mean? How could you find out?
+
+All this represents **causal reasoning**. We are going to learn how to apply it systematically.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/rube-goldberg-machine.jpg" height=350&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+class: inverse, center, middle
+name: counterfactualthinking
+
+# Counterfactual thinking
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Getting started with causation
+
+.pull-left-wide[
+
+## Causation - a working definition
+
+- A.k.a. **causality, cause and effect**
+- The idea that one variable [event, process, object; the **cause**] causes another variable [event, process, object, outcome; the **effect**]
+
+## Causal reasoning
+
+- The process of studying and identifying causality
+- Causal reasoning involves...
+	- Ruling out non-causal sources of association and
+	- Inferring from the conditions of the occurrence (or absence) of an effect
+
+## Causal inference
+
+- In Scott Cunningham's words: "Causal inference is the **leveraging of theory** and deep knowledge of institutional details to **estimate the impact of events and choices on a given outcome of interest**."
+]
+
+.pull-right-small-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/mixtape.jpeg" height=250&gt;
+&lt;img src="../pics/bookofwhy.jpg" height=250&gt;
+&lt;img src="../pics/scott-cunningham.jpeg" height=210&gt;
+&lt;img src="../pics/judea-pearl.jpeg" height=210&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera-2.png" height=400&gt;
+&lt;/div&gt;
+
+`Source` [Cramer, NYTimes (2019)](https://www.nytimes.com/2019/12/22/us/arts-health-effects-ucl-study.html)
+]
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera-3.png" height=450&gt;
+&lt;/div&gt;
+
+`Source` [Fancourt, Steptoe / BMJ (2019)](https://www.bmj.com/content/367/bmj.l6377)
+]
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Different sources of association between X and Y
+
+1. X may have caused Y.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-001.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Different sources of association between X and Y
+
+1. X may have caused Y.
+2. Y may have caused X.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-002.png" width=300&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Different sources of association between X and Y
+
+1. X may have caused Y.
+2. Y may have caused X.
+3. X and Y may share one or more common causes.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-003.png" width=300&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Different sources of association between X and Y
+
+1. X may have caused Y.
+2. Y may have caused X.
+3. X and Y may share one or more common causes.
+4. The association may have been induced by conditioning on a common effect of X and Y.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-004.png" width=300&gt;
+&lt;/div&gt;
+
+]
+
+
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Different sources of association between X and Y
+
+1. X may have caused Y.
+2. Y may have caused X.
+3. X and Y may share one or more common causes.
+4. The association may have been induced by conditioning on a common effect of X and Y.
+5. Chance.
+
+]
+
+
+---
+# Thinking in terms of counterfactuals
+
+.pull-left-vwide[
+## The Neyman-Rubin causal model
+
+- The Neyman-Rubin causal model (or just Rubin causal model, RCM) is a
+formal approach to do causal inference that fueled the potential outcomes framework (POF)
+- Up until today, it's the mainstream framework to (statistically) talk
+about causation
+
+## The idea of potential outcomes
+
+- The POF assumes that each subject has a **potential outcome under both treatment states**
+- Evidently, each subject can only be observed in one treatment state at any point in time
+- Therefore, the individual treatment effect is a non-observable counterfactual ("the fundamental problem of causal inference", Holland 1986)
+- The idea is to think about the **counterfactual** outcome that would have been observed had the treatment been different
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;img src="../pics/neyman.jpeg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/paulholland.jpg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/donrubin.jpeg" width=130&gt;
+&lt;/div&gt;
+]
+
+---
+# Thinking in terms of counterfactuals
+
+.pull-left[
+
+## Potential outcomes under treatment and control
+
+- Assume we have a binary treatment variable `\(X\)` (e.g., going to the opera)
+- We observe the outcome `\(Y\)` (e.g., longevity)
+- The potential outcomes are `\(Y(1)\)` and `\(Y(0)\)`
+
+| **Group** | Longevity (under treatment) | Longevity (under control) |
+|-----------|-----------------------------|---------------------------|
+| Going to opera | Observable as `\(Y\)` | Counterfactual |
+| Not going to opera | Counterfactual | Observable as `\(Y\)` |
+]
+
+--
+
+.pull-right[
+
+## The fundamental problem of causal inference
+
+- Why is the causal effect of X on Y not simply the difference between the upper-left and lower-right cell in the table?
+- We can only observe one of the two potential outcomes!
+- Causal inference implies answering **'What if'** questions, i.e. imagine a counterfactual world in which the treatment was different for a given unit
+
+## Addressing the dilemma
+
+- We can try and design studies in a way so that the expected outcome under a treatment state are the same for all units
+- Or, we can try to (statistically) adjust such that the observed data is as close as possible to the counterfactual data
+
+]
+
+
+
+
+---
+class: inverse, center, middle
+name: designs
+
+# Causal designs: experimental and observational
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Why experiments?
+
+.pull-left[
+## Dilemmas of observational research
+
+- When does correlation imply causation?
+- How can we be sure we did not overlook an important cause?
+
+## The promises of experimental designs
+
+- Randomization!
+- Researchers set the treatment, but chance decides who gets it and who doesn't
+- By randomly assigning the treatment, it is designed to be statistically independent from any other variable.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-005.png" width=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/salganik-experiments.png" width=500&gt;&lt;br&gt;
+&lt;/div&gt;
+
+`Source` [Matt Salganik, Bit by Bit](https://www.bitbybitbook.com/)
+]
+
+---
+# Issues to consider when running (and judging) experiments
+
+.pull-left[
+## 1. Balance: Are treatment and control groups balanced on relevant covariates (potential confounders)?
+-	Run mean comparisons and significance tests
+- Condition on pre-treatment covariates
+- Ideally, condition on pre-treatment outcomes
+
+]
+
+--
+
+.pull-right[
+## 2. Power: Is your sample big enough to uncover an effect of a certain size?}
+- The higher the statistical power for a given experiment, the lower the probability of making a Type II (false negative) error. Power = 1 - Type II error 
+- Run a power analysis (ideally before data collection)
+- If you can afford it, adapt sample size and/or design on the basis of your power calculations
+]
+
+
+---
+# Issues to consider when running (and judging) experiments
+
+.pull-left-wide2[
+## 3. Compliance: Do participants participate as intended?
+-	Often we cannot force subjects to take specific treatments, and **noncompliance** is an issue
+- Intent-to-Treat (ITT) effect `\(\neq\)` treatment effect
+- Selection bias: self-selection into treatment/control groups
+
+|  | Drinks no coffee | Drinks coffee | Total
+|-----------|-----------------------------|---------------------------|---|
+| Assigned to Control | 80 | 20 | 100 |
+| Assigned to Treatment | 10 | 90 | 100 |
+| Total | 90 | 110 | 200 |
+
+- Encouragement design: Randomize the encouragement to receive the treatment rather than the receipt of the treatment itself
+]
+
+--
+
+.pull-right-small2[
+## 4. External validity: How does the experimental setting connect to the "real world"?
+- Is the treatment comparable to interventions you want to compare it to?
+- Is the outcome an actual measure of interest?
+- How "different" is your sample from the target population on relevant characteristics?
+]
+
+---
+# Example: Tracking and promoting usage of a COVID-19 contact tracing app
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nhb-part-screenshot.png" width=500&gt;
+&lt;/div&gt;
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/qrcode-nhb.png" width=200&gt;&lt;br&gt;
+&lt;/div&gt;
+[https://go.nature.com/3auwDjA](https://go.nature.com/3auwDjA)
+]
+
+---
+# Study design
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tracking-app-design.png" width=1200&gt;&lt;br&gt;
+&lt;/div&gt;
+
+---
+# Experimental intervention
+
+.pull-left[
+
+## How can app usage be promoted?
+
+- Information about app: goal, functionality, privacy
+- Pro-social appeal: https://youtu.be/dyhDd_vrGEE
+- Self-interest appeal: https://youtu.be/suOCvlW8_R0
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/screenshot-prosocial-01.png" width=250&gt;
+&lt;img src="../pics/screenshot-prosocial-02.png" width=250&gt;&lt;br&gt;
+&lt;img src="../pics/screenshot-prosocial-04.png" width=250&gt;
+&lt;img src="../pics/screenshot-prosocial-03.png" width=250&gt;&lt;br&gt;
+&lt;img src="../pics/screenshot-prosocial-06.png" width=250&gt;
+&lt;img src="../pics/screenshot-prosocial-07.png" width=250&gt;&lt;br&gt;
+&lt;/div&gt;
+]
+
+---
+# Experimental results
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tracking-app-effects.png" width=700&gt;
+&lt;/div&gt;
+
+
+---
+# Observational designs
+
+.pull-left[
+## Dilemmas of experimental research
+- High internal validity at the cost of external validity
+-  Many of the actual treatments of interest cannot be (ethically) randomized (think: COVID, certain policies, election outcomes, ...)
+
+## (Some of the) problems with observational data
+- Confounding
+- Selection bias
+- Limited generalizability of case studies
+]
+
+--
+
+.pull-right[
+## The silver lining
+- The causal revolution: innovative research designs exploiting observational data to do causal inference
+- ... often with the help of natural or quasi-experiments
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/binoculars.jpeg" width=750&gt;&lt;br&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Further reading
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/bookofwhy.jpg" height=270&gt;
+&lt;img src="../pics/mixtape.jpeg" height=270&gt;
+&lt;img src="../pics/mastering-metrics.jpg" height=270&gt;
+&lt;img src="../pics/the-effect-nhk.jpeg" height=270&gt;
+&lt;img src="../pics/impactevaluation.jpeg" height=270&gt;
+&lt;img src="../pics/rival-hypothesis-1.png" height=270&gt;
+&lt;/div&gt;
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

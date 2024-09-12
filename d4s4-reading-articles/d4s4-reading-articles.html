@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 4: Informed Consumption of Evidence</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sebastian Ramirez-Ruiz" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 4: Informed Consumption of Evidence
+]
+.subtitle[
+## How to read an academic article?
+]
+.author[
+### Sebastian Ramirez-Ruiz
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+.has-continuation {
+display: block !important;
+}
+}
+&lt;/style&gt;
+
+
+
+
+# Table of contents
+
+&lt;/br&gt;&lt;/br&gt;
+
+1. [The process of doing science](#whereevidence)
+
+2. [A primer on academic research articles](#articles)
+
+3. [Making sense of statistical effects](#effects)
+
+4. [Making sense of statistical significance](#significance)
+
+5. [Reading an academic article](#reading)
+
+---
+
+background-image: url("../pics/descartes.jpeg")
+background-size: contain
+background-color: #000000
+name: whereevidence
+
+# The process of doing science
+
+---
+
+# What constitutes scientific evidence?
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+**Scientific evidence:** information gathered from *scientific research*.
+]
+
+--
+
+&lt;br&gt;&lt;br&gt;
+
+.content-box-gray[
+*Scientific research* is a **systematic** investigation that aims to &lt;i style="color:#cc0065"&gt;discover&lt;/i&gt; new knowledge, &lt;i style="color:#cc0065"&gt;understand&lt;/i&gt; phenomena, or solve existing problems through &lt;i style="color:#cc0065"&gt;empirical evidence&lt;/i&gt; and &lt;i style="color:#cc0065"&gt;logical reasoning&lt;/i&gt;.
+]
+
+
+---
+
+# What constitutes scientific evidence?
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+**Scientific evidence:** information gathered from *scientific research*.
+]
+
+--
+
+&lt;br&gt;&lt;br&gt;
+
+.pull-left[
+## Hypothesis Formation
+
+- Researchers formulate *hypotheses* based on *observations*, *prior knowledge*, or *theoretical frameworks* to guide their investigations. 
+]
+
+--
+
+.pull-right[
+## Data Collection
+
+- Gathering empirical evidence through *observations*, *measurements*, *surveys*, or *experiments* to validate or refute hypotheses.
+]
+
+--
+
+
+.pull-left[
+## Analysis and Interpretation: 
+
+- *Analyzing collected data* using statistical methods or qualitative techniques to draw meaningful *conclusions* and uncover *patterns* or *relationships*. 
+]
+
+--
+
+.pull-right[
+## &lt;i style="color:#cc0065"&gt;*Peer Review:&lt;/i&gt;
+
+- Subjecting research findings to *scrutiny by peers* and experts in the field to *ensure validity*, *reliability*, and *adherence to scientific standards*.
+]
+
+---
+
+# What constitutes scientific evidence? (cont.)
+
+
+&lt;br&gt;
+- Through this empirical method for knowledge acquisition, researchers strive to maintain objectivity and reduce partiality (&lt;i style="color:#cc0065"&gt;It can be reproduced and tested&lt;/i&gt;).
+
+--
+
+- The process allows researchers and research consumers to &lt;i style="color:#cc0065"&gt;adjust&lt;/i&gt; or &lt;i style="color:#cc0065"&gt;discard&lt;/i&gt; hypothesis based on results.
+
+--
+
+- Doing scientific research is a dynamic process, not a fixed sequence (&lt;i style="color:#cc0065"&gt;Not all steps occur in every inquiry, nor in the same order&lt;/i&gt;).
+
+--
+
+- Scientific research builds upon existing knowledge, contributing to the &lt;i style="color:#cc0065"&gt;cumulative&lt;/i&gt; advancement of understanding within a field through ongoing inquiry and discovery.
+
+--
+
+- Modern scientific practices increasingly emphasize &lt;i style="color:#cc0065"&gt;openness&lt;/i&gt; and &lt;i style="color:#cc0065"&gt;transparency&lt;/i&gt;, including data sharing, pre-registration of studies, and open access publication, promoting collaboration and accountability within the scientific community.
+
+---
+
+# How does this look like?
+
+.pull-center[
+&lt;i style="color:#cc0065"&gt;\*&lt;/i&gt;**An example from my own research:** &lt;br&gt;
+Ramirez-Ruiz, S (2024). Politicians from 12 countries rarely engage with researchers on social media, but this can change when expertise gains salience. *Working Paper*
+]
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/twitter-politicians-paper.png" height=380&gt;&lt;br&gt;
+&lt;p style="color:#cc0065;font-style:italic;font-size:70%"&gt;*A sneak peek into the workflow of a Computational Social Scientist&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+# How does this look like?
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/main_body_table.png" height=450&gt;&lt;br&gt;
+&lt;/div&gt;
+
+---
+class: inverse, center, middle
+name: intros-paper
+background-color: #FFFFFF
+
+&lt;span style="text-align:center;color:#2b7282;font-size:150%;"&gt;Were there any aspects that surprised you from the&lt;/span&gt;&lt;br&gt;&lt;span style="font-weight:bold;text-align:center;color:#2b7282;font-size:150%;"&gt;life cycle of a scientific research project&lt;/span&gt;&lt;span style="text-align:center;color:#2b7282;font-size:150%;"&gt;?&lt;/span&gt;
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+class: inverse, center, middle
+name: articles
+
+# A primer on academic research articles
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# Academic research articles
+
+.pull-left-small[
+## What are they?
+
+An .hlblue[academic research article] is a **scholarly work**, mainly published in a peer-reviewed journal or proceedings. It presents original research findings, contributing to the knowledge and understanding of a specific field of study. 
+
+They are **written by experts** and generally intended for other .i-pink[researchers], .i-pink[scholars], and .i-pink[professionals] within the same discipline.
+]
+
+.pull-right-wide[
+&lt;div align="center"&gt;
+&lt;img src="../pics/online-partisan-pnas.png" width=550&gt;&lt;br&gt;
+&lt;/div&gt;
+`Source`: [Guess et al. (2021)](https://www.pnas.org/doi/abs/10.1073/pnas.2013464118)
+]
+
+---
+
+# Academic research articles (cont.)
+
+.pull-left-small[
+## What are their building blocks?
+
+An .hlblue[academic research article] **typically follow a structured format**, including a title, abstract, introduction, literature review, methods, results, discussion, conclusion, and references. 
+
+Each **scientific domain** has their own structures and publication conventions (e.g., .i-pink[political science] vs. .i-pink[computer science]).
+]
+
+.pull-right-wide[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/lego-building-blocks.png" width=550&gt;&lt;br&gt;
+&lt;/div&gt;
+]
+
+---
+class: midtext
+
+# General structure of academic articles
+
+- .hlred[Title]
+    - Concise and descriptive
+    - Reflects the main topic and focus of the study
+--
+- .hlred[Abstract]
+    - Brief **summary** of the research (≈250 words)
+--
+- .hlred[Introduction]
+    - Introduces the **research problem**
+    - Provides **background and context**
+    - States the research questions or hypotheses
+    - Outlines the objectives and significance of the study
+--
+- .hlred[Literature Review]
+    - Reviews **existing research related to the topic**
+    - Identifies **gaps** or inconsistencies in the current knowledge
+    - Justifies the need for the current study
+--
+- .hlred[Methods]
+    - Describes the **research design and methodology**
+    - Includes details on participants, materials, and procedures
+    - Provides information on data collection and analysis methods
+
+
+---
+class: midtext
+
+# General structure of academic articles (cont.)
+
+- .hlred[Results]
+    - Presents the **findings of the study**
+    - Normally uses text, tables, and figures to summarize data
+    - Reports on statistical analyses and significance (in quantitative research)
+--
+- .hlred[Discussion]
+    - Provides **interpretations** of the results in the context of the research questions
+    - Explains the **implications** of the findings
+    - **Compares** results with previous studies
+    - Discusses **limitations** and suggests **directions** for future research
+--
+- .hlred[Conclusion]
+    - **Summarizes** the main findings
+    - **Highlights** the significance and **contributions** of the study
+    - Provides closing thoughts or recommendations
+--
+- .hlred[References]
+    - Lists all **sources cited** in the article
+--
+- .hlred[Appendices] (if applicable)
+    - Includes **supplementary material**
+    - May contain raw data, detailed descriptions of methods, or additional figures
+
+---
+class: inverse, center, middle
+name: effects
+
+# Making sense of statistical effects
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Statistical effects and effect sizes
+
+.pull-left[
+## What are statistical effects?
+- Statistical effect quantify a difference or relationship between variables
+
+
+## Example questions about effects
+- What is the marginal effect of education on income?
+- How much does the probability of voting increase with age?
+
+## Statistical effect `\(\neq\)` causal effect!
+- Statistical effects are about statistical relationships between variables, not about causal relationships. 
+- For instance, just because your model tells you that an additional 100$ per month income are associated with 1 additional year of education, you would not conclude that income causally increases education
+]
+
+--
+
+.pull-right[
+## Effect sizes
+- Effect sizes are quantitative measures of the **strength of a relationship**.
+- Effect sizes express the magnitude of a difference or relationship in a standardized way.
+
+## Examples
+- A (unstandardized or standardized) **group mean difference**
+- The **correlation coefficient** is an effect size for the relationship between two continuous variables (see later!), e.g., `\(r = 0.1\)` `\(\rightarrow\)` weak, `\(r = 0.5\)` `\(\rightarrow\)` moderate, `\(r = 0.9\)` `\(\rightarrow\)` strong
+- The **regression coefficient** expresses the predicted marginal change in an outcome relative to a unit change of the predictor (potentially conditionally on other covariates)
+]
+
+
+---
+# Example: regression effects
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/regression-multiple.png" width=400&gt;
+&lt;/div&gt;
+
+
+
+---
+# Some advice when consuming effect sizes
+
+.pull-left[
+## Some questions to ask yourself
+
+1. What does the effect size mean **substantively**? E.g., what does an "effect of 0.87" mean?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/legislator-views-table.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Some advice when consuming effect sizes
+
+.pull-left[
+## Some questions to ask yourself
+
+1. What does the effect size mean **substantively**? E.g., what does an "effect of 0.87" mean?
+
+2. Is the effect size **plausible**? How does it compare to your intuition and other effects in the literature?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/longevity-returns-office-1.png" width=490&gt;
+&lt;img src="../pics/longevity-returns-office-2.png" width=490&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Some advice when consuming effect sizes
+
+.pull-left[
+## Some questions to ask yourself
+
+1. What does the effect size mean **substantively**? E.g., what does an "effect of 0.87" mean?
+
+2. Is the effect size **plausible**? How does it compare to your intuition and other effects in the literature?
+
+3. How **precisely** is the effect estimated?
+]
+
+.pull-right[
+]
+
+---
+class: inverse, center, middle
+name: significance
+
+# Making sense of statistical significance
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+# "Statistical significance" everywhere
+
+.pull-left-vwide[
+&lt;div align="center"&gt;
+&lt;img src="../pics/wansink-retracted.png" width=900&gt;
+&lt;/div&gt;
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;img src="../pics/wansink-beans.jpeg" width=320&gt;
+&lt;/div&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+`Source` [Wansink et al.](https://pubmed.ncbi.nlm.nih.gov/22846502/), [Retraction Watch](https://retractionwatch.com/2018/09/20/beleaguered-food-marketing-researcher-brian-wansink-announces-his-retirement-from-cornell/)
+]
+
+
+---
+# "Statistical significance" everywhere
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/xkcd-jelly-beans-1.png" height=500&gt;
+&lt;img src="../pics/xkcd-jelly-beans-2.png" height=500&gt;
+&lt;/div&gt;
+
+
+---
+# Statistical error types
+
+.pull-left-wide[
+## A life and death example of statistical errors
+
+You are a paramedic and you approach the scene of a car accident. One victim is laying motionless on the road and you must assess whether the victim is dead or alive, and the victim will be treated accordingly. Based on this information, **which error results in the most costly mistake?**
+
+## Hypotheses
+
+- **Null hypothesis**: The victim is alive.
+- **Alternative hypothesis**: The victim is not alive.
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`Source` [jeffalltogether, StackExchange.com](https://stats.stackexchange.com/questions/211736/type-i-error-and-type-ii-error-trade-off)
+]
+
+.pull-right-small[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/ambulance.jpg" height=400&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Statistical error types
+
+## Hypotheses
+
+- **Null hypothesis**: The victim is alive.
+- **Alternative hypothesis**: The victim is not alive.
+
+--
+
+## Error types
+
+- **Type I error**: You reject the null when the null is actually true. ("false positive")
+- **Type II error**: You fail to reject the null when the null is actually false. ("false negative")
+
+--
+
+## Costs
+
+- **Type I error**: You declare the victim dead when they are actually alive. They do not receive an ambulance to the hospital for a life saving medical treatment. `\(\rightarrow\)` .hlred[Extremely costly mistake]
+- **Type II error**: You declare the victim alive when they are actually dead. You erroneously send a dead person to the hospital in an ambulance `\(\rightarrow\)` .hlred[Not that costly mistake]
+
+
+---
+# Error types illustrated
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/error-types.jpg" height=450&gt;
+&lt;/div&gt;
+
+---
+# Error types in hypothesis testing
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/error-types-matrix.png" height=450&gt;
+&lt;/div&gt;
+
+---
+# Error types in hypothesis testing
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/error-types-distributions.png" height=450&gt;
+&lt;/div&gt;
+
+
+
+
+---
+# Assessing statistical significance
+
+.pull-left[
+## Statistical significance vs. practical significance
+- They are not the same.
+- Statistical significance is about the probability of observing the data given the null hypothesis. 
+- Practical significance is about the real-world importance of the result.
+
+## From hypothesis testing to statistical significance
+
+**Three-step approach:**
+1. Formulate null and alternative hypotheses.
+2. Calculate a test statistic. For instance, effect size in a regression divided by standard error.
+3. Compare the test statistic to a critical value; calculate a p-value.
+]
+
+--
+
+.pull-right[
+## The p-value
+
+- The p-value is the probability of observing a result at least as extreme as the observed result if the null hypothesis were true.
+- The p-value is compared to a threshold (e.g., 0.05) to decide whether to reject the null hypothesis.
+- .hlblue[Importantly, the p-value is not the probability that the null hypothesis is true or false!]
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/distribution-sigmas.png" height=270&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Eyeballing statistical significance
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/legislator-views-table.png" width=500&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/pnas-chen-air-pollution-huai-river-5.png" width=550&gt;
+&lt;/div&gt;
+]
+
+---
+# Eyeballing statistical significance
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/nhb-app-effects-with-title.png" width=750&gt;
+&lt;/div&gt;
+
+
+
+---
+# Controversies around statistical significance&lt;sup&gt;1&lt;/sup&gt;
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt;See also [here](https://bookdown.org/kevin_davisross/probsim-book) for a nice primer to this controversy.]
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/p-values-asa.png" width=550&gt;
+&lt;/div&gt;
+
+## Six principles
+
+&lt;div class=font80&gt;
+&lt;ol&gt;
+&lt;li&gt;P-values can indicate how incompatible the data are with a specified statistical model.&lt;/li&gt;
+&lt;li&gt;P-values do not measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone.&lt;/li&gt;
+&lt;li&gt;Scientific conclusions and business or policy decisions should not be based only on whether a p-value passes a specific threshold.&lt;/li&gt;
+&lt;li&gt;Proper inference requires full reporting and transparency.&lt;/li&gt;
+&lt;li&gt;A p-value does not measure the size of an effect or the importance of a result.&lt;/li&gt;
+&lt;li&gt;By itself, a p-value does not provide a good measure of evidence regarding a model or hypothesis.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/p-values-greenland.png" width=550&gt;
+&lt;/div&gt;
+]
+
+---
+class: inverse, center, middle
+name: reading
+
+# Reading an academic article
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+---
+
+# A couple of things to keep in mind...
+
+.pull-center[
+.content-box-gray-wide[
+.hlred[Assessing the quality of research articles is not an easy feat.] There is not a one-size-fit-all device to filter the "good from the bad".
+]
+]
+
+--
+
+.pull-left-wide[
+&lt;br&gt;
+
+- .hlblue[There are shades of quality]
+    - The **good and the bad do not live in a dichotomous state**, but a continuum. Not all good (*bad*) pieces are created equally.
+- .hlblue[Quality ≠ Policy applicability]
+    - **Not all quality studies are applicable as evidence policy**, but I argue that scientific insights employed in policy should come from high quality sources.
+- .hlblue[Like most things, practice makes "better"]
+    - **The most you engage with academic literature** related to your policy field, **the easier it will get** to understand markers of quality.
+]
+
+---
+
+# Predatory publishing
+
+.pull-left[
+
+## What is it?
+
+&gt; Predatory publishing, also write-only publishing or deceptive publishing, is an exploitative academic publishing business model that involves charging publication fees to authors while only superficially checking articles for quality and legitimacy, and without providing editorial and publishing services that legitimate academic journals provide, whether open access or not. The rejection rate of predatory journals is low, but seldom zero. [Wikipedia](https://en.wikipedia.org/wiki/Predatory_publishing)
+
+
+]
+
+---
+
+# Predatory publishing
+
+.pull-left[
+
+## What is it?
+
+&gt; Predatory publishing, also write-only publishing or deceptive publishing, is an exploitative academic publishing business model that involves charging publication fees to authors while only superficially checking articles for quality and legitimacy, and without providing editorial and publishing services that legitimate academic journals provide, whether open access or not. The rejection rate of predatory journals is low, but seldom zero. [Wikipedia](https://en.wikipedia.org/wiki/Predatory_publishing)
+
+
+.hlred[Dr. Fraud experiment] | [nature](https://www.nature.com/articles/543481a.pdf) | [nytimes](https://www.nytimes.com/2017/03/22/science/open-access-journals.html) |
+
+"An investigation finds that dozens of academic titles offered ‘Dr Fraud’ — a sham, unqualified scientist — a place on their editorial board. Katarzyna Pisanski and colleagues report."
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/dr-fraud.png" width=380&gt;
+&lt;/div&gt;
+
+]
+
+---
+
+# Some questions you can ask yourself
+
+.hlred[This is not an exhaustive list, but a helpful starting point]
+
+--
+
+.pull-left-wide[
+
+## Research Question/Objective:
+
+- Is the **research question clearly stated**?
+- Is the **objective of the study clearly defined and aligned with the research question**?
+
+## Methodology:
+
+- Are the **research methods** appropriate for addressing the research question?
+- Is the **study design** well-suited for the research objectives?
+- Are the **data collection methods** clearly described and appropriate?
+- Are the (*statistical*) **analyses** appropriate for the research design and data collected?
+]
+
+---
+
+# Some questions you can ask yourself (cont.)
+
+.pull-left-wide[
+
+## Validity:
+
+- Are the **results** of the study valid, i.e., do they accurately reflect what they claim to measure? (think .i-pink[internal, external, measurement, and statistical validity] with Simon)
+- Are **potential biases** addressed and minimized? (think .i-pink[data generation processes] with Simon)
+Is the methodology reliable and replicable?
+
+## Sampling:
+
+- Is the **sampling method** clearly described and appropriate for the research question?
+- Is the **sample size** adequate for the research objectives?
+- Is the **sampling frame** fit? (Study vs. target populations)
+]
+
+---
+
+# Some questions you can ask yourself (cont.)
+
+.pull-left-wide[
+
+## Results:
+
+- Are the **results** clearly presented and logically organized?
+- Are statistical **tests appropriately applied** and **interpreted**?
+
+## Discussion/Conclusion:
+
+- Are the **findings discussed** in relation to existing literature?
+- Are the **limitations** of the study acknowledged and discussed?
+- Are the **implications** of the findings clearly stated?
+]
+
+---
+
+# Some questions you can ask yourself (cont.)
+
+.pull-left-wide[
+
+## Ethical Considerations:
+
+- Are **ethical considerations**, such as informed consent and protection of participants' rights, addressed?
+- Are **conflicts of interest** disclosed?
+
+
+## Peer Review and Journal Reputation:
+
+- Was the article subjected to **peer review**?
+- Is the **journal/outlet reputable** and known for publishing high-quality research?
+
+## Impact and Contribution:
+
+- Does the research make a significant **contribution** to the field?
+- What is the potential **impact of the findings** on theory, practice, or policy?
+]
+
+---
+class: inverse, center, middle
+name: intros-paper
+background-color: #FFFFFF
+
+&lt;span style="text-align:center;color:#2b7282;font-size:150%;"&gt;Also, from &lt;/span&gt;&lt;span style="font-weight:bold;text-align:center;color:#2b7282;font-size:150%;"&gt;last session&lt;/span&gt;&lt;span style="text-align:center;color:#2b7282;font-size:150%;"&gt;...&lt;/span&gt;
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+# Evaluating sources (cont.)
+
+.pull-center[
+Many librarians encourage the .i-pink[CRAAP test&lt;sup&gt;1&lt;/sup&gt;] as a starting point to evaluate the suitability of the sources.
+]
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; This is a simplification of a very complex evaluation process. We will think deeper about this next session.]
+
+--
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+- .hlred[Currency]: The **timeliness** of the information.
+    - When was the information published or posted?
+    - Has it been revised or updated?
+    - Do you need the most current information for your topic?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s3-magnifying-glass.png" height=380&gt;
+&lt;/div&gt;
+]
+
+---
+# Evaluating sources (cont.)
+
+.pull-center[
+Many librarians encourage the .i-pink[CRAAP test&lt;sup&gt;1&lt;/sup&gt;] as a starting point to evaluate the suitability of the sources.
+]
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; This is a simplification of a very complex evaluation process. We will think deeper about this next session.]
+
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+- .hlred[Relevance]: The **importance** of the information for **your needs**.
+    - Does the information directly relate to your topic?
+    - Does it help you answer questions?
+    - Who is the intended audience?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s3-magnifying-glass.png" height=380&gt;
+&lt;/div&gt;
+]
+---
+# Evaluating sources (cont.)
+
+.pull-center[
+Many librarians encourage the .i-pink[CRAAP test&lt;sup&gt;1&lt;/sup&gt;] as a starting point to evaluate the suitability of the sources.
+]
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; This is a simplification of a very complex evaluation process. We will think deeper about this next session.]
+
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+- .hlred[Authority]: The **source** of the information.
+    - Who is the author or publisher?
+    - Are they qualified to write about the topic?
+    - “Peer reviewed” is a good indicator for this
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s3-magnifying-glass.png" height=380&gt;
+&lt;/div&gt;
+]
+---
+# Evaluating sources (cont.)
+
+.pull-center[
+Many librarians encourage the .i-pink[CRAAP test&lt;sup&gt;1&lt;/sup&gt;] as a starting point to evaluate the suitability of the sources.
+]
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; This is a simplification of a very complex evaluation process. We will think deeper about this next session.]
+
+
+.pull-left[
+&lt;br&gt;
+- .hlred[Accuracy]: The **reliability** and correctness of the information.
+    - Is the information supported by evidence?
+    - Can you verify the information with another source?
+    - Has the information been reviewed or refereed?
+    - Does the language seem unbiased and free of emotion?
+    - Can you identify any spelling, grammar or typographical errors?
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s3-magnifying-glass.png" height=380&gt;
+&lt;/div&gt;
+]
+
+---
+# Evaluating sources (cont.)
+
+.pull-center[
+Many librarians encourage the .i-pink[CRAAP test&lt;sup&gt;1&lt;/sup&gt;] as a starting point to evaluate the suitability of the sources.
+]
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; This is a simplification of a very complex evaluation process. We will think deeper about this next session.]
+
+
+.pull-left[
+&lt;br&gt;
+- .hlred[Purpose]: The **reason** the information **exists**.
+    - What is the purpose of the information?
+    - Does the point of view appear objective and impartial?
+    - Is the information fact, opinion or propaganda?
+    - Are there political, ideological, cultural, religious, institutional or personal biases?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s3-magnifying-glass.png" height=380&gt;
+&lt;/div&gt;
+]
+---
+
+# Evaluating common non-academic sources in policy
+
+.hlblue[Employing lateral reading], that is evaluating the credibility of a source by comparing it with other sources.
+
+--
+
+- .hlred[Verify the Source]: Determine the credibility of the organization or institution that published the document. Ask questions such as:
+    - Who funds or sponsors the organization or think tank?
+    - What is their reputation and track record in producing accurate and unbiased research?
+    - Are there any known biases associated with the organization?
+- .hlred[Check for Independent Analysis]: Look for analyses or critiques of the policy document from other reputable sources. Consider:
+    - Are there other organizations or experts in the field who have reviewed or commented on the document?
+    - Do they offer different perspectives or highlight any inconsistencies or shortcomings?
+- .hlred[Evaluate Authorship and Expertise]: Assess the qualifications and expertise of the authors or researchers behind the document. Consider:
+    - What are their credentials and affiliations?
+    - Have they published other works in the field, and what is the reception of those works?
+    - Are there any conflicts of interest that might influence their findings or conclusions?
+    
+---
+
+# Evaluating common non-academic sources in policy (cont.)
+
+.hlblue[Employing lateral reading], that is evaluating the credibility of a source by comparing it with other sources.
+
+- .hlred[Weigh against Counterarguments]: Seek outcounterarguments to the policy proposals or recommendations presented in the document. Ask yourself:
+    - How do other organizations or experts interpret the same data or evidence?
+    - Are there dissenting opinions within the academic or policy community?
+    - Do alternative analyses provide a more comprehensive understanding of the issue?
+- .hlred[Cross-Reference with Established Facts]: Verify any factual claims or statistics cited in the document by consulting reliable sources or databases. Consider:
+    - Are the data sources cited in the document reputable and up-to-date?
+    - Do the findings align with established research or empirical evidence?
+    - Have fact-checking organizations or experts reviewed the accuracy of the information?
+
+---
+# A checklist for policy supporting research
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/checklist-1.png" width=450&gt;
+&lt;img src="../pics/checklist-2.png" width=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/kampen-tamas-checklist-evidence.png" width=510&gt;
+&lt;/div&gt;
+]
+
+&lt;div class="font50"&gt;&lt;b&gt;Source: &lt;/b&gt;Kamen and Tamás, 2014, "Should I take this seriously? A simple checklist for calling bullshit on policy supporting research", &lt;a href="https://doi.org/10.1007/s11135-013-9830-8"&gt;Quality &amp; Quantity&lt;/a&gt;&lt;/div&gt;
+
+---
+
+class: inverse, center, middle
+name: qr-code
+background-color: #FFFFFF
+
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;b style="color:#000000;"&gt;Let's take a couple of minutes to read this article&lt;/b&gt;&lt;br&gt;
+&lt;img src="../pics/community-policing-qr.png" height=250&gt;
+&lt;/div&gt;
+
+---
+class: inverse, center, middle
+name: questions
+
+# Questions?
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

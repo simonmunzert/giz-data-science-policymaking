@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 2: Policy evaluation and impact assessment</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 2: Policy evaluation and impact assessment
+]
+.subtitle[
+## Quasi-experiments
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+
+# Table of contents
+
+&lt;br&gt;&lt;br&gt;
+
+1. [Quasi-experiments](#quasiexperiments)
+
+2. [Instrumental variables](#iv)
+
+2. [Interrupted time-series](#its)
+
+3. [Regression discontinuity](#rdd)
+
+4. [Difference-in-differences](#did)
+
+5. [Trade-offs in impact evaluation](#tradeoffs)
+
+
+
+---
+class: inverse, center, middle
+name: quasiexperiments
+
+# Quasi-experiments
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# What represents a quasi-experiment?
+
+.pull-left-wide2[
+## Quasi-experiments
+- Treatment assignment is **not under researcher's control** `\(\leftrightarrow\)` "controlled" experiment, RCT
+- Treatment assignment follows a **random or ``as-if random** process; exogenous to outcome
+- Construction of **treatment and control group post hoc** (and not always obvious)
+- Often also referred to as **natural experiments** because treatment assignment is induced by nature
+
+## Different statistical approaches to exploit quasi-experiments
+- Instrumental variables (IV)
+- Difference-in-differences (DID)
+- Regression discontinuity design (RDD)
+- Interrupted time-series (ITS)
+- Synthetic control
+- ...
+
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/1969_draft_lottery_photo.jpg" width=420&gt;&lt;br&gt;
+&lt;img src="../pics/rainfall.jpeg" width=420&gt;
+&lt;/div&gt;
+]
+
+---
+# Example: The Vietnam draft lottery
+
+.pull-left[
+## Scholarly interest
+
+- Economists' interest in the causal effect of military service on earnings (Angrist 1990), health (Angrist et al. 1996), political attitudes (Erikson and Stoker 2011)
+- Problem: potential confounding due to self-selection into military service
+
+`\(\rightarrow\)` If those who volunteer for military service are different from those who do not, then the estimated effect of military service on earnings, health, or political attitudes is biased.
+]
+
+.pull-right[
+## The Vietnam draft lottery 1969 as randomization device
+
+- From 1970 to 1972, [random sequence numbers were assigned to each birth date in cohorts of 19-year-olds](https://en.wikipedia.org/wiki/Draft_lottery_(1969)). 
+- Men with lottery numbers below a cutoff were sequentially drafted while men with numbers above the cutoff could not be drafted.
+- Noncompliance issues! The draft did not perfectly determine military service: many draft-eligible men were exempted for health and other reasons; exempted men volunteered for service.
+]
+
+
+---
+class: inverse, center, middle
+name: iv
+
+# Instrumental variables
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Basic logic of instrumental variables
+
+.pull-left[
+## The setting
+- Interest is in the causal effect of `\(D\)` on `\(Y\)`
+- The relationship is subject to potential confounding
+- There is a variable `\(Z\)` (the instrumental variable) that is (as-if) randomly assigned and related to `\(D\)`
+
+## Basic idea of instrumental variables (IV):
+- Split the variation of `\(D\)` into two parts:
+  - one endogenous (related to confounders `\(U\)`)
+  - one truly exogenous
+- The part of the variation in `\(D\)` that is related to `\(Z\)` but not to `\(U\)` is then used to estimate the causal effect of `\(D\)` on `\(Y\)`.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-023.png" width=400&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/iv-venn.png" width=280&gt;
+&lt;/div&gt;
+]
+
+---
+# Sources of IV designs
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/dunning2012-2.png" width=650&gt;
+&lt;/div&gt;
+
+`Source`: Dunning, Thad. 2012. [Natural experiments in the social sciences: A design-based approach. CUP.](https://www.cambridge.org/core/books/natural-experiments-in-the-social-sciences/96A64CBDC2A2952DC1C68AF77DE675AF)
+
+---
+# Strengths and weaknesses of IV
+
+.pull-left[
+## Strengths
+
+-  With a valid instrument `\(Z\)` at hand, you (probably) do not have to account for any other confounders of `\(D\)` and `\(Y\)`
+- Instrumental variables provide an established way to exploit random or as-if random variation in treatment assignment, putting observational studies closer to the experimental ideal-type design
+]
+
+--
+
+.pull-right[
+## Weaknesses
+
+- Rests on strong assumptions that are ultimately untestable; therefore a good story is the crucial element of any plausible IV specification
+- IV estimators have been demonstrated to be biased until `\(N\)` is very large even if the assumptions hold, partly due to the fact that supposedly exogenous portions of `\(D\)` are themselves estimates that come along with measurement error
+- Good instruments are extremely difficult to find. IV research tends to be driven by opportunistic choice of IV, not by the research question - hardly a good starting point for impact evaluation
+]
+
+
+---
+class: inverse, center, middle
+name: rdd
+
+# Regression discontinuity
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Basic logic of regression discontinuity
+
+.pull-left[
+## The setting
+- A threshold is used to assign treatment/policy
+- Examples: admission to a program, taxation, election results, etc.
+- Treatment is assigned according to a rule based on another variable (called the **forcing or running variable**)
+
+## Basic idea of regression discontunity (RDD):
+- Whether units end up just below or just above the threshold is assumed to be a matter of chance (**local randomization**)
+- A treatment effect estimate is obtained by comparing (predicted) Y-values of those just eligible for treatment with those just ineligible
+- Often useful for **analysis in and of a ``rule-based'' world** (administrative programs, elections, etc.)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/rdd-sharp.png" width=400&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/heiss-rdd-01.png" width=400&gt;
+&lt;/div&gt;
+]
+
+---
+# RDD: Example
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/heiss-rdd-02.png" width=900&gt;
+&lt;/div&gt;
+
+---
+# RDD: Example
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/heiss-rdd-03.png" width=900&gt;
+&lt;/div&gt;
+
+---
+# RDD: Example
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/heiss-rdd-04.png" width=900&gt;
+&lt;/div&gt;
+
+---
+# Sources of RD designs
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/dunning-rd-1.png" width=600&gt;
+&lt;/div&gt;
+
+`Source`: Dunning, Thad. 2012. [Natural experiments in the social sciences: A design-based approach. CUP.](https://www.cambridge.org/core/books/natural-experiments-in-the-social-sciences/96A64CBDC2A2952DC1C68AF77DE675AF)
+
+
+---
+# Strengths and weaknesses of RDD
+
+.pull-left-wide[
+## Strengths
+- **High internal validity:** With enough data available around the threshold and in the absence of sorting, the observational design is pretty close to the experimental ideal
+- Intuitive and easy to understand
+- Thresholds are everywhere in a policy-fueled world - lots of potential for application
+
+## Weaknesses
+- **Limited external validity:** Effect is only identified for a small subpopulation `\(\rightarrow\)` should we expect the same effect among more remote subjects?
+- RDD requires lots of data (or extrapolation); sensitivity to choice of functional form
+- Subjects potentially know the threshold and may sort themselves into treatment and control groups
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/street-shift.jpg" width=250&gt;
+&lt;/div&gt;
+]
+
+
+---
+class: inverse, center, middle
+name: its
+
+# Interrupted time-series
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+# Basic logic of interrupted time-series
+
+.pull-left[
+## The setting
+- Time-series data allow observing the same subject or unit in different causal states at different points in time
+- The treatment is introduced at a known point in time (the ``interruption'')
+
+## The logic of interrupted time-series (ITS)
+- The effect of the treatment is estimated by comparing the pre- and post-interruption trends in the outcome variable
+- Basic ITS model: `\(Y_{t} = f(t) + \beta D_{t} + e_{t}\)`
+- In words: `\(Y\)` is some function in time `\(f(t)\)` and the treatment indicator `\(D\)` 
+- Analogy to RDD with time as the running variable
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/measles-us.png" width=500&gt;&lt;br&gt;
+&lt;/div&gt;
+]
+
+---
+# Example: The effect of “Stand Your Ground” Law on homicide
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/stand-your-ground-florida-homicide-firearm.png" width=950&gt;
+&lt;/div&gt;
+
+`Source` Humphreys et al. (2017), [JAMA Internal Medicine](https://pubmed.ncbi.nlm.nih.gov/27842169/).
+
+
+---
+# Strengths and weaknesses of ITS
+
+.pull-left[
+## Strengths
+- Similar to RDD
+- Intuitive and easy to understand
+- With policies, a starting (or end) date often can be easily defined
+
+## Weaknesses
+- Time is a problematic running variable: many things can happen at the same time as the policy change
+- Policies can be anticipated, which contaminates effects around the interruption
+]
+
+--
+
+.pull-right[
+## Strategies to increase the confidence in ITS inference
+- Estimate effect on **alternative outcomes** that should (not) be affected by the treatment (latter case: "placebo tests")
+- Adjust for **trends in other variables** that may affect or be related to the underlying time series of interest
+- Assess the **impact of the termination** of the cause in addition to its initiation
+]
+
+
+
+---
+class: inverse, center, middle
+name: did
+
+# Difference-in-differences
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Basic logic of difference-in-differences
+
+.pull-left-wide[
+## The setting
+- How should we conduct causal inference when repeated measurements of treateds and controls are available?
+- Simplest case: Before-after measure of treatment and control group
+- Two types of variations:
+  - Time variation: change over time within each group
+  - Group/cross-sectional variation: difference between treatment and control group within each time period
+- Before-and-after and cross-sectional designs
+
+## The DID idea
+- Can we exploit both variations?
+- That's what Difference-in-Differences (Diff-in-diff, DID, DD) tries to achieve
+- The DID estimator is the difference between the change in the treatment group and the change in the control group
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/before-after-crossectional-1.png" width=290&gt;&lt;br&gt;
+&lt;img src="../pics/before-after-crossectional-2.png" width=290&gt;
+&lt;/div&gt;
+]
+
+---
+# Visual illustration of DID
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/did-concept.png" width=890&gt;
+&lt;/div&gt;
+
+
+---
+# Example: Garbage collection and recycling (fictitious case)
+
+.pull-left[
+## The scenario
+- Several boroughs within a large metropolitan area send out information material on value/costs of garbage recycling system. (Not a city-wide campaign!) `\(\rightarrow\)` the **treatment group**
+- Other boroughs do business as usual `\(\rightarrow\)` the **control group**
+
+## Data collection
+- Ex-post, we analyze fraction of "correctly" discarded garbage (placed in appropriate recycling boxes)
+- Data obtained from City’s garbage collection service, in the pre- and post-reform year, for treat. vs control boroughs
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/did-garbage-example.png" width=480&gt;
+&lt;/div&gt;
+
+**How to evaluate the impact of the intervention?**
+]
+
+---
+# Example: Garbage collection and recycling (fictitious case)
+
+.pull-left-wide[
+## Simple pre-post comparison
+- Comparing average outcomes in the treatment group before (year 0) and after the policy change (year 1)
+- Result: `\(B-A = 0.74 - 0.60 = 0.14\)` `\(\rightarrow\)` misleading result!
+
+## Ex-post "between" comparison
+- Comparing year 1 outcomes between treatment and control group
+- Result: `\(B-D = 0.74 - 0.81 = -0.07\)` `\(\rightarrow\)` misleading result!
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/did-garbage-example.png" width=480&gt;
+&lt;/div&gt;
+]
+
+---
+# Example: Garbage collection and recycling (fictitious case)
+
+.pull-left-wide[
+## Simple pre-post comparison
+- Comparing average outcomes in the treatment group before (year 0) and after the policy change (year 1)
+- Result: `\(B-A = 0.74 - 0.60 = 0.14\)` `\(\rightarrow\)` misleading result!
+
+## Ex-post "between" comparison
+- Comparing year 1 outcomes between treatment and control group
+- Result: `\(B-D = 0.74 - 0.81 = -0.07\)` `\(\rightarrow\)` misleading result!
+
+## Compute Difference-in-Differences
+- Comparing change ("difference") in outcomes in the treatment group with changes in outcomes in the control group
+- DID result = `\((B-A) - (D-C) = 0.11\)`
+- Causal impact measure (under certain important assumptions)
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/did-garbage-example2.png" width=480&gt;
+&lt;/div&gt;
+]
+
+---
+# Example: Garbage collection and recycling (fictitious case)
+
+.pull-left-wide[
+## DID identifies "true" causal impact only under...
+- **Parallel trends**: W/o policy change the outcome in the treatment group would have evolved perfectly "parallel" to outcome in control group (recall: the unobserved, perfect counterfactual!) - Tricky: not testable, one can only check parallel pre-trends
+- Group **compositions remain stable** during evaluation period
+- **No spillover** from treatment into control group (or vice versa)
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/did-garbage-example2.png" width=480&gt;
+&lt;/div&gt;
+]
+
+---
+# Example: Garbage collection and recycling (fictitious case)
+
+.pull-left-wide[
+## DID identifies "true" causal impact only under...
+- **Parallel trends**: W/o policy change the outcome in the treatment group would have evolved perfectly "parallel" to outcome in control group (recall: the unobserved, perfect counterfactual!) - Tricky: not testable, one can only check parallel pre-trends
+- Group **compositions remain stable** during evaluation period
+- **No spillover** from treatment into control group (or vice versa)
+
+## Discussion
+- Which regions engaged in policy reform? What does that imply for Diff-in-Diff?
+- How could the design of the intervention have been strengthened a priori?
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/did-garbage-example3.png" width=480&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Puzzle
+
+.pull-left-wide[
+## What happened?
+
+1. What do you think happened to the man in the picture?
+
+2. What is the likely cause of the observed skin damage?
+
+3. What does this have to do with quasi-experiments?
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/truck-driver-unilateral.jpeg" width=480&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Puzzle
+
+.pull-left-wide[
+## What happened?
+
+1. What do you think happened to the man in the picture?
+
+2. What is the likely cause of the observed skin damage?
+
+3. What does this have to do with quasi-experiments?
+
+## Some more information
+
+&gt; "A 69-year-old man presented with a history of gradual thickening and wrinkling of the skin on the left side of his face. The physical examination showed hyperkeratosis with accentuated ridging, multiple open comedones, and areas of nodular elastosis." (from the Abstract)
+
+- Source: [J. Gordon and J. Brieva, NEJM, 2012, Unilateral Dermatoheliosis. ](https://www.nejm.org/doi/full/10.1056/NEJMicm1104059)
+- The patient reported that he had driven a delivery truck for 28 years. Ultraviolet A (UVA) rays transmit through window glass, penetrating the epidermis and upper layers of dermis. 
+
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/truck-driver-unilateral.jpeg" width=480&gt;
+&lt;/div&gt;
+]
+
+
+
+
+
+
+
+
+---
+class: inverse, center, middle
+name: tradeoffs
+
+# Trade-offs in impact evaluation
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+# The internal vs. external validity trade-off
+
+.pull-left[
+## Internal validity
+
+**"What works (in the context of the study's parameters)?"**
+
+- How well does the study design rule out rival explanations for the observed effects?
+- Is the constructed counterfactual plausible? Is it even a good point for comparison?
+- Randomization fixes a host of issues (think: confounding!), but not everything (think: attrition, noncompliance, contamination, measurement).
+]
+
+.pull-right[
+## External validity
+
+**"Is this relevant? Does this work for us?"**
+
+- Is the outcome of interest measured in a way that is relevant for the target population?
+- Is the treatment of interest comparable to the policy intervention of interest? (think: [what works in mice might not work in humans](https://www.vox.com/future-perfect/2019/6/15/18679138/nutrition-health-science-mice-news))
+- More generally: How well do the results generalize to other settings, populations, and times?
+- Relevance for planning and policy-making requires the generalization of results to a target population of interest.
+]
+
+---
+# What is useful causal evidence?
+
+.pull-left[
+## Practical usefulness
+- **Internal validity** is about ruling out rival explanations for the observed effects. Importance of balancing study design decisions to maximize both internal and external validity, but scoring high on both is often impossible to achieve.
+- Accepting **"practical usefulness" as additional criterion** next to internal and external validity.
+- Internal and external bias both exist on a continuous scales (as degrees rather than as dichotomies), and relatively minor violations of internal validity may be tolerable in exchange for greater external validity.
+]
+
+.pull-right[
+## Staying humble
+- Different methods come with different pros and cons; not every method fits every context
+- Causal inference using observational data is hard; be humble when making causal claims! 
+- Generalization using experimental data is hard; be humble when making claims about the population of interest!
+]
+
+---
+# Hierarchy of evidence&amp;ast;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/pyramid-hierarchy-of-evidence.png" width=750&gt;
+&lt;/div&gt;
+
+&amp;ast;**Take with a pinch of salt!** First intuition only; conflates internal and external validity and may not account for practical usefulness; lots of within-design variation of quality.
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

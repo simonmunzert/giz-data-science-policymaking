@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 4: Informed Consumption of Evidence</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sebastian Ramirez-Ruiz" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 4: Informed Consumption of Evidence
+]
+.subtitle[
+## Evidence synthesis: <i>Systematic reviews and meta-analyses</i>
+]
+.author[
+### Sebastian Ramirez-Ruiz
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+.has-continuation {
+display: block !important;
+}
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+# Table of contents
+
+&lt;br&gt;
+
+1. [The knowledge cummulation challenge](#aggregation-challenge)
+
+2. [Overview of evidence synthesis](#evidence-synthesis)
+
+4. [Narrative reviews: A primer](#narrative-reviews)
+
+4. [Systematic reviews: A primer](#systematic-reviews)
+
+5. [Meta-analysis: A primer](#meta-analysis)
+
+6. [Evidence synthesis for policy](#es-in-policy)
+
+6. [Coordinated trials](#coordinated-efforts)
+
+---
+class: midtext
+
+# A show of hands!
+
+### Raise your hand if you:
+
+--
+- have heard the terms narrative review, systematic review, or meta-analysis
+
+--
+- can define what a systematic review entails
+
+--
+- can explain the difference between a narrative review and a systematic review
+
+--
+- have ever conducted a systematic review or meta-analysis
+
+--
+- have combined evidence from multiple studies in your work
+
+--
+- have interpreted findings from a meta-analytic study
+
+--
+- have used evidence synthesis to inform policy decisions
+
+--
+- are familiar with the steps involved in conducting a systematic review
+
+--
+- have critiqued or evaluated a meta-analysis study
+
+--
+- have integrated findings from systematic reviews into policy recommendations
+
+--
+- have trained or guided others in evidence synthesis methodologies
+
+--
+- have read a systematic review or meta-analysis in the past six months
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: aggregation-challenge
+
+# The knowledge cummulation challenge
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# Macro-level questions, micro-level answers...
+
+
+.pull-left-vsmall-3[
+## Motivation
+
+Understand whether freedom of the press fosters better government. 
+
+## Evidence
+
+Experiment that shows that voters are more likely to vote against politicians when they learn that the politicians are underperforming
+
+&lt;b style="color:#cc0065"&gt;What can you learn?&lt;/b&gt;
+]
+
+.text-invisible[
+.pull-left-vsmall-3[
+## Motivation
+
+Understand whether larger endowments of natural resources weaken state-society linkages. 
+
+## Evidence
+
+Experiment that shows that voters who are told that revenues are derived from natural resources – rather than taxes – exhibit less concern about government expenditures
+
+&lt;b style="color:#cc0065"&gt;What can you learn?&lt;/b&gt;
+]
+
+.pull-left-vsmall-3[
+## Motivation
+
+Understand whether inter-ethnic violence is caused by residential segregation.
+
+## Evidence
+
+Experiment that shows that prejudice decreases among individuals exposed to higher levels of contact with out-group members.
+
+&lt;b style="color:#cc0065"&gt;What can you learn?&lt;/b&gt;
+]
+]
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+`Source` &lt;a name=cite-humphreys2020aggregation&gt;&lt;/a&gt;([Humphreys and Scacco, 2020](#bib-humphreys2020aggregation))
+
+---
+
+# Macro-level questions, micro-level answers...
+
+.text-invisible[
+.pull-left-vsmall-3[
+## Motivation
+
+Understand whether freedom of the press fosters better government. 
+
+## Evidence
+
+Experiment that shows that voters are more likely to vote against politicians when they learn that the politicians are underperforming
+
+&lt;b style="color:#cc0065"&gt;What can you learn?&lt;/b&gt;
+]
+]
+
+.pull-left-vsmall-3[
+## Motivation
+
+Understand whether larger endowments of natural resources weaken state-society linkages. 
+
+## Evidence
+
+Experiment that shows that voters who are told that revenues are derived from natural resources – rather than taxes – exhibit less concern about government expenditures
+
+&lt;b style="color:#cc0065"&gt;What can you learn?&lt;/b&gt;
+]
+
+.text-invisible[
+.pull-left-vsmall-3[
+## Motivation
+
+Understand whether inter-ethnic violence is caused by residential segregation.
+
+## Evidence
+
+Experiment that shows that prejudice decreases among individuals exposed to higher levels of contact with out-group members.
+
+&lt;b style="color:#cc0065"&gt;What can you learn?&lt;/b&gt;
+]
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+`Source` ([Humphreys and Scacco, 2020](#bib-humphreys2020aggregation))
+
+---
+
+# Macro-level questions, micro-level answers...
+
+.text-invisible[
+.pull-left-vsmall-3[
+## Motivation
+
+Understand whether freedom of the press fosters better government. 
+
+## Evidence
+
+Experiment that shows that voters are more likely to vote against politicians when they learn that the politicians are underperforming
+
+&lt;b style="color:#cc0065"&gt;What can you learn?&lt;/b&gt;
+]
+
+.pull-left-vsmall-3[
+## Motivation
+
+Understand whether larger endowments of natural resources weaken state-society linkages. 
+
+## Evidence
+
+Experiment that shows that voters who are told that revenues are derived from natural resources – rather than taxes – exhibit less concern about government expenditures
+
+&lt;b style="color:#cc0065"&gt;What can you learn?&lt;/b&gt;
+]
+]
+
+.pull-left-vsmall-3[
+## Motivation
+
+Understand whether inter-ethnic violence is caused by residential segregation.
+
+## Evidence
+
+Experiment that shows that prejudice decreases among individuals exposed to higher levels of contact with out-group members.
+
+&lt;b style="color:#cc0065"&gt;What can you learn?&lt;/b&gt;
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+`Source` ([Humphreys and Scacco, 2020](#bib-humphreys2020aggregation))
+
+---
+
+# Macro-level questions, micro-level answers... (cont.)
+
+.pull-center[
+
+.content-box-gray-wide[
+## Challenge to knowledge cummulation
+In all three cases, a .i-pink[macro-level question motivates the research, but the researcher has micro-level experimental evidence at hand]. The micro-level experiments seem to provide relevant evidence, but it is unclear what inferences to draw from this micro evidence for the macro questions.
+]
+]
+
+--
+
+## Challenges to studying the "macro"
+
+- Suitable research designs
+- Resource constraints
+- Professional incentives (*one-time hitters problem*)
+- ...
+
+--
+
+## Think of validity concerns from previous sessions
+
+- Balance between the internally and externally valid...
+
+---
+
+# Causal decision-making and causal effect estimation...
+
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s2-cdm-cee.png" width=500&gt;
+&lt;/div&gt;
+`Source` &lt;a name=cite-fernandez2022causal&gt;&lt;/a&gt;([Fernández-Loría and Provost, 2022](#bib-fernandez2022causal))
+
+---
+
+# Defend the premise
+
+&lt;h2&gt;Let's pick sides:&lt;/h2&gt; Turn to the person right next to you. The person whose birthday is the closest to today will stand for .i-pink[Premise A].
+
+--
+
+.pull-left[
+
+- &lt;h2&gt;Activity:&lt;/h2&gt;  You have just been assigned to one of two premises to defend, regardless of your personal views. You will need to construct a coherent argument and anticipate counterarguments.
+
+- **Argument Construction** (3 minutes)
+    - A clear thesis statement. 
+    - Three supporting points.
+    - Acknowledgment of potential counterarguments and responses to them.
+
+- **Discuss and try to convince each other** (7 minutes)
+
+]
+
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s2-georgia-wrestling.png" height=250&gt;
+&lt;/div&gt;
+
+]
+
+---
+
+# Defend the premise
+
+&lt;h2&gt;Let's pick sides:&lt;/h2&gt; Turn to the person right next to you. The person whose birthday is the closest to today will stand for .i-pink[Premise A].
+
+
+
+.pull-left[
+
+- &lt;h2&gt;Activity:&lt;/h2&gt;  You have just been assigned to one of two premises to defend, regardless of your personal views. You will need to construct a coherent argument and anticipate counterarguments.
+
+- **Argument Construction** (3 minutes)
+    - A clear thesis statement. 
+    - Three supporting points.
+    - Acknowledgment of potential counterarguments and responses to them.
+
+- **Discuss and try to convince each other** (7 minutes)
+
+]
+
+
+.pull-right[
+- &lt;h2&gt;Premise A:&lt;/h2&gt; 
+&lt;br&gt;Policymakers should focus on **what works**, prioritizing effective outcomes over understanding the underlying reasons.
+
+&lt;br&gt;
+
+- &lt;h2&gt;Premise B:&lt;/h2&gt; 
+&lt;br&gt;Policymakers should care about **why something works**, as understanding the underlying reasons can lead to more sustainable and adaptable policies.
+
+]
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: evidence-synthesis
+
+# Overview of evidence synthesis
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# Evidence synthesis
+
+&lt;br&gt;
+
+.pull-left[
+
+## Why should we care about evidence synthesis?
+
+.text-invisible[- Evidence synthesis involves *combining information from multiple studies investigating the same topic* to comprehensively understand their findings. 
+- It consists of converting scientific outputs - such as articles, reports and data - into **reliable** and **digestible evidence** that can inform management or policy.
+- Synthesis can help determine the **current state of affairs** in a research field's conceptualization of an issue,  how **effective** a particular intervention is.
+- It is very **popular** in evidence-based health practice.]
+
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-contribution.png" height=250&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Evidence synthesis
+
+&lt;br&gt;
+
+.pull-left[
+
+## Why should we care about evidence synthesis?
+
+- Evidence synthesis involves *combining information from multiple studies investigating the same topic* to comprehensively understand their findings. 
+.text-invisible[- It consists of converting scientific outputs - such as articles, reports and data - into **reliable** and **digestible evidence** that can inform management or policy.
+- Synthesis can help determine the **current state of affairs** in a research field's conceptualization of an issue,  how **effective** a particular intervention is.
+- It is very **popular** in evidence-based health practice.]
+
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-contribution.png" height=250&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Evidence synthesis
+
+&lt;br&gt;
+
+.pull-left[
+
+## Why should we care about evidence synthesis?
+
+- Evidence synthesis involves *combining information from multiple studies investigating the same topic* to comprehensively understand their findings. 
+- It consists of converting scientific outputs - such as articles, reports and data - into **reliable** and **digestible evidence** that can inform management or policy.
+.text-invisible[- Synthesis can help determine the **current state of affairs** in a research field's conceptualization of an issue,  how **effective** a particular intervention is.
+- It is very **popular** in evidence-based health practice.]
+
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-contribution.png" height=250&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Evidence synthesis
+
+&lt;br&gt;
+
+.pull-left[
+
+## Why should we care about evidence synthesis?
+
+- Evidence synthesis involves *combining information from multiple studies investigating the same topic* to comprehensively understand their findings. 
+- It consists of converting scientific outputs - such as articles, reports and data - into **reliable** and **digestible evidence** that can inform management or policy.
+- Synthesis can help determine the **current state of affairs** in a research field's conceptualization of an issue,  how **effective** a particular intervention is.
+.text-invisible[- It is very **popular** in evidence-based health practice.]
+
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-contribution.png" height=250&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Evidence synthesis
+
+&lt;br&gt;
+
+.pull-left[
+
+## Why should we care about evidence synthesis?
+
+- Evidence synthesis involves *combining information from multiple studies investigating the same topic* to comprehensively understand their findings. 
+- It consists of converting scientific outputs - such as articles, reports and data - into **reliable** and **digestible evidence** that can inform management or policy.
+- Synthesis can help determine the **current state of affairs** in a research field's conceptualization of an issue,  how **effective** a particular intervention is.
+- It is very **popular** in evidence-based health practice.
+
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-contribution.png" height=250&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Evidence synthesis (cont.)
+
+&lt;br&gt;
+
+.pull-left[
+
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-target.png" height=250&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Who can benefit from evidence synthesis?
+
+.text-invisible[
+- **Researchers and funders** who need information about the .i-pink[gaps] in the evidence, helping to direct future research efforts and funding priorities.
+- **Policymakers and administrators** who need information to .i-pink[make decisions], ensuring policies are based on the *best available* evidence.
+- **Policy practitioners** who need information about .i-pink[implementation], ensuring policies are effectively put into practice..
+- **General public** who stand to benefit from **well-informed** policies that are designed to improve societal outcomes based on robust evidence.
+]
+
+]
+
+---
+
+# Evidence synthesis (cont.)
+
+&lt;br&gt;
+
+.pull-left[
+
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-target.png" height=250&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Who can benefit from evidence synthesis?
+
+
+- **Researchers and funders** who need information about the .i-pink[gaps] in the evidence, helping to direct future research efforts and funding priorities.
+.text-invisible[- **Policymakers and administrators** who need information to .i-pink[make decisions], ensuring policies are based on the *best available* evidence.
+- **Policy practitioners** who need information about .i-pink[implementation], ensuring policies are effectively put into practice..
+- **General public** who stand to benefit from **well-informed** policies that are designed to improve societal outcomes based on robust evidence.
+]
+
+]
+
+---
+
+# Evidence synthesis (cont.)
+
+&lt;br&gt;
+
+.pull-left[
+
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-target.png" height=250&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Who can benefit from evidence synthesis?
+
+
+- **Researchers and funders** who need information about the .i-pink[gaps] in the evidence, helping to direct future research efforts and funding priorities.
+- **Policymakers and administrators** who need information to .i-pink[make decisions], ensuring policies are based on the *best available* evidence.
+.text-invisible[- **Policy practitioners** who need information about .i-pink[implementation], ensuring policies are effectively put into practice..
+- **General public** who stand to benefit from **well-informed** policies that are designed to improve societal outcomes based on robust evidence.
+]
+
+]
+
+---
+
+# Evidence synthesis (cont.)
+
+&lt;br&gt;
+
+.pull-left[
+
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-target.png" height=250&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Who can benefit from evidence synthesis?
+
+
+- **Researchers and funders** who need information about the .i-pink[gaps] in the evidence, helping to direct future research efforts and funding priorities.
+- **Policymakers and administrators** who need information to .i-pink[make decisions], ensuring policies are based on the *best available* evidence.
+- **Policy practitioners** who need information about .i-pink[implementation], ensuring policies are effectively put into practice..
+.text-invisible[- **General public** who stand to benefit from **well-informed** policies that are designed to improve societal outcomes based on robust evidence.
+]
+
+]
+
+---
+
+# Evidence synthesis (cont.)
+
+&lt;br&gt;
+
+.pull-left[
+
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-target.png" height=250&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Who can benefit from evidence synthesis?
+
+
+- **Researchers and funders** who need information about the .i-pink[gaps] in the evidence, helping to direct future research efforts and funding priorities.
+- **Policymakers and administrators** who need information to .i-pink[make decisions], ensuring policies are based on the *best available* evidence.
+- **Policy practitioners** who need information about .i-pink[implementation], ensuring policies are effectively put into practice..
+- **General public** who stand to benefit from **well-informed** policies that are designed to improve societal outcomes based on robust evidence.
+
+]
+
+---
+
+# Types of evidence synthesis
+
+&lt;br&gt;
+.pull-left[
+## Narrative reviews
+
+Summarize and interpret the literature on a particular topic.
+
+- **Purpose:** To present a comprehensive overview and insights based on the author's expertise.
+- **Strengths:**
+    - Broad overview of the topic
+    - Flexible and easy to consume
+- **Limitations:**
+    - Lack of reproducibility
+    - Prone to author bias
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-narrative-review.png" width=369&gt;
+&lt;/div&gt;
+`Source` &lt;a name=cite-grossman2022media&gt;&lt;/a&gt;([Grossman, 2022](#bib-grossman2022media))
+]
+
+---
+
+# Types of evidence synthesis
+
+&lt;br&gt;
+
+.pull-left[
+## Systematic reviews
+
+Uses a structured and predefined methodology to gather and analyze all relevant studies on a specific research question.
+
+- **Purpose:** To minimize bias and provide high-quality evidence by synthesizing all available research.
+- **Strengths:**
+    - Comprehensive and transparent
+    - Reproducible and less biased
+- **Limitations:**
+    - Resource-intensive
+    - Subject to available materials (i.e., publication bias)
+]
+
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-systematic-review.png" width=385&gt;
+&lt;/div&gt;
+`Source` &lt;a name=cite-lorenz2023systematic&gt;&lt;/a&gt;([Lorenz-Spreen et al., 2023](#bib-lorenz2023systematic))
+]
+
+---
+
+# Types of evidence synthesis
+
+&lt;br&gt;
+.pull-left[
+## Meta-analyses
+
+A type of systematic review that uses statistical methods to combine the results of multiple studies.
+
+- **Purpose:** To increase statistical power and resolve uncertainties when individual studies disagree.
+- **Strengths:**
+    - Provides pooled estimates of effects
+    - Identifies patterns and overall trends
+- **Limitations:**
+    - Requires high-quality data (Garbage-in/garbage-out)
+    - Heterogeneity among studies can complicate analysis
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-meta-analysis.png" width=380&gt;
+&lt;/div&gt;
+`Source` &lt;a name=cite-munzert2021meta&gt;&lt;/a&gt;([Munzert and Ramirez-Ruiz, 2021](#bib-munzert2021meta))
+]
+
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: narrative-reviews
+
+# Narrative reviews: A primer
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# Narrative review
+
+.content-box-gray-wide[
+## &lt;b&gt;What&lt;/b&gt; is a narrative review?
+A narrative review is a comprehensive, qualitative summary of research on a specific topic, typically based on a non-systematic search and selection of studies, providing a broader understanding through descriptive synthesis.
+]
+
+--
+
+&lt;br&gt;
+
+.pull-left[
+## Key characteristics of a systematic review
+
+- Broad .i-pink[topic scope] allowing for flexibility in including relevant studies
+- Selective .i-pink[literature inclusion] based on the author’s expertise and perspective
+- Focus on .i-pink[summarizing and synthesizing] existing knowledge rather than systematic data extraction
+]
+
+--
+
+.pull-right[
+&lt;br&gt;
+- Emphasis on .i-pink[contextualizing findings] within a theoretical or conceptual framework
+- Narrative .i-pink[discussion] that highlights trends, gaps, and inconsistencies in the literature
+]
+
+
+---
+
+
+# Narrative review (cont.)
+
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s2-narrative-review.png" width=450&gt;
+&lt;/div&gt;
+`Source` ([Grossman, 2022](#bib-grossman2022media))
+
+&lt;!-- ############################################ --&gt;
+
+---
+class: inverse, center, middle
+name: systematic-reviews
+
+# Systematic reviews: A primer
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# Systematic review
+
+.content-box-gray-wide[
+## &lt;b&gt;What&lt;/b&gt; is a systematic review?
+A review that is conducted according to clearly stated, scientific research methods, and is designed to minimize biases and errors inherent to traditional, narrative reviews.
+]
+
+--
+
+&lt;br&gt;
+
+.pull-left[
+## Key characteristics of a systematic review
+
+- Clearly stated .i-pink[objectives]
+- Comprehensive .i-pink[search strategy] to retrieve relevant studies (both *published* and *unpublished*)
+- Explicit criteria for the .i-pink[inclusion] or exclusion of the retrieved studies
+]
+
+--
+
+.pull-right[
+&lt;br&gt;
+- Clear .i-pink[presentation of characteristics] of the studies included and an analysis of methodological quality
+- Comprehensive overview of all studies excluded and .i-pink[justification for exclusion]
+]
+
+---
+
+
+# Systematic review (cont.)
+
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-social-media-pew.png" width=680&gt;
+&lt;/div&gt;
+
+---
+
+
+# Systematic review (cont.)
+
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s2-systematic-review.png" width=480&gt;
+&lt;/div&gt;
+`Source` ([Lorenz-Spreen et al., 2023](#bib-lorenz2023systematic))
+
+---
+
+# Systematic review (cont.)
+
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s2-sys-review-process.jpeg" width=550&gt;
+&lt;/div&gt;
+`Source` ([Lorenz-Spreen et al., 2023](#bib-lorenz2023systematic))
+
+---
+
+# Systematic review (cont.)
+
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s2-review-map.jpeg" width=528&gt;
+&lt;/div&gt;
+`Source` ([Lorenz-Spreen et al., 2023](#bib-lorenz2023systematic))
+
+
+---
+
+# Systematic review
+
+.content-box-gray-wide[
+## &lt;b&gt;What&lt;/b&gt; is a systematic review?
+A review that is conducted according to clearly stated, scientific research methods, and is designed to minimize biases and errors inherent to traditional, narrative reviews.
+]
+
+--
+
+&lt;br&gt;
+
+
+## Expected output from the systematic review
+
+- **Comparison with Existing Literature**: How the findings align or contrast with previous research.
+
+--
+- **Implications for Research, Practice, and Policy**: Potential impact on practice, policy, or further research.
+
+--
+- **Synthesis of Findings**: Aggregated data from the studies, which may include quantitative data synthesis (meta-analysis) or qualitative synthesis.
+
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: meta-analysis
+
+# Meta-analyses: A primer
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# Meta-analyses
+
+.content-box-gray-wide[
+## &lt;b&gt;What&lt;/b&gt; is a meta-analysis?
+A particular flavor of systematic review, and statistical technique, conducted to combine the results of independent, but similar, studies to obtain an overall estimate of treatment effects.
+]
+
+--
+
+&lt;br&gt;
+
+## Important to consider
+
+- **All meta-analyses** are based on a systematic review of the literature, but not all systematic reviews include a meta-analysis (i.e., the search strategy procedures align)
+
+--
+- During the process researchers need to consider the risk of missing unpublished studies, which might skew results (*File-drawer problem*)
+
+--
+- A big challenge for meta-analyses is the **standardization** of definitions of .i-pink[variables] and .i-pink[outcomes] across studies to ensure comparability
+
+---
+
+# Meta-analyses (cont.)
+
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-wahlomat.png" width=680&gt;
+&lt;/div&gt;
+
+---
+
+# Meta-analyses (cont.)
+
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s2-meta-analysis.png" width=480&gt;
+&lt;/div&gt;
+`Source` ([Munzert and Ramirez-Ruiz, 2021](#bib-munzert2021meta))
+
+---
+
+# Meta-analyses (cont.)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s2-vaa-study-retrieval.jpeg" width=380&gt;
+&lt;/div&gt;
+`Source` ([Munzert and Ramirez-Ruiz, 2021](#bib-munzert2021meta))
+
+---
+
+# Meta-analyses (cont.)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s2-vaa-forest-plot.jpeg" width=570&gt;
+&lt;h2 style="text-align:center"&gt;Aggregate effects&lt;/h2&gt;
+&lt;/div&gt;
+`Source` ([Munzert and Ramirez-Ruiz, 2021](#bib-munzert2021meta))
+
+---
+
+# Meta-analyses (cont.)
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s2-vaa-moderator.jpeg" width=550&gt;
+&lt;h2 style="text-align:center"&gt;Subgroup analyses &lt;i&gt;(nuance)&lt;/i&gt;&lt;/h2&gt;&lt;br&gt;
+&lt;/div&gt;
+`Source` ([Munzert and Ramirez-Ruiz, 2021](#bib-munzert2021meta))
+
+
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: es-in-policy
+
+# Evidence synthesis for policy
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+class: midtext
+
+# Why evidence synthesis matters for policymakers?
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.pull-left-vsmall[
+## Informed&lt;br&gt;decision-making
+
+- **Comprehensive Insights**: Provides a thorough understanding of what works, what doesn’t, and why.
+- **Risk Reduction**: Minimizes the risk of implementing ineffective or harmful policies.
+
+]
+
+.text-invisible[
+.pull-left-vsmall[
+## Resource&lt;br&gt;optimization
+
+- **Efficient Use of Funds**: Can help allocate resources to initiatives backed by strong evidence, ensuring cost-effectiveness.
+- **Avoids Duplication**: Can help prevent redundancy by identifying already existing research and practices.
+]
+
+
+.pull-left-vsmall[
+## Accountability and transparency
+
+- **Evidence-Based Justifications**: Can offer a clear rationale for policy choices, enhancing credibility and public trust.
+- **Clear Communication**: Facilitates transparent communication with stakeholders about the basis for decisions.
+]
+
+
+.pull-left-vsmall[
+## Adaptive&lt;br&gt;policy-making
+
+- **Stay Updated**: Keeps policymakers informed of the latest research and emerging trends.
+- **Flexible Adjustments**: Allows for the modification of policies in response to new evidence.
+]
+]
+
+---
+class: midtext
+
+# Why evidence synthesis matters for policymakers?
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.text-invisible[
+.pull-left-vsmall[
+## Informed&lt;br&gt;decision-making
+
+- **Comprehensive Insights**: Provides a thorough understanding of what works, what doesn’t, and why.
+- **Risk Reduction**: Minimizes the risk of implementing ineffective or harmful policies.
+
+]
+]
+
+.pull-left-vsmall[
+## Resource&lt;br&gt;optimization
+
+- **Efficient Use of Funds**: Can help allocate resources to initiatives backed by strong evidence, ensuring cost-effectiveness.
+- **Avoids Duplication**: Can help prevent redundancy by identifying already existing research and practices.
+]
+
+.text-invisible[
+.pull-left-vsmall[
+## Accountability and transparency
+
+- **Evidence-Based Justifications**: Can offer a clear rationale for policy choices, enhancing credibility and public trust.
+- **Clear Communication**: Facilitates transparent communication with stakeholders about the basis for decisions.
+]
+
+
+.pull-left-vsmall[
+## Adaptive&lt;br&gt;policy-making
+
+- **Stay Updated**: Keeps policymakers informed of the latest research and emerging trends.
+- **Flexible Adjustments**: Allows for the modification of policies in response to new evidence.
+]
+]
+---
+class: midtext
+
+# Why evidence synthesis matters for policymakers?
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.text-invisible[
+.pull-left-vsmall[
+## Informed&lt;br&gt;decision-making
+
+- **Comprehensive Insights**: Provides a thorough understanding of what works, what doesn’t, and why.
+- **Risk Reduction**: Minimizes the risk of implementing ineffective or harmful policies.
+
+]
+
+.pull-left-vsmall[
+## Resource&lt;br&gt;optimization
+
+- **Efficient Use of Funds**: Can help allocate resources to initiatives backed by strong evidence, ensuring cost-effectiveness.
+- **Avoids Duplication**: Can help prevent redundancy by identifying already existing research and practices.
+]
+]
+
+.pull-left-vsmall[
+## Accountability and transparency
+
+- **Evidence-Based Justifications**: Can offer a clear rationale for policy choices, enhancing credibility and public trust.
+- **Clear Communication**: Facilitates transparent communication with stakeholders about the basis for decisions.
+]
+
+
+..text-invisible[
+pull-left-vsmall[
+## Adaptive&lt;br&gt;policy-making
+
+- **Stay Updated**: Keeps policymakers informed of the latest research and emerging trends.
+- **Flexible Adjustments**: Allows for the modification of policies in response to new evidence.
+]
+]
+---
+class: midtext
+
+# Why evidence synthesis matters for policymakers?
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.text-invisible[
+.pull-left-vsmall[
+## Informed&lt;br&gt;decision-making
+
+- **Comprehensive Insights**: Provides a thorough understanding of what works, what doesn’t, and why.
+- **Risk Reduction**: Minimizes the risk of implementing ineffective or harmful policies.
+
+]
+
+.pull-left-vsmall[
+## Resource&lt;br&gt;optimization
+
+- **Efficient Use of Funds**: Can help allocate resources to initiatives backed by strong evidence, ensuring cost-effectiveness.
+- **Avoids Duplication**: Can help prevent redundancy by identifying already existing research and practices.
+]
+
+
+.pull-left-vsmall[
+## Accountability and transparency
+
+- **Evidence-Based Justifications**: Can offer a clear rationale for policy choices, enhancing credibility and public trust.
+- **Clear Communication**: Facilitates transparent communication with stakeholders about the basis for decisions.
+]
+]
+
+.pull-left-vsmall[
+## Adaptive&lt;br&gt;policy-making
+
+- **Stay Updated**: Keeps policymakers informed of the latest research and emerging trends.
+- **Flexible Adjustments**: Allows for the modification of policies in response to new evidence.
+]
+
+---
+class: midtext
+
+# Why evidence synthesis matters for policymakers?
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.pull-left-vsmall[
+## Informed&lt;br&gt;decision-making
+
+- **Comprehensive Insights**: Provides a thorough understanding of what works, what doesn’t, and why.
+- **Risk Reduction**: Minimizes the risk of implementing ineffective or harmful policies.
+
+]
+
+
+.pull-left-vsmall[
+## Resource&lt;br&gt;optimization
+
+- **Efficient Use of Funds**: Can help allocate resources to initiatives backed by strong evidence, ensuring cost-effectiveness.
+- **Avoids Duplication**: Can help prevent redundancy by identifying already existing research and practices.
+]
+
+
+.pull-left-vsmall[
+## Accountability and transparency
+
+- **Evidence-Based Justifications**: Can offer a clear rationale for policy choices, enhancing credibility and public trust.
+- **Clear Communication**: Facilitates transparent communication with stakeholders about the basis for decisions.
+]
+
+
+.pull-left-vsmall[
+## Adaptive&lt;br&gt;policy-making
+
+- **Stay Updated**: Keeps policymakers informed of the latest research and emerging trends.
+- **Flexible Adjustments**: Allows for the modification of policies in response to new evidence.
+]
+
+
+---
+
+# In-house evidence synthesis: The German case
+
+.pull-left-small[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-bundestag.jpeg" width=320&gt;
+&lt;/div&gt;
+]
+
+--
+
+.pull-right-wide[
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.content-box-gray-wide[
+
+## History
+
+The **Research Services in Parliament** (*WD*) was established in the early 1960s for legislative independence. It operates as a separate directorate within the Bundestag's administration.
+  ]
+]
+
+---
+
+# In-house evidence synthesis: The German case
+
+.pull-left-small[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-bundestag.jpeg" width=320&gt;
+&lt;/div&gt;
+]
+
+
+.pull-right-wide[
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.content-box-gray-wide[
+
+## Roles and purpose
+
+- **Service Providers**: Support Members of the Bundestag with academically sound information.
+- **Knowledge Managers**: Ensure informed decision-making for legislation and government oversight.
+  ]
+]
+
+---
+
+
+# In-house evidence synthesis: The German case
+
+.pull-left-small[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-bundestag.jpeg" width=320&gt;
+&lt;/div&gt;
+]
+
+
+.pull-right-wide[
+
+&lt;br&gt;&lt;br&gt;
+
+.content-box-gray-wide[
+
+## Principles
+
+- **Audience specificity**: Tailor-made responses, from brief notes to in-depth studies.
+- **Interdisciplinarity**: Addresses complex issues like energy policy through a multi-disciplinary approach.
+- **Political Neutrality**: Non-partisan service, confidentiality maintained, equitable response to all members.
+]
+]
+
+---
+
+
+# In-house evidence synthesis: The German case
+
+.pull-left-small[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-bundestag.jpeg" width=320&gt;
+&lt;/div&gt;
+]
+
+
+.pull-right-wide[
+
+&lt;br&gt;
+
+.content-box-gray-wide[
+
+## Functions
+
+- **On-Demand Research**: Custom research based on individual parliamentary requests and collaboration with external experts and institutions.
+- **Proactive Briefings**: Produce dossiers on emerging political issues. As, well as making materials accessible via their public platforms.
+- **Topical Term Series**: Popular among parliamentarians, educators, and journalists.
+]
+]
+
+&lt;!-- ############################################ --&gt;
+
+---
+
+
+class: inverse, center, middle
+name: coordinated-efforts
+
+# Coordinated trials
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+
+# Coordinated trials
+
+.content-box-gray-wide[
+## &lt;b&gt;What&lt;/b&gt; are coordinated trials?
+Coordinated trials involve multiple research sites working together under a common protocol to answer specific research questions, allowing for larger and more diverse study populations, and improving the generalizability of the findings.
+]
+
+--
+
+&lt;br&gt;
+
+.pull-left[
+## Key characteristics of a coordinated trial
+
+- Clearly defined .i-pink[research objectives] and hypotheses
+- Standardized .i-pink[protocols and procedures] across all participating sites to ensure consistency
+- Centralized .i-pink[coordination and management] to oversee the trial’s progress and ensure compliance
+]
+
+--
+
+.pull-right[
+- Rigorous .i-pink[data collection and analysis] methods to enhance data quality and reliability
+- Effective .i-pink[communication and collaboration] among sites to address challenges and share findings
+- Comprehensive .i-pink[reporting and dissemination] of results to contribute to the broader scientific community
+]
+
+---
+class: midtext
+
+# Community policing
+
+.pull-left[
+## The argument for it...
+
+- **Collaborative Approach**: Emphasizes partnership between law enforcement agencies and the communities they serve.
+
+- **Problem-Solving Orientation**: Focuses on identifying and addressing the root causes of crime and disorder.
+
+- **Community Engagement**: Involves active participation of community members in crime prevention and public safety efforts.
+
+- **Building Trust and Relationships**: Aims to foster trust, transparency, and mutual respect between police and community members.
+
+- **Proactive Strategies**: Utilizes proactive strategies such as community outreach, problem-solving, and crime prevention initiatives.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s2-community-policing.png" width=400&gt;
+&lt;/div&gt;
+
+]
+
+--
+
+## &lt;span style="color:#cc0065"&gt;There is mixed evidence about this approach to policing with a large focus on U.S. based studies&lt;/span&gt;
+
+---
+
+class: inverse, center, middle
+name: qr-code
+background-color: #FFFFFF
+
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;b style="color:#000000;"&gt;Let's take a couple of minutes to read this policy brief&lt;/b&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s2-egap-policybrief-qr-code.png" height=250&gt;
+&lt;/div&gt;
+
+---
+
+# Coordinated trials (cont.)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s2-coord-trial-info.png" width=600&gt;
+&lt;/div&gt;
+`Source` &lt;a name=cite-blair2021community&gt;&lt;/a&gt;([Blair et al., 2021](#bib-blair2021community))
+
+---
+class: inverse, center, middle
+name: questions
+
+# Questions?
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

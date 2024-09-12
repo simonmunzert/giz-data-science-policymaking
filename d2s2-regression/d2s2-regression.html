@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 2: Policy evaluation and impact assessment</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 2: Policy evaluation and impact assessment
+]
+.subtitle[
+## Regression and DAGs
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+
+# Table of contents
+
+&lt;br&gt;&lt;br&gt;
+
+1. [Causal reasoning with DAGs](#dags)
+
+2. [Causal inference with regression](#regression)
+
+3. [Variable selection for regression](#regressiondags)
+
+
+---
+class: inverse, center, middle
+name: dags
+
+# Causal reasoning with DAGs
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Your most important toolset for causal reasoning
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/brain-drawing.jpeg" height=160&gt;
+&lt;img src="../pics/plus-sign.png" height=160&gt;
+&lt;img src="../pics/pencil.jpeg" height=160&gt;
+&lt;img src="../pics/plus-sign.png" height=160&gt;
+&lt;img src="../pics/paper.jpg" height=160&gt;
+&lt;img src="../pics/equal-sign.png" height=160&gt;&lt;br&gt;
+&lt;img src="../pics/gidengil-dag.png" height=500&gt;
+&lt;/div&gt;
+
+
+
+
+---
+# Origins of causal graphs
+
+.pull-left-wide[
+## A pioneer of causal graphs
+
+- Path diagrams were originally developed by **Sewall Wright** (geneticist) in the early 1920s.
+- Sewell's father, Philip Wright, used them to demonstrate the use of instrumental variables regression (Pearl and Mackenzie, *Book of Why*)
+- Path analysis gained popularity in social science, particularly sociology and psychology, in the form of structural equation modeling.
+
+## A godfather of causality
+
+- Up until today, causal graphs are not very popular in economics, where the potential outcomes framework (POF) dominates
+- Computer scientist **Judea Pearl** developed causal inference framework based on directed acyclic graphs (DAGs); widely considered godfather of causal graphs analysis
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/sewall-wright.jpeg" height=210&gt;
+&lt;img src="../pics/judea-pearl.jpeg" height=210&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Causal graphs: an intuitive tool for causal reasoning
+
+.pull-left[
+## Why causal graphs are useful
+
+- Graphs are often used informally to express beliefs about relations among variables in an intuitive manner
+-  Graphs allow **non-mathematicians** to draw rigorous conclusions about the nature of statistical associations
+- Informal use can be expanded by adopting formal rules so that they meet the criteria for **Directed Acyclic Graphs** (Pearl 2009 [2000]) 
+- They are practical for **choosing "control" variables** for regression/matching, assessing natural experiments, etc.
+- They provide a **unified framework** to think about causal inference, sample selection, measurement error, and other methodological problems
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/covid-instrument-1.png" height=250&gt;
+&lt;/div&gt;
+]
+
+---
+# Basic functioning of causal graphs
+
+.pull-left[
+## Variables
+
+- Variables are also called **nodes**.
+- Each variable may take multiple values, e.g. "treated" and "not treated". 
+- They are scale-agnostic (can be categorical, continuous).
+- Usually one of the variables is treated as outcome variable of interest (often "Y").
+- Variables that are unobservable or unmeasured but that play an important role in the graph should be added too (usually marked as hollow dots or circles)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-006.png" width=300&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+## Arrows
+- Connections joining variables are called **edges**.
+- If an edge is an **arrow**, this implies a causal relationship between variables.
+- The arrow makes a qualitative, not a quantitative statement. The effect can be positive or negative and of arbitrary size.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-007.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+# Basic functioning of causal graphs
+
+.pull-left[
+## Endogeneity and exogeneity
+
+- A variable without a parent is **exogenous**, otherwise it is **endogenous**. 
+- Describing a variable as truly exogenous (here: Z) is a strong statement. It means it has no cause that is of relevance here.
+
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-008.png" width=300&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+## Paths
+- A **path** is a sequence of arrows that links one node to another, regardless of the direction of arrowheads. 
+- Retracing of arrows or going through the same variable twice is not possible.
+- A **causal path** is a path traced out entirely along arrows tail-to-head.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-009.png" width=300&gt;
+&lt;/div&gt;
+]
+
+
+---
+# DAGs
+
+.pull-left[
+## What are DAGs?
+- **Directed Acyclic Graphs** (DAGs) are a type of causal graph.
+- Acyclic means that there are no loops in the graph.
+- DAGs encode the researcher's **qualitative** causal assumptions about the data-generating process in the population
+- Constructing them requires **theoretical and empirical knowledge** or assumptions (whatever you have should go into it - theory, model, observation, experience, prior studies, intuition)
+]
+
+.pull-right[
+## Different DAG styles
+
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/dag-clean-nodes.png" height=150&gt;
+&lt;img src="../pics/dag-heiss.png" height=150&gt;&lt;br&gt;
+&lt;img src="../pics/dag-confuse.png" height=150&gt;
+&lt;img src="../pics/dag-labels.png" height=150&gt;
+&lt;/div&gt;
+]
+
+
+---
+class: split-three white
+
+# Basic patterns in DAGs
+
+.pull-left-small2-center[
+
+X is **confounder**.
+
+The "fork" pattern.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-010.png" width=300&gt;
+&lt;/div&gt;
+]
+
+.pull-right-small2-center[
+
+X is **collider**.
+
+The "reversed fork" pattern.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-012.png" width=300&gt;
+&lt;/div&gt;
+]
+
+.pull-right-small2-center[
+
+X is **mediator**. 
+
+The "chain" pattern.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-011.png" width=300&gt;
+&lt;/div&gt;
+]
+
+&lt;br&gt;&lt;br&gt;
+
+Dissecting more complex graphs into these basic patterns can help to understand the causal structure of the data-generating process. This will be **key to understanding how to adjust for confounding** in regression analysis.
+
+
+
+---
+class: inverse, center, middle
+name: regression
+
+# Causal inference with regression
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Example: health expenditure and life expectancy
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/healthy-life-expectancy-vs-health-expenditure-per-capita.svg" width=800&gt;
+&lt;/div&gt;
+
+---
+# Example: health expenditure and life expectancy
+
+.pull-left-wide2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/vandenheuvel-1.png" width=650&gt;
+&lt;/div&gt;
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/vandenheuvel-2.png" width=430&gt;
+&lt;img src="../pics/vandenheuvel-3.png" width=430&gt;
+&lt;img src="../pics/vandenheuvel-4.png" width=430&gt;
+
+&lt;/div&gt;
+]
+
+
+---
+# Regression mechanics
+
+.pull-left[
+## Ordinary Least Squares
+
+- **OLS** is a method for estimating the unknown parameters in a linear regression model.
+- It addresses a simple mechanical problem: how to minimize the sum of the squared differences between the observed and predicted values? `\(\sum_{i=1}^{n} (Y_i-\hat{Y}_i)^2\)`
+- The solution is to find the values of the coefficients that minimize the sum of squared residuals.
+
+## Relevance for policy analysis
+
+- Crude but simple model of a relationship between X and Y: a linear fit
+- "What is our best guess for Y (outcome, KPI) given particular value of X (policy)?"
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/ols-fit.png" width=400&gt;
+&lt;/div&gt;
+]
+
+---
+# Regression mechanics
+
+.pull-left-wide[
+## Bivariate regression
+
+- In bivariate regression, the formula for the slope is `\(\hat{\beta_1} = \frac{cov(x,y)}{var(x)} = \frac{\sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^{n} (X_i - \bar{X})^2}\)`
+- The intercept can then be derived as `\(\hat{\beta_0} = \bar{y} - \hat{\beta_1} \bar{x}\)`
+- Compare with correlation: bivariate regression gives us more precise information on the strength of a relationship
+
+## Multiple regression
+
+- With multiple regression, we choose the line that minimizes: `\(\sum_{i=1}^{n} (y_i-\hat{\beta_0}-\hat{\beta_1}x_{i1}-\ldots-\hat{\beta_k}x_{ik})^2\)`
+- This allows for "controlled comparisons": we can isolate the statistical effect of one variable while holding others "constant"
+- Whether this is a causal effect depends on the causal structure of the data-generating process (see later)
+]
+
+--
+
+.pull-right-small[
+
+## Intercept and slope in action
+
+Which parameter(s) are changing?
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/intercept-slope-1.png" width=175&gt;
+&lt;img src="../pics/intercept-slope-2.png" width=175&gt;
+&lt;img src="../pics/intercept-slope-3.png" width=175&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Regression mechanics
+
+.pull-left[
+## Example
+
+- What's the effect of education on income?
+- Income measured in hourly wage
+- Education measured in years 
+- "Slider/dimmer" logic
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/dimmer.jpg" width=200&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/regression-education.png" width=400&gt;
+&lt;/div&gt;
+]
+
+---
+# Regression mechanics
+
+.pull-left[
+## Example
+
+- And what's the effect of gender on income?
+- Income measured in hourly wage
+- Gender measured binary (female vs. non-female)
+- "Switch" logic
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/switch.jpg" width=200&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/regression-gender.png" width=400&gt;
+&lt;/div&gt;
+]
+
+---
+# Regression mechanics
+
+.pull-left[
+## Example
+
+- And what's the effect of education, gender, and ethnicity on income?
+- Predictor variables measured as before
+- Education measured in years
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/dj-board.jpeg" width=300&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/regression-multiple.png" width=400&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Goodness of fit
+
+.pull-left-wide2[
+## R-Squared
+- Some people are obsessed with `\(R^2\)`. Is that justified?
+- `\(R^2\)` is a PRE (proportional reduction of error) measure.
+- It compares the **total sum of squares (TSS)** from the mean to the **explained sum of squares (ESS)** improvement from the OLS fit.
+- `\(R^2\)` is the proportion of the variance in the dependent variable that is predictable from the independent variable(s): `\(R^2 = \frac{ESS}{TSS}=\frac{\sum(\hat{y}_i-\bar{y}_i)^2}{\sum (y_i-\bar{y}_i)^2}\)`
+- Here is an [interactive visualization](https://alexander-n.github.io/r-squared/).
+- Adjusted `\(R^2\)` (aka `\(\bar{R}^2\)`) corrects for the number of parameters estimated in a model but loses the nice interpretation of `\(R^2\)`.
+
+## Why R-Squared is of limited use for impact evaluation
+- Usually the interest is not in predicting the outcome variable but in estimating the causal effect of a treatment on an outcome.
+- `\(R^2\)` can be high even if the treatment effect is zero.
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/r-squared.png" width=500&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+class: inverse, center, middle
+name: dags
+
+# Variable selection for regression
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Causal inference with observational data
+
+## Back to the original problem
+
+- We want to estimate the causal effect of a treatment on an outcome.
+- Observational data is often not that useful evidence for that purpose because correlations can be misleading.
+- Correlational patters should **not** serve as input for evidence-based policymaking.
+
+## Is regression-based inference with observational data pointless?
+
+- Not necessarily. If we **control for all relevant confounders**, we can still isolate the effect of interest.
+- This gives us three important tasks:
+	1. Identifying the causal structure between all variables affecting the relationship between treatment and outcome of interest.
+	2. Identifying all variables that need to be adjusted for to estimate the causal effect, and those that must not be adjusted for (mediators, colliders).
+	3. Measure what is necessary and run the regression.
+- **This is where DAGs come in**: they help us deal with the first two tasks.
+
+
+---
+# Confounders
+
+.pull-left[
+## Dealing with confounders
+- A confounder induces statistical association between its effects.
+- **Conditioning** on a confounder (or a descendant of a confounder) on the path **blocks the path**.
+- In DAGs, conditioning is usually indicated with a **box around the variable**.
+- Failing to condition on a relevant confounder induces non-causal statistical association or **omitted variable bias**.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-013.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-014.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+# Conditioning on a confounder: example
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/income_shoesize_01.png" width=500&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/income_shoesize_02.png" width=500&gt;
+&lt;/div&gt;
+]
+
+---
+# Mediators
+
+.pull-left-wide[
+## Dealing with mediators
+- Chains of mediation D `\(\rightarrow\)` M `\(\rightarrow\)` Y let us express how exactly a treatment impacts the outcome.
+- Mediators express a **mechanism** by which one variable affects another.
+- Example: Coffee (D) leads to better stats exam results (Y) because the caffeine (M) stimulates the nervous system and prevents drowsiness.
+
+## Beware of post-treatment bias
+- Conditioning on a mediator on the path blocks the path.
+- Often, we are interested in total effects (e.g., ATE) including both direct and indirect routes.
+- Conditioning on a mediator may thus lead to **overcontrol or post-treatment bias**.
+- "Controlling away" for consequences of the treatment!
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-015.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-016.png" width=300&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Variable selection - post-treatment bias
+
+.pull-left[
+## Post-treatment bias: avoidable
+- Causal effect (CE) of party ID on the vote
+	- Do control for race
+	- Do not control for short-term voting intentions
+	
+-  CE of nuclear desaster on attitudes towards nuclear energy
+	- Do control for political context
+	- Do not control for media coverage
+]
+
+--
+
+.pull-right[
+## Post-treatment bias: unavoidable?
+- CE of democratization on civil war: **control for GDP**?
+	- Yes, since GDP `\(\rightarrow\)` democratization
+	- No, since democratization `\(\rightarrow\)` GDP
+
+- CE of education on income: **control for IQ**?
+	- Yes, since IQ `\(\rightarrow\)` education
+	- No, since education `\(\rightarrow\)` IQ		
+	
+]
+
+
+---
+# Colliders
+
+.pull-left[
+## What are colliders?
+- Colliders are variables that are caused by two other variables.
+- They are the opposite of mediators: they block the path between two variables.
+
+## Conditioning on colliders
+- Conditioning on a collider (or a descendant of a collider) opens the path between its causes.
+- This can lead to **spurious association** between the causes, which is called **collider bias** or **endogenous selection bias**. 
+- This type of bias is much less well known than omitted variable bias but can be fatal in causal inference.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-019.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-020.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+# Conditioning on a collider: example
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/sat_motivation_01.png" width=500&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/sat_motivation_02.png" width=500&gt;
+&lt;/div&gt;
+]
+
+**Example:** `\(Y\)` motivation, `\(D\)` SAT score, `\(X\)` admission to college (red: admitted, blue: rejected)
+
+
+---
+# Regression adjustment with DAGs
+
+.pull-left[
+## Selecting relevant covariates
+
+1. Draw a DAG using your theoretical and empirical knowledge
+2. Find the causal and non-causal paths between treatment and outcome
+3. Identify conditions that satisfy the back-door criterion with regards to treatment and outcome
+4. Include these variables into the model specification
+5. Withstand the temptation to give any other coefficient than that for the treatment a causal interpretation - the status of covariates is path-specific!
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/tikz/tikz-017.png" width=500&gt;
+&lt;/div&gt;
+]
+
+---
+# Regression adjustment with DAGs
+
+.pull-left[
+## The back-door criterion
+
+A set of observed variables `\(Z\)` satisfies the back-door criterion relative to the total causal effect of a treatment on an outcome if
+- `\(Z\)` blocks all back-door paths from treatment to outcome and
+- No variable in `\(Z\)` lies on or descends from a causal path from treatment to outcome
+
+## Example
+
+- What variables should we control for to identify the effect of `\(D\)` on `\(Y\)`?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/tikz/tikz-017.png" width=500&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# "Does going to the opera make you live longer?" revisited
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+## From the paper:
+
+&gt; "We adjusted models for **demographic variables** (age, sex, marital status, ethnicity, educational qualifications, wealth, employment status, and occupational status); **health related variables** (eyesight, hearing, depressive symptoms, other psychiatric conditions, diagnosis of cancer, lung disease or cardiovascular disease, history of any other long-term condition, smoking, alcohol consumption, sedentary behaviours, mobility, problems in undertaking activities of daily living, osteoporosis, and cognition); and **social covariates** (loneliness, number of close friends, living alone, frequency of civic engagement, frequency of social engagement, and whether participants had a hobby or pastime)."
+]
+
+
+
+---
+# "Does going to the opera make you live longer?" revisited
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+## What's the underlying causal reasoning here?
+
+- What's our idea of how all variables are related?
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/tikz/tikz-021.png" width=500&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# "Does going to the opera make you live longer?" revisited
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+## What's the underlying causal reasoning here?
+
+- What's our idea of how all variables are related?
+- But that's not nearly the end of the story.
+- Think about other variables (observed and unobserved). What would this imply for our causal inference?
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/tikz/tikz-022.png" width=500&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Lessons learned
+
+.pull-left[
+## On regression for impact evaluation
+- The regression way of estimating causal effects is a powerful tool is 
+	(1) to find the factors responsible for a priori differences between groups (confounders), and to include these variables in the equation,
+	(2) in the hope that an unbiased estimate is obtained
+- DAGs are a powerful tool to find the set of confounders we need to control for, but they're not a panacea
+]
+
+--
+
+.pull-right[
+## On selecting relevant covariates
+- Specifying regression models for causal inference is a **theoretical**, not a statistical problem
+- That's why our robot overlords are not going to take over any time soon - inferring from experience, drawing on knowledge of related studies, thinking hard about the missing components of the treatment selection mechanism - that's what we (as scientists, policy-makers) are good at!
+- But don't make it a mechanical exercise
+]
+
+--
+
+&lt;br&gt;
+
+&gt; "Regression models make it all too easy to substitute technique for work (...) Regression models often seem to be used to compensate for problems in measurement, data collection, and study design. By the time the models are deployed, the scientific position is nearly hopeless." (Freedman, 1991)
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

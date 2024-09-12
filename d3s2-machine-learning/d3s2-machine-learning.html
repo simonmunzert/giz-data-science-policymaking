@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 3: Artificial intelligence for policy-making</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 3: Artificial intelligence for policy-making
+]
+.subtitle[
+## Machine learning 101
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+
+# Table of contents
+
+&lt;br&gt;&lt;br&gt;
+
+1. [Machine learning, deep learning, AI](#definitions)
+
+2. [Basic concepts in machine learning](#mlconcepts)
+
+3. [Overview of ML landscape](#landscape)
+
+3. [Performance metrics](#metrics)
+
+4. [AI for public policy](#aipp)
+
+
+
+---
+# Types of data-driven research and their role for policy
+
+.pull-left-small2[
+## 1. Description
+- What is the state of the world?
+- What are the trends over time?
+- What are the differences between groups?
+
+## The value for policy-making
+- At the center of **monitoring**
+- "How many people consume misinformation online?"
+- "How many people are unemployed in a certain district?"
+- "How does the distribution of income vary across educational segments of the population?"
+]
+
+.pull-left-small2[
+## 2. Explanation
+- What is the effect of a policy?
+- Does the effect vary across groups?
+- What are the mechanisms behind the effect?
+
+## The value for policy-making
+- At the center of **evaluation**
+- "Did the minimum wage increase lead to a decrease in employment?"
+- "Did the campaign affect the exposure to misinformation differently across groups?"
+- "Why did the intervention not lead to the expected results?"
+]
+
+.pull-left-small2[
+## 3. Prediction
+- What is the path of an indicator?
+- (When) will future events happen?
+- What class does this observation most likely belong to?
+
+## The value for policy-making
+- At the center of **forecasting** but also **targeting** and **measurement**
+- "Will there be conflict?"
+- "How many people will be unemployed in a certain district next year?"
+- "Which individuals are most likely to be affected by a policy?"
+]
+
+
+
+---
+class: inverse, center, middle
+name: definitions
+
+# Machine learning, deep learning, AI
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# What is AI?
+
+.pull-left[
+## Artificial intelligence
+
+&gt; "Artificial intelligence (AI) is intelligence - perceiving, synthesizing, and inferring information - demonstrated by machines, as opposed to intelligence displayed by non-human animals and humans. Example tasks in which this is done include speech recognition, computer vision, translation between (natural) languages, as well as other mappings of inputs."
+
+&lt;div align="right"&gt;Wikipedia, &lt;i&gt;Artificial intelligence&lt;/i&gt;&lt;/div&gt;
+
+&gt; "The effort to automate intellectual tasks normally performed humans."
+
+&lt;div align="right"&gt;Chollet and Allaire, 2018, &lt;i&gt;Deep Learning with R&lt;/i&gt;&lt;/div&gt;
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/ai-picture.svg" height=270&gt;
+&lt;/div&gt;
+
+`Source` [Wikipedia](https://en.wikipedia.org/wiki/Artificial_intelligence)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/deep-blue.jpeg" height=200&gt;
+&lt;img src="../pics/kit-knight-rider.jpeg" height=200&gt;
+&lt;/div&gt;
+]
+
+---
+# What is AI?
+
+.pull-left[
+## Machine learning
+
+&gt; "Machine learning (ML) is a field of inquiry devoted to understanding and building methods that 'learn' (...) It is seen as a part of artificial intelligence."
+
+&lt;div align="right"&gt;Wikipedia, &lt;i&gt;Machine learning&lt;/i&gt;&lt;/div&gt;
+
+&gt; "Machine learning is a specific subfield of AI that aims at automatically developing programs (called models) purely from exposure to training data. This process of turning models data into a program is called learning."
+
+&lt;div align="right"&gt;Chollet and Allaire, 2018, &lt;i&gt;Deep Learning with R&lt;/i&gt;&lt;/div&gt;
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/ai-picture.svg" height=270&gt;
+&lt;/div&gt;
+
+`Source` [Wikipedia](https://en.wikipedia.org/wiki/Artificial_intelligence)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/facebook-feed.png" height=200&gt;
+&lt;/div&gt;
+]
+
+---
+# What is AI?
+
+.pull-left[
+## Data mining
+
+&gt; "Application of machine learning methods to large databases is called data mining. The analogy is that a large volume of earth and raw material is extracted from a mine, which when processed leads to a small amount of very precious material; similarly, in data mining, a large volume of data is processed to construct a simple model with valuable use, for example, having high predictive accuracy."
+
+&lt;div align="right"&gt;Alpaydin, 2014, &lt;i&gt;Introduction to Machine Learning&lt;/i&gt;&lt;/div&gt;
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/ai-picture.svg" height=270&gt;
+&lt;/div&gt;
+
+`Source` [Wikipedia](https://en.wikipedia.org/wiki/Artificial_intelligence)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/netflix-recommendations.png" height=200&gt;
+&lt;/div&gt;
+]
+
+
+---
+# What is AI?
+
+.pull-left[
+## Deep learning
+
+&gt; "Deep learning is the subset of machine learning methods based on neural networks with representation learning. The adjective "deep" refers to the use of multiple layers in the network."
+
+&lt;div align="right"&gt;Wikipedia, &lt;i&gt;Deep learning&lt;/i&gt;&lt;/div&gt;
+]
+
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/ai-picture.svg" height=270&gt;
+&lt;/div&gt;
+
+`Source` [Wikipedia](https://en.wikipedia.org/wiki/Artificial_intelligence)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/chatgpt.png" height=200&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Corporate investment in AI
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/corporate-investment-in-artificial-intelligence-by-type.svg" height=550&gt;
+&lt;/div&gt;
+
+
+
+---
+class: inverse, center, middle
+name: mlconcepts
+
+# Basic concepts in machine learning
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Regression vs. classification
+
+.pull-left[
+## Regression
+- Predicts a continuous outcome
+- Example: Predicting house prices, GDP growth, temperature
+
+## Classification
+- Predicts a categorical outcome
+- Example: Predicting whether a person will default on a loan, whether an email is spam, whether a patient has a disease
+
+]
+
+--
+
+.pull-right[
+## Classifcation problems in the wild
+
+Classification problems occur often, perhaps even more so than regression problems, e.g.:
+
+1. A woman arrives at the emergency room with a set of symptoms. Which condition does she have?
+2. An online banking service must be able to determine whether or not a transaction is fraudulent, on the basis of the user’s IP address, past transaction history, and so forth.
+3. On the basis of DNA sequence data for a number of patients with and without a given disease, a biologist would like to figure out which DNA mutations are deleterious (disease-causing) and which are not.
+
+Decision-making problems often are classification problems!
+]
+
+---
+# Supervised and unsupervised learning
+
+.pull-left-wide2[
+## Supervised learning
+- The algorithm learns from labeled data, i.e., data with known outcomes
+- The algorithm is trained on a training dataset and evaluated on a test dataset
+- The goal is to the predict unobserved outcomes
+
+## Unsupervised learning
+- The algorithm learns from unlabeled data
+- There are inputs but no supervising output; we can still learn about relationships and structure from such data
+
+## Analogies
+- Supervised: Child in school learns math (with teacher’s input)
+- Unsupervised: Child at home plays with toys (without teacher’s input)
+]
+
+
+.pull-right-small2[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/supervised-unsupervised-tasks.png" height=300&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Training, validation and test dataset
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/data_splitting.png" height=550&gt;
+&lt;/div&gt;
+
+
+
+---
+# Overfitting
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/age-hairiness-1.png" height=550&gt;
+&lt;/div&gt;
+
+---
+# Overfitting
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/age-hairiness-2.png" height=550&gt;
+&lt;/div&gt;
+
+---
+# Overfitting
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/age-hairiness-3.png" height=550&gt;
+&lt;/div&gt;
+
+---
+# Overfitting
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/age-hairiness-4.png" height=550&gt;
+&lt;/div&gt;
+
+---
+# Overfitting
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/age-hairiness-5.png" height=550&gt;
+&lt;/div&gt;
+
+---
+# Overfitting
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/age-hairiness-6.png" height=550&gt;
+&lt;/div&gt;
+
+---
+# Overfitting
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/age-hairiness-7.png" height=550&gt;
+&lt;/div&gt;
+
+
+---
+# Overfitting in classification
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/brown-dogs.png" width=700&gt;
+&lt;/div&gt;
+
+---
+# Overfitting in classification
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/brown-dogs.png" width=700&gt;
+&lt;img src="../pics/white-dogs.png" width=700&gt;
+&lt;/div&gt;
+
+
+---
+# Overfitting in classification
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/overfitting-wiki.png" width=400&gt;
+&lt;/div&gt;
+
+**Explained:** The green line represents an overfitted model and the black line represents a regularized model. While the green line best follows the training data, it is too dependent on that data and it is likely to have a higher error rate on new unseen data, compared to the black line.
+
+
+---
+# Overfitting, ultimately explained
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/overfitting.png" width=600&gt;
+&lt;/div&gt;
+
+
+
+---
+class: inverse, center, middle
+name: landscape
+
+# Overview of ML landscape
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# The ML landscape ([Microsoft.com](https://learn.microsoft.com/en-us/azure/machine-learning/algorithm-cheat-sheet?view=azureml-api-1))
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/ml-cheatsheet-azure.png" height=550&gt;
+&lt;/div&gt;
+
+---
+# ML decision tree
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/machine_learning_decisiontree.png" height=500&gt;
+&lt;/div&gt;
+
+`Source` [Sundararajan et al. 2021](https://www.um.edu.mt/library/oar/bitstream/123456789/107610/1/A%20contemporary%20review%20on%20drought%20modeling%20using%20machine%20learning%20approaches%202021.pdf)
+
+
+---
+# Affiliation of AI researchers
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/affiliation-researchers-building-artificial-intelligence-systems-all.svg" height=550&gt;
+&lt;/div&gt;
+
+
+
+
+---
+class: inverse, center, middle
+name: metrics
+
+# Performance metrics
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# AI performance in knowledge tests
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/ai-performance-knowledge-tests-vs-training-computation.svg" height=550&gt;
+&lt;/div&gt;
+
+---
+# AI capabilities vs. human performance
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/test-scores-ai-capabilities-relative-human-performance.svg" height=550&gt;
+&lt;/div&gt;
+
+
+---
+# ML performance benchmarking in the wild
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/performance-hate-speech.png" height=500&gt;
+&lt;/div&gt;
+
+`Source` Oueslati, 2024, Watching the Watchers: A Comparative Audit of Cloud‑Based Commercial Content Moderation Services.
+
+
+---
+# ML performance benchmarking in the wild
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/performance-gpt.png" height=500&gt;
+&lt;/div&gt;
+
+`Source` Wiik, 2024, GPT-4o vs. GPT-4 vs. Gemini 1.5 — Performance Analysis (Accuracy).
+
+
+
+---
+# Assessing classification performance
+
+.pull-left[
+## Accuracy
+
+- Accuracy = `\(\frac{\text{Number of correct predictions}}{\text{Total number of predictions}} = \frac{TP + TN}{TP + TN + FP + FN}\)`
+- Error rate: `\(1 - \text{Accuracy}\)`
+
+## Usefulness
+- Accuracy is a simple and intuitive metric.
+- But it can be misleading, especially in imbalanced datasets where the classes are not evenly represented.
+- Example: In a dataset with 90% of class A and 10% of class B, a model that predicts all instances as class A will have an accuracy of 90%, but it will not be useful for predicting class B instances.
+]
+
+--
+
+.pull-right[
+## Example
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/confusion-matrix-recidivism.png" width=500&gt;
+&lt;/div&gt;
+
+What is the **accuracy** of our recidivism classifier?
+]
+
+
+
+
+
+---
+# Assessing classification performance
+
+.pull-left[
+## Precision
+
+- Precision = `\(\frac{\text{Number of true positive predictions}}{\text{Number of positive predictions}} = \frac{TP}{TP + FP}\)`
+
+## Usefulness
+- Precision focuses on the accuracy of positive predictions and is useful when the cost of false positives is high.
+]
+
+--
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/precision-recall.png" width=300&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Assessing classification performance
+
+.pull-left[
+## Precision
+
+- Precision = `\(\frac{\text{Number of true positive predictions}}{\text{Number of positive predictions}} = \frac{TP}{TP + FP}\)`
+
+## Usefulness
+- Precision focuses on the accuracy of positive predictions and is useful when the cost of false positives is high.
+]
+
+.pull-right[
+## Example
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/confusion-matrix-recidivism.png" width=500&gt;
+&lt;/div&gt;
+
+What is the **precision** of our recidivism classifier?
+]
+
+
+---
+# Assessing classification performance
+
+.pull-left[
+## Recall (Sensitivity)
+- Recall = `\(\frac{\text{Number of true positive predictions}}{\text{Number of true positives}} = \frac{TP}{TP + FN}\)`
+- "True positive rate"
+
+## Usefulness
+- Recall focuses on capturing all positive instances and is important when the cost of false negatives is high.
+- Example: In a medical diagnosis, recall is important to ensure that all patients with a disease are correctly identified.
+- The complementary measure is specificity (true negative rate; e.g. how many healthy people are identified as not having the condition)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/precision-recall.png" width=300&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Assessing classification performance
+
+.pull-left[
+## Recall (Sensitivity)
+- Recall = `\(\frac{\text{Number of true positive predictions}}{\text{Number of true positives}} = \frac{TP}{TP + FN}\)`
+- "True positive rate"
+
+## Usefulness
+- Recall focuses on capturing all positive instances and is important when the cost of false negatives is high.
+- Example: In a medical diagnosis, recall is important to ensure that all patients with a disease are correctly identified.
+- The complementary measure is specificity (true negative rate; e.g. how many healthy people are identified as not having the condition)
+]
+
+.pull-right[
+## Example
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/confusion-matrix-recidivism.png" width=500&gt;
+&lt;/div&gt;
+
+What is the **recall** of our recidivism classifier?
+]
+
+
+
+---
+# Assessing classification performance
+
+.pull-left[
+## F1 score
+- F1 score = `\(2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2TP}{2TP + FP + FN}\)`
+- F1 score is the harmonic mean of precision and recall.
+
+
+## Usefulness
+- It provides a balance between precision and recall, especially when there is an imbalance between the classes.
+- F1 score ranges from 0 to 1, where 1 indicates perfect precision and recall, and 0 indicates poor performance.
+]
+
+.pull-right[
+## Illustration
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/Harmonic_mean_3D_plot_from_0_to_100.png" width=350&gt;
+&lt;/div&gt;
+
+Normalised harmonic mean plot where x is precision, y is recall and the vertical axis is F1 score, in % points
+
+`Source` [Andong87](https://commons.wikimedia.org/w/index.php?curid=24020909) 
+]
+
+
+---
+# Assessing classification performance
+
+.pull-left[
+## F1 score
+- F1 score = `\(2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2TP}{2TP + FP + FN}\)`
+- F1 score is the harmonic mean of precision and recall.
+
+
+## Usefulness
+- It provides a balance between precision and recall, especially when there is an imbalance between the classes.
+- F1 score ranges from 0 to 1, where 1 indicates perfect precision and recall, and 0 indicates poor performance.
+]
+
+.pull-right[
+## Example
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/confusion-matrix-recidivism.png" width=500&gt;
+&lt;/div&gt;
+
+What is the **F1 score** of our recidivism classifier?
+]
+
+
+
+---
+# Why performance metrics can matter
+
+## Scenario
+
+- **Outcome:** Recidivism where individual recidivates (1) or not (0)
+- **False Positive (FP):** Model predicts an individual will recidivate when they actually do not. 
+- **False Negative (FN):** Model predicts an individual will not recidivate when they actually do.
+  - This could result in individuals who are at risk, being released without proper intervention, potentially leading to repeat offenses.
+
+## Assigning costs
+
+- What are downstream costs of FP and FN?
+- At which level do the costs apply - individual, societal, ...?
+
+
+## Ethical and economic reasoning
+
+- How should we weigh the costs of FP and FN?
+- What should we prioritize in our model - reducing FP, FN, or balancing both?
+
+
+
+
+
+---
+class: inverse, center, middle
+name: aipp
+
+# AI for public policy
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# The COMPAS algorithm to predict criminals' recidivism
+
+.pull-left[
+## Background
+
+- Correctional Offender Management Profiling for Alternative Sanctions (COMPAS) is a decision support tool developed by Northpointe (now Equivant) used by U.S. courts to **assess the likelihood of recidivism**
+- Produced several scales (Pretrial release risk, General recidivism, Violent recidivism) based on factors such as age, criminal history, and substance abuse
+- The algorithm is proprietary and its inner workings are not public
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+`Source` [Practitioner's Guide to COMPAS Core](https://s3.documentcloud.org/documents/2840784/Practitioner-s-Guide-to-COMPAS-Core.pdf)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/compas-practitioner-1.png" width=450&gt;
+&lt;img src="../pics/compas-practitioner-2.png" width=450&gt;
+&lt;img src="../pics/compas-practitioner-3.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+---
+# The COMPAS algorithm to predict criminals' recidivism
+
+.pull-left[
+## The ProPublica and other investigations
+
+- In 2016, ProPublica published an investigation showing that COMPAS was **biased against African Americans**
+- **Bias:** The algorithm was more likely for African Americans to wrongly predict that defendants would re-offend.
+- **Accuracy:** only 20% of people predicted to commit violent crimes actually went on to do so (in a later study estimated with 65%, still worse than a group of humans with little expertise)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`Source` [ProPublica 2016](https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/machine-bias-compas.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+---
+# The COMPAS algorithm to predict criminals' recidivism
+
+.pull-left[
+## The ProPublica and other investigations
+
+- In 2016, ProPublica published an investigation showing that COMPAS was **biased against African Americans**
+- **Bias:** The algorithm was more likely for African Americans to wrongly predict that defendants would re-offend.
+- **Accuracy:** only 20% of people predicted to commit violent crimes actually went on to do so (in a later study estimated with 65%, still worse than a group of humans with little expertise)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+`Source` [Dressel and Fair, 2018, Science Advances](https://www.science.org/doi/epdf/10.1126/sciadv.aao5580)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/dressel-compas-1.png" width=500&gt;
+&lt;img src="../pics/dressel-compas-2.png" width=385&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Discussion
+
+.pull-left[
+
+&lt;br&gt;&lt;br&gt;
+
+1. Where do you see **potential** for AI in public policy-making?
+
+2. Are there **applications of AI in Georgian government** that you are aware of?
+
+3. What role does **AI** play **in your personal (professional) life**?
+]
+
+.pull-right[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/ai-public-policy.png" width=385&gt;
+&lt;/div&gt;
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

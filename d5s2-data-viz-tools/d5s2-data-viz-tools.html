@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 5: Data visualization and communication</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sebastian Ramirez-Ruiz" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 5: Data visualization and communication
+]
+.subtitle[
+## Data Visualization Tools and Techniques
+]
+.author[
+### Sebastian Ramirez-Ruiz
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+.has-continuation {
+display: block !important;
+}
+}
+&lt;/style&gt;
+
+
+
+
+
+
+# Table of contents
+
+&lt;br&gt;
+
+1. [Principles of good data visualization](#rules)&lt;sup&gt;1&lt;/sup&gt;
+
+2. [Good practices in data visualization](#goodpractices)
+
+3. [The best statistical graph of all times](#bestgraph)
+
+4. [Click- and code-based visualization tools](#clickvscode)
+
+5. [Visualization with R and `ggplot2`](#vizr)
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; Much of this section draws on materials from Claus Wilke's excellent book [*Fundamentals of Data Visualization*](https://clauswilke.com/dataviz/).]
+
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: rules
+
+# Principles of good data visualization
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# On the shoulder of giants...
+
+.pull-left[
+
+"Visualization is surprisingly difficult. Even the most simple matters can easily go wrong."
+
+"No matter how clever the choice of the information, and no matter how technologically impressive the encoding, a visualization fails if the decoding fails."
+
+&lt;br&gt;
+
+&lt;div align="right"&gt;&lt;i&gt;William Cleveland&lt;/i&gt;&lt;/div&gt;
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d5-s2-william-cleveland.jpeg" height=210&gt;
+&lt;/div&gt;
+]
+
+--
+
+.pull-right[
+"Although nothing can replace a good graphical idea applied to an interesting set of numbers, editing and revision are as essential to sound graphical work as they are to writing."
+
+"Design cannot rescue failed content."
+
+"Above all else show the data."
+
+&lt;div align="right"&gt;&lt;i&gt;Edward Tufte&lt;/i&gt;&lt;/div&gt;
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d5-s2-edward-tufte.jpeg" height=210&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Fundamental principles of analytic design
+
+&lt;br&gt;
+In Chapter 5 of his book "[Beautiful Evidence](http://atc.berkeley.edu/201/readings/Tufte_BE_2006.pdf)", Edward Tufte outlines six fundamental principles of analytic design:
+
+--
+
+1. **Comparisons.** Show &lt;i style="color:#cc0065"&gt;comparisons&lt;/i&gt;, &lt;i style="color:#cc0065"&gt;contrasts&lt;/i&gt;, &lt;i style="color:#cc0065"&gt;differences&lt;/i&gt;.
+
+--
+
+2. **Causality, mechanism, structure, explanation.** Show causality, mechanism, explanation, &lt;i style="color:#cc0065"&gt;systematic structure&lt;/i&gt;.
+
+--
+
+3. **Multivariate analysis.** Show data; that is show more than 1 or 2 variables (&lt;i style="color:#cc0065"&gt;Use additional facets to add dimensions to the 2d plane&lt;/i&gt;.)
+
+--
+
+4. **Integration of evidence.** Completely integrate &lt;i style="color:#cc0065"&gt;words&lt;/i&gt;, &lt;i style="color:#cc0065"&gt;numbers&lt;/i&gt;, &lt;i style="color:#cc0065"&gt;images&lt;/i&gt;, &lt;i style="color:#cc0065"&gt;diagrams&lt;/i&gt;.
+
+--
+
+5. **Documentation.** &lt;i style="color:#cc0065"&gt;Thoroughly describe&lt;/i&gt; the evidence. Provide a detailed title, indicate the authors and sponsors, document the data sources, show complete measurement scales, point out relevant issues.
+
+--
+
+6. **Content counts most of all.** Analytical presentations ultimately stand or fall depending on the quality, relevance and integrity of their content ("What is the problem you want to solve?")
+
+
+---
+class: midtext
+
+# Flattening the curve
+
+### Thinking through visuals
+
+.pull-left-small[&lt;br&gt;
+We can illustrate these with one the **most influential graphs** of the past couple of years. This visual traveled across the world in the start of 2020. 
+
+Can you spot how these .i-pink[principles were implemented in the different versions of the graph]?
+
+1. **Comparisons.**
+2. **Causality, mechanism, structure, explanation.**
+3. **Multivariate analysis.**
+4. **Integration of evidence.**
+5. **Documentation.**
+6. **Content counts most of all.**
+]
+
+--
+
+.pull-right-wide[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d5-s2-flatten-curve-1.jpeg" width=500&gt;&lt;br&gt;
+&lt;/div&gt;
+`Source` [CDC](https://stacks.cdc.gov/view/cdc/11425)
+]
+
+---
+class: midtext
+
+# Flattening the curve
+
+### Thinking through visuals
+
+.pull-left-small[&lt;br&gt;
+We can illustrate these with one the **most influential graphs** of the past couple of years. This visual traveled across the world in the start of 2020. 
+
+Can you spot how these .i-pink[principles were implemented in the different versions of the graph]?
+
+1. **Comparisons.**
+2. **Causality, mechanism, structure, explanation.**
+3. **Multivariate analysis.**
+4. **Integration of evidence.**
+5. **Documentation.**
+6. **Content counts most of all.**
+]
+
+
+.pull-right-wide[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-flatten-curve-2.png" width=380&gt;&lt;br&gt;
+&lt;/div&gt;
+`Source` [The Economist](https://www.economist.com/briefing/2020/02/29/covid-19-is-now-in-50-countries-and-things-will-get-worse)
+]
+
+---
+class: midtext
+
+# Flattening the curve
+
+### Thinking through visuals
+
+.pull-left-small[&lt;br&gt;
+We can illustrate these with one the **most influential graphs** of the past couple of years. This visual traveled across the world in the start of 2020. 
+
+Can you spot how these .i-pink[principles were implemented in the different versions of the graph]?
+
+1. **Comparisons.**
+2. **Causality, mechanism, structure, explanation.**
+3. **Multivariate analysis.**
+4. **Integration of evidence.**
+5. **Documentation.**
+6. **Content counts most of all.**
+]
+
+
+.pull-right-wide[
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-flatten-curve-3.jpeg" height=450&gt;&lt;br&gt;
+&lt;/div&gt;
+`Source` [NYT](https://www.nytimes.com/article/flatten-curve-coronavirus.html)
+]
+
+
+---
+class: midtext
+
+# Flattening the curve
+
+### Thinking through visuals
+
+.pull-left-small[&lt;br&gt;
+We can illustrate these with one the **most influential graphs** of the past couple of years. This visual traveled across the world in the start of 2020. 
+
+Can you spot how these .i-pink[principles were implemented in the different versions of the graph]?
+
+1. **Comparisons.**
+2. **Causality, mechanism, structure, explanation.**
+3. **Multivariate analysis.**
+4. **Integration of evidence.**
+5. **Documentation.**
+6. **Content counts most of all.**
+]
+
+
+.pull-right-wide[
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-flatten-curve-4.png" height=450&gt;&lt;br&gt;
+&lt;/div&gt;
+`Source` [Our world in data](https://ourworldindata.org/)
+]
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: goodpractices
+
+# Good practices in data visualization
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+
+# What is happening here?
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-tucker-carlson.jpeg" height=500&gt;
+&lt;/div&gt;
+
+---
+
+# What is happening here? (cont.)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-violent-crime.jpeg" height=500&gt;
+&lt;/div&gt;
+
+---
+
+# What is happening here? (cont.)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-smartphone-share.png" height=500&gt;
+&lt;/div&gt;
+
+---
+
+# What is happening here? (cont.)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/gun-deaths.jpeg" height=500&gt;
+&lt;/div&gt;
+
+
+---
+
+# Friends don't let friends...
+
+
+.pull-center[
+&lt;br&gt;**Truncate the axes** of a plot at arbitrary points...&lt;br&gt;&lt;br&gt;
+]
+
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-retirement-wrong.png" height=380&gt;&lt;br&gt;
+&lt;b&gt;Misleading&lt;/b&gt;
+&lt;/div&gt;
+
+---
+
+# instead, friends encourage...
+
+--
+
+.pull-center[
+&lt;br&gt;The use of **informative axis spaces**.&lt;br&gt;&lt;br&gt;
+]
+
+--
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-retirement-right.png" height=380&gt;&lt;br&gt;
+.t-good[**Better**]
+&lt;/div&gt;
+
+---
+
+# Friends don't let friends...
+
+
+.pull-center[
+&lt;br&gt;Use **dual axis** charts...&lt;br&gt;&lt;br&gt;
+]
+
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-dualaxis.png" height=360&gt;&lt;br&gt;
+&lt;b&gt;Misleading&lt;/b&gt;
+&lt;/div&gt;
+
+---
+
+# instead, friends encourage...
+
+--
+
+.pull-center[
+&lt;br&gt;The use of **side-by-side** comparisons.&lt;br&gt;&lt;br&gt;
+]
+
+--
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-dualaxis-4.png" height=380&gt;&lt;br&gt;
+.t-good[**Better**]
+&lt;/div&gt;
+
+---
+
+# instead, friends encourage...
+
+--
+
+.pull-center[
+&lt;br&gt;The use of **indexed** comparisons.&lt;br&gt;&lt;br&gt;
+]
+
+--
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-dualaxis-5.png" height=380&gt;&lt;br&gt;
+.t-good[**Better**]
+&lt;/div&gt;
+
+---
+
+# Friends don't let friends...
+
+
+.pull-center[
+&lt;br&gt;Use unnecesarily *spruced up* **3D** plots...&lt;br&gt;&lt;br&gt;
+]
+
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-titanic-3d.png" height=360&gt;&lt;br&gt;
+&lt;b&gt;Misleading&lt;/b&gt;
+&lt;/div&gt;
+
+---
+
+# instead, friends encourage...
+
+--
+
+.pull-center[
+&lt;br&gt;The prioritization of **content** over apparent aesthetics.&lt;br&gt;&lt;br&gt;
+]
+
+--
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-titanic-2d.png" height=360&gt;&lt;br&gt;
+.t-good[**Better**]
+&lt;/div&gt;
+
+
+---
+class: smalltext
+
+# A Short List of Dos and Don'ts
+
+1. [Follow the principle of proportional ink.](https://clauswilke.com/dataviz/proportional-ink.html)&lt;sup&gt;1&lt;/sup&gt;
+2. [Maximize the data–ink ratio, within reason.](https://clauswilke.com/dataviz/balance-data-context.html)
+3. [Avoid invisible overplotting.](https://clauswilke.com/dataviz/overlapping-points.html)
+4. [Drop all the unimportant stuff.](https://clauswilke.com/dataviz/balance-data-context.html)
+5. [Don't overload graphs. Instead, use several.](https://clauswilke.com/dataviz/multi-panel-figures.html)
+6. [Use color scales that match the logic of the data scale.](https://clauswilke.com/dataviz/color-pitfalls.html)
+7. [Use color-vision deficient-friendly colors.](https://clauswilke.com/dataviz/color-pitfalls.html#not-designing-for-color-vision-deficiency)
+8. [Only use a legend when you need one.](https://clauswilke.com/dataviz/redundant-coding.html#designing-figures-without-legends)
+9. [Pay attention to legend order.](https://clauswilke.com/dataviz/figure-titles-captions.html#axis-and-legend-titles)
+10. [Label axes properly (but avoid trivial information).](https://clauswilke.com/dataviz/figure-titles-captions.html#figure-titles-and-captions)
+11. [Use grids and helper lines, within reason.](https://clauswilke.com/dataviz/balance-data-context.html#background-grids)
+12. [Don't order alphabetically ("Alabama first"). Use natural orders instead.](https://datajournalism.com/read/longreads/the-unspoken-rules-of-visualisation)
+13. [Bar chart axes should include zero.](https://datajournalism.com/read/longreads/the-unspoken-rules-of-visualisation)
+14. [Put the explanatory variable on the x axis, the outcome on the y axis.](https://datajournalism.com/read/longreads/the-unspoken-rules-of-visualisation)
+15. [Axes have canonical directions. Larger values are placed above/right of smaller values.](https://datajournalism.com/read/longreads/the-unspoken-rules-of-visualisation)
+16. [Avoid multiple y axes at all cost.](https://blog.datawrapper.de/dualaxis/)
+17. [Don't do pie charts. (Or maybe do?)](https://clauswilke.com/dataviz/visualizing-proportions.html)
+18. [Don't go 3D.](https://clauswilke.com/dataviz/no-3d.html)
+19. [Use readable fonts and font sizes.](https://clauswilke.com/dataviz/small-axis-labels.html)
+20. [Sometimes a table is just enough.](https://clauswilke.com/dataviz/figure-titles-captions.html#figure-titles-and-captions)
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt;Follow the links for more information.]
+
+---
+
+# Break out into pairs
+
+.pull-left[
+&lt;br&gt;
+&lt;span style="font-weight:bold;text-align:center;color:#2b7282;"&gt;Let's take a couple of minutes in pairs:&lt;/span&gt; 
+
+
+
+- **What do you think is the aim of the visualization?**
+
+    - What does the designer want to convey? 
+    - Are they effective in presenting their message?
+
+
+- **Do you find any underlying issues with the visualization?**
+
+    - Is this it the best plot type?
+    - Are there any features that may mislead the viewer?
+    
+
+- **Can you think of ways to improve the visualization?**
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d5-s2-fed-expenditure.png" width=500&gt;
+&lt;/div&gt;
+]
+    
+
+
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: bestgraph
+
+# The best statistical graph of all times
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# The best statistical graph of all times
+
+.pull-left-small[
+&lt;br&gt;
+- "Indeed, among all the forms of statistical graphics, **the humble scatterplot** may be considered the most versatile, polymorphic, and generally useful invention in the entire history of statistical graphics." ([Friendly &amp; Denis 2005](https://doi.org/10.1002/jhbs.20078))
+- There's another lesson to learn here: **Keep it simple.** Reading visualizations is a skill, and most people exposed to your work will be worse at it than you.
+]
+
+.pull-right-wide[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d5-s2-child-mortality-vs-population-growth.png" width=700&gt;
+&lt;/div&gt;
+]
+
+
+---
+# The best statistical graph of all times
+
+.pull-left-small[
+&lt;br&gt;
+- "Indeed, among all the forms of statistical graphics, **the humble scatterplot** may be considered the most versatile, polymorphic, and generally useful invention in the entire history of statistical graphics." ([Friendly &amp; Denis 2005](https://doi.org/10.1002/jhbs.20078))
+- There's another lesson to learn here: **Keep it simple.** Reading visualizations is a skill, and most people exposed to your work will be worse at it than you.
+]
+
+.pull-right-wide[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d5-s2-scatterplot-nzz.png" width=550&gt;
+&lt;/div&gt;
+]
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: clickvscode
+
+# Click- and code-based visualization tools
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+ 
+# Click- and code-based visualization tools
+
+.pull-left[&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-tableau.png" height=150&gt;
+&lt;/div&gt;
+
+## Click-based
+
+These tools are like .i-pink[easy-to-use apps] where you don't need to know how to code. You simply *click buttons*, *drag elements*, and *select options to create visualizations*. They're great if you want to quickly make charts and graphs without getting into the nitty-gritty of coding. Think of it like using a paint-by-numbers kit where you fill in colors without needing to mix them yourself.
+]
+
+--
+
+.pull-right[&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-code-based.jpeg" height=150&gt;
+&lt;/div&gt;
+
+## Code-based
+These are like toolkits for .i-pink[artists who prefer to paint from scratch]. Instead of clicking buttons, you write *instructions in a programming language* like `Python` or `R` to create your visualizations. This gives you a lot of **flexibility** and **control** over every detail of your chart or graph. It's like being able to mix your own colors and create any kind of painting you want, but it requires learning a bit of programming.
+]
+
+---
+class: midtext
+
+# Click-based visualization tools
+
+.pull-left[
+&lt;br&gt;
+## Advantages
+
+1. **Ease of Use:** Click-based tools like Tableau or Power BI offer .i-pink[intuitive interfaces] that make it easy for users to create visualizations without any programming knowledge.
+
+2. **Rapid Prototyping:** Users can .i-pink[quickly prototype] and iterate on visualizations using click-based tools, enabling faster exploration of data and insights.
+
+3. **Interactive Features:** Click-based tools often come with .i-pink[built-in interactive features] that allow users to explore data dynamically, such as filtering, drilling down, or zooming in on specific data points.
+
+4. **Pre-built Templates:** Click-based tools often provide a variety of .i-pink[pre-built templates] and visualizations, saving users time and effort in design and formatting.
+
+]
+
+--
+
+.pull-right[
+&lt;br&gt;
+## Disadvantages
+
+1. **Limited Customization:** Click-based tools may have limitations in terms of customization compared to code-based tools, .i-pink[restricting] users' ability to create highly tailored visualizations.
+
+2. **Scalability Issues:** Click-based tools may .i-pink[struggle with large datasets] or complex visualizations, leading to performance issues or limitations in functionality.
+
+3. **Vendor Lock-in:** Users may become dependent on specific click-based tools, leading to vendor lock-in and potential .i-pink[limitations in flexibility or compatibility] with other tools.
+
+4. **Cost:** Click-based tools often come with .i-pink[licensing fees or subscription costs], which can be prohibitive for individuals or organizations with budget constraints.
+
+]
+
+---
+class: midtext
+
+# Code-based visualization tools
+
+.pull-left[
+&lt;br&gt;
+## Advantages
+
+1. **Flexibility:** With code-based tools like `ggplot2`, users have .i-pink[full control] over customization, allowing them to create highly customized and intricate visualizations.
+
+2. **Reproducibility:** Code-based tools facilitate reproducibility since the code can be shared and reused easily, ensuring .i-pink[consistent results across different environments].
+
+3. **Scalability:** These tools are often more suitable for handling .i-pink[large datasets and complex visualizations], as they offer more advanced programming capabilities.
+
+4. **Integration:** Code-based tools can be seamlessly .i-pink[integrated into data analysis workflows], allowing for direct manipulation of data and integration with statistical analysis.
+]
+
+--
+
+.pull-right[
+&lt;br&gt;
+## Disadvantages
+
+1. **Learning Curve:** Users without programming experience may find it .i-pink[challenging to learn] the syntax and concepts required to use code-based visualization tools effectively.
+
+2. **Time-Consuming:** Creating visualizations from scratch using code can be .i-pink[time-consuming], especially for users who are not proficient in programming.
+
+3. **Debugging Complexity:** Debugging code-based visualizations can be more .i-pink[complex] compared to click-based tools, especially when dealing with intricate plots or errors in the code.
+
+4. **Maintenance:** Code-based visualizations may require more .i-pink[maintenance and updates over time], especially when libraries or dependencies change.
+]
+
+---
+
+# Some notes on how to get visualization right
+
+.pull-left[
+1. **Always conceptualize first**.
+
+2. Prioritize programmatic solutions to stay reproducible (i.e., &lt;code&gt;R&lt;/code&gt; over Excel).
+
+3. For conceptual charts (not: data viz!), other tools might be just fine (e.g., Powerpoint or even hand-drawn figures).
+
+4. Don't be distracted by interactives (as offered by, e.g., highcharts.com, Tableau, and others).
+
+5. Designing good graphs is a learnable skill. Study how others do it in your software of choice!
+
+6. But a good visualization takes time, even if you’re experienced. Working a full day on the key plot of your analysis? No problem! If you go the coding route, this is a good investment for Future-You.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-excel97-chart.png" width=280&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-sequencing_costs.png" width=380&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Some notes on how to get visualization right
+
+.pull-left[
+1. **Always conceptualize first**.
+
+2. .hlred[Prioritize programmatic solutions to stay reproducible] (i.e., &lt;code&gt;R&lt;/code&gt; over Excel).
+
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-excel97-chart.png" width=280&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-sequencing_costs.png" width=380&gt;
+&lt;/div&gt;
+]
+---
+
+# Some notes on how to get visualization right
+
+.pull-left[
+1. **Always conceptualize first**.
+
+2. Prioritize programmatic solutions to stay reproducible (i.e., &lt;code&gt;R&lt;/code&gt; over Excel).
+
+3. For conceptual charts (not: data viz!), .hlblue[other tools might be just fine] (e.g., Powerpoint or even hand-drawn figures).
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-excel97-chart.png" width=280&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-sequencing_costs.png" width=380&gt;
+&lt;/div&gt;
+]
+---
+
+# Some notes on how to get visualization right
+
+.pull-left[
+1. **Always conceptualize first**.
+
+2. Prioritize programmatic solutions to stay reproducible (i.e., &lt;code&gt;R&lt;/code&gt; over Excel).
+
+3. For conceptual charts (not: data viz!), other tools might be just fine (e.g., Powerpoint or even hand-drawn figures).
+
+4. .hlblue[Don't be distracted by interactives] (as offered by, e.g., highcharts.com, Tableau, and others).
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-excel97-chart.png" width=280&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-sequencing_costs.png" width=380&gt;
+&lt;/div&gt;
+]
+---
+
+# Some notes on how to get visualization right
+
+.pull-left[
+1. **Always conceptualize first**.
+
+2. Prioritize programmatic solutions to stay reproducible (i.e., &lt;code&gt;R&lt;/code&gt; over Excel).
+
+3. For conceptual charts (not: data viz!), other tools might be just fine (e.g., Powerpoint or even hand-drawn figures).
+
+4. Don't be distracted by interactives (as offered by, e.g., highcharts.com, Tableau, and others).
+
+5. Designing good graphs is a .hlblue[learnable skill]. Study how others do it in your software of choice!
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-excel97-chart.png" width=280&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-sequencing_costs.png" width=380&gt;
+&lt;/div&gt;
+]
+---
+
+# Some notes on how to get visualization right
+
+.pull-left[
+1. **Always conceptualize first**.
+
+2. Prioritize programmatic solutions to stay reproducible (i.e., &lt;code&gt;R&lt;/code&gt; over Excel).
+
+3. For conceptual charts (not: data viz!), other tools might be just fine (e.g., Powerpoint or even hand-drawn figures).
+
+4. Don't be distracted by interactives (as offered by, e.g., highcharts.com, Tableau, and others).
+
+5. Designing good graphs is a learnable skill. Study how others do it in your software of choice!
+
+6. But .hlblue[a good visualization takes time], even if you’re experienced. Working a full day on the key plot of your analysis? No problem! If you go the coding route, this is a good investment for Future-You.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-excel97-chart.png" width=280&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-sequencing_costs.png" width=380&gt;
+&lt;/div&gt;
+]
+
+
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: vizr
+
+# Visualization with R and ggplot2
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Plotting things in R with ggplot2
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+`ggplot2` is a system for declaratively creating graphics, based on *The Grammar of Graphics* (Leland Wilkinson). You provide the data, tell `ggplot2` how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details. It is part of the [tidyverse](https://www.tidyverse.org/).
+]
+
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d5-s2-ggplot2.png" height=250&gt;
+&lt;br&gt;
+
+&lt;/div&gt;
+
+
+
+
+---
+# The grammar of graphics
+
+.pull-left-vwide[
+### The easy logic of graphical grammar
+
+- Coding a graphic requires us to .hlred[describe each element] of it very precisely.
+
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-ggplot-layers.png" width=400&gt;
+&lt;/div&gt;
+&lt;div align="center"&gt;
+Grammar components as layers in ggplot2
+&lt;/div&gt;
+]
+
+---
+# The grammar of graphics
+
+.pull-left-vwide[
+### The easy logic of graphical grammar
+
+- Coding a graphic requires us to describe each element of it very precisely.
+- To do so, `ggplot` and its creator [Hadley Wickham](https://www.jstor.org/stable/pdf/25651297.pdf) build on and extend a particular grammar - the .hlred["Grammar of Graphics"] by [Wilkinson, Anand, and Grossmann](https://ieeexplore.ieee.org/document/1532142).
+
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-ggplot-layers.png" width=400&gt;
+&lt;/div&gt;
+&lt;div align="center"&gt;
+Grammar components as layers in ggplot2
+&lt;/div&gt;
+]
+
+---
+# The grammar of graphics
+
+.pull-left-vwide[
+### The easy logic of graphical grammar
+
+- Coding a graphic requires us to describe each element of it very precisely.
+- To do so, `ggplot` and its creator [Hadley Wickham](https://www.jstor.org/stable/pdf/25651297.pdf) build on and extend a particular grammar - the "Grammar of Graphics" by [Wilkinson, Anand, and Grossmann](https://ieeexplore.ieee.org/document/1532142).
+- Building plots with `ggplot2` emphasizes the .hlred[concept of layers], which are specified function by function and assembled with `+`.
+
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-ggplot-layers.png" width=400&gt;
+&lt;/div&gt;
+&lt;div align="center"&gt;
+Grammar components as layers in ggplot2
+&lt;/div&gt;
+]
+
+---
+# The grammar of graphics
+
+.pull-left-vwide[
+### The easy logic of graphical grammar
+
+- Coding a graphic requires us to describe each element of it very precisely.
+- To do so, `ggplot` and its creator [Hadley Wickham](https://www.jstor.org/stable/pdf/25651297.pdf) build on and extend a particular grammar - the "Grammar of Graphics" by [Wilkinson, Anand, and Grossmann](https://ieeexplore.ieee.org/document/1532142).
+- Building plots with `ggplot2` emphasizes the **concept of layers**, which are specified function by function and assembled with `+`.
+- With this particular grammar, we talk less about chart **types** and more about specific chart **elements**.
+
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-ggplot-layers.png" width=400&gt;
+&lt;/div&gt;
+&lt;div align="center"&gt;
+Grammar components as layers in ggplot2
+&lt;/div&gt;
+]
+
+---
+# The grammar of graphics
+
+.pull-left-vwide[
+### The easy logic of graphical grammar
+
+- Coding a graphic requires us to describe each element of it very precisely.
+- To do so, `ggplot` and its creator [Hadley Wickham](https://www.jstor.org/stable/pdf/25651297.pdf) build on and extend a particular grammar - the "Grammar of Graphics" by [Wilkinson, Anand, and Grossmann](https://ieeexplore.ieee.org/document/1532142).
+- Building plots with `ggplot2` emphasizes the **concept of layers**, which are specified function by function and assembled with `+`.
+- With this particular grammar, we talk less about chart *types* and more about specific chart *elements*.
+- For instance, **we don't say**: 
+&lt;div style="margin-left: 1em;"&gt;
+  &lt;i&gt;"R, give me a small multiple scatter plot."&lt;/i&gt;
+  &lt;/div&gt;
+
+  &lt;/div&gt;
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-ggplot-layers.png" width=400&gt;
+&lt;/div&gt;
+&lt;div align="center"&gt;
+Grammar components as layers in ggplot2
+&lt;/div&gt;
+]
+
+---
+# The grammar of graphics
+
+.pull-left-vwide[
+### The easy logic of graphical grammar
+
+- Coding a graphic requires us to describe each element of it very precisely.
+- To do so, `ggplot` and its creator [Hadley Wickham](https://www.jstor.org/stable/pdf/25651297.pdf) build on and extend a particular grammar - the "Grammar of Graphics" by [Wilkinson, Anand, and Grossmann](https://ieeexplore.ieee.org/document/1532142).
+- Building plots with `ggplot2` emphasizes the **concept of layers**, which are specified function by function and assembled with `+`.
+- With this particular grammar, we talk less about chart *types* and more about specific chart *elements*.
+- For instance, we don't say: 
+&lt;div style="margin-left: 1em;"&gt;
+  &lt;i&gt;"R, give me a small multiple scatter plot."&lt;/i&gt;
+  &lt;/div&gt;
+- Instead, **we say**: 
+&lt;div style="margin-left: 1em;"&gt;
+  &lt;i&gt;"Using this dataset, map wealth to the x-axis, health to the y-axis, add points, color by continent, size by population, scale the y-axis with a log, and facet by year."&lt;/i&gt;
+  &lt;/div&gt;
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-ggplot-layers.png" width=400&gt;
+&lt;/div&gt;
+&lt;div align="center"&gt;
+Grammar components as layers in ggplot2
+&lt;/div&gt;
+]
+
+
+---
+
+class: smalltext 
+
+# Components of grammar of graphics
+
+| Element 	| Description 	| Essential? 	| Example 	|
+|---	|---	|---	|---	|
+| Data 	| This is the dataset being plotted containing the variables to be plotted on the graph. 	| Yes 	| `ggplot(data = mpg)` 	|
+| Aesthetics 	| Aesthetics refers to the scales on which we map our data. Some common aesthetics to consider are axis (x,y), shape, size and color.	|  Yes	| `aes(x = displ, y = hwy, color = drv)` 	|
+| Geometries 	| Geom refers to the actual visual elements used for the data in the plot, such as points, lines, and bars. 	| Yes 	| `geom_point()` 	|
+| Scales 	| Scales map data values to the visual values of an aesthetic. This can be used to change a default mapping 	| No 	| `scale_colour_manual(values = c("red", "blue", "green"))` 	|
+| Facets 	| Faceting refers to splitting the data into multiple subsets and then displaying plots for the specific subsets in a panel (small multiples). 	|  No	| `facet_grid(vars(drv), ncol = 1)` 	|
+| Statistics 	| This refers to representing statistical information about the data, such as mean and variance, to help in understanding the data.	| No 	| `stat_count(geom="bar")` 	|
+| Coordinates 	| This refers to the space on which the data is plotted (e.g., Cartesian coordinates). 	| No 	| `coord_polar()`	|
+| Labels 	| This refers to additional descriptions of your plot, such as title, subtitle, caption, x and y axis label 	| No 	| `labs(x = "Height", y = "Weight", title = "Look at my plot")`	|
+| Themes 	| Themes are used to change the appearance of non-data elements, such as fonts, color, or legends.	| No 	| `theme_bw()` 	|
+
+
+---
+# Building a plot step by step with ggplot2 
+
+.pull-left[
+### Start with data and aesthetics&lt;sup&gt;1&lt;/sup&gt;
+
+```r
+*R&gt; ggplot(data = mpg,
+*+        mapping = aes(x = displ,
+*+                      y = hwy,
+*+                      color = drv))
+```
+]
+
+.pull-right[
+![](d5s2-data-viz-tools_files/figure-html/mpg-layers-1-1.png)
+]
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt;This example is borrowed from [Andrew Heiss](https://datavizs21.classes.andrewheiss.com/content/).]
+
+
+---
+# Building a plot step by step with ggplot2 (cont.)
+
+.pull-left[
+### Add a point geom
+
+```r
+R&gt; ggplot(data = mpg,
++        mapping = aes(x = displ,
++                      y = hwy,
++                      color = drv)) +
+*+   geom_point()
+```
+]
+
+.pull-right[
+![](d5s2-data-viz-tools_files/figure-html/mpg-layers-2-1.png)
+]
+
+
+---
+# Building a plot step by step with ggplot2 (cont.)
+
+.pull-left[
+### Add a smooth geom
+
+```r
+R&gt; ggplot(data = mpg,
++        mapping = aes(x = displ,
++                      y = hwy,
++                      color = drv)) +
++   geom_point() +
+*+   geom_smooth()
+```
+]
+
+.pull-right[
+![](d5s2-data-viz-tools_files/figure-html/mpg-layers-3-1.png)
+]
+
+---
+# Building a plot step by step with ggplot2 (cont.)
+
+.pull-left[
+### Make it straight
+
+```r
+R&gt; ggplot(data = mpg,
++        mapping = aes(x = displ,
++                      y = hwy,
++                      color = drv)) +
++   geom_point() +
+*+   geom_smooth(method = "lm")
+```
+]
+
+.pull-right[
+![](d5s2-data-viz-tools_files/figure-html/mpg-layers-4-1.png)
+]
+
+
+---
+# Building a plot step by step with ggplot2 (cont.)
+
+.pull-left[
+### Use a viridis color scale
+
+```r
+R&gt; ggplot(data = mpg,
++        mapping = aes(x = displ,
++                      y = hwy,
++                      color = drv)) +
++   geom_point() +
++   geom_smooth(method = "lm") +
+*+   scale_color_viridis_d()
+```
+]
+
+.pull-right[
+![](d5s2-data-viz-tools_files/figure-html/mpg-layers-5-1.png)
+]
+
+
+---
+# Building a plot step by step with ggplot2 (cont.)
+
+.pull-left[
+### Facet by drive
+
+```r
+R&gt; ggplot(data = mpg,
++        mapping = aes(x = displ,
++                      y = hwy,
++                      color = drv)) +
++   geom_point() +
++   geom_smooth(method = "lm") +
++   scale_color_viridis_d() +
+*+   facet_wrap(vars(drv), ncol = 1)
+```
+]
+
+.pull-right[
+![](d5s2-data-viz-tools_files/figure-html/mpg-layers-6-1.png)
+]
+
+
+---
+# Building a plot step by step with ggplot2 (cont.)
+
+.pull-left[
+### Add labels
+
+```r
+R&gt; ggplot(data = mpg,
++        mapping = aes(x = displ,
++                      y = hwy,
++                      color = drv)) +
++   geom_point() +
++   geom_smooth(method = "lm") +
++   scale_color_viridis_d() +
++   facet_wrap(vars(drv), ncol = 1) +
+*+   labs(x = "Displacement", y = "Highway MPG",
+*+        color = "Drive",
+*+        title = "Cars with bigger engines get lower mileage",
+*+        caption = "I know nothing about cars")
+```
+]
+
+.pull-right[
+![](d5s2-data-viz-tools_files/figure-html/mpg-layers-7-1.png)
+]
+
+
+---
+# Building a plot step by step with ggplot2 (cont.)
+
+.pull-left[
+### Add a theme
+
+```r
+R&gt; ggplot(data = mpg,
++        mapping = aes(x = displ,
++                      y = hwy,
++                      color = drv)) +
++   geom_point() +
++   geom_smooth(method = "lm") +
++   scale_color_viridis_d() +
++   facet_wrap(vars(drv), ncol = 1) +
++   labs(x = "Displacement", y = "Highway MPG",
++        color = "Drive", 
++        title = "Cars with bigger engines get lower mileage",
++        caption = "I know nothing about cars") +
+*+   theme_bw()
+```
+]
+
+.pull-right[
+![](d5s2-data-viz-tools_files/figure-html/mpg-layers-8-1.png)
+]
+
+
+
+---
+# Building a plot step by step with ggplot2 (cont.)
+
+.pull-left[
+### Modify the theme
+
+```r
+R&gt; ggplot(data = mpg, 
++        mapping = aes(x = displ,
++                      y = hwy,
++                      color = drv)) +
++   geom_point() +
++   geom_smooth(method = "lm") +
++   scale_color_viridis_d() +
++   facet_wrap(vars(drv), ncol = 1) +
++   labs(x = "Displacement", y = "Highway MPG",
++        color = "Drive", 
++        title = "Cars with bigger engines get lower mileage",
++        caption = "I know nothing about cars") +
++   theme_bw() +
+*+   theme(legend.position = "bottom",
+*+         plot.title = element_text(face = "bold"))
+```
+]
+
+.pull-right[
+![](d5s2-data-viz-tools_files/figure-html/mpg-layers-9-1.png)
+]
+
+
+---
+# Building a plot step by step with ggplot2 (cont.)
+
+.pull-left[
+### Finished!
+
+```r
+R&gt; ggplot(data = mpg, 
++        mapping = aes(x = displ,
++                      y = hwy,
++                      color = drv)) +
++   geom_point() +
++   geom_smooth(method = "lm") + 
++   scale_color_viridis_d() +
++   facet_wrap(vars(drv), ncol = 1) +
++   labs(x = "Displacement", y = "Highway MPG",
++        color = "Drive", 
++        title = "Cars with bigger engines get lower mileage",
++        caption = "I know nothing about cars") +
++   theme_bw() +
++   theme(legend.position = "bottom",
++         plot.title = element_text(face = "bold"))
+```
+]
+
+.pull-right[
+![](d5s2-data-viz-tools_files/figure-html/mpg-layers-finished-1.png)
+]
+
+
+
+---
+# Picking the right image file format
+
+.pull-left[
+### What are the formats?
+- At the end of the visualization workflow, you have to decide [how to store/export/publish the figures](https://clauswilke.com/dataviz/image-file-formats.html).
+- There are [many different file formats](https://en.wikipedia.org/wiki/Image_file_formats), but the most important difference is whether they are:
+  - **Bitmap (raster graphics)**: store information as a grid of pixels
+  - **Vector**: store information as geometric arrangement of individual graphical elements
+
+### Which format to pick?
+- Use `pdf/svg` whenever possible.
+- Use `png` for online documents/presentations.
+- Use `jpeg` as last resort (in particular if pngs are too large and loss by compression is acceptable).
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d5-s2-image-file-formats.png" width=500&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-raster-vs-vector.png" width=500&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Why go through the trouble of programmatic solutions?
+
+--
+
+&lt;iframe width="404" height="228" src="https://nsgrantham.shinyapps.io/tidytuesdayrocks/" title="tidytuesday.rocks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width:100%; height:100%;" allowfullscreen&gt;&lt;/iframe&gt;
+
+
+---
+# Going interactive
+
+.pull-left-wide[
+- In online presentations of your data and analyses, you might want to go interactive.
+- Interactive webpages are mainly run with JavaScript, and we can use `R` to draw on JavaScript libraries to create interactive content.
+- In particular, the `htmlwidgets` package provides a framework to bind `R` commands to various JavaScript libraries, including those that create data graphs.
+- Many "widgets" are already available - check out http://gallery.htmlwidgets.org/.
+- Other JavaScript libraries for interactive graphics can be created with R, too:
+  - [`leaflet`](https://rstudio.github.io/leaflet/) to connect to the [Leaflet library](https://leafletjs.com/) and create interactive maps
+  - [`plotly`](https://plotly.com/r/) to connect to [Plotly](https://plotly.com/r/is-plotly-free/) and create graphs of all kinds
+- For the record: interactive ≠ animated. On the right you see animated charts. Please don't do this at home.
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d5-s2-animated-barchart.gif" width=300&gt;
+&lt;br&gt;
+&lt;img src="../pics/d5-s2-rotating-3d-chart.gif" width=300&gt;
+&lt;/div&gt;
+]
+
+
+---
+
+class: inverse, center, middle
+name: improved-dm
+background-color: #FFFFFF
+
+
+&lt;b style="font-weight:bold;text-align:center;color:#2b7282;font-size:150%;"&gt;&lt;/b&gt;&lt;span style="text-align:center;color:#2b7282;font-size:150%;"&gt; (Let's give data visualization a try in `R`)&lt;/span&gt;
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

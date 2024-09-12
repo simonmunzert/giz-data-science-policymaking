@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 2: Policy evaluation and impact assessment</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 2: Policy evaluation and impact assessment
+]
+.subtitle[
+## Crimes against causality
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+---
+class: inverse, center, middle
+name: crimes
+
+# Crimes against causality
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+class: inverse, center, middle
+
+.wide-container[
+&lt;div align="center"&gt;
+&lt;img src="../pics/crime-puzzlement-cover.jpg" height=265&gt;
+&lt;img src="../pics/youre-the-detective-cover.jpg" height=265&gt;
+&lt;img src="../pics/the-10-min-detective.jpeg" height=265&gt;
+&lt;img src="../pics/true-detective-mysteries-cover.jpeg" height=265&gt;
+&lt;img src="../pics/sherlock-holmes-solve-it-yourself-cover.jpeg" height=265&gt;
+
+&lt;img src="../pics/murder-most-puzzling-cover.png" height=265&gt;
+&lt;img src="../pics/detective-science.jpg" height=265&gt;
+&lt;img src="../pics/critical-thinking-detective.jpg" height=265&gt;
+&lt;img src="../pics/the-fallacy-detective-cover.jpeg" height=265&gt;
+&lt;img src="../pics/deductive-detective.png" height=265&gt;
+&lt;/div&gt;
+]
+
+
+---
+class: inverse, center, middle
+
+.wide-container[
+&lt;div align="center"&gt;
+&lt;img src="../pics/crime-puzzlement-inside-2.jpg" height=500&gt;
+&lt;/div&gt;
+]
+
+
+---
+# What those books are about
+
+.pull-left[
+
+**Critical Thinking Detective**
+
+&lt;i&gt;"This colorful 32-page book offers a collection of fun, easy-to-use detective cases for Grades 4–12+. Some cases may be more challenging for younger students, but teachers and parents can always provide hints when needed. The cases &lt;mark&gt;develop critical thinking skills&lt;/mark&gt; by requiring students to read carefully and &lt;mark&gt;analyze and synthesize information to guide their decision-making&lt;/mark&gt;. The cases also develop observation skills, reading comprehension, deductive and inductive thinking skills. The ability to identify and evaluate evidence is the very heart of critical thinking."&lt;/i&gt;
+]
+
+--
+
+.pull-right[
+
+**The Sherlock Holmes Case Book**
+
+&lt;i&gt;"Join the world's greatest fictional detective and use your own powers of deduction to solve these puzzling mysteries. The Sherlock Holmes Case Book: Solve-It-Yourself Mysteries is a remarkable collection of crimes from Dr John Watson's case notes that features all of the twists and turns that have come to be expected from a Holmes case – but now it is up to you to solve them.
+
+There are 10 cases to be cracked, each of which &lt;mark&gt;requires the reader to use logic and powers of perception to answer a question at three points – the beginning, the middle and the end&lt;/mark&gt;."&lt;/i&gt;
+]
+
+
+---
+# The Holmesian "science of deduction and analysis"
+
+.wide-container[
+&lt;div align="center"&gt;
+&lt;img src="../pics/holmesian-logic.webp" height=500&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# The Holmesian "science of deduction and analysis"
+
+.pull-left-wide2[
+
+&gt; "[F]rom a drop of water [...] a logician could infer the possibility of an Atlantic or a Niagara without having seen or heard of one or the other [...]. By a man's finger-nails, by his coat-sleeve, by his boot, by his trouser-knees, by the callosities of his forefinger and thumb, by his expression, by his shirt-cuffs—by each of these things a man’s calling is plainly revealed. That all united should fail to enlighten the competent inquirer in any case is almost inconceivable."
+
+&lt;div align="right"&gt;Arthur Conan Doyle, &lt;i&gt;A Study in Scarlet&lt;/i&gt;&lt;/div&gt;
+
+&gt; "How often have I said to you that when you have eliminated the impossible, whatever remains, however improbable, must be the truth?"
+
+&lt;div align="right"&gt;Arthur Conan Doyle, &lt;i&gt;The Sign of the Four&lt;/i&gt;&lt;/div&gt;
+
+
+**↪ Great literature, but a nonsensical strategy for causal reasoning.**
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/sherlock-holmes-sp.jpeg" height=400&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Causal thinking as detective work
+
+.pull-left-wide[
+## The premise
+
+- Observational **causal inference** is like detective work&lt;sup&gt;1&lt;/sup&gt;
+- We have to **piece together evidence** to solve a puzzle of whether the suspect - the treatment - in fact causally changed the outcome
+- To that end, we need to **eliminate alternative explanations**
+
+## The equipment
+
+- **Our toolbox:** Critical thinking and logic, observation (data collection), perception (measurement), external knowledge, and statistical methods
+- Without the qualitative skills, the quantitative methods are pointless
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt;"Observational" does some heavy lifting here; for the experimental causal inference analogy, we'd probably the ones committing the murder.]
+]
+
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/sherlock-rathbone.jpeg" height=400&gt;
+&lt;/div&gt;
+]
+
+
+---
+class: inverse, center, middle
+name: crimescene1
+
+# Warming-up
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+# A few easy cases
+
+&lt;br&gt;
+
+.pull-left[
+## Shoes hurt (?)
+
+&gt; Survey data revealed that people who sleep with their shoes on are much more likely to wake up with a headache. 
+
+## Sweetened beverages are fattening (?)
+
+&gt; Individuals regularly consuming sugar sweetened beverages are shown to have a 30% higher BMI.
+]
+
+.pull-right[
+## Lock-downs caused deaths due to COVID-19 (?)
+
+&gt; European countries that had stricter &amp; longer lock-down periods had a higher COVID-19 death rate.
+
+## UN missions fail to protect civilians (?)
+
+&gt; UN peace keeping missions in civil war scenarios are strongly associated with higher death rates among civilians.
+]
+
+
+
+---
+class: inverse, center, middle
+name: crimescene1
+
+# Causal crime scene #1
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+# The scene: Do storks deliver babies?
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/storks-babies.png" height=450&gt;
+&lt;/div&gt;
+
+`Source` [Matthews, Roger, 2000, Teaching Statistics](https://doi.org/10.1111/1467-9639.00013)
+
+
+---
+# Additional evidence
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/storks-babies-scatter.png" height=450&gt;
+&lt;/div&gt;
+
+
+---
+# Additional evidence
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/area-babies-scatter.png" height=450&gt;
+&lt;/div&gt;
+
+
+---
+# A solution to the case
+
+.pull-left[
+
+&lt;br&gt;&lt;br&gt;
+
+|                       	| Evidence and conclusions                           	|
+|-----------------------	|----------------------------------------------------	|
+| **The crime scene**   	| Storks correlate with birth rates                  	|
+| **The suspect(s)**    	| Area, breeding grounds, urban/rural divide, chance 	|
+| **The murder weapon** 	| Confounding                                        	|
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/storks-dag.png" height=400&gt;
+&lt;/div&gt;
+]
+
+
+
+
+
+---
+class: inverse, center, middle
+name: crimescene2
+
+# Causal crime scene #2
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# The scene: Are certain music genres deadlier than others?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/musician_mortality.jpeg" height=430&gt;
+&lt;/div&gt;
+
+`Source` [The Conversation](https://theconversation.com/music-to-die-for-how-genre-affects-popular-musicians-life-expectancy-36660), `Background (w/ author response)` [Calling Bullshit](https://callingbullshit.org/case_studies/case_study_musician_mortality.html)
+]
+
+.pull-right[
+&gt; [Study author Dianna Kenny] found that musicians from older genres – including blues, jazz, country and gospel – have similar lifespans to American people their own age. The life expectancy for R&amp;B musicians is slightly lower, while the life expectancy for newer genres like rock, techno, punk, metal, rap and hip hop is significantly shorter."
+
+&lt;div align="right"&gt;Ana Swanson, &lt;a href="https://www.washingtonpost.com/news/wonk/wp/2015/04/15/the-causes-of-musicians-deaths-by-genre/"&gt;Washington Post&lt;/a&gt;&lt;/div&gt;
+
+&gt; "It's a cautionary tale to some degree," Kenny told the Washington Post. "People who go into rap music or hip hop or punk, they're in a much more occupational hazard profession compared to war. We don't lose half our army in a battle."
+
+&lt;div align="right"&gt;Dianna Kenny, &lt;a href="https://www.washingtonpost.com/news/morning-mix/wp/2015/03/25/over-half-of-dead-hip-hop-artists-were-murdered-study-finds/"&gt;quoted by Washington Post&lt;/a&gt;&lt;/div&gt;
+]
+
+
+---
+# Additional evidence
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/musician_mortality2.jpeg" height=450&gt;
+&lt;/div&gt;
+]
+
+--
+
+.pull-right[
+## Some issues
+
+1. **Sanity check:** Are some genres really that deadly? E.g., do rap musicians really die at an average age of ~30?
+2. **Right censoring:** Some genres are younger than others and the data are conditional on musicians having died already. Most rap and hip-hop stars are still alive today; we don't know how long they'll live!
+3. **Conditional probabilities:** The probabilities of each cause of death are conditional on death having already occurred at the time of the study.
+4. (Minor issue) A line graph for categorical data?  [Not a good idea.](https://www.jmp.com/en_gb/statistics-knowledge-portal/exploratory-data-analysis/line-graph.html#:~:text=Line%20graphs%20do%20not%20make,might%20have%20a%20defined%20order.)
+]
+
+
+---
+# A solution to the case
+
+.pull-left[
+
+|                       	| Evidence and conclusions                           	|
+|-----------------------	|----------------------------------------------------	|
+| **The crime scene**   	| Musical genre correlates with age at death                 	|
+| **The suspect(s)**    	| Life style (e.g. drug consumption), age of genre, incomplete data collection 	|
+| **The murder weapon** 	| Confounding via data censoring                                        	|
+
+&gt; "In other words, it's not that rap stars will likely die young; it's that the rap stars who have died certainly died young because rap hasn't been around long enough for it to be otherwise." &lt;div align="right"&gt;Carl Bergstrom and Jevin West, &lt;a href="https://callingbullshit.org/case_studies/case_study_musician_mortality.html"&gt;Calling Bullshit&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/div&gt;
+
+&lt;div class="font50"&gt;&lt;br&gt;&lt;br&gt;&lt;sup&gt;1&lt;/sup&gt;Note that (1) the author, Dianna Kenny, has provided a nice and plausible response and that (2) a &lt;a href="http://dx.doi.org/10.21091/mppa.2016.1007"&gt;more rigorous study&lt;/a&gt; seems to provide evidence consistent with the original patterns.&lt;/div&gt;
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;b&gt;Inspector Lestrade:&lt;/b&gt;&lt;br&gt;
+&lt;img src="../pics/tikz/tikz-024.png" width=400&gt;
+&lt;br&gt;
+&lt;b&gt;Sherlock:&lt;/b&gt;&lt;br&gt;
+&lt;img src="../pics/tikz/tikz-025.png" width=400&gt;
+&lt;/div&gt;
+]
+
+
+---
+class: inverse, center, middle
+name: crimescene3
+
+# Causal crime scene #3
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# The scene: Is air pollution affecting life expectancy?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/pnas-chen-air-pollution-huai-river-1.png" height=530&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/pnas-chen-air-pollution-huai-river-4.png" height=270&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Additional evidence
+
+&lt;br&gt;
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/pnas-chen-air-pollution-huai-river-2.png" height=430&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/pnas-chen-air-pollution-huai-river-3.png" height=430&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Additional evidence (from a later study)
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/pnas-ebenstein-air-pollution-huai-river-1.png" height=530&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/pnas-ebenstein-air-pollution-huai-river-4.png" height=330&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Additional evidence (from a later study)
+
+&lt;br&gt;
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/pnas-ebenstein-air-pollution-huai-river-2.png" height=430&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/pnas-ebenstein-air-pollution-huai-river-3.png" height=430&gt;
+&lt;/div&gt;
+]
+
+
+---
+# A solution to the case
+
+.pull-left[
+
+&lt;br&gt;&lt;br&gt;
+
+|                       	| Evidence and conclusions                           	|
+|-----------------------	|----------------------------------------------------	|
+| **The crime scene**   	| Living north versus south of river Huai linked to lower LE 	|
+| **The suspect(s)**    	| Quasi-experimental exposure to `\(PM_{10}\)` 	|
+| **The murder weapon** 	| Likely `\(PM_{10}\)`?                       	|
+]
+
+.pull-right[
+## Some thoughts
+
+1. A quasi-experimental design does not protect you from measurement or model specification issues.
+
+2. Using higher-order polynomials in RDDs can be problematic and generate bias (see [Gelman and Zelizer, 2015](https://journals.sagepub.com/doi/full/10.1177/2053168015569830).
+
+3. The follow-up study seemed to address many of those issues.
+
+4. Science (sometimes) is a self-correcting enterprise. Progress through higher quality of evidence is possible.
+]
+
+
+&lt;!--
+ The scene: Is there racial bias in police shootings?
+
+[Why Statistics Don’t Capture The Full Extent Of The Systemic Bias In Policing
+](https://fivethirtyeight.com/features/why-statistics-dont-capture-the-full-extent-of-the-systemic-bias-in-policing/)
+--&gt;
+
+
+---
+# More causal murders to be discovered
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/rival-hypothesis-1.png" height=500&gt;
+&lt;img src="../pics/rival-hypothesis-6.png" height=500&gt;
+&lt;/div&gt;
+
+---
+# More causal murders to be discovered
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/rival-hypothesis-7.png" height=520&gt;
+&lt;img src="../pics/rival-hypothesis-8.png" height=520&gt;
+&lt;img src="../pics/rival-hypothesis-9.png" height=520&gt;
+&lt;/div&gt;
+
+
+---
+# A checklist for policy supporting research
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/checklist-1.png" width=450&gt;
+&lt;img src="../pics/checklist-2.png" width=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/kampen-tamas-checklist-evidence.png" width=510&gt;
+&lt;/div&gt;
+]
+
+&lt;div class="font50"&gt;&lt;b&gt;Source: &lt;/b&gt;Kamen and Tamás, 2014, "Should I take this seriously? A simple checklist for calling bullshit on policy supporting research", &lt;a href="https://doi.org/10.1007/s11135-013-9830-8"&gt;Quality &amp; Quantity&lt;/a&gt;&lt;/div&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+cd "/Users/simonmunzert/Munzert Dropbox/Simon Munzert/uni/teaching/executive-education/2024-giz-tbilisi/slides/pics/tikz/"
+
+gs -dBATCH -dNOPAUSE -sDEVICE=png16m -sOutputICCProfile=default_rgb.icc -r1400 -dUseCropBox -sOutputFile="tikz-%03d.png" "tikz-graphs.pdf"
+
+
+%% tex to md
+
+cd "/Users/simonmunzert/Munzert Dropbox/Simon Munzert/uni/teaching/executive-education/2024-giz-tbilisi/materials/statistics-2/tex/"
+pandoc -s 04-regression-live.tex -o 04-regression-live.md
+
+
+.pull-left[
+
+]
+
+.pull-right[
+
+]
+
+

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 3: Artificial intelligence for policy-making</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 3: Artificial intelligence for policy-making
+]
+.subtitle[
+## The promise and perils of big data
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+# Table of contents
+
+&lt;br&gt;&lt;br&gt;
+
+1. [What is big data?](#whatisbigdata)
+
+2. [The big data paradox](#bigdataparadox)
+
+3. [Garbage in, garbage out](#garbageingarbageout)
+
+4. [Opportunities of big data for the public good](#opportunities)
+
+
+---
+class: inverse, center, middle
+name: whatisbigdata
+
+# What is big data?
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# What is big data?
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/big-data-5vs.png" height=480&gt;
+&lt;/div&gt;
+
+
+---
+# Massive amounts of data around us&lt;sup&gt;1&lt;/sup&gt;
+
+.pull-left-wide2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/ids-global-datasphere.png" height=360&gt;
+&lt;/div&gt;
+
+`Source` Reinsel et al., 2017, ["Data Age 2025"](https://www.seagate.com/files/www-content/our-story/trends/files/Seagate-WP-DataAge2025-March-2017.pdf)
+
+.footnote[&lt;div class="font80"&gt;&lt;sup&gt;1&lt;/sup&gt;Don't take any of those numbers too seriously. Those are very difficult to measure and numbers you find online are at times differing by oders of magnitude. Also, they are a moving target.&lt;/div&gt;]
+]
+
+.pull-right-small2[
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/2023InternetMinuteSized.jpg" height=400&gt;
+&lt;/div&gt;
+
+`Source` [eDiscoveryToday, LTMG](https://ediscoverytoday.com/2023/04/20/2023-internet-minute-infographic-by-ediscovery-today-and-ltmg-ediscovery-trends/
+)
+]
+
+
+---
+# The age of big data - big trends
+
+&lt;br&gt;&lt;br&gt;
+
+1. Proliferation of **human-generated data** at scale, in particular in the digital sphere
+
+2.  Use of **new data types**: Text, video, digital traces
+
+3.  **Computational and storage costs** fallen dramatically
+
+4.  Mainstreaming of **machine learning** and **AI** technologies
+
+5.  (Limited) **democratization of access** to large data resources
+
+6.  **Embracement of computational methods** development across many disciplines
+
+7.  **Shift in research avant-garde** from academia to industry
+
+
+
+
+---
+class: inverse, center, middle
+name: bigdataparadox
+
+# The big data paradox
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# An early big data disaster
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/literary-digest-1.png" height=520&gt;
+&lt;/div&gt;
+
+---
+# Literary Digest's 1936 election poll
+
+.pull-left[
+## Background
+
+- The weekly magazine *Literary Digest* had correctly predicted the outcomes of all presidential elections between 1920 and 1932 using straw polls.
+- Their 1936 poll of 10m voters indicated that Republican candidate Alfred Landon would be the overwhelming winner.
+
+## Aftermath
+
+- The poll was a disaster: Landon lost in a landslide to Franklin D. Roosevelt, who carried 46 out of 48 states and won 60.8% of the popular vote.
+- The outcome was correctly predicted by George Gallup with sample of 50k people.
+- The magazine went bankrupt in 1938.
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/fdr-happy.jpeg" height=480&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Literary Digest's 1936 election poll
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/literary-digest-2.png" height=520&gt;
+&lt;/div&gt;
+
+---
+# Literary Digest's 1936 election poll
+
+.pull-left[
+## Anatomy of a debacle
+
+1. **Sampling frame**: (1) own readers, (2) registered automobile owners, (3) registered telephone users
+2. **Data collection**: everyone was mailed a mock ballot and asked to return marked ballot
+3. **Response rate**: 2.4m out of 10m
+
+**Selection bias** as a consequence of **coverage** and **nonresponse bias**: overrepresentation of wealthier individuals with a preference for Landon
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`Source` [Peverill Squire, 1988, Public Opinion Quarterly](https://www.jstor.org/stable/2749114)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/literary-digest-squire-1.png" width=350&gt;
+&lt;img src="../pics/literary-digest-squire-2.png" width=350&gt;
+&lt;img src="../pics/literary-digest-squire-3.png" width=350&gt;
+&lt;/div&gt;
+]
+
+---
+# Take surveys with a pinch of salt
+
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/calvin-hobbes-messing-data.png" width=800&gt;
+&lt;/div&gt;
+
+
+
+---
+# A modern big data polling disaster
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/bradley-unrepresentative-big-surveys-vaccine-1.png" height=480&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/bradley-unrepresentative-big-surveys-vaccine-2.png" height=340&gt;
+&lt;/div&gt;
+]
+
+
+---
+# A modern big data polling disaster
+
+.pull-left-wide[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/bradley-unrepresentative-big-surveys-vaccine-3.png" width=720&gt;
+&lt;/div&gt;
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/bradley-unrepresentative-big-surveys-vaccine-4.png" width=350&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# The big data paradox
+
+.pull-left[
+&gt; "[W]hen biased samples are large, they are doubly misleading: they produce confidence intervals with incorrect centres and substantially underestimated widths. This is the **Big Data Paradox**: the bigger the data, the surer we fool ourselves when we fail to account for bias in data collection."
+
+&lt;div align="right"&gt;Bradley et al. (2021), &lt;i&gt;Nature&lt;/i&gt;&lt;/div&gt;
+
+&gt; "[T]he 'bigness' of such Big Data (for population inferences) should be measured by the relative size f = n/N of the sample to the population, not by the absolute size n of the sample."
+
+&lt;div align="right"&gt;Xiao-Li Meng (2018), &lt;i&gt;The Annals of Applied Statistics&lt;/i&gt;&lt;/div&gt;
+
+]
+
+--
+
+.pull-right[
+## Finite population correction to the rescue?
+
+- Intuition tells us that when the sample size becomes big relative to the population size, we should be less likely to err.
+- That's true, but the gain is relatively slow.
+- For instance, the finite population correction factor for the standard error of a quantity of interest  given by `\(\sqrt{\frac{N-n}{N-1}}\)`. 
+
+## Example
+
+- We run a survey of 100k people in a population of 3.7m.
+- For `\(N=3.7m\)` and `\(n=100k\)`, this is `\(\sqrt{0.973}\)`.
+]
+
+---
+class: inverse, center, middle
+name: garbageingarbageout
+
+# Garbage in, garbage out
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Garbage in, garbage out
+
+.pull-left[
+## THE GIGO principle
+- The quality of information coming out of a model (e.g., predictions) cannot be better than the quality of information that went in.
+- The principle is particularly relevant in the context of big data, where data quality is often poor.
+- This is particularly relevant in the context of machine learning, where models can be very complex and opaque.
+]
+
+.pull-right[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/gigo.png" width=480&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Google Flu Trends - the big promise
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/google-flu-nature.png" width=600&gt;
+&lt;/div&gt;
+
+`Source` Ginsberg et al., 2009, [Nature](https://www.nature.com/articles/nature07634)
+
+---
+# Google Flu Trends - the big promise
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/google-flu-trends-screenshot-1.jpg" width=480&gt;&lt;br&gt;
+&lt;img src="../pics/google-flu-trends-screenshot-2.jpg" width=480&gt;
+&lt;/div&gt;
+
+
+---
+# Google Flu Trends - the failure
+
+
+.pull-left-wide2[
+&lt;div align="center"&gt;
+&lt;img src="../pics/google-flu-parable-1.png" width=650&gt;
+&lt;/div&gt;
+
+`Source` Lazer et al., 2014, [Science](https://science.sciencemag.org/content/343/6176/1203)
+
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/google-flu-parable-2.png" width=500&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Detecting criminality with face images
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/criminal-faces-1.png" width=600&gt;
+&lt;/div&gt;
+
+
+---
+# Detecting criminality with face images
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/criminal-faces-2.png" width=600&gt;
+&lt;/div&gt;
+
+
+---
+# Detecting criminality with face images
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/criminal-faces-3.png" width=500&gt;
+&lt;img src="../pics/criminal-faces-4.png" width=500&gt;
+&lt;/div&gt;
+
+
+
+---
+# Garbage in, garbage out: lessons learned
+
+.pull-left[
+1. **Measurement** and **selection issues** are still key in Big Data analytics
+
+2. Don't trust **measures** that haven't been **properly validated**
+
+3. Look out for what goes into a model (the **input**: cases, variables/features)
+
+4. Look for proper **out-of-sample validation** of models
+
+5. Beware of **uncritical use of online/social media** as a data source
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/xkcd-2295-garbage_math.png" width=300&gt;
+&lt;/div&gt;
+`Source` XKCD, [2295](https://xkcd.com/2295/), (explained [here](https://www.explainxkcd.com/wiki/index.php/2295:_Garbage_Math))
+]
+
+
+---
+class: inverse, center, middle
+name: opportunities
+
+# Opportunities of big data for the public good
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# The age of big data - the age of dystopia?
+
+.pull-left[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/palantir.png" width=400&gt;
+&lt;img src="../pics/cambridge-analytica-1.png" width=300&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/boston-dynamics.jpeg" width=400&gt;
+&lt;img src="../pics/cambridge-analytica-2.jpg" width=400&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Boost public services with AI for individualized health care
+
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/hark-app.png" height=280&gt;
+&lt;img src="../pics/hark-app-evaluation.png" height=280&gt;
+&lt;/div&gt;
+
+`More information` [Google Deepmind](https://deepmind.google/discover/blog/we-are-very-excited-to-announce-the-launch-of-deepmind-health/), [Data breach](https://www.bbc.com/news/technology-58761324)
+
+---
+# Boost public services with AI for individualized health care
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/hark-app-breach.png" width=1000&gt;
+&lt;/div&gt;
+
+
+
+---
+# Climate Change AI
+
+.pull-left-small-center[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/climate-change-ai.png" width=300&gt;
+&lt;/div&gt;
+
+`Source` [Climate Change AI](https://www.climatechange.ai/)
+]
+
+.pull-right-wide-center[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/tackling-climate-change-1.png" width=600&gt;
+&lt;img src="../pics/tackling-climate-change-2.png" width=600&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Climate Change AI
+&lt;div align="center"&gt;
+&lt;img src="../pics/geraedts-contrails.png" height=400&gt;
+&lt;img src="../pics/contrails.jpeg" height=400&gt;
+&lt;/div&gt;
+
+`Source` [Geraedts et al., 2024](https://iopscience.iop.org/article/10.1088/2515-7620/ad11ab/pdf)
+
+
+
+---
+# LLMs for more efficient administration?
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/llm-public-admin-1.png" height=270&gt;
+&lt;img src="../pics/llm-public-admin-2.png" height=270&gt;
+&lt;img src="../pics/llm-public-admin-3.png" height=270&gt;
+&lt;img src="../pics/llm-public-admin-4.png" height=270&gt;
+&lt;img src="../pics/llm-public-admin-7.png" height=250&gt;
+&lt;img src="../pics/llm-public-admin-5.png" height=250&gt;
+&lt;img src="../pics/llm-public-admin-6.png" height=250&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

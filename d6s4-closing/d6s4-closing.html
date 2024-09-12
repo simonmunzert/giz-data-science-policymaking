@@ -1,0 +1,3427 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Day 6: Data management and ethics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sebastian Ramirez-Ruiz" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Day 6: Data management and ethics
+]
+.subtitle[
+## Closing discussion
+]
+.author[
+### Sebastian Ramirez-Ruiz
+]
+.institute[
+### Hertie School
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+.has-continuation {
+display: block !important;
+}
+}
+&lt;/style&gt;
+
+
+
+
+# Learning goals for this workshop
+
+&lt;br&gt; 
+
+&lt;style type="text/css"&gt;
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-if4e{background-color:#f9f9f9;border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-btxf{background-color:#f9f9f9;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-zwlc{background-color:#f9f9f9;border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-abip{background-color:#f9f9f9;border-color:inherit;text-align:center;vertical-align:top}
+&lt;/style&gt;
+&lt;table class="tg"&gt;
+&lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th class="tg-0lax"&gt;&lt;/th&gt;
+    &lt;th class="tg-baqh" colspan="6"&gt;&lt;span style="font-weight:bold"&gt;Data science literacy&lt;/span&gt;&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-btxf"&gt;&lt;span style="font-weight:bold"&gt;Day&lt;/span&gt;&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Statistical literacy&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Causal reasoning&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Data literacy&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;AI literacy&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Evidence consumption&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Ethical reasoning&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-fymr"&gt;1 - Fundamental data and statistical literacy&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-if4e"&gt;2 - Policy evaluation and impact assessment&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-fymr"&gt;3 - AI and big data for policy-making&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-if4e"&gt;4 - Informed consumption of evidence&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-fymr"&gt;5 - Data visualization and communication&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-if4e"&gt;6 - Data management and ethics&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# What is data science?
+
+.pull-left[
+## What is data science?
+
+&gt; "Data science is an interdisciplinary academic field that uses statistics, scientific computing, scientific methods, processes, algorithms and systems to extract or extrapolate knowledge and insights from potentially noisy, structured, or unstructured data." - [Wikipedia](https://en.wikipedia.org/wiki/Data_science)
+
+&gt; "Data science is a concept to unify statistics, data analysis, informatics, and their related methods to understand and analyze actual phenomena with data." - [Chikio Hayashi](https://www.springer.com/book/9784431702085)
+
+Overall, there's **no consensus** - it is a buzzword after all. We're going to carry on with Conway's working definition.
+]
+
+.pull-right[
+## A working definition
+
+&lt;div align="center"&gt;&lt;br&gt;
+&lt;img src="../pics/venn-orig-crop.png" height=400&gt;
+&lt;/div&gt;
+
+`Source` [Drew Conway, 2010](https://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram) (adapted)
+]
+
+
+---
+# Types of data-driven research and their role for policy
+
+.pull-left-small2[
+## 1. Description
+- What is the state of the world?
+- What are the trends over time?
+- What are the differences between groups?
+
+## The value for policy-making
+- At the center of **monitoring**
+- "How many people consume misinformation online?"
+- "How many people are unemployed in a certain district?"
+- "How does the distribution of income vary across educational segments of the population?"
+]
+
+--
+
+.pull-left-small2[
+## 2. Explanation
+- What is the effect of a policy?
+- Does the effect vary across groups?
+- What are the mechanisms behind the effect?
+
+## The value for policy-making
+- At the center of **evaluation**
+- "Did the minimum wage increase lead to a decrease in employment?"
+- "Did the campaign affect the exposure to misinformation differently across groups?"
+- "Why did the intervention not lead to the expected results?"
+]
+
+--
+
+.pull-left-small2[
+## 3. Prediction
+- What is the path of an indicator?
+- (When) will future events happen?
+- What class does this observation most likely belong to?
+
+
+## The value for policy-making
+- At the center of **forecasting** but also **targeting** and **measurement**
+- "Will there be conflict?"
+- "How many people will be unemployed in a certain district next year?"
+- "Which individuals are most likely to be affected by a policy?"
+]
+
+
+
+
+---
+background-image: url("../pics/vintage-pipeline.jpeg")
+background-size: contain
+background-color: #000000
+
+# The data science pipeline
+
+
+---
+# Calling out bad evidence when you see it
+
+.pull-left-small[
+
+## 1. Learn not to be fooled by 
+
+- big data
+- garbage data
+- garbage models
+- weird samples
+- claims of generality
+- statistical significance
+- implausibly large effect sizes
+- highly precise forecasts
+- overfitted models
+
+
+## 2. Consume policy-relevant evidence effectively and efficiently
+
+## 3. Apply elements of data science to policy-making
+
+]
+
+.pull-right-wide[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/sc01.png" height=130&gt; 
+&lt;img src="../pics/gigo.png" height=130&gt;
+&lt;/br&gt;
+&lt;img src="../pics/criminal-faces-2.png" height=130&gt;
+&lt;img src="../pics/calling-bullshit-2.jpg" height=130&gt;
+&lt;img src="../pics/survivorship-bias.png" height=130&gt;
+&lt;/br&gt;
+&lt;img src="../pics/cor-examples7.png" height=130&gt;
+&lt;img src="../pics/overfitting.png" height=130&gt;
+&lt;img src="../pics/nyt-opera.png" height=130&gt;
+&lt;/div&gt;
+]
+
+
+---
+# What we're not going to cover
+
+.pull-left-small2[
+## Programming
+- Python, R, SQL, etc. skills are essential for data science
+- The learning curve is steep and requires practice
+- We're happy to provide a glimpse behind the curtain if that is of interest, and provide additional resources
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/programming-logos.jpeg" height=150&gt; 
+&lt;/div&gt;
+]
+
+.pull-left-small2[
+## Active modeling
+- Building designs and models - explanatory and predictive - requires more theoretical and practical knowledge than we can cover in this workshop
+- Focusing on the principles of statistical and causal reasoning should be sufficient to critically assess designs and models
+&lt;br&gt;&lt;br&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/modeling-picture.jpeg" height=150&gt; 
+&lt;/div&gt;
+]
+
+.pull-right-small2[
+## Advanced machine learning, NLP
+- ML, DL, NLP are technologies that drive many of the most exciting applications of data science
+- Understanding what happens under the hood requires a solid foundation in math and stats
+- We will focus on fundamental elements of ML-based research
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/ml-metrics-symbol.png" height=150&gt; 
+&lt;/div&gt;
+]
+
+
+
+---
+# Descriptive vs. inferential statistics
+
+.pull-left[
+## Descriptive statistics
+- Summarize and describe characteristics of a sample or population
+- Can be communicated numerically and visually
+- Different scales (levels of measurement) require different descriptive statistics
+- Good description can be challenging if data collection or measurement is complex
+]
+
+.pull-right[
+## Inferential statistics
+- Make inferences about a population based on a sample
+- Can be inferences about means, proportions, relationships, etc.
+- Can be communicated numerically and visually
+- Good description is the basis for good inference
+]
+
+---
+# Descriptive vs. inferential statistics
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/descriptive-inferential.jpeg" width=1000&gt;
+&lt;/div&gt;
+
+
+
+---
+# Measures of central tendency
+
+
+.pull-left[
+## Three popular measures of central tendency
+
+- **(Arithmetic) Mean**: The **average** of all values in a dataset
+- **Median**: The **middle** value of a dataset
+- **Mode**: The **most frequent** value in a dataset
+
+Why "central tendency"? Describes the tendency of quantitative data to cluster around some central value.
+
+## Try it out
+
+Identify the mode, median, and mean of the following values:
+
+8, 2, 4, 2, 18, 6, 2
+]
+
+--
+
+.pull-right[
+## Which one to use?
+
+- **Mean**: Sensitive to outliers, but with an intuitive meaning
+- **Median**: Robust to outliers, but a bit less intuitive
+- **Mode**: Useful for categorical data, but can be misleading for continuous data
+
+## Skewed distributions
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/empirical-relation-between-mean-median-and-mode.png" width=1000&gt;
+&lt;/div&gt;
+]
+
+---
+# Samples and representativity
+
+.pull-left[
+## A folk definition of representativity
+
+A sample (or data in general) is "representative" if **conclusions drawn from the sample can be generalized** to the population of interest.
+]
+
+.pull-right[
+## A more formal definition
+
+A sample is representative if it is drawn in such a way that it is **statistically indistinguishable** from the population of interest.
+]
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/samples.png" height=350&gt;
+&lt;/div&gt;
+
+
+---
+# Getting started with causation
+
+.pull-left-wide[
+
+## Causation - a working definition
+
+- A.k.a. **causality, cause and effect**
+- The idea that one variable [event, process, object; the **cause**] causes another variable [event, process, object, outcome; the **effect**]
+
+
+]
+
+.pull-right-small-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/mixtape.jpeg" height=250&gt;
+&lt;img src="../pics/bookofwhy.jpg" height=250&gt;
+&lt;img src="../pics/scott-cunningham.jpeg" height=210&gt;
+&lt;img src="../pics/judea-pearl.jpeg" height=210&gt;
+&lt;/div&gt;
+]
+
+---
+# Getting started with causation
+
+.pull-left-wide[
+
+## Causation - a working definition
+
+- A.k.a. **causality, cause and effect**
+- The idea that one variable [event, process, object; the **cause**] causes another variable [event, process, object, outcome; the **effect**]
+
+## Causal reasoning
+
+- The process of studying and identifying causality
+- Causal reasoning involves...
+	- .i-pink[Ruling out] non-causal sources of association and
+	- .i-pink[Inferring] from the conditions of the occurrence (or absence) of an effect
+
+
+]
+
+.pull-right-small-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/mixtape.jpeg" height=250&gt;
+&lt;img src="../pics/bookofwhy.jpg" height=250&gt;
+&lt;img src="../pics/scott-cunningham.jpeg" height=210&gt;
+&lt;img src="../pics/judea-pearl.jpeg" height=210&gt;
+&lt;/div&gt;
+]
+
+---
+# Getting started with causation
+
+.pull-left-wide[
+
+## Causation - a working definition
+
+- A.k.a. **causality, cause and effect**
+- The idea that one variable [event, process, object; the **cause**] causes another variable [event, process, object, outcome; the **effect**]
+
+## Causal reasoning
+
+- The process of studying and identifying causality
+- Causal reasoning involves...
+	- .i-pink[Ruling out] non-causal sources of association and
+	- .i-pink[Inferring] from the conditions of the occurrence (or absence) of an effect
+
+## Causal inference
+
+- In Scott Cunningham's words: "Causal inference is the **leveraging of theory** and deep knowledge of institutional details to **estimate the impact of events and choices on a given outcome of interest**."
+]
+
+.pull-right-small-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/mixtape.jpeg" height=250&gt;
+&lt;img src="../pics/bookofwhy.jpg" height=250&gt;
+&lt;img src="../pics/scott-cunningham.jpeg" height=210&gt;
+&lt;img src="../pics/judea-pearl.jpeg" height=210&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+--
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera-2.png" height=400&gt;
+&lt;/div&gt;
+
+`Source` [Cramer, NYTimes (2019)](https://www.nytimes.com/2019/12/22/us/arts-health-effects-ucl-study.html)
+]
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera-3.png" height=450&gt;
+&lt;/div&gt;
+
+`Source` [Fancourt, Steptoe / BMJ (2019)](https://www.bmj.com/content/367/bmj.l6377)
+]
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Different sources of association between X and Y
+
+1. X may have caused Y.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-001.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Different sources of association between X and Y
+
+1. X may have caused Y.
+2. Y may have caused X.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-002.png" width=300&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Different sources of association between X and Y
+
+1. X may have caused Y.
+2. Y may have caused X.
+3. X and Y may share one or more common causes.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-003.png" width=300&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Different sources of association between X and Y
+
+1. X may have caused Y.
+2. Y may have caused X.
+3. X and Y may share one or more common causes.
+4. The association may have been induced by conditioning on a common effect of X and Y.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-004.png" width=300&gt;
+&lt;/div&gt;
+
+]
+
+
+
+---
+# Does going to the opera make you live longer?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/nyt-opera.png" height=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+
+## Different sources of association between X and Y
+
+1. X may have caused Y.
+2. Y may have caused X.
+3. X and Y may share one or more common causes.
+4. The association may have been induced by conditioning on a common effect of X and Y.
+5. Chance.
+
+]
+
+
+---
+# Thinking in terms of counterfactuals
+
+.pull-left-vwide[
+## The Neyman-Rubin causal model
+
+- It is is a formal approach to do causal inference that fueled the potential outcomes framework (POF)
+- Up until today, it's the mainstream framework to (statistically) talk
+about causation
+
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;img src="../pics/neyman.jpeg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/paulholland.jpg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/donrubin.jpeg" width=130&gt;
+&lt;/div&gt;
+]
+
+---
+# Thinking in terms of counterfactuals
+
+.pull-left-vwide[
+## The Neyman-Rubin causal model
+
+- It is is a formal approach to do causal inference that fueled the potential outcomes framework (POF)
+- Up until today, it's the mainstream framework to (statistically) talk
+about causation
+
+## The idea of potential outcomes
+
+- The POF assumes that each subject has a **potential outcome under both treatment states**
+
+
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;img src="../pics/neyman.jpeg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/paulholland.jpg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/donrubin.jpeg" width=130&gt;
+&lt;/div&gt;
+]
+---
+# Thinking in terms of counterfactuals
+
+.pull-left-vwide[
+## The Neyman-Rubin causal model
+
+- It is is a formal approach to do causal inference that fueled the potential outcomes framework (POF)
+- Up until today, it's the mainstream framework to (statistically) talk
+about causation
+
+## The idea of potential outcomes
+
+- The POF assumes that each subject has a **potential outcome under both treatment states**
+- Evidently, .i-pink[each subject can only be observed in one treatment state at any point in time]
+
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;img src="../pics/neyman.jpeg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/paulholland.jpg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/donrubin.jpeg" width=130&gt;
+&lt;/div&gt;
+]
+---
+# Thinking in terms of counterfactuals
+
+.pull-left-vwide[
+## The Neyman-Rubin causal model
+
+- It is is a formal approach to do causal inference that fueled the potential outcomes framework (POF)
+- Up until today, it's the mainstream framework to (statistically) talk
+about causation
+
+## The idea of potential outcomes
+
+- The POF assumes that each subject has a **potential outcome under both treatment states**
+- Evidently, .i-pink[each subject can only be observed in one treatment state at any point in time]
+- Therefore, the individual treatment effect is a non-observable counterfactual ("the fundamental problem of causal inference", Holland 1986)
+
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;img src="../pics/neyman.jpeg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/paulholland.jpg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/donrubin.jpeg" width=130&gt;
+&lt;/div&gt;
+]
+---
+# Thinking in terms of counterfactuals
+
+.pull-left-vwide[
+## The Neyman-Rubin causal model
+
+- It is is a formal approach to do causal inference that fueled the potential outcomes framework (POF)
+- Up until today, it's the mainstream framework to (statistically) talk
+about causation
+
+## The idea of potential outcomes
+
+- The POF assumes that each subject has a **potential outcome under both treatment states**
+- Evidently, .i-pink[each subject can only be observed in one treatment state at any point in time]
+- Therefore, the individual treatment effect is a non-observable counterfactual ("the fundamental problem of causal inference", Holland 1986)
+- The idea is to think about the **counterfactual** outcome that would have been observed had the treatment been different
+
+
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;img src="../pics/neyman.jpeg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/paulholland.jpg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/donrubin.jpeg" width=130&gt;
+&lt;/div&gt;
+]
+---
+# Thinking in terms of counterfactuals
+
+.pull-left-vwide[
+## The Neyman-Rubin causal model
+
+- It is is a formal approach to do causal inference that fueled the potential outcomes framework (POF)
+- Up until today, it's the mainstream framework to (statistically) talk
+about causation
+
+## The idea of potential outcomes
+
+- The POF assumes that each subject has a **potential outcome under both treatment states**
+- Evidently, .i-pink[each subject can only be observed in one treatment state at any point in time]
+- Therefore, the individual treatment effect is a non-observable counterfactual ("the fundamental problem of causal inference", Holland 1986)
+- The idea is to think about the **counterfactual** outcome that would have been observed had the treatment been different
+
+### Let's define a couple of key mathematical notions with an example.
+]
+
+.pull-right-vsmall[
+&lt;div align="center"&gt;
+&lt;img src="../pics/neyman.jpeg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/paulholland.jpg" width=130&gt;&lt;br&gt;
+&lt;img src="../pics/donrubin.jpeg" width=130&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Thinking in terms of counterfactuals
+
+.pull-center[
+&lt;br&gt;
+.content-box-gray-wide[
+&lt;i style="font-weight:bold; color:#cc0065"&gt;Policy issue:&lt;/i&gt; **Discrimination in labor markets** has been well documented by showing that women tend to have a disadvantageous position in the labor market compared to that of their male counterparts. The subject of such discrimination varies by context but has prompted calls for hiring procedures that may shield information on a candidate’s gender, in some countries.
+
+.text-invisible[&lt;i style="font-weight:bold; color:#097969"&gt;Action:&lt;/i&gt; **Anonymized resumes and blind-review processes** have been proposed as solutions to reduce gender discrimination in labor markets. By concealing information such as a candidate’s name, gender, and other identifying details, these practices aim to ensure that hiring decisions are based solely on qualifications and experience.
+]
+]
+]
+
+---
+
+# Thinking in terms of counterfactuals
+
+.pull-center[
+&lt;br&gt;
+.content-box-gray-wide[
+&lt;i style="font-weight:bold; color:#cc0065"&gt;Policy issue:&lt;/i&gt; **Discrimination in labor markets** has been well documented by showing that women tend to have a disadvantageous position in the labor market compared to that of their male counterparts. The subject of such discrimination varies by context but has prompted calls for hiring procedures that may shield information on a candidate’s gender, in some countries.
+
+&lt;i style="font-weight:bold; color:#097969"&gt;Action:&lt;/i&gt; **Anonymized resumes and blind-review processes** have been proposed as solutions to reduce gender discrimination in labor markets. By concealing information such as a candidate’s name, gender, and other identifying details, these practices aim to ensure that hiring decisions are based solely on qualifications and experience.
+]
+]
+
+
+--
+&lt;br&gt;
+
+**Say you assess whether this is a good action or not...**
+
+---
+# Thinking in terms of counterfactuals
+
+.pull-left[
+
+## Potential outcomes under treatment and control
+
+- Assume we have a binary treatment variable `\(X\)` (e.g., blind-review practices)
+- We observe the outcome `\(Y\)` (e.g., number of women hired)
+- The potential outcomes are `\(Y(1)\)` and `\(Y(0)\)`
+
+| **Group/Firm** | No. of women (under treatment) |  No. of women (under control) |
+|-----------|-----------------------------|---------------------------|
+| Has blind-review practices| Observable as `\(Y\)` | Counterfactual |
+| No blind-review practices | Counterfactual | Observable as `\(Y\)` |
+]
+
+--
+
+.pull-right[
+
+## The fundamental problem of causal inference
+
+- Why is the causal effect of X on Y not simply the difference between the upper-left and lower-right cell in the table?
+- We can only observe one of the two potential outcomes!
+- Causal inference implies answering **'What if'** questions, i.e. imagine a counterfactual world in which the treatment was different for a given unit
+
+]
+
+---
+
+# Thinking in terms of counterfactuals
+
+
+.pull-left[
+## The fundamental problem of causal inference
+
+- Why is the causal effect of X on Y not simply the difference between the upper-left and lower-right cell in the table?
+
+]
+
+.pull-right[
+|  **Firm**  | `\(Y_1\)` (under treatment) | `\(Y_0\)` (under control) | `\(Y_1 - Y_0\)` (ITE) | Blind review process |
+|:----------:|:------:|:------:|:--------:|:-------------:|
+| A          | 5      |   6    |     -1    | 1             |
+| B          | 2      |   4    |     -2    | 0             |
+| C          | 4      |   4    |      0    | 1             |
+| D          | 7      |   6    |      1    | 1             |
+| E          | 1      |   3    |     -2    | 0             |
+| F          | 2      |   2    |      0    | 0             |
+| G          | 7      |   8    |     -1    | 1             |
+| H          | 5      |   4    |      1    | 1             |
+
+&lt;b style="#text-align:center"&gt;In a world with full information&lt;/b&gt;
+]
+
+---
+
+# Thinking in terms of counterfactuals
+
+
+.pull-left[
+## The fundamental problem of causal inference
+
+- Why is the causal effect of X on Y not simply the difference between the upper-left and lower-right cell in the table?
+
+]
+
+.pull-right[
+|  **Firm**  | `\(Y_1\)` (under treatment) | `\(Y_0\)` (under control) | `\(Y_1 - Y_0\)` (ITE) | Blind review process |
+|:----------:|:------:|:------:|:--------:|:-------------:|
+| A          | 5      |        |          | 1             |
+| B          |        |   4    |          | 0             |
+| C          | 4      |        |          | 1             |
+| D          | 7      |        |          | 1             |
+| E          |        |   3    |          | 0             |
+| F          |        |   2    |          | 0             |
+| G          | 7      |        |          | 1             |
+| H          | 5      |        |          | 1             |
+
+&lt;b style="#text-align:center"&gt;What we observe in reality&lt;/b&gt;
+]
+
+
+---
+
+# Thinking in terms of counterfactuals
+
+
+.pull-left[
+## The fundamental problem of causal inference
+
+- Why is the causal effect of X on Y not simply the difference between the upper-left and lower-right cell in the table?
+- We would probably compare the firms with and without the process (differences in their means):
+    - `\(= \frac{5+4+7+7+5}{5} - \frac{4+3+2}{3}\)`
+    - `\(= 5.6 - 3\)`
+    - `\(= 2.6\)`
+]
+
+.pull-right[
+|  **Firm**  | `\(Y_1\)` (under treatment) | `\(Y_0\)` (under control) | `\(Y_1 - Y_0\)` (ITE) | Blind review process |
+|:----------:|:------:|:------:|:--------:|:-------------:|
+| A          | 5      |        |          | 1             |
+| B          |        |   4    |          | 0             |
+| C          | 4      |        |          | 1             |
+| D          | 7      |        |          | 1             |
+| E          |        |   3    |          | 0             |
+| F          |        |   2    |          | 0             |
+| G          | 7      |        |          | 1             |
+| H          | 5      |        |          | 1             |
+
+&lt;b style="#text-align:center"&gt;What we observe in reality&lt;/b&gt;
+]
+
+---
+
+# Thinking in terms of counterfactuals
+
+
+.pull-left[
+## The fundamental problem of causal inference
+
+- Why is the causal effect of X on Y not simply the difference between the upper-left and lower-right cell in the table?
+- We would probably compare the firms with and without the process (differences in their means):
+    - `\(= \frac{5+4+7+7+5}{5} - \frac{4+3+2}{3}\)`
+    - `\(= 5.6 - 3\)`
+    - `\(= 2.6\)`
+- We would **observe on average 2.6 more** women hired in firms with blind-review measures. We call this quantity the .i-pink[naive average treatment effect (NATE)].
+]
+
+.pull-right[
+|  **Firm**  | `\(Y_1\)` (under treatment) | `\(Y_0\)` (under control) | `\(Y_1 - Y_0\)` (ITE) | Blind review process |
+|:----------:|:------:|:------:|:--------:|:-------------:|
+| A          | 5      |        |          | 1             |
+| B          |        |   4    |          | 0             |
+| C          | 4      |        |          | 1             |
+| D          | 7      |        |          | 1             |
+| E          |        |   3    |          | 0             |
+| F          |        |   2    |          | 0             |
+| G          | 7      |        |          | 1             |
+| H          | 5      |        |          | 1             |
+
+&lt;b style="#text-align:center"&gt;What we observe in reality&lt;/b&gt;
+]
+
+
+
+---
+
+# Thinking in terms of counterfactuals
+
+
+.pull-left[
+## The fundamental problem of causal inference
+
+- Why is the causal effect of X on Y not simply the difference between the upper-left and lower-right cell in the table?
+- We would probably compare the firms with and without the process (differences in their means):
+    - `\(= \frac{5+4+7+7+5}{5} - \frac{4+3+2}{3}\)`
+    - `\(= 5.6 - 3\)`
+    - `\(= 2.6\)`
+- We would **observe on average 2.6 more** women hired in firms with blind-review measures. We call this quantity the .i-pink[naive average treatment effect (NATE)].
+- **Show of hands:** Who thinks this is the true .i-pink[average treatment effect (ATE)]?
+]
+
+.pull-right[
+|  **Firm**  | `\(Y_1\)` (under treatment) | `\(Y_0\)` (under control) | `\(Y_1 - Y_0\)` (ITE) | Blind review process |
+|:----------:|:------:|:------:|:--------:|:-------------:|
+| A          | 5      |        |          | 1             |
+| B          |        |   4    |          | 0             |
+| C          | 4      |        |          | 1             |
+| D          | 7      |        |          | 1             |
+| E          |        |   3    |          | 0             |
+| F          |        |   2    |          | 0             |
+| G          | 7      |        |          | 1             |
+| H          | 5      |        |          | 1             |
+
+&lt;b style="#text-align:center"&gt;What we observe in reality&lt;/b&gt;
+]
+
+---
+
+# Thinking in terms of counterfactuals
+
+
+.pull-left[
+## The fundamental problem of causal inference
+
+- Why is the causal effect of X on Y not simply the difference between the upper-left and lower-right cell in the table?
+
+- The .i-pink[average treatment effect (ATE)] is the average of everyone's individual treatment effect (ITE). In this case:
+    - `\(= \frac{(-1)+(-2)+0+1+(-2)+0+(-1)+1}{8}\)`
+    - `\(= \frac{(-4)}{8}\)`
+    - `\(= -0.5\)`
+    
+- The actual effect of the blind-review policy is an **expected reduction of 0.5 women hired on average** 🤔.
+
+]
+
+.pull-right[
+|  **Firm**  | `\(Y_1\)` (under treatment) | `\(Y_0\)` (under control) | `\(Y_1 - Y_0\)` (ITE) | Blind review process |
+|:----------:|:------:|:------:|:--------:|:-------------:|
+| A          | 5      |   6    |     -1    | 1             |
+| B          | 2      |   4    |     -2    | 0             |
+| C          | 4      |   4    |      0    | 1             |
+| D          | 7      |   6    |      1    | 1             |
+| E          | 1      |   3    |     -2    | 0             |
+| F          | 2      |   2    |      0    | 0             |
+| G          | 7      |   8    |     -1    | 1             |
+| H          | 5      |   4    |      1    | 1             |
+
+&lt;b style="#text-align:center"&gt;In a world with full information&lt;/b&gt;
+]
+
+---
+
+# Thinking in terms of counterfactuals
+
+
+.pull-left[
+## The fundamental problem of causal inference
+
+- **Question:** Does anyone have an intuition of why we have these divergences?
+    
+   
+
+]
+
+.pull-right[
+|  **Firm**  | `\(Y_1\)` (under treatment) | `\(Y_0\)` (under control) | `\(Y_1 - Y_0\)` (ITE) | Blind review process |
+|:----------:|:------:|:------:|:--------:|:-------------:|
+| A          | 5      |   6    |     -1    | 1             |
+| B          | 2      |   4    |     -2    | 0             |
+| C          | 4      |   4    |      0    | 1             |
+| D          | 7      |   6    |      1    | 1             |
+| E          | 1      |   3    |     -2    | 0             |
+| F          | 2      |   2    |      0    | 0             |
+| G          | 7      |   8    |     -1    | 1             |
+| H          | 5      |   4    |      1    | 1             |
+
+&lt;b style="#text-align:center"&gt;In a world with full information&lt;/b&gt;
+]
+
+---
+
+# Thinking in terms of counterfactuals
+
+
+.pull-left[
+## The fundamental problem of causal inference
+
+- **Question:** Does anyone have an intuition of why we have these divergences?
+    - `\(NATE = 2.6\)` and `\(ATE = -0.5\)`
+    - `\(NATE = ATE + BIAS\)`
+    - `\(BIAS = NATE - ATE\)`
+    
+.text-invisible[
+- Which means that **in the absence of bias**...
+    - `\(NATE = ATE\)` (i.e., **what we can observe approximates the true causal effect**)
+]
+]
+
+.pull-right[
+|  **Firm**  | `\(Y_1\)` (under treatment) | `\(Y_0\)` (under control) | `\(Y_1 - Y_0\)` (ITE) | Blind review process |
+|:----------:|:------:|:------:|:--------:|:-------------:|
+| A          | 5      |   6    |     -1    | 1             |
+| B          | 2      |   4    |     -2    | 0             |
+| C          | 4      |   4    |      0    | 1             |
+| D          | 7      |   6    |      1    | 1             |
+| E          | 1      |   3    |     -2    | 0             |
+| F          | 2      |   2    |      0    | 0             |
+| G          | 7      |   8    |     -1    | 1             |
+| H          | 5      |   4    |      1    | 1             |
+
+&lt;b style="#text-align:center"&gt;In a world with full information&lt;/b&gt;
+]
+
+---
+
+# Thinking in terms of counterfactuals
+
+
+.pull-left[
+## The fundamental problem of causal inference
+
+- **Question:** Does anyone have an intuition of why we have these divergences?
+    - `\(NATE = 2.6\)` and `\(ATE = -0.5\)`
+    - `\(NATE = ATE + BIAS\)`
+    - `\(BIAS = NATE - ATE\)`
+    
+.text-invisible[
+- Which means that **in the absence of bias**...
+
+]
+]
+
+.pull-right[
+|  **Firm**  | `\(Y_1\)` (under treatment) | `\(Y_0\)` (under control) | `\(Y_1 - Y_0\)` (ITE) | Blind review process |
+|:----------:|:------:|:------:|:--------:|:-------------:|
+| A          | 5      |   6    |     -1    | 1             |
+| B          | 2      |   4    |     -2    | 0             |
+| C          | 4      |   4    |      0    | 1             |
+| D          | 7      |   6    |      1    | 1             |
+| E          | 1      |   3    |     -2    | 0             |
+| F          | 2      |   2    |      0    | 0             |
+| G          | 7      |   8    |     -1    | 1             |
+| H          | 5      |   4    |      1    | 1             |
+
+&lt;b style="#text-align:center"&gt;In a world with full information&lt;/b&gt;
+]
+
+
+---
+
+# Thinking in terms of counterfactuals
+
+
+.pull-left[
+## The fundamental problem of causal inference
+
+- **Question:** Does anyone have an intuition of why we have these divergences?
+    - `\(NATE = 2.6\)` and `\(ATE = -0.5\)`
+    - `\(NATE = ATE + BIAS\)`
+    - `\(BIAS = NATE - ATE\)`
+
+- Which means that **in the absence of bias**...
+    - `\(NATE = ATE\)` (i.e., **what we can observe approximates the true causal effect**)
+
+]
+
+.pull-right[
+|  **Firm**  | `\(Y_1\)` (under treatment) | `\(Y_0\)` (under control) | `\(Y_1 - Y_0\)` (ITE) | Blind review process |
+|:----------:|:------:|:------:|:--------:|:-------------:|
+| A          | 5      |   6    |     -1    | 1             |
+| B          | 2      |   4    |     -2    | 0             |
+| C          | 4      |   4    |      0    | 1             |
+| D          | 7      |   6    |      1    | 1             |
+| E          | 1      |   3    |     -2    | 0             |
+| F          | 2      |   2    |      0    | 0             |
+| G          | 7      |   8    |     -1    | 1             |
+| H          | 5      |   4    |      1    | 1             |
+
+&lt;b style="#text-align:center"&gt;In a world with full information&lt;/b&gt;
+]
+
+---
+# Thinking in terms of counterfactuals
+
+.pull-left[
+
+## The fundamental problem of causal inference
+
+- Why is the causal effect of X on Y not simply the difference between the upper-left and lower-right cell in the table?
+- We can only observe one of the two potential outcomes!
+- Causal inference implies answering **'What if'** questions, i.e. imagine a counterfactual world in which the treatment was different for a given unit
+
+]
+
+
+---
+# Thinking in terms of counterfactuals
+
+.pull-left[
+
+## The fundamental problem of causal inference
+
+- Why is the causal effect of X on Y not simply the difference between the upper-left and lower-right cell in the table?
+- We can only observe one of the two potential outcomes!
+- Causal inference implies answering **'What if'** questions, i.e. imagine a counterfactual world in which the treatment was different for a given unit
+
+## What we learned
+
+- In the absence of bias, **what we can observe approximates the true causal effect**
+
+]
+
+--
+
+.pull-right[
+## Addressing the fundamental problem of causal inference
+
+- We can try and .i-pink[design studies] in a way so that the expected outcome under a treatment state are the same for all units
+- Or, we can try to (statistically) .i-pink[adjust] such that the observed data is as close as possible to the counterfactual data
+
+
+]
+
+---
+# Thinking in terms of counterfactuals
+
+.pull-left[
+
+## The fundamental problem of causal inference
+
+- Why is the causal effect of X on Y not simply the difference between the upper-left and lower-right cell in the table?
+- We can only observe one of the two potential outcomes!
+- Causal inference implies answering **'What if'** questions, i.e. imagine a counterfactual world in which the treatment was different for a given unit
+
+## What we learned
+
+- In the absence of bias, **what we can observe approximates the true causal effect**
+
+]
+
+
+.pull-right[
+## Addressing the fundamental problem of causal inference
+
+- We can try and .i-pink[design studies] in a way so that the expected outcome under a treatment state are the same for all units
+- Or, we can try to (statistically) .i-pink[adjust] such that the observed data is as close as possible to the counterfactual data
+
+
+## Though the ITEs and ATE are unnatainable quantities, they can guide our path in the search for causality!
+]
+
+
+---
+
+# Basic patterns in DAGs
+
+### There are three common structures in DAGs
+
+--
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/dag-structures.png" width=900&gt;
+&lt;/div&gt;
+
+--
+
+Dissecting more complex graphs into these basic patterns can help to understand the causal structure of the data-generating process. This will be **key to understanding how to adjust for confounding** in regression analysis.
+
+---
+# Confounders
+
+.pull-left[
+## Dealing with confounders
+- A confounder induces statistical association between its effects.
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-013.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-014.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+# Confounders
+
+.pull-left[
+## Dealing with confounders
+- A confounder induces statistical association between its effects.
+- **Conditioning** on a confounder (or a descendant of a confounder) on the path **blocks the path**.
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-013.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-014.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+# Confounders
+
+.pull-left[
+## Dealing with confounders
+- A confounder induces statistical association between its effects.
+- **Conditioning** on a confounder (or a descendant of a confounder) on the path **blocks the path**.
+- In DAGs, conditioning is usually indicated with a **box around the variable**.
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-013.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-014.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+# Confounders
+
+.pull-left[
+## Dealing with confounders
+- A confounder induces statistical association between its effects.
+- **Conditioning** on a confounder (or a descendant of a confounder) on the path **blocks the path**.
+- In DAGs, conditioning is usually indicated with a **box around the variable**.
+- Failing to condition on a relevant confounder induces non-causal statistical association or **omitted variable bias**.
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-013.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-014.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+# Confounders
+
+.pull-left[
+## Dealing with confounders
+- A confounder induces statistical association between its effects.
+- **Conditioning** on a confounder (or a descendant of a confounder) on the path **blocks the path**.
+- In DAGs, conditioning is usually indicated with a **box around the variable**.
+- Failing to condition on a relevant confounder induces non-causal statistical association or **omitted variable bias**.
+- In most cases, .i-pink[you want to condition on confounders].
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-013.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-014.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Mediators
+
+.pull-left-wide[
+## Dealing with mediators
+- Chains of mediation D `\(\rightarrow\)` M `\(\rightarrow\)` Y let us express how exactly a treatment impacts the outcome.
+
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-015.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-016.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Mediators
+
+.pull-left-wide[
+## Dealing with mediators
+- Chains of mediation D `\(\rightarrow\)` M `\(\rightarrow\)` Y let us express how exactly a treatment impacts the outcome.
+- Mediators express a **mechanism** by which one variable affects another.
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-015.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-016.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Mediators
+
+.pull-left-wide[
+## Dealing with mediators
+- Chains of mediation D `\(\rightarrow\)` M `\(\rightarrow\)` Y let us express how exactly a treatment impacts the outcome.
+- Mediators express a **mechanism** by which one variable affects another.
+- Example: Coffee (D) leads to better stats exam results (Y) because the caffeine (M) stimulates the nervous system and prevents drowsiness.
+
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-015.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-016.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Mediators
+
+.pull-left-wide[
+## Dealing with mediators
+- Chains of mediation D `\(\rightarrow\)` M `\(\rightarrow\)` Y let us express how exactly a treatment impacts the outcome.
+- Mediators express a **mechanism** by which one variable affects another.
+- Example: Coffee (D) leads to better stats exam results (Y) because the caffeine (M) stimulates the nervous system and prevents drowsiness.
+
+## Beware of post-treatment bias
+- Conditioning on a mediator on the path blocks the path.
+
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-015.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-016.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Mediators
+
+.pull-left-wide[
+## Dealing with mediators
+- Chains of mediation D `\(\rightarrow\)` M `\(\rightarrow\)` Y let us express how exactly a treatment impacts the outcome.
+- Mediators express a **mechanism** by which one variable affects another.
+- Example: Coffee (D) leads to better stats exam results (Y) because the caffeine (M) stimulates the nervous system and prevents drowsiness.
+
+## Beware of post-treatment bias
+- Conditioning on a mediator on the path blocks the path.
+- Often, we are interested in total effects (e.g., ATE) including both direct and indirect routes.
+
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-015.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-016.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Mediators
+
+.pull-left-wide[
+## Dealing with mediators
+- Chains of mediation D `\(\rightarrow\)` M `\(\rightarrow\)` Y let us express how exactly a treatment impacts the outcome.
+- Mediators express a **mechanism** by which one variable affects another.
+- Example: Coffee (D) leads to better stats exam results (Y) because the caffeine (M) stimulates the nervous system and prevents drowsiness.
+
+## Beware of post-treatment bias
+- Conditioning on a mediator on the path blocks the path.
+- Often, we are interested in total effects (e.g., ATE) including both direct and indirect routes.
+- Conditioning on a mediator may thus lead to **overcontrol or post-treatment bias**.
+
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-015.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-016.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Mediators
+
+.pull-left-wide[
+## Dealing with mediators
+- Chains of mediation D `\(\rightarrow\)` M `\(\rightarrow\)` Y let us express how exactly a treatment impacts the outcome.
+- Mediators express a **mechanism** by which one variable affects another.
+- Example: Coffee (D) leads to better stats exam results (Y) because the caffeine (M) stimulates the nervous system and prevents drowsiness.
+
+## Beware of post-treatment bias
+- Conditioning on a mediator on the path blocks the path.
+- Often, we are interested in total effects (e.g., ATE) including both direct and indirect routes.
+- Conditioning on a mediator may thus lead to **overcontrol or post-treatment bias**.
+- "Controlling away" for consequences of the treatment!
+
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-015.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-016.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Mediators
+
+.pull-left-wide[
+## Dealing with mediators
+- Chains of mediation D `\(\rightarrow\)` M `\(\rightarrow\)` Y let us express how exactly a treatment impacts the outcome.
+- Mediators express a **mechanism** by which one variable affects another.
+- Example: Coffee (D) leads to better stats exam results (Y) because the caffeine (M) stimulates the nervous system and prevents drowsiness.
+
+## Beware of post-treatment bias
+- Conditioning on a mediator on the path blocks the path.
+- Often, we are interested in total effects (e.g., ATE) including both direct and indirect routes.
+- Conditioning on a mediator may thus lead to **overcontrol or post-treatment bias**.
+- "Controlling away" for consequences of the treatment!
+- In most cases, .i-pink[you **don't** want to condition on mediators].
+
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-015.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-016.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Colliders
+
+.pull-left[
+## What are colliders?
+- Colliders are variables that are caused by two other variables.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-019.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-020.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Colliders
+
+.pull-left[
+## What are colliders?
+- Colliders are variables that are caused by two other variables.
+- They are the opposite of mediators: they block the path between two variables.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-019.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-020.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Colliders
+
+.pull-left[
+## What are colliders?
+- Colliders are variables that are caused by two other variables.
+- They are the opposite of mediators: they block the path between two variables.
+
+## Conditioning on colliders
+- Conditioning on a collider (or a descendant of a collider) opens the path between its causes.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-019.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-020.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Colliders
+
+.pull-left[
+## What are colliders?
+- Colliders are variables that are caused by two other variables.
+- They are the opposite of mediators: they block the path between two variables.
+
+## Conditioning on colliders
+- Conditioning on a collider (or a descendant of a collider) opens the path between its causes.
+- This can lead to **spurious association** between the causes, which is called **collider bias** or **endogenous selection bias**. 
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-019.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-020.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Colliders
+
+.pull-left[
+## What are colliders?
+- Colliders are variables that are caused by two other variables.
+- They are the opposite of mediators: they block the path between two variables.
+
+## Conditioning on colliders
+- Conditioning on a collider (or a descendant of a collider) opens the path between its causes.
+- This can lead to **spurious association** between the causes, which is called **collider bias** or **endogenous selection bias**. 
+- This type of bias is much less well known than omitted variable bias but can be fatal in causal inference.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-019.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-020.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Colliders
+
+.pull-left[
+## What are colliders?
+- Colliders are variables that are caused by two other variables.
+- They are the opposite of mediators: they block the path between two variables.
+
+## Conditioning on colliders
+- Conditioning on a collider (or a descendant of a collider) opens the path between its causes.
+- This can lead to **spurious association** between the causes, which is called **collider bias** or **endogenous selection bias**. 
+- This type of bias is much less well known than omitted variable bias but can be fatal in causal inference.
+- In most cases, .i-pink[you **don't** want to condition on colliders].
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-019.png" width=280&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/tikz/tikz-020.png" width=300&gt;
+&lt;/div&gt;
+]
+
+---
+
+# A recap...
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/open-close-paths.png" width=800&gt;
+&lt;/div&gt;
+
+--
+- A path is **open** or unblocked **at non-colliders** (confounders or mediators)
+
+--
+- A path is (naturally) **blocked at colliders**
+
+--
+- An **open path induces statistical association** between two variables
+
+--
+- Absence of an open path implies statistical independence
+
+
+---
+# Regression adjustment with DAGs
+
+.pull-left[
+## Example
+
+- What variables should we control for to identify the effect of `\(D\)` on `\(Y\)`?
+
+## Follow these simple steps:
+
+1. Identify the **causal** and **non-causal** paths from `\(D\)` to `\(Y\)`
+2. Are the **non-causal paths naturally closed** (.i-pink[by a collider])?
+3. What should we condition on to **close open non-causal** paths?
+4. Would something change if we could observe `\(U\)`?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/tikz/tikz-017.png" width=500&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Practice round
+
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/pr-1.png" width=900&gt;
+&lt;/div&gt;
+
+
+---
+
+# Practice round
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/pr-2.png" width=900&gt;
+&lt;/div&gt;
+
+---
+
+# We can also leverage technology to do some heavy-lifting
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/daggity-net.png" width=800&gt;
+&lt;/div&gt;
+
+`Source`: [daggity.net](https://www.dagitty.net/dags.html)
+
+
+---
+# What represents a quasi-experiment?
+
+.pull-left-wide2[
+## Quasi-experiments
+- Treatment assignment is **not under researcher's control** `\(\leftrightarrow\)` "controlled" experiment, RCT
+- Treatment assignment follows a **random or ``as-if random** process; exogenous to outcome
+- Construction of **treatment and control group post hoc** (and not always obvious)
+- Often also referred to as **natural experiments** because treatment assignment is induced by nature
+
+## Different statistical approaches to exploit quasi-experiments
+- Instrumental variables (IV)
+- Difference-in-differences (DID)
+- Regression discontinuity design (RDD)
+- Interrupted time-series (ITS)
+- Synthetic control
+- ...
+
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/1969_draft_lottery_photo.jpg" width=420&gt;&lt;br&gt;
+&lt;img src="../pics/rainfall.jpeg" width=420&gt;
+&lt;/div&gt;
+]
+
+---
+# A few easy cases
+
+&lt;br&gt;
+
+.pull-left[
+## Shoes hurt (?)
+
+&gt; Survey data revealed that people who sleep with their shoes on are much more likely to wake up with a headache. 
+
+## Sweetened beverages are fattening (?)
+
+&gt; Individuals regularly consuming sugar sweetened beverages are shown to have a 30% higher BMI.
+]
+
+.pull-right[
+## Lock-downs caused deaths due to COVID-19 (?)
+
+&gt; European countries that had stricter &amp; longer lock-down periods had a higher COVID-19 death rate.
+
+## UN missions fail to protect civilians (?)
+
+&gt; UN peace keeping missions in civil war scenarios are strongly associated with higher death rates among civilians.
+]
+
+---
+# The scene: Are certain music genres deadlier than others?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/musician_mortality.jpeg" height=430&gt;
+&lt;/div&gt;
+
+`Source` [The Conversation](https://theconversation.com/music-to-die-for-how-genre-affects-popular-musicians-life-expectancy-36660), `Background (w/ author response)` [Calling Bullshit](https://callingbullshit.org/case_studies/case_study_musician_mortality.html)
+]
+
+.pull-right[
+&gt; [Study author Dianna Kenny] found that musicians from older genres – including blues, jazz, country and gospel – have similar lifespans to American people their own age. The life expectancy for R&amp;B musicians is slightly lower, while the life expectancy for newer genres like rock, techno, punk, metal, rap and hip hop is significantly shorter."
+
+&lt;div align="right"&gt;Ana Swanson, &lt;a href="https://www.washingtonpost.com/news/wonk/wp/2015/04/15/the-causes-of-musicians-deaths-by-genre/"&gt;Washington Post&lt;/a&gt;&lt;/div&gt;
+
+&gt; "It's a cautionary tale to some degree," Kenny told the Washington Post. "People who go into rap music or hip hop or punk, they're in a much more occupational hazard profession compared to war. We don't lose half our army in a battle."
+
+&lt;div align="right"&gt;Dianna Kenny, &lt;a href="https://www.washingtonpost.com/news/morning-mix/wp/2015/03/25/over-half-of-dead-hip-hop-artists-were-murdered-study-finds/"&gt;quoted by Washington Post&lt;/a&gt;&lt;/div&gt;
+]
+
+
+---
+# Additional evidence
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/musician_mortality2.jpeg" height=450&gt;
+&lt;/div&gt;
+]
+
+--
+
+.pull-right[
+## Some issues
+
+1. **Sanity check:** Are some genres really that deadly? E.g., do rap musicians really die at an average age of ~30?
+2. **Right censoring:** Some genres are younger than others and the data are conditional on musicians having died already. Most rap and hip-hop stars are still alive today; we don't know how long they'll live!
+3. **Conditional probabilities:** The probabilities of each cause of death are conditional on death having already occurred at the time of the study.
+4. (Minor issue) A line graph for categorical data?  [Not a good idea.](https://www.jmp.com/en_gb/statistics-knowledge-portal/exploratory-data-analysis/line-graph.html#:~:text=Line%20graphs%20do%20not%20make,might%20have%20a%20defined%20order.)
+]
+
+
+---
+# A solution to the case
+
+.pull-left[
+
+|                       	| Evidence and conclusions                           	|
+|-----------------------	|----------------------------------------------------	|
+| **The crime scene**   	| Musical genre correlates with age at death                 	|
+| **The suspect(s)**    	| Life style (e.g. drug consumption), age of genre, incomplete data collection 	|
+| **The murder weapon** 	| Confounding via data censoring                                        	|
+
+&gt; "In other words, it's not that rap stars will likely die young; it's that the rap stars who have died certainly died young because rap hasn't been around long enough for it to be otherwise." &lt;div align="right"&gt;Carl Bergstrom and Jevin West, &lt;a href="https://callingbullshit.org/case_studies/case_study_musician_mortality.html"&gt;Calling Bullshit&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/div&gt;
+
+&lt;div class="font50"&gt;&lt;br&gt;&lt;br&gt;&lt;sup&gt;1&lt;/sup&gt;Note that (1) the author, Dianna Kenny, has provided a nice and plausible response and that (2) a &lt;a href="http://dx.doi.org/10.21091/mppa.2016.1007"&gt;more rigorous study&lt;/a&gt; seems to provide evidence consistent with the original patterns.&lt;/div&gt;
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;b&gt;Inspector Lestrade:&lt;/b&gt;&lt;br&gt;
+&lt;img src="../pics/tikz/tikz-024.png" width=400&gt;
+&lt;br&gt;
+&lt;b&gt;Sherlock:&lt;/b&gt;&lt;br&gt;
+&lt;img src="../pics/tikz/tikz-025.png" width=400&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Garbage in, garbage out
+
+.pull-left[
+## THE GIGO principle
+- The quality of information coming out of a model (e.g., predictions) cannot be better than the quality of information that went in.
+- The principle is particularly relevant in the context of big data, where data quality is often poor.
+- This is particularly relevant in the context of machine learning, where models can be very complex and opaque.
+]
+
+.pull-right[
+&lt;div align="center"&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/gigo.png" width=480&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# What is AI?
+
+.pull-left[
+## Artificial intelligence
+
+&gt; "Artificial intelligence (AI) is intelligence - perceiving, synthesizing, and inferring information - demonstrated by machines, as opposed to intelligence displayed by non-human animals and humans. Example tasks in which this is done include speech recognition, computer vision, translation between (natural) languages, as well as other mappings of inputs."
+
+&lt;div align="right"&gt;Wikipedia, &lt;i&gt;Artificial intelligence&lt;/i&gt;&lt;/div&gt;
+
+&gt; "The effort to automate intellectual tasks normally performed humans."
+
+&lt;div align="right"&gt;Chollet and Allaire, 2018, &lt;i&gt;Deep Learning with R&lt;/i&gt;&lt;/div&gt;
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/ai-picture.svg" height=270&gt;
+&lt;/div&gt;
+
+`Source` [Wikipedia](https://en.wikipedia.org/wiki/Artificial_intelligence)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/deep-blue.jpeg" height=200&gt;
+&lt;img src="../pics/kit-knight-rider.jpeg" height=200&gt;
+&lt;/div&gt;
+]
+
+---
+# What is AI?
+
+.pull-left[
+## Machine learning
+
+&gt; "Machine learning (ML) is a field of inquiry devoted to understanding and building methods that 'learn' (...) It is seen as a part of artificial intelligence."
+
+&lt;div align="right"&gt;Wikipedia, &lt;i&gt;Machine learning&lt;/i&gt;&lt;/div&gt;
+
+&gt; "Machine learning is a specific subfield of AI that aims at automatically developing programs (called models) purely from exposure to training data. This process of turning models data into a program is called learning."
+
+&lt;div align="right"&gt;Chollet and Allaire, 2018, &lt;i&gt;Deep Learning with R&lt;/i&gt;&lt;/div&gt;
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/ai-picture.svg" height=270&gt;
+&lt;/div&gt;
+
+`Source` [Wikipedia](https://en.wikipedia.org/wiki/Artificial_intelligence)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/facebook-feed.png" height=200&gt;
+&lt;/div&gt;
+]
+
+---
+# What is AI?
+
+.pull-left[
+## Data mining
+
+&gt; "Application of machine learning methods to large databases is called data mining. The analogy is that a large volume of earth and raw material is extracted from a mine, which when processed leads to a small amount of very precious material; similarly, in data mining, a large volume of data is processed to construct a simple model with valuable use, for example, having high predictive accuracy."
+
+&lt;div align="right"&gt;Alpaydin, 2014, &lt;i&gt;Introduction to Machine Learning&lt;/i&gt;&lt;/div&gt;
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/ai-picture.svg" height=270&gt;
+&lt;/div&gt;
+
+`Source` [Wikipedia](https://en.wikipedia.org/wiki/Artificial_intelligence)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/netflix-recommendations.png" height=200&gt;
+&lt;/div&gt;
+]
+
+
+---
+# What is AI?
+
+.pull-left[
+## Deep learning
+
+&gt; "Deep learning is the subset of machine learning methods based on neural networks with representation learning. The adjective "deep" refers to the use of multiple layers in the network."
+
+&lt;div align="right"&gt;Wikipedia, &lt;i&gt;Deep learning&lt;/i&gt;&lt;/div&gt;
+]
+
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="../pics/ai-picture.svg" height=270&gt;
+&lt;/div&gt;
+
+`Source` [Wikipedia](https://en.wikipedia.org/wiki/Artificial_intelligence)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/chatgpt.png" height=200&gt;
+&lt;/div&gt;
+]
+
+
+
+# Task description
+
+
+In this interactive session, you will be confronted with a .hlred[policy challenge].
+
+
+| Time | Session |
+|------|---------|
+| 14:15-14:30     | Introduction of the Challenge, formations of Teams .hlred[Red]/.hlblue[Blue]      |
+| 14:30-14:45     | Group work: Making a normative case for the policy        |
+| 14:45-15:15     | Policy pitches        |
+| 15:15-15:45    | Group work: Making an evidence-based case the policy       |
+| 15:45-16:00     | Coffee break       |
+| 16:00-16:30     | Evidence pitches       |
+| 16:30-17:00     | Adversarial collaboration for better informed policy-making      |
+| 17:00-17:30     | Final presentation of designs; discussion      |
+
+---
+
+# A general overview of evidence
+
+--
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+**Evidence:** *facts*, *signs* or *objects* that are used to prove whether something is true or not.
+]
+
+--
+
+&lt;br&gt;
+
+.content-box-gray[
+Evidence can be made up of a range of components – *not only scientific* – and is never used in isolation. Scientific evidence typically [relies on] surveys, quantitative/statistical data, qualitative data, and [the] analysis thereof. However, evidence also includes economic, attitudinal, behavioural and anecdotal [insight], together with … experience, history, analogies, local knowledge and culture &lt;a name=cite-strydom2010evidence&gt;&lt;/a&gt;([Strydom et al., 2010](#bib-strydom2010evidence))
+]
+
+---
+
+# What is evidence-based policy-making?
+
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;
+**Evidence-based policy-making:** the process of generating policy &lt;i style="color:#cc0065"&gt;backed up&lt;/i&gt; by a solid&lt;br&gt;body of &lt;i style="color:#cc0065"&gt;scientific research&lt;/i&gt; or derived from or informed by &lt;i style="color:#cc0065"&gt;objective evidence&lt;/i&gt;.
+]
+
+.content-box-gray[
+*Evidence-based policymaking* involves utilizing *high-quality information* to guide decisions regarding government policies. This process entails *systematically* collecting robust data and analyzing them with *rigorous* research methods to generate reliable evidence. Such evidence can offer .i-pink[insights] into the .i-pink[effectiveness] of policies and programs, operational mechanisms, and .i-pink[performance] trends over time.
+]
+
+
+---
+class: midtext
+
+# Challenges to evidence-based policymaking
+
+.pull-left[
+## Supply-side challenges
+
+1. **Data Availability and Quality**
+    - Insufficient or low-quality data.
+2. **Research Funding and Resources**
+    - Limited funding for research can restrict the scope and depth of studies.
+3. **Technical Expertise**
+    - Shortage of skilled researchers and analysts.
+4. **Time Constraints**
+    - Mismatch between the timelines of research cycles and policy decision-making cycles.
+5. **Ethical and Privacy Concerns**
+    - Issues related to data privacy and ethical considerations in data collection and usage.
+6. **Political and Institutional Barriers**
+    - Political pressure to influence the direction and outcomes of studies.
+    - Bureaucratic inertia and resistance to adopting new research methodologies or findings.
+]
+
+
+.pull-right[
+## Demand-side challenges
+
+1. **Political Will and Ideology**
+    - Political ideology over evidence.
+    - Unpopular policies despite strong evidence?
+2. **Public Perception and Trust**
+    - Public skepticism or mistrust of scientific evidence.
+3. **Resource Constraints**
+    - Limited budgets to implement.
+    - Competing priorities of immediate needs over long-term evidence-based solutions.
+4. **Complexity and Uncertainty**
+    - Complexity of translating scientific evidence into practical and actionable policies.
+5. **Interest Groups and Lobbying**
+    - Pressure from powerful stakeholders.
+6. **Institutional and Cultural Resistance**
+    - Institutional inertia and resistance to change within government bodies.
+    - Cultural resistance to new policies that challenge traditional practices or norms.
+]
+
+
+---
+
+# When is knowledge used?
+
+.pull-center[
+&lt;br&gt;
+A key concern for us is to establish whether evidence will be, or is, .i-pink['used'], but what does '**using evidence**'&lt;br&gt;actually mean? And, how can evidence go on and .i-pink[inform policy decisions]?
+]
+&lt;br&gt;&lt;br&gt;
+
+
+.content-box-gray-wide[
+
+Largely, research has conceptualized **knowledge use** under three larger "buckets":
+
+- .i-pink[Instrumental] use to facilitate **decision making**.
+- .i-pink[Conceptual] use to facilitate **understanding** or reflection on problems; issues or solutions.
+- .i-pink[Symbolic or tactical] use consisting of using evidence to achieve **strategic** or **political objectives**.]
+
+
+
+---
+class: midtext
+
+# When is knowledge used? (cont.)
+
+- **Knowledge-driven model:** Think of use of evidence as a sequential process. The notion is that some new knowledge discloses some opportunity that may have relevance for public policy. (*Basic research -&gt; Applied research -&gt; Development -&gt; Application*)
+
+- **Problem-solving model:** A problem exists and a decision has to be made, information or understanding is lacking either to generate a solution to the problem or to select among alternative solutions, .i-pink[research provides the missing knowledge]. With the gap filled, a decision is reached. (*Application of evidence to pending decisions*)
+
+- **Interactive model:** A dynamic process where multiple stakeholders make sense of a problem with their talents, beliefs, and understandings. The use of evidence is .i-pink[only one part of a complicated process] that also uses experience, political insight, pressure, social technologies, and judgment.
+
+- **Political model:** Actors with predetermined positions. Evidence can still be used. It becomes .i-pink[ammunition] for the side that finds its conclusions congenial and supportive.
+
+- **Tactical model:** Evidence is not used for its substance, but to show that .i-pink[something was done]. Evidence is used as proof of responsiveness, tactic for delaying action, deflecting criticism, or enhancing agency prestige. (*People seem to agree this matters, so we may as well integrate it in some way*)
+
+- **Enlightment model:** Scientific research and evaluation concepts and perspectives shape policy indirectly. They sensitize decision-makers to new issues and changes policy agendas. It is not the findings of a single study nor even of a body of related studies that directly affect policy. Rather it is the .i-pink[concepts and theoretical perspectives] that permeate the policy-making process.
+
+
+---
+
+# Mapping science onto policy
+
+&lt;br&gt;
+.content-box-gray-wide[
+According to the &lt;a name=cite-national2012using&gt;&lt;/a&gt;[National Research Council (2012)](#bib-national2012using), science can have five tasks related to policy: 
+
+1. .i-pink[identify problems], such as endangered species, obesity, unemployment, and vulnerability to natural disasters or terrorist acts; 
+2. .i-pink[measure] their magnitude and seriousness; 
+3. .i-pink[review] alternative policy interventions; 
+4. systematically assess the .i-pink[likely consequences] of particular policy actions—intended and unintended, desired and unwanted; and 
+5. .i-pink[evaluate] what, in fact, results from policy. 
+]
+
+.pull-center[&lt;br&gt;
+Through **data science**, we can leverage large, often under-used, data sources and tap&lt;br&gt;on their full potential to extract policy insights related to each of those tasks.]
+
+---
+
+# Mapping science onto policy (cont.)
+
+
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-social-media.jpeg" height=120&gt;
+&lt;img src="../pics/d4-s1-night-satellite.jpeg" height=120&gt;
+&lt;img src="../pics/d4-s1-digital-traces.jpeg" height=120&gt;
+&lt;img src="../pics/d4-s1-soundwave.jpeg" height=120&gt;
+&lt;/div&gt;
+
+
+Some of the things we can do: .i-pink[(identify problems; measure)]
+
+--
+
+- Monitor SDG advancement by extracting meaningful measures of the global digital gender gap using Facebook ad data &lt;a name=cite-fatehkia2018using&gt;&lt;/a&gt;(e.g., [Fatehkia et al., 2018](#bib-fatehkia2018using))
+
+--
+
+- Measure poverty remotely by combining satellite imagery and machine learning &lt;a name=cite-jean2016combining&gt;&lt;/a&gt;(e.g., [Jean et al., 2016](#bib-jean2016combining))
+
+--
+
+- Infer public transport demand and infrastructure usage by combining mobile phone, geospatial, census records, and survey data &lt;a name=cite-toole2015path&gt;&lt;/a&gt;(e.g., [Toole et al., 2015](#bib-toole2015path))
+
+--
+
+- ...
+
+---
+
+# Mapping science onto policy (cont.)
+
+
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s1-social-media.jpeg" height=120&gt;
+&lt;img src="../pics/d4-s1-night-satellite.jpeg" height=120&gt;
+&lt;img src="../pics/d4-s1-digital-traces.jpeg" height=120&gt;
+&lt;img src="../pics/d4-s1-soundwave.jpeg" height=120&gt;
+&lt;/div&gt;
+
+
+Some of the things we can do: .i-pink[(review; assess likely consequences; evaluate)]
+
+--
+
+- Conduct large, low-cost, experiments and assess compliance with interventions with consensual data tracking &lt;a name=cite-guess2023social&gt;&lt;/a&gt;&lt;a name=cite-munzert2021tracking&gt;&lt;/a&gt;(e.g., [Guess et al., 2023](#bib-guess2023social); [Munzert et al., 2021](#bib-munzert2021tracking))
+
+--
+
+- Design more cost-efficient experiments with balanced treatment assignments &lt;a name=cite-arbour2021efficient&gt;&lt;/a&gt;(e.g., [Arbour et al., 2021](#bib-arbour2021efficient))
+
+--
+
+- Extracting more precise causal estimates through estimators that leverage increased computational power, such as double ML and synthetic controls &lt;a name=cite-knaus2022double&gt;&lt;/a&gt;&lt;a name=cite-abadie2015comparative&gt;&lt;/a&gt;(e.g., [Knaus, 2022](#bib-knaus2022double); [Abadie et al., 2015](#bib-abadie2015comparative))
+
+--
+
+- ...
+
+---
+
+# Types of evidence synthesis
+
+&lt;br&gt;
+.pull-left[
+## Narrative reviews
+
+Summarize and interpret the literature on a particular topic.
+
+- **Purpose:** To present a comprehensive overview and insights based on the author's expertise.
+- **Strengths:**
+    - Broad overview of the topic
+    - Flexible and easy to consume
+- **Limitations:**
+    - Lack of reproducibility
+    - Prone to author bias
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-narrative-review.png" width=369&gt;
+&lt;/div&gt;
+`Source` 
+]
+
+---
+
+# Types of evidence synthesis
+
+&lt;br&gt;
+
+.pull-left[
+## Systematic reviews
+
+Uses a structured and predefined methodology to gather and analyze all relevant studies on a specific research question.
+
+- **Purpose:** To minimize bias and provide high-quality evidence by synthesizing all available research.
+- **Strengths:**
+    - Comprehensive and transparent
+    - Reproducible and less biased
+- **Limitations:**
+    - Resource-intensive
+    - Subject to available materials (i.e., publication bias)
+]
+
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-systematic-review.png" width=385&gt;
+&lt;/div&gt;
+`Source` 
+]
+
+---
+
+# Types of evidence synthesis
+
+&lt;br&gt;
+.pull-left[
+## Meta-analyses
+
+A type of systematic review that uses statistical methods to combine the results of multiple studies.
+
+- **Purpose:** To increase statistical power and resolve uncertainties when individual studies disagree.
+- **Strengths:**
+    - Provides pooled estimates of effects
+    - Identifies patterns and overall trends
+- **Limitations:**
+    - Requires high-quality data (Garbage-in/garbage-out)
+    - Heterogeneity among studies can complicate analysis
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s2-meta-analysis.png" width=380&gt;
+&lt;/div&gt;
+`Source` 
+]
+
+---
+
+# Why reviewing existing evidence matters
+
+.pull-left[
+&lt;br&gt;
+## The Importance of Mapping the Literature
+
+- **Comprehensive Understanding**: Mapping the literature provides a sharper picture of what research .i-pink[has already been done], helping to identify .i-pink[gaps] and .i-pink[avoid duplication].
+- **Informed Decision-Making**: Access to a wide range of studies allows for more informed and evidence-based policy decisions.
+- **Contextual Insights**: Understanding the .i-pink[historical and current trends] in the field can contextualize new findings within the broader landscape of knowledge.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s3-ptolemy-world.png" height=360&gt;
+&lt;/div&gt;
+]
+
+---
+
+#  Overview of key databases
+
+.pull-left-small[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+- **Google Scholar** 
+- JSTOR
+- PubMed
+- Scopus
+- Web of Science
+- OpenAlex
+]
+
+.pull-right-wide[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s3-google-scholar.png" height=380&gt;
+&lt;/div&gt;
+
+A freely accessible .i-pink[web search engine] that indexes the full text or metadata of .i-pink[scholarly literature] across an array of publishing formats and disciplines.
+]
+
+---
+
+# Unpaywall
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d4-s3-unpaywall.png" height=500&gt;
+&lt;/div&gt;
+[`You can download the Google Chrome extension`](https://unpaywall.org/products/extension)
+
+---
+
+
+# Introduction to AI Tools
+
+.pull-left-small[
+## Multitools
+- Chatbots (ChatGPT, Gemini, Microsoft Copilot)
+
+## Specific keys
+- Open source apps (e.g., [citationchaser](https://estech.shinyapps.io/citationchaser/))
+- .hlred[Literature mapping tools] (Elicit, Litmaps, Research Rabbit, Concensus, Scite)
+]
+
+.pull-right-wide[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d4-s3-elicit-screen.png" width=660&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Use with care
+
+## Limitations of AI tools
+
+- **Quality of Data Input:** AI tools heavily rely on the quality and relevance of the data inputted. If the initial data used to train the AI model is biased or incomplete, it can affect the accuracy of the results generated by the tool. (**Garbage in/garbage out**)
+- **Limited Contextual Understanding:** AI tools may lack the ability to understand the broader context of a research topic or the specific needs of a policymaker. This can lead to oversights or inaccuracies in the synthesis of evidence.
+- **Inability to Handle Ambiguity:** AI tools may struggle with ambiguity or uncertainty present in research literature. They may not effectively handle conflicting findings or nuanced interpretations, which are common in complex policy areas.
+- **Risk of Overlooking Unconventional Sources:** AI tools often prioritize well-established sources and may overlook valuable insights from non-traditional or emerging sources of evidence, such as preprints, grey literature, or community reports.
+- **Difficulty in Adapting to Rapidly Evolving Fields:** In fast-paced fields where new research emerges frequently, AI tools may struggle to keep pace with the latest developments and may not provide up-to-date synthesis of evidence.
+
+---
+
+# Use with care (cont.)
+
+## Limitations of AI tools
+
+- **Lack of Transparency:** Some AI algorithms operate as black boxes, meaning they lack transparency in how they arrive at their conclusions. This can make it challenging for users to understand and interpret the rationale behind the recommendations or results provided by the tool.
+- **Dependency on Technical Skills:** Using AI tools often requires a certain level of technical proficiency, including understanding how to interpret and adjust algorithm parameters. This can create barriers for users who lack the necessary skills or training.
+- **Cost and Accessibility:** Some AI-powered tools may come with significant costs or subscription fees, making them inaccessible to users with limited budgets or resources, particularly in resource-constrained settings.
+- **Ethical Considerations:** AI tools may inadvertently perpetuate biases present in the data or algorithm design, leading to unintended consequences such as reinforcing existing disparities or overlooking marginalized voices.
+- **Human Oversight and Validation Required:** Despite the automation provided by AI tools, human oversight and validation are still essential to ensure the accuracy, relevance, and ethical integrity of the synthesized evidence.
+- .hlred[LLMs tend to hallucinate sources]
+
+---
+
+# What constitutes scientific evidence?
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+**Scientific evidence:** information gathered from *scientific research*.
+]
+
+--
+
+&lt;br&gt;&lt;br&gt;
+
+.content-box-gray[
+*Scientific research* is a **systematic** investigation that aims to &lt;i style="color:#cc0065"&gt;discover&lt;/i&gt; new knowledge, &lt;i style="color:#cc0065"&gt;understand&lt;/i&gt; phenomena, or solve existing problems through &lt;i style="color:#cc0065"&gt;empirical evidence&lt;/i&gt; and &lt;i style="color:#cc0065"&gt;logical reasoning&lt;/i&gt;.
+]
+
+
+---
+
+# What constitutes scientific evidence?
+
+.pull-center[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+**Scientific evidence:** information gathered from *scientific research*.
+]
+
+--
+
+&lt;br&gt;&lt;br&gt;
+
+.pull-left[
+## Hypothesis Formation
+
+- Researchers formulate *hypotheses* based on *observations*, *prior knowledge*, or *theoretical frameworks* to guide their investigations. 
+]
+
+--
+
+.pull-right[
+## Data Collection
+
+- Gathering empirical evidence through *observations*, *measurements*, *surveys*, or *experiments* to validate or refute hypotheses.
+]
+
+--
+
+
+.pull-left[
+## Analysis and Interpretation: 
+
+- *Analyzing collected data* using statistical methods or qualitative techniques to draw meaningful *conclusions* and uncover *patterns* or *relationships*. 
+]
+
+--
+
+.pull-right[
+## &lt;i style="color:#cc0065"&gt;*Peer Review:&lt;/i&gt;
+
+- Subjecting research findings to *scrutiny by peers* and experts in the field to *ensure validity*, *reliability*, and *adherence to scientific standards*.
+]
+
+
+---
+# Evaluating sources (cont.)
+
+.pull-center[
+Many librarians encourage the .i-pink[CRAAP test&lt;sup&gt;1&lt;/sup&gt;] as a starting point to evaluate the suitability of the sources.
+]
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; This is a simplification of a very complex evaluation process. We will think deeper about this next session.]
+
+--
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+- .hlred[Currency]: The **timeliness** of the information.
+    - When was the information published or posted?
+    - Has it been revised or updated?
+    - Do you need the most current information for your topic?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s3-magnifying-glass.png" height=380&gt;
+&lt;/div&gt;
+]
+
+---
+# Evaluating sources (cont.)
+
+.pull-center[
+Many librarians encourage the .i-pink[CRAAP test&lt;sup&gt;1&lt;/sup&gt;] as a starting point to evaluate the suitability of the sources.
+]
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; This is a simplification of a very complex evaluation process. We will think deeper about this next session.]
+
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+- .hlred[Relevance]: The **importance** of the information for **your needs**.
+    - Does the information directly relate to your topic?
+    - Does it help you answer questions?
+    - Who is the intended audience?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s3-magnifying-glass.png" height=380&gt;
+&lt;/div&gt;
+]
+---
+# Evaluating sources (cont.)
+
+.pull-center[
+Many librarians encourage the .i-pink[CRAAP test&lt;sup&gt;1&lt;/sup&gt;] as a starting point to evaluate the suitability of the sources.
+]
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; This is a simplification of a very complex evaluation process. We will think deeper about this next session.]
+
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;
+- .hlred[Authority]: The **source** of the information.
+    - Who is the author or publisher?
+    - Are they qualified to write about the topic?
+    - “Peer reviewed” is a good indicator for this
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s3-magnifying-glass.png" height=380&gt;
+&lt;/div&gt;
+]
+---
+# Evaluating sources (cont.)
+
+.pull-center[
+Many librarians encourage the .i-pink[CRAAP test&lt;sup&gt;1&lt;/sup&gt;] as a starting point to evaluate the suitability of the sources.
+]
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; This is a simplification of a very complex evaluation process. We will think deeper about this next session.]
+
+
+.pull-left[
+&lt;br&gt;
+- .hlred[Accuracy]: The **reliability** and correctness of the information.
+    - Is the information supported by evidence?
+    - Can you verify the information with another source?
+    - Has the information been reviewed or refereed?
+    - Does the language seem unbiased and free of emotion?
+    - Can you identify any spelling, grammar or typographical errors?
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s3-magnifying-glass.png" height=380&gt;
+&lt;/div&gt;
+]
+
+---
+# Evaluating sources (cont.)
+
+.pull-center[
+Many librarians encourage the .i-pink[CRAAP test&lt;sup&gt;1&lt;/sup&gt;] as a starting point to evaluate the suitability of the sources.
+]
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt; This is a simplification of a very complex evaluation process. We will think deeper about this next session.]
+
+
+.pull-left[
+&lt;br&gt;
+- .hlred[Purpose]: The **reason** the information **exists**.
+    - What is the purpose of the information?
+    - Does the point of view appear objective and impartial?
+    - Is the information fact, opinion or propaganda?
+    - Are there political, ideological, cultural, religious, institutional or personal biases?
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d4-s3-magnifying-glass.png" height=380&gt;
+&lt;/div&gt;
+]
+---
+
+# Evaluating common non-academic sources in policy
+
+.hlblue[Employing lateral reading], that is evaluating the credibility of a source by comparing it with other sources.
+
+--
+
+- .hlred[Verify the Source]: Determine the credibility of the organization or institution that published the document. Ask questions such as:
+    - Who funds or sponsors the organization or think tank?
+    - What is their reputation and track record in producing accurate and unbiased research?
+    - Are there any known biases associated with the organization?
+- .hlred[Check for Independent Analysis]: Look for analyses or critiques of the policy document from other reputable sources. Consider:
+    - Are there other organizations or experts in the field who have reviewed or commented on the document?
+    - Do they offer different perspectives or highlight any inconsistencies or shortcomings?
+- .hlred[Evaluate Authorship and Expertise]: Assess the qualifications and expertise of the authors or researchers behind the document. Consider:
+    - What are their credentials and affiliations?
+    - Have they published other works in the field, and what is the reception of those works?
+    - Are there any conflicts of interest that might influence their findings or conclusions?
+    
+---
+
+# Evaluating common non-academic sources in policy (cont.)
+
+.hlblue[Employing lateral reading], that is evaluating the credibility of a source by comparing it with other sources.
+
+- .hlred[Weigh against Counterarguments]: Seek outcounterarguments to the policy proposals or recommendations presented in the document. Ask yourself:
+    - How do other organizations or experts interpret the same data or evidence?
+    - Are there dissenting opinions within the academic or policy community?
+    - Do alternative analyses provide a more comprehensive understanding of the issue?
+- .hlred[Cross-Reference with Established Facts]: Verify any factual claims or statistics cited in the document by consulting reliable sources or databases. Consider:
+    - Are the data sources cited in the document reputable and up-to-date?
+    - Do the findings align with established research or empirical evidence?
+    - Have fact-checking organizations or experts reviewed the accuracy of the information?
+
+---
+# A checklist for policy supporting research
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="../pics/checklist-1.png" width=450&gt;
+&lt;img src="../pics/checklist-2.png" width=450&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/kampen-tamas-checklist-evidence.png" width=510&gt;
+&lt;/div&gt;
+]
+
+&lt;div class="font50"&gt;&lt;b&gt;Source: &lt;/b&gt;Kamen and Tamás, 2014, "Should I take this seriously? A simple checklist for calling bullshit on policy supporting research", &lt;a href="https://doi.org/10.1007/s11135-013-9830-8"&gt;Quality &amp; Quantity&lt;/a&gt;&lt;/div&gt;
+
+---
+
+# Graphic design and CRAP
+
+.pull-left[
+&lt;br&gt;
+We can this of these .hlblue[four guiding principles] when creating and critiquing data visuals:
+
+- .hlred[Contrast]
+
+- .hlred[Repetition]
+
+- .hlred[Alignment]
+
+- .hlred[Proximity]
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="../pics/design-book.png" width=330&gt;
+&lt;/div&gt;
+]
+
+
+.footnote[Inspired by Andrew Heiss' "Data Visualization with `R` course]
+
+---
+class: midtext
+
+# The case for data visualization in policy
+
+- .hlred[Enhanced comprehension and communication]
+    - **Simplifier of complex data**: Data visualizations can transform complex datasets into clear, understandable visuals, making it easier for policymakers and stakeholders to grasp intricate information quickly.
+    - **Improved communication**: Visuals can bridge communication gaps between technical and non-technical audiences, leveling the accessibility of insights to relevant parties.
+--
+- .hlred[Facilitator for decision-making]
+    - **Trend and pattern identification**: Visual representations can highlight trends, patterns, and anomalies that may not be evident in raw data.
+    - **Transparency**: Clear visualizations can help demonstrate the basis for policy decisions.
+--
+- .hlred[Engagement and participation]
+    - **Stakeholder inclusion**: Interactive and visually appealing data presentations can capture the interest of stakeholders, encouraging more active participation in the policy-making process.
+    - **Increased understanding**: Well-designed visualizations can educate and inform the public about policy issues, leading to greater awareness and support for policy initiatives.
+--
+- .hlred[Resource allocation]
+    - **Priority setting**: Visual data can help policymakers identify key areas that require attention and allocate resources more effectively and efficiently.
+    - **Progress tracking**: Data visualizations can be used to monitor the implementation of policies and measure their changes over time, allowing for adjustments and improvements.
+
+---
+class: midtext
+
+# The case for data visualization in policy (cont.)
+
+- .hlred[Accountability and transparency]
+    - **Reporting**: Designing visualizations make the design of a communication strategy explicit.
+    - **Comparison and contrasts**: Visual data can be useful to expose disparities and inequities within groups, prompting action to address these issues.
+--
+- .hlred[Streamlined processes]
+    - **Collaboration**: Visual tools can help different departments and agencies understand each other's data and collaborate more effectively on cross-cutting policy issues.
+    - Data harmonization: Visualizations can integrate data from multiple sources, providing a comprehensive view that supports cohesive policy strategies.
+--
+- .hlred[Computational developments]
+    - **Government data**: The increasing availability of large datasets necessitates efficient ways to process and understand data, which visualizations can provide.
+     - **Interactivity**: Modern data visualization tools offer interactive features that allow users to explore data dynamically, enhancing their analytical capabilities.
+--
+- .hlred[Enhanced analytics]
+    - **Predictive analysis**: Visualizations can assist in predictive modeling and scenario analysis, helping policymakers anticipate future trends and prepare accordingly.
+    - **Management "friendly"**: Visual tools enable rapid analysis and interpretation, which is crucial for timely decision-making in fast-paced policy environments.
+
+---
+class: midtext
+
+# Flattening the curve
+
+### Thinking through visuals
+
+.pull-left-small[&lt;br&gt;
+We can illustrate these with one the **most influential graphs** of the past couple of years. This visual traveled across the world in the start of 2020. 
+
+Can you spot how these .i-pink[principles were implemented in the different versions of the graph]?
+
+1. **Comparisons.**
+2. **Causality, mechanism, structure, explanation.**
+3. **Multivariate analysis.**
+4. **Integration of evidence.**
+5. **Documentation.**
+6. **Content counts most of all.**
+]
+
+--
+
+.pull-right-wide[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d5-s2-flatten-curve-1.jpeg" width=500&gt;&lt;br&gt;
+&lt;/div&gt;
+`Source` [CDC](https://stacks.cdc.gov/view/cdc/11425)
+]
+
+---
+class: midtext
+
+# Flattening the curve
+
+### Thinking through visuals
+
+.pull-left-small[&lt;br&gt;
+We can illustrate these with one the **most influential graphs** of the past couple of years. This visual traveled across the world in the start of 2020. 
+
+Can you spot how these .i-pink[principles were implemented in the different versions of the graph]?
+
+1. **Comparisons.**
+2. **Causality, mechanism, structure, explanation.**
+3. **Multivariate analysis.**
+4. **Integration of evidence.**
+5. **Documentation.**
+6. **Content counts most of all.**
+]
+
+
+.pull-right-wide[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-flatten-curve-2.png" width=380&gt;&lt;br&gt;
+&lt;/div&gt;
+`Source` [The Economist](https://www.economist.com/briefing/2020/02/29/covid-19-is-now-in-50-countries-and-things-will-get-worse)
+]
+
+---
+class: midtext
+
+# Flattening the curve
+
+### Thinking through visuals
+
+.pull-left-small[&lt;br&gt;
+We can illustrate these with one the **most influential graphs** of the past couple of years. This visual traveled across the world in the start of 2020. 
+
+Can you spot how these .i-pink[principles were implemented in the different versions of the graph]?
+
+1. **Comparisons.**
+2. **Causality, mechanism, structure, explanation.**
+3. **Multivariate analysis.**
+4. **Integration of evidence.**
+5. **Documentation.**
+6. **Content counts most of all.**
+]
+
+
+.pull-right-wide[
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-flatten-curve-3.jpeg" height=450&gt;&lt;br&gt;
+&lt;/div&gt;
+`Source` [NYT](https://www.nytimes.com/article/flatten-curve-coronavirus.html)
+]
+
+
+---
+class: midtext
+
+# Flattening the curve
+
+### Thinking through visuals
+
+.pull-left-small[&lt;br&gt;
+We can illustrate these with one the **most influential graphs** of the past couple of years. This visual traveled across the world in the start of 2020. 
+
+Can you spot how these .i-pink[principles were implemented in the different versions of the graph]?
+
+1. **Comparisons.**
+2. **Causality, mechanism, structure, explanation.**
+3. **Multivariate analysis.**
+4. **Integration of evidence.**
+5. **Documentation.**
+6. **Content counts most of all.**
+]
+
+
+.pull-right-wide[
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-flatten-curve-4.png" height=450&gt;&lt;br&gt;
+&lt;/div&gt;
+`Source` [Our world in data](https://ourworldindata.org/)
+]
+
+---
+
+# What is happening here?
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-tucker-carlson.jpeg" height=500&gt;
+&lt;/div&gt;
+
+---
+
+# What is happening here? (cont.)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-violent-crime.jpeg" height=500&gt;
+&lt;/div&gt;
+
+---
+
+# What is happening here? (cont.)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d5-s2-smartphone-share.png" height=500&gt;
+&lt;/div&gt;
+
+---
+
+# What is happening here? (cont.)
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/gun-deaths.jpeg" height=500&gt;
+&lt;/div&gt;
+
+---
+
+# Break out into pairs
+
+.pull-left[
+&lt;br&gt;
+&lt;span style="font-weight:bold;text-align:center;color:#2b7282;"&gt;Let's take a couple of minutes in pairs:&lt;/span&gt; 
+
+
+
+- **What do you think is the aim of the visualization?**
+
+    - What does the designer want to convey? 
+    - Are they effective in presenting their message?
+
+
+- **Do you find any underlying issues with the visualization?**
+
+    - Is this it the best plot type?
+    - Are there any features that may mislead the viewer?
+    
+
+- **Can you think of ways to improve the visualization?**
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/d5-s2-fed-expenditure.png" width=500&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Lasswell model of communication **for DS**   
+
+Laswell's framework of communication&lt;sup&gt;1&lt;/sup&gt; dissects the task of communication along the following dimensions: (1) Who communicates (2) what (3) in what form (4) to whom (5) to what effect?
+
+Let's apply this to us. Data scientists communicate...
+&lt;/div&gt;
+
+.footnote[&lt;sup&gt;1&lt;/sup&gt;HD Lasswell. 1948. The structure and function of communication in society. In &lt;i&gt;The communication of ideas&lt;/i&gt; (ed. Bryson L), 37-51.]
+
+--
+
+.pull-left-vsmall[
+### What
+- Estimates
+- Uncertainty
+- Model implications
+- Substantive knowledge
+- Product
+- Themselves
+]
+
+--
+
+.pull-left-vsmall[
+### How
+- Spoken word
+- Technical reports
+- Academic papers
+- Web applications
+- Policy briefs
+]
+
+--
+
+.pull-left-vsmall[
+### To whom
+- The public
+- The media
+- Policymakers
+- Other scientists
+- Managers / co-workers
+]
+
+--
+
+.pull-left-vsmall[
+### To what end
+- Inform
+- Influence
+- Instruct
+- Motivate
+- Monitor
+- Document
+]
+
+--
+
+What, how, and to what end you communicate depends on your &lt;b&gt;audience/stakeholders&lt;/b&gt; because they will differ in interest, contextual knowledge, data literacy, and motives.
+
+---
+
+# Research data management (RDM) lifecycle
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/rdm-lifecycle.png" width=700&gt;
+&lt;/div&gt;
+
+---
+# Two ethical frameworks
+
+.pull-left[
+### Deontology
+
+- [Follow ethical duties](https://en.wikipedia.org/wiki/Deontology) that are derived from a set of rules independent of their consequences.
+- Roots in the work of [Immanuel Kant](https://en.wikipedia.org/wiki/Immanuel_Kant). 
+- The principle of *Respect for Persons* (autonomy) is deeply rooted in deontological thinking.
+- Focused on **means**, not **ends**.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d6-s1-immanuel-kant.jpeg" height=220&gt;
+&lt;/div&gt;
+]
+
+--
+
+.pull-right[
+### Consequentialism
+
+- [Take actions that lead to better states](https://en.wikipedia.org/wiki/Consequentialism) in the world.
+- Roots in [utilitarianism](https://en.wikipedia.org/wiki/Utilitarianism) of [Jeremy Bentham](https://en.wikipedia.org/wiki/Jeremy_Bentham), [John Stuart Mill](https://en.wikipedia.org/wiki/John_Stuart_Mill).
+- The principle of *Beneficence* (risk/benefit analysis) is deeply rooted in consequentialist thinking.
+- Focused on **ends**, not **means**.
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/d6-s1-Jeremy-Bentham.png" height=220&gt;
+&lt;/div&gt;
+]
+
+
+
+
+
+---
+# Ethical principles
+
+.pull-left-wide[
+- Ethical thinking is not an exercise of ticking boxes.
+- A set of principles can guide researchers in reflecting about the ethical implications of their research.
+- In different contexts these principles can come into conflict with each other.
+- In fact, the most interesting cases are when the ethical implications of research involve trade-offs of principles.
+- By making principles explicit, those trade-offs can be clarified and decisions better communicated.
+- We will focus on the following four principles:
+
+  1. Respect for persons
+  2. Beneficence
+  3. Justice
+  4. Respect for law and public interest
+]
+
+.pull-right-small-center[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="../pics/d6-s1-hippocrates.jpeg" height=400&gt;
+&lt;/div&gt;
+`Source` [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hippocrates.jpg)
+]
+
+---
+
+# What can be fair?
+
+&lt;div align="center"&gt;
+&lt;img src="../pics/process-outcome.jpeg" height=200&gt;
+&lt;/div&gt;
+
+
+.pull-left[
+&lt;br&gt;
+.hlred[The process]
+
+- Mechanisms, rules, procedures, decision procedures
+
+]
+
+
+.pull-right[
+&lt;br&gt;
+.hlred[The product]
+- Allocations, enforcement, outcomes, decisions]
+
+
+.pull-left-wide[
+.hlred[People and organisations have rules and make decisions]
+
+- Decisions are made according to, okay... mostly according to, well... sometimes despite .hlblue[the rules]
+- Rules may be internally inconsistent and require balancing or weighting (.i-pink[What do the lawyers in the room think?])
+
+]
+
+---
+
+# Types of fairness
+
+.text-invisible[
+.pull-center[
+.content-box-gray-wide[
+&lt;span style="color:#cc0065"&gt;Let's think about this with a policy example of your choosing.&lt;/span&gt;
+]
+]
+]
+
+&lt;br&gt;
+
+.pull-left-vsmall-3[
+## Algebraic fairness
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/fairness-algebraic.png" width=200&gt;
+&lt;/div&gt;
+
+
+`$$Y(a) = Y(a′)$$`
+
+]
+
+--
+.pull-left-vsmall-3[
+## Statistical fairness
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/fairness-statistical.png" width=210&gt;
+&lt;/div&gt;
+
+`$$P(Y∣A = a) = P(Y∣A = a′)$$`
+]
+
+--
+.pull-left-vsmall-3[
+## Counterfactual fairness
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/fairness-counterfactual.png" width=200&gt;
+&lt;/div&gt;
+
+`$$P(Y^{(A=a)}) = P(Y^{(A=a′)})$$`
+]
+
+
+---
+
+# Types of fairness
+
+.pull-center[
+.content-box-gray-wide[
+&lt;span style="color:#cc0065"&gt;Let's think about this with a policy example of your choosing.&lt;/span&gt;
+]
+]
+
+&lt;br&gt;
+
+.pull-left-vsmall-3[
+## Algebraic fairness
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/fairness-algebraic.png" width=200&gt;
+&lt;/div&gt;
+
+
+`$$Y(a) = Y(a′)$$`
+
+]
+
+
+.pull-left-vsmall-3[
+## Statistical fairness
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/fairness-statistical.png" width=210&gt;
+&lt;/div&gt;
+
+`$$P(Y∣A = a) = P(Y∣A = a′)$$`
+]
+
+
+.pull-left-vsmall-3[
+## Counterfactual fairness
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="../pics/fairness-counterfactual.png" width=200&gt;
+&lt;/div&gt;
+
+`$$P(Y^{(A=a)}) = P(Y^{(A=a′)})$$`
+]
+
+---
+
+# Learning goals for this workshop
+
+&lt;br&gt; 
+
+&lt;style type="text/css"&gt;
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-if4e{background-color:#f9f9f9;border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-btxf{background-color:#f9f9f9;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-zwlc{background-color:#f9f9f9;border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-abip{background-color:#f9f9f9;border-color:inherit;text-align:center;vertical-align:top}
+&lt;/style&gt;
+&lt;table class="tg"&gt;
+&lt;thead&gt;
+  &lt;tr&gt;
+    &lt;th class="tg-0lax"&gt;&lt;/th&gt;
+    &lt;th class="tg-baqh" colspan="6"&gt;&lt;span style="font-weight:bold"&gt;Data science literacy&lt;/span&gt;&lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-btxf"&gt;&lt;span style="font-weight:bold"&gt;Day&lt;/span&gt;&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Statistical literacy&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Causal reasoning&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Data literacy&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;AI literacy&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Evidence consumption&lt;/td&gt;
+    &lt;td class="tg-zwlc"&gt;Ethical reasoning&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-fymr"&gt;1 - Fundamental data and statistical literacy&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-if4e"&gt;2 - Policy evaluation and impact assessment&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-fymr"&gt;3 - AI and big data for policy-making&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-if4e"&gt;4 - Informed consumption of evidence&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-fymr"&gt;5 - Data visualization and communication&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-c3ow"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="tg-if4e"&gt;6 - Data management and ethics&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;&lt;/td&gt;
+    &lt;td class="tg-abip"&gt;✅&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+.pull-center[
+.b-pink[
+I learned a lot more than that from all of you!
+]
+]
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: activity
+
+# Thank you!
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

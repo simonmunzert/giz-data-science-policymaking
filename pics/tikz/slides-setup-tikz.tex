@@ -1,0 +1,302 @@
+\PassOptionsToPackage{subsection=false}{beamerouterthememiniframes} % Omit bar for the subsections
+\documentclass[hyperref={colorlinks=true},10pt,aspectratio=43]{beamer} %handout
+\setbeamersize{text margin left=0pt, text margin right=0pt}
+
+%% Slide title and information
+\title{{\small \textcolor{white}{GRAD-C6-2001} \vspace{.5cm}\\ \huge \textbf{\textcolor{white}{Statistics II:} \\ \textcolor{white}{Statistical Modeling}\\ \textcolor{white}{and Causal Inference}}}}
+\author{\textcolor{white}{Simon Munzert }\\ \textcolor{white}{Hertie School}}
+\institute[\textsc{\textcolor{white}{Simon Munzert}}]{}
+\date{~}
+
+% Theme
+\usetheme{metropolis}
+\setbeamertemplate{frame numbering}[none]
+\setbeamercolor{background canvas}{bg=white}
+
+% independent / notindependent sign
+\makeatletter
+% Taken from http://ctan.org/pkg/centernot
+\newcommand*{\centernot}{%
+  \mathpalette\@centernot
+}
+\def\@centernot#1#2{%
+  \mathrel{%
+    \rlap{%
+      \settowidth\dimen@{$\m@th#1{#2}$}%
+      \kern.5\dimen@
+      \settowidth\dimen@{$\m@th#1=$}%
+      \kern-.5\dimen@
+      $\m@th#1\not$%
+    }%
+    {#2}%
+  }%
+}
+\makeatother
+
+\newcommand{\independent}{\perp\mkern-9.5mu\perp}
+\newcommand{\notindependent}{\not{\independent}}
+
+
+% Myblock
+\newenvironment{myblock}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+
+
+% Theme fonts
+\setmainfont{Fira Sans} 
+\setsansfont{Fira Sans Light}
+
+% Blocks
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamercolor{block title}{bg=black!60,fg=white}
+\setbeamercolor{block body}{bg=black!10}
+
+% Footer
+%\setbeamertemplate{frame footer}{My custom footer}
+
+
+\usepackage[]{graphicx}
+\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
+\newcommand{\rcodestart}{{\scriptsize \textcolor{darkgrey}{R code} \raisedrule[0.25em]{.5pt}}}
+\newcommand{\rcodeend}{{\vspace{-.25cm} \scriptsize ~ \raisedrule[0.25em]{.5pt} \textcolor{darkgrey}{end}}}
+
+\newenvironment{variableblock}[3]{%
+  \setbeamercolor{block body}{#2}
+  \setbeamercolor{block title}{#3}
+  \begin{block}{#1}}{\end{block}}
+  
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\makeatletter
+\AtBeginPart{%
+  \addtocontents{toc}{\protect\beamer@partintoc{\the\c@part}{\beamer@partnameshort}{\the\c@page}}%
+}
+%% number, shortname, page.
+\providecommand\beamer@partintoc[3]{%
+  \ifnum\c@tocdepth=-1\relax
+    % requesting onlyparts.
+    \makebox[6em]{} \textcolor{green!30!blue}{\hyperlink{#2}{#2}}
+    \par
+  \fi
+}
+\define@key{beamertoc}{onlyparts}[]{%
+  \c@tocdepth=-1\relax
+}
+\makeatother%
+
+\newcommand{\nameofthepart}{}
+\newcommand{\nupart}[1]%
+    {   \part{#1}%
+        \renewcommand{\nameofthepart}{#1}%
+        \frame{\partpage \hypertarget{\nameofthepart}{}}%
+    }
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\ifdefined\knitrout
+  \renewenvironment{knitrout}{\begin{scriptsize}\setlength{\topsep}{-1mm}}{\end{scriptsize}}
+\else
+\fi
+
+
+\usepackage[english]{babel}
+\usepackage[babel,german=quotes]{csquotes}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{MnSymbol}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{listings}
+\usepackage{ulem}
+\usepackage{url}
+\urlstyle{sf}
+\usepackage{hyperref}
+\hypersetup{
+  pdfauthor={...},
+  pdftitle={...},
+  pdfsubject={...},
+  linkcolor=black,
+  urlcolor=darkblue,
+  citecolor=darkblue
+}
+\usepackage{pdfpages}
+\usepackage[authoryear,round]{natbib}
+\usepackage[symbol]{footmisc}
+\usepackage{ragged2e}
+
+\usepackage{pgf,tikz}
+\usetikzlibrary{positioning,arrows,decorations.markings,arrows.meta}
+
+%----- Definitions of colors -----%
+\definecolor{markfunction}{RGB}{0,0,160}
+\definecolor{markargument}{RGB}{158,202,225}
+\definecolor{markcode}{RGB}{0,0,160}
+\definecolor{markpackage}{RGB}{160,0,0}
+\definecolor{markfile}{RGB}{165, 0, 38}
+
+\definecolor{darkgrey}{RGB}{70,70,70}
+\definecolor{darkblue}{RGB}{43,140,190}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{darkred}{rgb}{0.82, 0.1, 0.26}
+\definecolor{darkorange}{RGB}{230,110,70}
+
+\definecolor{lightgrey}{RGB}{220,220,220}
+\definecolor{lightblue}{RGB}{158,202,225}
+\definecolor{lightgreen}{rgb}{0.67, 0.88, 0.69}
+\definecolor{lightred}{rgb}{1.0, 0.71, 0.76}
+\definecolor{lightorange}{RGB}{255,230,150}
+
+\definecolor{niceblue}{RGB}{0,36,93}
+\definecolor{nicered}{RGB}{198,39,54}
+
+
+
+% highlight macro
+\usepackage{soul}
+\DeclareRobustCommand{\hlnicered}[1]{{\sethlcolor{nicered}\hl{#1}}}
+\DeclareRobustCommand{\hlniceblue}[1]{{\sethlcolor{niceblue}\hl{#1}}}
+
+
+%\newcommand{\hlnice}[1]{\textcolor{blue}{\textbf{\hlnicered{~#1~}}}}%
+%\newcommand{\hlnicetwo}[1]{\textcolor{white}{\textbf{\hlniceblue{~#1~}}}}%
+
+\newcommand{\addfn}[1]{\noindent\rule{8cm}{0.4pt}\\{\footnotesize #1}}%
+
+\newcommand{\hlnice}[1]{\textcolor{white}{\textbf{\colorbox{nicered}{#1}}}}
+\newcommand{\hlnicetwo}[1]{\textcolor{white}{\textbf{\colorbox{niceblue}{#1}}}}
+
+
+
+%----- Definitions of columntypes -----%
+\newcolumntype{N}{>{\scriptsize}c}
+\newcolumntype{M}{>{\scriptsize}l}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
+
+%----- Definitions of macros in text -----%
+\newcommand{\func}[1]{\textcolor{markfunction}{\texttt{#1}}}
+\newcommand{\argu}[1]{\textcolor{markargument}{\texttt{#1}}}
+\newcommand{\code}[1]{\textcolor{markcode}{\texttt{#1}}}
+\newcommand{\pack}[1]{\textcolor{markpackage}{\texttt{#1}}}
+\newcommand{\file}[1]{\textcolor{markfile}{\textit{#1}}}
+\newcommand{\R}{\textsf{R}}
+
+
+%----- Beamer style issues -----%
+
+% Change bullet style
+% \useinnertheme{circles}
+% \newcommand{\myitem}{\item[\textbullet]}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{itemize item}{\textbullet}
+\def\Tiny{\fontsize{6pt}{6pt}\selectfont}
+
+
+
+\lstdefinestyle{generalStyle} {
+    basicstyle=\ttfamily\footnotesize\color{black},
+    keywordstyle=\color{black},
+    stringstyle=\color{darkblue},
+    commentstyle=\color{black}
+}
+
+
+
+
+\lstloadlanguages{R}
+%%listing environment for R code input
+ \lstdefinestyle{Rinput} {
+  name=input,
+  language=R,
+  style=generalStyle,
+  numbers=left,  % where line numbers are displayed
+  firstnumber=auto,
+  stepnumber=1, % spacing between line numbers 
+  aboveskip=0pt, % space above and
+  belowskip=0pt, % below listing
+  breaklines=true,      % line breaking of long lines.
+  breakatwhitespace=false, % allows line breaks only at white space.
+  breakindent=0pt,  % no indenting in second line
+  breakautoindent=true, % apply intendation
+  columns=flexible,    %
+  keepspaces=true,
+  showstringspaces=false,
+  xleftmargin=0pt, % left indentation
+  xrightmargin=0pt % right indentation
+}
+
+%%listing environment for R code output
+ \lstdefinestyle{Routput} {
+  name=output,
+  language=R,
+  basicstyle=\ttfamily\footnotesize\color{darkgrey},
+  showstringspaces=false,
+  aboveskip=2pt, % space above and
+  belowskip=0pt, % below listing
+  breaklines=true,      % line breaking of long lines.
+  breakatwhitespace=false, % allows line breaks only at white space.
+  breakindent=0pt,  % no indenting in second line
+  breakautoindent=true, % apply intendation
+  columns=flexible,    %
+  keepspaces=true,
+  xleftmargin=0pt, % left indentation
+  xrightmargin=0pt % right indentation
+}
+
+
+
